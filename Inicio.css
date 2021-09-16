@@ -11,7 +11,7 @@
 #menu ul a {
   display:block;
   color:#fff;
-  text-decoration:none;
+  text-decoration:underline;
   font-weight:400;
   font-size:15px;
   padding:10px;
@@ -68,6 +68,13 @@
     grid-gap: 10px;
     background-color: red;
     padding: 10px;
+}
+
+#galleta{
+  text-align: left;
+  color: black;
+  font-size: large;
+  text-decoration:overline;
 }
 
 .grid-container > div {
