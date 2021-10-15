@@ -12,7 +12,7 @@
             <img src="Fotos/Fix Point logo.PNG" alt="" class="logo">
             <nav>
                 <ul>
-                    <li><a href="#">SUPLICIO</a></li>
+                    <li><a href="#">INICIo</a></li>
                     <li><a href="#">BIBLIOTECA</a></li>
                     <li><a href="#">ALQUILER</a></li>
                     <li><a href="#">FIXPOINT</a></li>
