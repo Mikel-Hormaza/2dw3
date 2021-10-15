@@ -12,7 +12,7 @@
             <img src="Fotos/Fix Point logo.PNG" alt="" class="logo">
             <nav>
                 <ul>
-                    <li><a href="#">INICIo</a></li>
+                    <li><a href="#">INICIO</a></li>
                     <li><a href="#">BIBLIOTECA</a></li>
                     <li><a href="#">ALQUILER</a></li>
                     <li><a href="#">FIXPOINT</a></li>
@@ -20,6 +20,9 @@
             </nav>
             <input type="button" value="Iniciar sesion" class="sesion">
         </header>
+        <footer>
+            
+        </footer>
     </body>
 </html>
 
