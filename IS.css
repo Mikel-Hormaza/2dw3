@@ -1,12 +1,14 @@
-header {
-    
+html {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
-
-
 /*Esto es para la parte del navegador*/
 nav {
     padding: 1em;
-    display: inline-block;
+    display: inline-block;border-radius: 3px;
+    
 }
   
 nav ul {
@@ -15,6 +17,7 @@ nav ul {
     margin: 0;
     background: #EFC227;    
     text-decoration: none;
+    border-radius: 3px;
 }
 
 nav li a {
@@ -22,6 +25,7 @@ nav li a {
     display: block;
     text-decoration: none;
     padding: .5em 1em;
+    border-radius: 3px;
 }
 
 nav li a:hover {
@@ -40,6 +44,10 @@ img.logo{
     border-color: #53B3CB;
     color: #53B3CB;
     background-color: white;
+}
+
+footer {
+    background-color: #B9C9C4;
 }
 
 /*Movil*/
