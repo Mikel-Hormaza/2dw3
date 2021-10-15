@@ -1,0 +1,23 @@
+.quienesSomos {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.imagen1 {
+    width: 1300px;
+    height: 50%;
+    margin-left: 100px;
+}
+.quienes {
+    position: absolute;
+    top: 60px;
+    left: 220px;
+    color: #5c8001;
+}
+.somos {
+    position: absolute;
+    top: 120px;
+    left: 220px;
+    right: 500px;
+    color: #5c8001;
+}
