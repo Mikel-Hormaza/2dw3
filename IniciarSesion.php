@@ -23,4 +23,4 @@
     </body>
 </html>
 
-<!--Cont&aacute;ctanos es para poner contactanos con tilde-->
+<!--Contáctanos es para poner contactanos con tilde-->
