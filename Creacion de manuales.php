@@ -23,7 +23,6 @@
 
         <textarea placeholder="Herramientas necesarias"></textarea>
 
-        <label>Medidas de seguridad:</label>
         <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea>
 
         <button>Guardar</button>
