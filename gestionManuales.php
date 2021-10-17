@@ -11,7 +11,7 @@
 <body>
     <section>
         <img src="fotos/gestionManuales/imgGestionManuales.png" alt="Imagen manual">
-        <button class="botonVolver">Volver</button>
+        <button class="botonVolver">Volver<span> a biblioteca</span></button>
         <div id=botones>
             <button>Crear</button>
             <button>Editar</button>
@@ -42,6 +42,16 @@
     </section>
 
     <main id=listaManuales>
+        <div>
+            <p>Nombre de herramienta</p>
+            <p>Categoría de herramienta</p>
+            <img src="Fotos/gestionManuales/taladro.jpg" alt="Taladro">
+        </div>
+        <div>
+            <p>Nombre de herramienta</p>
+            <p>Categoría de herramienta</p>
+            <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
+        </div>
         <div>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
