@@ -7,6 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <img src="fotos/gestionManuales/imgGestionManuales.png" alt="Imagen manual">
+    <button> ← Volver a biblioteca </button>
+    <div id=botones>
+        <button>Crear</button>
+        <button>Editar</button>
+        <button>Eliminar</button>
+    </div>
+
+    <div>
+        <span role="checkbox"></span>
+        <button>Cateogria</button>
+        <div>
+        <!--AQUI UNA POR CATEOGRIA-->
+        </div>
+    </div>
+
+    <section id=listaManuales>
+            <!--AQUI UNO POR MANUAL-->
+    </section>
+
+    <div id="botonesInicioFinal">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
 </body>
 </html>
