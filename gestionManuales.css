@@ -1,38 +1,146 @@
-.botonDesplegar {
-    background-color: white;
-    color: #626267;
-    padding: 2px;
-    font-size: 16px;
-    border: 1px solid #626267;
-    border-radius: 20%;
-    height: 2em;
-    width: 2em;
-    cursor: pointer;
+body {
+    margin: 3%;
 }
 
+img {
+    max-height: 8vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*BOTONES*/
+
+.botonVolver {
+    background-color: #53B3CB;
+    margin: 1vh;
+}
+
+#botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#botones button {
+    margin-bottom: 1em;
+}
+
+.botonDesplegar,
 .contenidoADesplegar {
     display: none;
-    position: absolute; /* Las propiedades 
-    top, right, bottom, y  left especifican el desplazamiento 
-    desde los bordes del bloque contenedor del elemento. */
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    border-radius: 10%;
 }
 
-.contenidoADesplegar a {
+button {
     background-color: #EFC227;
+    text-transform: uppercase;
     color: #626267;
-    padding: 1em 1em;
-    text-decoration: none; /*Para que no se vea subrayado*/
-    display: block;
+    font-size: 2vh;
+    width: 60%;
+    border-radius: 30%;
+    border: none;
+    padding: 3%;
 }
 
-.contenidoADesplegar a:hover {
-    background-color: #A8902D;
+#buscador {
+    width: 100%;
+    place-self: center;
+    font-size: 2vh;
+    border-radius: 10%;
+    box-shadow: 0 0 5pt 0 #626267;
+    border: none;
 }
 
-.show {
-    display: block;
+/*MANUALES*/
+
+#listaManuales {
+    margin-top: 1vh;
+}
+
+#listaManuales div {
+    display: grid;
+    grid-template-columns: 15% auto 20%;
+    grid-template-rows: 50% 50%;
+    color: white;
+}
+
+#listaManuales div:nth-child(odd) {
+    background-color: #4F6E01;
+}
+
+#listaManuales div:nth-child(even) {
+    background-color: #5C8001;
+}
+
+#listaManuales div p:nth-child(odd) {
+    grid-area: 1/2/2/3;
+}
+
+#listaManuales div p:nth-child(even) {
+    grid-area: 2/2/3/3;
+}
+
+#listaManuales div img {
+    height: 7vh;
+    width: auto;
+    object-fit: fill;
+    grid-area: 1/3/3/4;
+    margin: auto;
+}
+
+#botonesInicioFinal button {
+    height: 2vh;
+    width: 2vh;
+}
+
+@media (min-width: 600px) {
+
+    .botonDesplegar,
+    .contenidoADesplegar {
+        display: block;
+    }
+
+    #buscador {
+        display: none;
+    }
+
+    .botonDesplegar {
+        background-color: white;
+        color: #626267;
+        padding: 2px;
+        font-size: 16px;
+        border: 1px solid #626267;
+        border-radius: 20%;
+        height: 2em;
+        width: 2em;
+        cursor: pointer;
+    }
+
+    .contenidoADesplegar {
+        display: none;
+        position: absolute;
+        /* Las propiedades 
+        top, right, bottom, y  left especifican el desplazamiento 
+        desde los bordes del bloque contenedor del elemento. */
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        border-radius: 10%;
+    }
+
+    .contenidoADesplegar a {
+        background-color: #EFC227;
+        color: #626267;
+        padding: 1em 1em;
+        text-decoration: none;
+        /*Para que no se vea subrayado*/
+        display: block;
+    }
+
+    .contenidoADesplegar a:hover {
+        background-color: #A8902D;
+    }
+
+    .show {
+        display: block;
+    }
 }

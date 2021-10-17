@@ -1,7 +1,7 @@
 window.addEventListener("load", inicio);
 
 function inicio() {
-    document.getElementById("prueba").addEventListener("click", desplegarContenido);
+    document.getElementById("idBotonDesplegar").addEventListener("click", desplegarContenido);
 }
 
 /* When the user clicks on the button, 
@@ -23,3 +23,4 @@ window.onclick = function(event) {
         }
     }
 }
+
