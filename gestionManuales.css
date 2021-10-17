@@ -1,0 +1,38 @@
+.botonDesplegar {
+    background-color: white;
+    color: #626267;
+    padding: 2px;
+    font-size: 16px;
+    border: 1px solid #626267;
+    border-radius: 20%;
+    height: 2em;
+    width: 2em;
+    cursor: pointer;
+}
+
+.contenidoADesplegar {
+    display: none;
+    position: absolute; /* Las propiedades 
+    top, right, bottom, y  left especifican el desplazamiento 
+    desde los bordes del bloque contenedor del elemento. */
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    border-radius: 10%;
+}
+
+.contenidoADesplegar a {
+    background-color: #EFC227;
+    color: #626267;
+    padding: 1em 1em;
+    text-decoration: none; /*Para que no se vea subrayado*/
+    display: block;
+}
+
+.contenidoADesplegar a:hover {
+    background-color: #A8902D;
+}
+
+.show {
+    display: block;
+}

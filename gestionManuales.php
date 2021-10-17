@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="gestionManuales.css">
+    <script src ="gestionManuales.js"></script>
 </head>
+
 <body>
     <img src="fotos/gestionManuales/imgGestionManuales.png" alt="Imagen manual">
     <button> ← Volver a biblioteca </button>
@@ -16,15 +18,25 @@
     </div>
 
     <div>
-        <span role="checkbox"></span>
-        <button>Cateogria</button>
+        <button id="prueba" class="botonDesplegar"></button>
+        <div id="idBloqueDesplegar" class="contenidoADesplegar">
+            <a href="gestionManuales.php">Todos</a>
+            <a href="gestionManuales.php">Ninguno</a>
+            <a href="gestionManuales.php">Categoría</a>
+            <a href="gestionManuales.php">Creados por mí</a>
+        </div>
+    </div>
+
+    <div>
+        <button>Categoría</button>
         <div>
-        <!--AQUI UNA POR CATEOGRIA-->
+            <!--AQUI UNA POR CATEOGRIA
+    <a href=#####></a>-->
         </div>
     </div>
 
     <section id=listaManuales>
-            <!--AQUI UNO POR MANUAL-->
+        <!--AQUI UNO POR MANUAL-->
     </section>
 
     <div id="botonesInicioFinal">
@@ -33,5 +45,8 @@
         <button></button>
         <button></button>
     </div>
+
+
 </body>
+
 </html>
