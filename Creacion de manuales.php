@@ -15,7 +15,7 @@
                         <button class="return">Volver a la gestion de manuales</button>
 
                         <input class="buscador" type="search" placeholder="Nombre de la herramienta">
-                </ul><br>
+                </ul>
 
                 <ul class="formulario">
                         <input type="text" placeholder="Nombre"><br>

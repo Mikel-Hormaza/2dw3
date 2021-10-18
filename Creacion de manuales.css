@@ -1,12 +1,10 @@
 
 .burua{
     display: flex;
-    justify-content: space-around;
-    margin-left: 450px;
-    margin-right: 450px;
+    justify-content: center;
 }
 .buscador{
-    width: 300px;
+    width: 200px;
 }
 .formulario{
     margin-top: 10px;
@@ -28,6 +26,7 @@ justify-content: center;
 
 }
 .return{
+    margin-right: 20px;
     background-color: #53B3CB;
 }
 .fondo{
@@ -56,5 +55,5 @@ justify-content: center;
 
 
 @media screen and (max-width: 800px) {
-    
+
 }
