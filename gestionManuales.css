@@ -38,6 +38,11 @@ button span {
     display: none;
 }
 
+.botonCategoria,
+.contenidoCategoria{
+    display: none;
+}
+
 #botones {
     display: flex;
     flex-direction: column;
@@ -149,7 +154,7 @@ button {
     /*Quitar la barra del buscador y poner
     la opción desplegable*/
     .botonDesplegar,
-    .contenidoADesplegar {
+    .contenidoADesplegar{
         display: block;
     }
 
@@ -157,7 +162,7 @@ button {
         display: none;
     }
 
-    .botonDesplegar {
+    .botonDesplegar{
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -169,7 +174,7 @@ button {
         cursor: pointer;
     }
 
-    .contenidoADesplegar {
+    .contenidoADesplegar{
         display: none;
         position: absolute;
         /* Las propiedades 
@@ -193,7 +198,11 @@ button {
         background-color: #A8902D;
     }
 
-    .show {
+    .contenidoCategoriaa:hover{
+        background-color: #A8902D;
+    }
+
+    .mostrar {
         display: block;
     }
 

@@ -24,22 +24,23 @@
         <div>
             <button id="idBotonDesplegar" class="botonDesplegar"></button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a href="gestionManuales.php">Todos</a>
-                <a href="gestionManuales.php">Ninguno</a>
-                <a href="gestionManuales.php">Categoría</a>
-                <a href="gestionManuales.php">Creados por mí</a>
+                <a>Todos</a>
+                <a>Ninguno</a>
+                <a id="categoria">Categoría</a>
+                <a>Creados por mí</a>
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
 
 
-<div>
-            <button>Categoría</button>
-            <div>
-                <!--AQUI UNA POR CATEOGRIA-->
-    <a href=#####></a>
+        <div>
+            <button id="idBotonCategoria" class="botonCategoria">Categoría</button>
+            <div id="idContenidoCategoria" class="contenidoCategoria">
+                <a href="gestionManuales.php">maquina-herramienta</a>
+                <a href="gestionManuales.php">electronica</a>
+                <a href="gestionManuales.php">herramienta taller</a>
             </div>
-        </div> 
+        </div>
     </section>
 
     <main id="listaManuales">

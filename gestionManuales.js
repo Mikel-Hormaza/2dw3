@@ -1,25 +1,31 @@
 window.addEventListener("load", inicio);
+/*Si el usuario clica cuando el desplegable está desplegado, ocultarlo*/
+window.addEventListener("click", ocultarBloqueDesplegado);
 
+/*Clicar idBotonDesplegar: desplegarContenido
+categoria: desplegarBotonCategoria*/
 function inicio() {
     document.getElementById("idBotonDesplegar").addEventListener("click", desplegarContenido);
+    document.getElementById("categoria").addEventListener("click", desplegarBotonCategoria);
 }
 
-/* Al clicar el botón, mostrar contenido*/
+/* Al clicar el botón, añadir al elemento la clase mostrar con display block*/
 function desplegarContenido() {
-    document.getElementById("idBloqueDesplegar").classList.toggle("show");
+    document.getElementById("idBloqueDesplegar").classList.toggle("mostrar");
+}
+function desplegarBotonCategoria(){
+    document.getElementById("idBotonCategoria").classList.toggle("mostrar");
 }
 
-/*Si el usuario clica fuera o encima, ocultarlo*/
-window.addEventListener("click", mifuncion);
 
-function mifuncion(){
+function ocultarBloqueDesplegado(){
     if (!event.target.matches('.botonDesplegar')) {
-        var dropdowns = document.getElementsByClassName("contenidoADesplegar");
+        var contenido = document.getElementsByClassName("contenidoADesplegar");
         var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+        for (i = 0; i < contenido.length; i++) {
+            var abrirContenido = contenido[i];
+            if (abrirContenido.classList.contains('mostrar')) {
+                abrirContenido.classList.remove('mostrar');
             }
         }
     }
