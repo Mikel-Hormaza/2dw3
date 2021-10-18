@@ -31,15 +31,15 @@
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
-        
 
-        <!--   <div>
+
+<div>
             <button>Categoría</button>
             <div>
-                <!--AQUI UNA POR CATEOGRIA
+                <!--AQUI UNA POR CATEOGRIA-->
     <a href=#####></a>
             </div>
-        </div> -->
+        </div> 
     </section>
 
     <main id="listaManuales">
@@ -51,21 +51,21 @@
             <img src="Fotos/gestionManuales/taladro.jpg" alt="Taladro">
         </div>
         <div>
-        <button>editar</button>
+            <button>editar</button>
             <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
         </div>
         <div>
-        <button>editar</button>
+            <button>editar</button>
             <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/taladro.jpg" alt="Taladro">
         </div>
         <div>
-        <button>editar</button>
+            <button>editar</button>
             <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>

@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -8,11 +8,11 @@ body {
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
 }
 
-section{
+section {
     margin: 1vh;
 }
 
-main{
+main {
     margin: 40px;
 }
 
@@ -122,26 +122,17 @@ button {
 #botonesInicioFinal {
     display: flex;
     flex-direction: row;
-    align-content: flex-end;
+    justify-content: flex-end;
 }
 
 #botonesInicioFinal button {
     height: 3vh;
     width: 3vh;
-    margin-right: 1vh
+    margin: 1vh;
+    border-radius: 5px;
 }
 
-@media (min-width: 300px) {
-    button {
-        width: 20%;
-    }
-
-    section img {
-        max-height: 12vh;
-    }
-}
-
-@media (min-width: 430px) {
+@media (min-width: 400px) {
 
     section img {
         max-height: 15vh;
@@ -152,6 +143,7 @@ button {
         border-radius: 20px;
         border: none;
         padding: 1%;
+        width: 20%;
     }
 
     /*Quitar la barra del buscador y poner
@@ -268,8 +260,8 @@ button {
         justify-content: space-evenly;
     }
 
-    button {
-        max-width: 70px;
+    #botones button {
+        font-size: 80%;
     }
 
     .botonVolver {
@@ -280,9 +272,21 @@ button {
 }
 
 @media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+
+@media (min-width: 920px) {
+
+    /*Muestro el texto del botón volver*/
     button span {
         display: inline;
     }
 }
 
-@media (min-width: 1025px) {}
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+}

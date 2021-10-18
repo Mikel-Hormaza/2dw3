@@ -4,14 +4,15 @@ function inicio() {
     document.getElementById("idBotonDesplegar").addEventListener("click", desplegarContenido);
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
+/* Al clicar el botón, mostrar contenido*/
 function desplegarContenido() {
     document.getElementById("idBloqueDesplegar").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
+/*Si el usuario clica fuera o encima, ocultarlo*/
+window.addEventListener("click", mifuncion);
+
+function mifuncion(){
     if (!event.target.matches('.botonDesplegar')) {
         var dropdowns = document.getElementsByClassName("contenidoADesplegar");
         var i;
@@ -23,4 +24,3 @@ window.onclick = function(event) {
         }
     }
 }
-
