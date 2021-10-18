@@ -61,9 +61,10 @@ button {
     color: #626267;
     font-size: 2vh;
     width: 50%;
-    border-radius: 20px;
+    border-radius: 8px;
     border: none;
     padding: 1%;
+    cursor: pointer;
 }
 
 #buscador {
@@ -131,13 +132,19 @@ button {
 }
 
 #botonesInicioFinal button {
-    height: 3vh;
-    width: 3vh;
+    height: 5vh;
+    width: 5vh;
     margin: 1vh;
     border-radius: 5px;
 }
 
 @media (min-width: 400px) {
+
+    body section:nth-child(2){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     section img {
         max-height: 15vh;
@@ -145,16 +152,16 @@ button {
 
     button {
         font-size: 2vh;
-        border-radius: 20px;
         border: none;
         padding: 1%;
-        width: 20%;
+        width: 30%;
     }
 
     /*Quitar la barra del buscador y poner
     la opción desplegable*/
     .botonDesplegar,
-    .contenidoADesplegar{
+    .contenidoADesplegar,
+    .contenidoCategoria{
         display: block;
     }
 
@@ -162,19 +169,25 @@ button {
         display: none;
     }
 
-    .botonDesplegar{
+    .botonDesplegar,
+    .botonCategoria{
         background-color: white;
         color: #626267;
         padding: 2px;
-        font-size: 16px;
         border: 1px solid #626267;
-        border-radius: 20%;
         height: 2em;
-        width: 2em;
-        cursor: pointer;
     }
 
-    .contenidoADesplegar{
+    .botonDesplegar{
+        width: 2em;
+    }
+
+    section div .botonCategoria{
+        width: max-content;
+    }
+
+    .contenidoADesplegar,
+    .contenidoCategoria{
         display: none;
         position: absolute;
         /* Las propiedades 
@@ -186,7 +199,8 @@ button {
         border-radius: 10%;
     }
 
-    .contenidoADesplegar a {
+    .contenidoADesplegar a,
+    .contenidoCategoria a {
         background-color: #EFC227;
         color: #626267;
         padding: 1em 1em;
@@ -204,50 +218,6 @@ button {
 
     .mostrar {
         display: block;
-    }
-
-    /*Al principio del div: botones
-        en el centro: texto
-        final: foto*/
-
-    #listaManuales div {
-        grid-template-columns: 15% 15% auto 20%;
-        grid-template-rows: 50% 50%;
-    }
-
-    #listaManuales div button {
-        display: block;
-        margin: 1vh auto 1vh auto;
-        width: max-content;
-        height: 20px;
-        padding: 5%;
-        margin: auto;
-    }
-
-    #listaManuales div button:nth-child(1) {
-        grid-area: 1/1/3/2;
-    }
-
-    #listaManuales div button:nth-child(2) {
-        grid-area: 1/2/3/3;
-    }
-
-    #listaManuales div p {
-        text-align: end;
-    }
-
-    #listaManuales div p:nth-child(odd) {
-        grid-area: 1/3/2/4;
-    }
-
-    /*Mostrar categoria*/
-    #listaManuales div p:nth-child(even) {
-        display: block;
-        grid-area: 2/3/3/4;
-    }
-
-    #listaManuales div img {
-        grid-area: 1/4/3/5;
     }
 
 }
@@ -273,9 +243,47 @@ button {
         font-size: 80%;
     }
 
-    .botonVolver {
-        background-color: #53B3CB;
-        max-width: fit-content;
+    /*Al principio del div: botones
+        en el centro: texto
+        final: foto*/
+
+        #listaManuales div {
+            grid-template-columns: 15% 15% auto 20%;
+            grid-template-rows: 50% 50%;
+        }
+    
+        #listaManuales div p {
+            text-align: end;
+        }
+    
+        #listaManuales div p:nth-child(odd) {
+            grid-area: 1/3/2/4;
+        }
+    
+        /*Mostrar categoria*/
+        #listaManuales div p:nth-child(even) {
+            display: block;
+            grid-area: 2/3/3/4;
+        }
+    
+        #listaManuales div img {
+            grid-area: 1/4/3/5;
+        }
+
+    #listaManuales div button {
+        display: block;
+        margin: 1vh auto 1vh auto;
+        width: max-content;
+        padding: 5%;
+        margin: auto;
+    }
+
+    #listaManuales div button:nth-child(1) {
+        grid-area: 1/1/3/2;
+    }
+
+    #listaManuales div button:nth-child(2) {
+        grid-area: 1/2/3/3;
     }
 
 }
@@ -283,6 +291,15 @@ button {
 @media (min-width: 860px) {
     body {
         margin: 0% 12%;
+    }
+    
+    button,
+    #botones button{
+        font-size: 2.5vh;
+    }
+
+    .botonVolver {
+        width: max-content;
     }
 }
 
@@ -298,4 +315,16 @@ button {
     body {
         margin: 0% 15%;
     }
+    section img {
+        max-height: 17vh;
+    }
+
+    button{
+        width: 25%;
+    }
+
+    .botonVolver button {
+        width: max-content;
+    }
+    
 }
