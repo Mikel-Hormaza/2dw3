@@ -4,10 +4,17 @@ html {
     margin-bottom: 10px;
     margin-left: 10px;
 }
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
 /*Esto es para la parte del navegador*/
 nav {
     padding: 1em;
-    display: inline-block;border-radius: 3px;
+    display: inline-block;
+    border-radius: 3px;
     
 }
   
@@ -34,11 +41,35 @@ nav li a:hover {
 }
 
 /*Esta es una clase para la imagen*/
-img.logo{
+img.logo {
     width: 160px; 
     height: 45px;
 }
-  
+
+img.telefono {
+    width: 20px;
+    height: 20px;   
+    margin-top: 30px;
+}
+
+img.email {
+    width: 20px;
+    height: 20px;
+    margin-top: 30px;
+}
+
+img.url {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.contact {
+    margin-bottom: 40px;
+    color: brown;
+}
+
+/*Esta clase es para el boton de inicio de sesion*/
 .sesion {
     border-radius: 4px;
     border-color: #53B3CB;
@@ -48,7 +79,46 @@ img.logo{
 
 footer {
     background-color: #B9C9C4;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
 }
+
+.redes{
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.red {
+    margin-top: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+/*El grid del footer*/
+.item1 {grid-area: col1;}
+.item1 {grid-area: col2;}
+.item1 {grid-area: col3;}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'col1 col2 col3';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+
+/*Tablet*/
+@media screen and (min-width: 750px) {
+    nav ul {
+      display: flex;
+      justify-content:center;
+    }
+  }
+
 
 /*Movil*/
 @media screen and (min-width: 480px) {
