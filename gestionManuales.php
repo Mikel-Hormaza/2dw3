@@ -29,8 +29,9 @@
                 <a href="gestionManuales.php">Categoría</a>
                 <a href="gestionManuales.php">Creados por mí</a>
             </div>
+            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
-        <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
+        
 
         <!--   <div>
             <button>Categoría</button>
@@ -41,23 +42,31 @@
         </div> -->
     </section>
 
-    <main id=listaManuales>
+    <main id="listaManuales">
         <div>
+            <button>editar</button>
+            <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/taladro.jpg" alt="Taladro">
         </div>
         <div>
+        <button>editar</button>
+            <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
         </div>
         <div>
+        <button>editar</button>
+            <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/taladro.jpg" alt="Taladro">
         </div>
         <div>
+        <button>editar</button>
+            <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
             <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">

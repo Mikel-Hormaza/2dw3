@@ -1,5 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+
 body {
-    margin: 3%;
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+section{
+    margin: 1vh;
+}
+
+main{
+    margin: 40px;
 }
 
 section img {
@@ -13,10 +27,14 @@ section img {
 .botonVolver {
     background-color: #53B3CB;
     margin: 1vh;
-    width: 35%;
 }
 
-button span{
+button span {
+    display: none;
+}
+
+.botonDesplegar,
+.contenidoADesplegar {
     display: none;
 }
 
@@ -30,35 +48,35 @@ button span{
     margin-bottom: 1em;
 }
 
-.botonDesplegar,
-.contenidoADesplegar {
-    display: none;
-}
-
+/*Los botones con características específicas(ej: volver)
+sobreescriben propiedades con selectores más específicos*/
 button {
     background-color: #EFC227;
     text-transform: uppercase;
     color: #626267;
     font-size: 2vh;
-    width: 15%;
-    border-radius: 30%;
+    width: 50%;
+    border-radius: 20px;
     border: none;
     padding: 1%;
 }
 
 #buscador {
-    width: 100%;
-    place-self: center;
+    display: flex;
+    max-width: initial;
+    justify-self: stretch;
     font-size: 2vh;
-    border-radius: 10%;
+    border-radius: 7px;
     box-shadow: 0 0 5pt 0 #626267;
     border: none;
+    width: 100%;
 }
 
 /*MANUALES*/
 
 #listaManuales {
     margin: 1vh 0% 1vh 0%;
+    border-radius: 15px;
 }
 
 #listaManuales div {
@@ -75,7 +93,11 @@ button {
     background-color: #5C8001;
 }
 
-#listaManuales div p{
+#listaManuales div button {
+    display: none;
+}
+
+#listaManuales div p {
     margin: auto 1vh auto 1vh;
 }
 
@@ -97,55 +119,50 @@ button {
     margin: 1vh auto 1vh auto;
 }
 
-#botonesInicioFinal{
+#botonesInicioFinal {
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
+    align-content: flex-end;
 }
 
 #botonesInicioFinal button {
     height: 3vh;
     width: 3vh;
-    margin-right: 1vh;
+    margin-right: 1vh
 }
 
-@media (max-width: 430px){
-    #listaManuales div img {
-        max-width: 6vh;
+@media (min-width: 300px) {
+    button {
+        width: 20%;
+    }
+
+    section img {
+        max-height: 12vh;
     }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 430px) {
 
     section img {
         max-height: 15vh;
-        width: 100%;
-        object-fit: cover;
     }
 
+    button {
+        font-size: 2vh;
+        border-radius: 20px;
+        border: none;
+        padding: 1%;
+    }
+
+    /*Quitar la barra del buscador y poner
+    la opción desplegable*/
     .botonDesplegar,
     .contenidoADesplegar {
         display: block;
     }
 
-    button span{
-        display: inline;
-    }
-
     #buscador {
         display: none;
-    }
-
-    #botones{
-        flex-direction: row;
-        align-content: space-between;
-        
-    }
-
-    button {
-        font-size: 2vh;
-        border-radius: 30%;
-        border: none;
-        padding: 1%;
     }
 
     .botonDesplegar {
@@ -188,28 +205,84 @@ button {
         display: block;
     }
 
+    /*Al principio del div: botones
+        en el centro: texto
+        final: foto*/
+
     #listaManuales div {
-        grid-template-columns: 15% auto 20%;
+        grid-template-columns: 15% 15% auto 20%;
         grid-template-rows: 50% 50%;
     }
 
-    #listaManuales div p{
+    #listaManuales div button {
+        display: block;
+        margin: 1vh auto 1vh auto;
+        width: max-content;
+        height: 20px;
+        padding: 5%;
+        margin: auto;
+    }
+
+    #listaManuales div button:nth-child(1) {
+        grid-area: 1/1/3/2;
+    }
+
+    #listaManuales div button:nth-child(2) {
+        grid-area: 1/2/3/3;
+    }
+
+    #listaManuales div p {
         text-align: end;
     }
-    
+
     #listaManuales div p:nth-child(odd) {
-        grid-area: 1/2/2/3;
+        grid-area: 1/3/2/4;
     }
-    
+
+    /*Mostrar categoria*/
     #listaManuales div p:nth-child(even) {
-        grid-area: 2/2/3/3;
         display: block;
+        grid-area: 2/3/3/4;
     }
 
     #listaManuales div img {
-        grid-area: 1/3/3/4;
+        grid-area: 1/4/3/5;
     }
-}
-@media (min-width: 1025px) {
 
 }
+
+@media (max-width: 430px) {
+    #listaManuales div img {
+        max-width: 6vh;
+    }
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;
+        box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+    }
+
+    #botones {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    button {
+        max-width: 70px;
+    }
+
+    .botonVolver {
+        background-color: #53B3CB;
+        max-width: fit-content;
+    }
+
+}
+
+@media (min-width: 860px) {
+    button span {
+        display: inline;
+    }
+}
+
+@media (min-width: 1025px) {}
