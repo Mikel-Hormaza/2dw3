@@ -1,0 +1,60 @@
+
+.burua{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 450px;
+    margin-right: 450px;
+}
+.buscador{
+    width: 300px;
+}
+.formulario{
+    margin-top: 10px;
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-content:center;
+    margin-right: 40px;
+}
+.pasos{
+    display: flex;
+    justify-content: center;
+
+
+}
+.gordepauso{
+    display: flex;
+justify-content: center;
+
+}
+.return{
+    background-color: #53B3CB;
+}
+.fondo{
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items:center;
+    background-color: #5CB001; 
+   
+}
+.gorde{
+    margin-left: 70px;
+    width: 150px;
+}
+.boton{
+    display: flex;
+    justify-content: center;
+}
+.imagen{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.labelimg{
+    margin-right: 250px;
+}
+
+
+@media screen and (max-width: 800px) {
+    
+}

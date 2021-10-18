@@ -10,35 +10,46 @@
 </head>
 
 <body>
-        <button>Volver a la gestion de manuales</button>
+        <main class="contenedor">
+                <ul class="burua">
+                        <button class="return">Volver a la gestion de manuales</button>
 
-        <input type="search" placeholder="Nombre de la herramienta">
+                        <input class="buscador" type="search" placeholder="Nombre de la herramienta">
+                </ul><br>
 
-        <input type="text" placeholder="Nombre">
+                <ul class="formulario">
+                        <input type="text" placeholder="Nombre"><br>
 
-        <textarea placeholder="Descripcion de la reparacion"></textarea>
+                        <textarea placeholder="Descripcion de la reparacion"></textarea><br>
 
-        <label>Imagen:</label>
-        <input type="file">
+                        <label>Imagen:</label>
+                        <input type="file"><br>
 
-        <textarea placeholder="Herramientas necesarias"></textarea>
+                        <textarea placeholder="Herramientas necesarias"></textarea><br>
 
-        <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea>
+                        <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea><br>
 
-        <button>Guardar</button>
+                        <button class="gorde">Guardar</button>
+                </ul>
+        </main>
 
-        <div>
-                <h3>Pasos</h3>
+                <div class="pasos">
+                <form class="fondo">
+                        <h3>Pasos</h3>
 
-                <input type="text" placeholder="Titulo">
+                        <input type="text" placeholder="Titulo"><br>
 
-                <textarea placeholder="Descripcion del paso"></textarea>
+                        <textarea placeholder="Descripcion del paso"></textarea><br>
 
-                <label>Imagen:</label>
-                <input type="file">
+                        <label class="labelimg">Imagen:</label>
+                        <input class="imagen" type="file"><br>
 
+                        </form><br>
+                </div><br>
+                
+        <div class="boton">
+                <button class="gordepauso">Guardar Paso</button>
         </div>
-        <button>Guardar Paso</button>
 </body>
 
 </html>
