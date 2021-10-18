@@ -14,8 +14,6 @@
         <button class="botonVolver">Volver<span> a biblioteca</span></button>
         <div id=botones>
             <button>Crear</button>
-            <button>Editar</button>
-            <button>Eliminar</button>
         </div>
     </section>
 

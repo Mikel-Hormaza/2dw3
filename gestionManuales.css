@@ -60,10 +60,10 @@ button {
     text-transform: uppercase;
     color: #626267;
     font-size: 2vh;
-    width: 50%;
+    width: max-content;
     border-radius: 8px;
     border: none;
-    padding: 1%;
+    padding: 1% 4%;
     cursor: pointer;
 }
 
@@ -81,7 +81,7 @@ button {
 /*MANUALES*/
 
 #listaManuales {
-    margin: 1vh 0% 1vh 0%;
+    margin: 1vh 1vh ;
     border-radius: 15px;
 }
 
@@ -89,6 +89,14 @@ button {
     display: grid;
     grid-template-columns: auto 30%;
     color: white;
+}
+
+#listaManuales div:nth-child(1) {
+    border-radius: 10px  10px  0px 0px ;
+}
+
+#listaManuales div:last-child {
+    border-radius: 0px 0px 10px 10px ;
 }
 
 #listaManuales div:nth-child(odd) {
@@ -132,8 +140,8 @@ button {
 }
 
 #botonesInicioFinal button {
-    height: 5vh;
-    width: 5vh;
+    height: 30px;
+    width: 30px;
     margin: 1vh;
     border-radius: 5px;
 }
@@ -148,13 +156,6 @@ button {
 
     section img {
         max-height: 15vh;
-    }
-
-    button {
-        font-size: 2vh;
-        border: none;
-        padding: 1%;
-        width: 30%;
     }
 
     /*Quitar la barra del buscador y poner
@@ -216,10 +217,13 @@ button {
         background-color: #A8902D;
     }
 
+    #botonesInicioFinal button {
+        height: 40px;
+        width: 40px;
+    }
     .mostrar {
         display: block;
     }
-
 }
 
 @media (max-width: 430px) {
@@ -273,7 +277,6 @@ button {
     #listaManuales div button {
         display: block;
         margin: 1vh auto 1vh auto;
-        width: max-content;
         padding: 5%;
         margin: auto;
     }
@@ -293,15 +296,10 @@ button {
         margin: 0% 12%;
     }
     
-    button,
     #botones button{
         font-size: 2.5vh;
     }
-
-    .botonVolver {
-        width: max-content;
-    }
-}
+}   
 
 @media (min-width: 920px) {
 
@@ -320,11 +318,7 @@ button {
     }
 
     button{
-        width: 25%;
-    }
-
-    .botonVolver button {
         width: max-content;
     }
-    
+
 }
