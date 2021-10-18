@@ -21,9 +21,12 @@
 
 }
 .gordepauso{
-    display: flex;
-justify-content: center;
 
+background-color: #EFC227;
+font-size: medium;
+border-radius: 5px;
+color: #626267;
+height: 40px;
 }
 .return{
     margin-right: 20px;
@@ -38,8 +41,13 @@ justify-content: center;
    
 }
 .gorde{
-    margin-left: 70px;
-    width: 150px;
+    margin-left: 100px;
+    width: 100px;
+    background-color: #EFC227;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
 }
 .boton{
     display: flex;
