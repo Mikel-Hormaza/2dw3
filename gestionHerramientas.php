@@ -10,7 +10,7 @@
 
 <body>
     <section>
-        <img src="fotos/gestionManuales/herramientas.jpg" alt="Imagen manual">
+        <img src="fotos/gestionManuales/imgGestionHerramientas.jpg" alt="Imagen manual">
         <button class="botonVolver">Volver<span> a biblioteca</span></button>
         <div id=botones>
             <button>Crear</button>
@@ -22,8 +22,6 @@
         <div>
             <button id="idBotonDesplegar" class="botonDesplegar"></button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a>Todos</a>
-                <a>Ninguno</a>
                 <a id="categoria">Categoría</a>
                 <a>Creados por mí</a>
             </div>
@@ -34,9 +32,9 @@
         <div>
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
-                <a href="gestionManuales.php">maquina-herramienta</a>
-                <a href="gestionManuales.php">electronica</a>
-                <a href="gestionManuales.php">herramienta taller</a>
+                <a>maquina-herramienta</a>
+                <a>electronica</a>
+                <a>herramienta taller</a>
             </div>
         </div>
     </section>
@@ -52,7 +50,7 @@
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
+            <img src="Fotos/gestionManuales/sierra.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
@@ -64,15 +62,15 @@
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
+            <img src="Fotos/gestionManuales/sierra.jpg" alt="Taladro">
         </div>
     </main>
 
     <div id="botonesInicioFinal">
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
     </div>
 
 

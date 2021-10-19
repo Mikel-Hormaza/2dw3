@@ -32,9 +32,9 @@
         <div>
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
-                <a href="gestionManuales.php">maquina-herramienta</a>
-                <a href="gestionManuales.php">electronica</a>
-                <a href="gestionManuales.php">herramienta taller</a>
+                <a>maquina-herramienta</a>
+                <a>electronica</a>
+                <a>herramienta taller</a>
             </div>
         </div>
     </section>

@@ -39,7 +39,7 @@ button span {
 }
 
 .botonCategoria,
-.contenidoCategoria{
+.contenidoCategoria {
     display: none;
 }
 
@@ -81,7 +81,7 @@ button {
 /*MANUALES*/
 
 #listaManuales {
-    margin: 1vh 1vh ;
+    margin: 1vh 1vh;
     border-radius: 15px;
 }
 
@@ -92,11 +92,11 @@ button {
 }
 
 #listaManuales div:nth-child(1) {
-    border-radius: 10px  10px  0px 0px ;
+    border-radius: 10px 10px 0px 0px;
 }
 
 #listaManuales div:last-child {
-    border-radius: 0px 0px 10px 10px ;
+    border-radius: 0px 0px 10px 10px;
 }
 
 #listaManuales div:nth-child(odd) {
@@ -115,12 +115,12 @@ button {
     margin: auto 1vh auto 1vh;
 }
 
-#listaManuales div p:nth-child(odd) {
+#listaManuales div p:nth-child(even) {
     grid-column-start: 1;
     grid-column-end: 2;
 }
 
-#listaManuales div p:nth-child(even) {
+#listaManuales div p:nth-child(odd) {
     display: none;
 }
 
@@ -131,7 +131,7 @@ button {
     grid-column-start: 2;
     grid-column-end: 3;
     margin: 1vh auto 1vh auto;
-}
+}   
 
 #botonesInicioFinal {
     display: flex;
@@ -140,15 +140,21 @@ button {
 }
 
 #botonesInicioFinal button {
-    height: 30px;
-    width: 30px;
+    height: 3em;
+    width: 3em;
     margin: 1vh;
     border-radius: 5px;
+    padding: 0%;
+}
+
+#botonesInicioFinal img{
+    max-width: 5vh;
+    height: auto;
 }
 
 @media (min-width: 400px) {
 
-    body section:nth-child(2){
+    body section:nth-child(2) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -162,7 +168,7 @@ button {
     la opción desplegable*/
     .botonDesplegar,
     .contenidoADesplegar,
-    .contenidoCategoria{
+    .contenidoCategoria {
         display: block;
     }
 
@@ -171,7 +177,7 @@ button {
     }
 
     .botonDesplegar,
-    .botonCategoria{
+    .botonCategoria {
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -179,16 +185,16 @@ button {
         height: 2em;
     }
 
-    .botonDesplegar{
+    .botonDesplegar {
         width: 2em;
     }
 
-    section div .botonCategoria{
+    section div .botonCategoria {
         width: max-content;
     }
 
     .contenidoADesplegar,
-    .contenidoCategoria{
+    .contenidoCategoria {
         display: none;
         position: absolute;
         /* Las propiedades 
@@ -213,14 +219,10 @@ button {
         background-color: #A8902D;
     }
 
-    .contenidoCategoriaa:hover{
+    .contenidoCategoriaa:hover {
         background-color: #A8902D;
     }
 
-    #botonesInicioFinal button {
-        height: 40px;
-        width: 40px;
-    }
     .mostrar {
         display: block;
     }
@@ -251,55 +253,47 @@ button {
         en el centro: texto
         final: foto*/
 
-        #listaManuales div {
-            grid-template-columns: 15% 15% auto 20%;
-            grid-template-rows: 50% 50%;
-        }
-    
-        #listaManuales div p {
-            text-align: end;
-        }
-    
-        #listaManuales div p:nth-child(odd) {
-            grid-area: 1/3/2/4;
-        }
-    
-        /*Mostrar categoria*/
-        #listaManuales div p:nth-child(even) {
-            display: block;
-            grid-area: 2/3/3/4;
-        }
-    
-        #listaManuales div img {
-            grid-area: 1/4/3/5;
-        }
+    #listaManuales div {
+        grid-template-columns: 15% auto 20%;
+        grid-template-rows: 50% 50%;
+    }
+
+    #listaManuales div p {
+        text-align: end;
+    }
+
+    #listaManuales div p:nth-child(even) {
+        grid-area: 1/2/2/3;
+    }
+
+    /*Mostrar categoria*/
+    #listaManuales div p:nth-child(odd) {
+        display: block;
+        grid-area: 2/2/3/3;
+    }
+
+    #listaManuales div img {
+        grid-area: 1/3/3/4;
+    }
 
     #listaManuales div button {
         display: block;
         margin: 1vh auto 1vh auto;
         padding: 5%;
         margin: auto;
-    }
-
-    #listaManuales div button:nth-child(1) {
         grid-area: 1/1/3/2;
     }
-
-    #listaManuales div button:nth-child(2) {
-        grid-area: 1/2/3/3;
-    }
-
 }
 
 @media (min-width: 860px) {
     body {
         margin: 0% 12%;
     }
-    
-    #botones button{
+
+    #botones button {
         font-size: 2.5vh;
     }
-}   
+}
 
 @media (min-width: 920px) {
 
@@ -313,11 +307,12 @@ button {
     body {
         margin: 0% 15%;
     }
+
     section img {
         max-height: 17vh;
     }
 
-    button{
+    button {
         width: max-content;
     }
 
