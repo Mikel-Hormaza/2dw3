@@ -1,25 +1,24 @@
+/*Para cambiar la letra de toda la pagina*/
 body {
     font-family: Georgia;
 }
-
+/*Para que el contenido de la pagina cuando este en formato movil este en una sola columna*/
 .iniciosesion {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-
 }
-
+/*El contenedor que controlar el logo y el texto que tiene debajo*/
 .logo {
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
 }
-
+/*El contenedro que contiene el formulario de inicio de sesion*/
 .inicio {
     display: flex;
     flex-direction: column;
@@ -27,7 +26,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/*Para cambiar el color tamaño y letra del boton de iniciar sesion*/
 .botoninicio {
     font-family: Georgia;
     background-color: #EFC227;
@@ -37,7 +36,7 @@ body {
     width: 150px;
     height: 40px;
 }
-
+/*El boton de crear usuario*/
 .crearusuatio {
     font-size: medium;
     border-radius: 5px;
@@ -47,7 +46,7 @@ body {
     font-family: Georgia;
     background-color: #53B3CB;
 }
-
+/*Para controlar la forma, el tamaño y lo que contiene el contenedor*/
 .borde {
     display: flex;
     justify-content: center;
@@ -56,13 +55,14 @@ body {
     border: #626267, 5px;
 
 }
-
+/*Para controlar el tamaño de la imagen del logo*/
 .imagen {
     width: 400px;
     height: 100px;
 }
-
+/*Cuando el tamaño de la pagina se modifica para que el diseño tambien lo aga*/
 @media screen and (max-width: 400px) {
+    /*Para controlar que en tamaño tablet el logo y el formulario no esten en una sola columna */
     .iniciosesion {
         margin-top: 15%;
         flex-direction: row;
@@ -79,6 +79,7 @@ body {
 
 
 @media screen and (min-width: 800px) {
+    /*Para que en tamaño orddenador el logo y el formulario no esten en una sola columna*/
     .iniciosesion {
         margin-top: 15%;
         flex-direction: row;

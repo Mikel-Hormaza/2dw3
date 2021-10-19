@@ -1,17 +1,18 @@
+/*Para que toda la pagina tenga el mismo tipo de letra*/
 body {
     font-family: Georgia;
 }
-
+/*Es el contenedor que controla laposicion del boton de regreso y el busacdor de herramientas*/
 .burua {
     display: flex;
     justify-content: center;
 }
-
+/*Para controlar el buscador de herraminetas*/
 .buscador {
 
     width: 200px;
 }
-
+/*Es el contenedor que controla todo el formulario sobre la informacion del manual*/
 .formulario {
     margin-top: 10px;
     display: flex;
@@ -20,14 +21,14 @@ body {
     align-content: center;
     margin-right: 40px;
 }
-
+/*El contenedor para controlar la posicion del formulario de lospasos*/
 .pasos {
     display: flex;
     justify-content: center;
 
 
 }
-
+/*Para controlar la posicion y el diseño del boton de gurdar paso*/
 .gordepauso {
     font-family: Georgia;
     background-color: #EFC227;
@@ -36,7 +37,7 @@ body {
     color: #626267;
     height: 40px;
 }
-
+/*Para controlar la posicion y el diseño del boton para volver a lapantalla de gestionde manuales*/
 .return {
     font-size: medium;
     border-radius: 5px;
@@ -47,7 +48,7 @@ body {
     margin-right: 20px;
     background-color: #53B3CB;
 }
-
+/*Para controlar el formulario de la creacion de los pasos*/
 .fondo {
     display: flex;
     flex-direction: column;
@@ -56,7 +57,7 @@ body {
     background-color: #5CB001;
 
 }
-
+/*Para contrtolar laposicion y el doiseño delboton que guarda la informacion del manual*/
 .gorde {
     font-family: Georgia;
     margin-left: 100px;
@@ -67,17 +68,17 @@ body {
     color: #626267;
     height: 40px;
 }
-
+/*Es el contenedor que posiciona el boton de guardar paso*/
 .boton {
     display: flex;
     justify-content: center;
 }
-
+/*Para controlar la posicion de el selector de archibos*/
 .imagen {
     margin-left: 10px;
     margin-right: 10px;
 }
-
+/*Para controlar la posicion de el texto imagen*/
 .labelimg {
     margin-right: 250px;
 }
