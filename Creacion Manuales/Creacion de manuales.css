@@ -1,9 +1,12 @@
-
+body{
+    font-family:Georgia;
+}
 .burua{
     display: flex;
     justify-content: center;
 }
 .buscador{
+
     width: 200px;
 }
 .formulario{
@@ -21,7 +24,7 @@
 
 }
 .gordepauso{
-
+    font-family:Georgia;
 background-color: #EFC227;
 font-size: medium;
 border-radius: 5px;
@@ -29,6 +32,12 @@ color: #626267;
 height: 40px;
 }
 .return{
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
+    width: 200px;
+    font-family:Georgia;
     margin-right: 20px;
     background-color: #53B3CB;
 }
@@ -41,6 +50,7 @@ height: 40px;
    
 }
 .gorde{
+    font-family:Georgia;
     margin-left: 100px;
     width: 100px;
     background-color: #EFC227;
@@ -61,7 +71,3 @@ height: 40px;
     margin-right: 250px;
 }
 
-
-@media screen and (max-width: 800px) {
-
-}
