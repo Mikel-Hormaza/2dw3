@@ -4,12 +4,12 @@
         <title>Fix Point</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" type="image/png" href="Fotos/Icono.ico">
-        <link rel="stylesheet" type="text/css" href="Creacion de manuales.css">
+        <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
+        <link rel="stylesheet" type="text/css" href="Login.css">
 </head>
 <body>
 <main>
-<img src="Fotos/Fix Point logo.PNG" width="500px" height="150px"><br>
+<img src="../Fotos/Fix Point logo.PNG" width="500px" height="150px"><br>
 <label>Inicie sesion para acceder a contenido privado</label>
 </main>
 <form class="inicio">
