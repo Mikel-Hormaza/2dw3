@@ -10,6 +10,7 @@
 </head>
 
 <body>
+        <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
         <main class="contenedor">
                 <ul class="burua">
                         <button class="return">Volver a la gestion de manuales</button>
