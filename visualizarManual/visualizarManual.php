@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="visualizarManual.css">
+    <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
+
 </head>
 
 <body>
@@ -24,11 +26,10 @@
             <h3>Fecha creación: 20/10/2021</h3>
             <h3>Creador: Laura Luengo</h3>
             <p>
-                Hemos desmontado el mini iPhone y los dos iPhones medianos, pero hemos guardado el más grande para el final: el iPhone 12 Pro Max. Si viste nuestro livestream la semana pasada, pudiste ver lo que lleva, pero queríamos más (¡y nuestros mensajes directos nos dicen que tú también!)! Es hora de darle a este teléfono de gran cuerpo el tratamiento completo de desmontaje.
+                Hemos desmontado el mini iPhone y los dos iPhones medianos, pero hemos guardado el más grande para el final: el iPhone 12 Pro Max. Si viste nuestro livestream la semana pasada, pudiste ver lo que lleva, pero queríamos más (¡y nuestros mensajes directos nos dicen que tú también!)! Es hora de darle a este teléfono de gran cuerpo el tratamiento completo de desmontaje.<span id="puntos">...</span><span id="mas">
+                    Hablando de dar: para poner fin a esta épica ola de desmontajes, regalamos a tres afortunados un Minnow Driver Kit! Aunque tendrás que trabajar para ello. Para poner a prueba la cámara del iPhone 12 Pro Max, la usamos para tomar en secreto dos fotos en este desmontaje con la Aplicación de cámara Halide. "Usa este formulario para adivinar correctamente qué dos pasos de abajo contienen una foto tomada en el iPhone, y entrarás para ganar.</span>                    <br><button id="botonLeerMas">Mostrar mas</button></p>
 
-                Hablando de dar: para poner fin a esta épica ola de desmontajes, regalamos a tres afortunados un Minnow Driver Kit! Aunque tendrás que trabajar para ello. Para poner a prueba la cámara del iPhone 12 Pro Max, la usamos para tomar en secreto dos fotos en este desmontaje con la Aplicación de cámara Halide. "Usa este formulario para adivinar correctamente qué dos pasos de abajo contienen una foto tomada en el iPhone, y entrarás para ganar.
-            </p>
-        </div>
+                </div>
         <div class="paso">
             <h3 class="pasoTitulo">Paso 1: </h3>
             <p>Desmontaje del iPhone 12 Pro Max </p>
