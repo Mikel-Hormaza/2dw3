@@ -33,7 +33,7 @@
                 </ul>
         </main>
 
-                <div class="pasos">
+        <div class="pasos">
                 <form class="fondo">
                         <h3>Pasos</h3>
 
@@ -44,9 +44,9 @@
                         <label class="labelimg">Imagen:</label>
                         <input class="imagen" type="file"><br>
 
-                        </form><br>
-                </div><br>
-                
+                </form><br>
+        </div><br>
+
         <div class="boton">
                 <button class="gordepauso">Guardar Paso</button>
         </div>

@@ -1,56 +1,64 @@
-body{
-    font-family:Georgia;
+body {
+    font-family: Georgia;
 }
-.burua{
+
+.burua {
     display: flex;
     justify-content: center;
 }
-.buscador{
+
+.buscador {
 
     width: 200px;
 }
-.formulario{
+
+.formulario {
     margin-top: 10px;
     display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    align-content:center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
     margin-right: 40px;
 }
-.pasos{
+
+.pasos {
     display: flex;
     justify-content: center;
 
 
 }
-.gordepauso{
-    font-family:Georgia;
-background-color: #EFC227;
-font-size: medium;
-border-radius: 5px;
-color: #626267;
-height: 40px;
+
+.gordepauso {
+    font-family: Georgia;
+    background-color: #EFC227;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
 }
-.return{
+
+.return {
     font-size: medium;
     border-radius: 5px;
     color: #626267;
     height: 40px;
     width: 200px;
-    font-family:Georgia;
+    font-family: Georgia;
     margin-right: 20px;
     background-color: #53B3CB;
 }
-.fondo{
+
+.fondo {
     display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    align-items:center;
-    background-color: #5CB001; 
-   
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #5CB001;
+
 }
-.gorde{
-    font-family:Georgia;
+
+.gorde {
+    font-family: Georgia;
     margin-left: 100px;
     width: 100px;
     background-color: #EFC227;
@@ -59,15 +67,17 @@ height: 40px;
     color: #626267;
     height: 40px;
 }
-.boton{
+
+.boton {
     display: flex;
     justify-content: center;
 }
-.imagen{
+
+.imagen {
     margin-left: 10px;
     margin-right: 10px;
 }
-.labelimg{
+
+.labelimg {
     margin-right: 250px;
 }
-

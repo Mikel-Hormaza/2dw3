@@ -12,7 +12,7 @@
 <body>
         <main class="iniciosesion">
                 <div class="logo">
-                        <img class="imagen" src="../Fotos/Fix Point logo.PNG" ><br>
+                        <img class="imagen" src="../Fotos/Fix Point logo.PNG"><br>
                         <label>Inicie sesion para acceder a contenido privado</label>
                 </div><br><br>
 
@@ -23,7 +23,7 @@
                                 <input type="text" placeholder="Contraseña"><br><br>
                                 <button class="botoninicio">Iniciar sesion</button><br><br>
                                 <button class="crearusuatio">Crear nueva cuenta</button>
-                        </form>                        
+                        </form>
                 </fieldset>
 
         </main>
