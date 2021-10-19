@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Gestion Herramientas</title>
     <link rel="stylesheet" href="gestionHerramientas.css">
     <script src="gestionHerramientas.js"></script>
 </head>

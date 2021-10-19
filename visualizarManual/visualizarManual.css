@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+#amarilloMadre {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+#amarilloMadre img {
+    width: 100%;
+    max-height: 10vh;
+    object-fit: cover;
+}
+
+#amarilloMadre h1 {
+    color: white;
+    background-color: rgba(239, 194, 39, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, -10%);
+}
+
+img{
+    width: 4vh;
+    max-height: 4vh;
+}
+
+hr {
+    background-color: #F15946;
+    height: 3px;
+}
+
+
+h3,
+h4,
+p {
+    color: #626267;
+}
+
+h3 {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px -5px #626267;
+}
