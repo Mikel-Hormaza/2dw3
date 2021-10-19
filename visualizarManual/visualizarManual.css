@@ -63,14 +63,23 @@ p {
 
 button {
     background-color: #53B3CB;
-    margin: 1vh;
-    text-transform: uppercase;
     color: #626267;
+    text-transform: uppercase;
     font-size: 2vh;
     width: max-content;
     border: none;
-    padding: 1% 4%;
     cursor: pointer;
+}
+
+#botonVolver {
+    margin: 1vh;
+    padding: 1% 4%;
+}
+
+#infoManual button {
+    margin-top: 1vh;
+    padding: 0% 10px ;
+    background-color: #EFC227;
 }
 
 button span {
@@ -83,13 +92,13 @@ button span {
 }
 
 #infoManual p {
-    background-color: #F15946;
+    background-color: #5C8001;
     color: white;
     opacity: 0.8;
 }
 
 hr {
-    background-color: #F15946;
+    background-color: #A8902D;
     height: 3px;
 }
 

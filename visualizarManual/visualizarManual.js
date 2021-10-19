@@ -13,11 +13,11 @@ function mostrarTexto() {
   
     if (puntos.style.display == "none") {
       puntos.style.display = "inline";
-      btnText.innerHTML = "Mostrar más"; 
+      btnText.innerHTML = " Mostrar"; 
       masText.style.display = "none";
     } else {
       puntos.style.display = "none";
-      btnText.innerHTML = "Ocultar"; 
+      btnText.innerHTML = " ocultar"; 
       masText.style.display = "inline";
     }
   }
