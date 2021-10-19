@@ -22,8 +22,6 @@
         <div>
             <button id="idBotonDesplegar" class="botonDesplegar"></button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a>Todos</a>
-                <a>Ninguno</a>
                 <a id="categoria">Categoría</a>
                 <a>Creados por mí</a>
             </div>
@@ -54,7 +52,7 @@
             <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
+            <img src="Fotos/gestionManuales/sierra.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
@@ -68,15 +66,15 @@
             <button>eliminar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestionManuales/Fixtec-Fcs23501-Professional-2030W-Electric-Saw-Circular-Saw-for-Sale.jpg" alt="Taladro">
+            <img src="Fotos/gestionManuales/sierra.jpg" alt="Taladro">
         </div>
     </main>
 
     <div id="botonesInicioFinal">
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Fotos/gestionManuales/triangulos.jpg" alt="triangulo"></button>
     </div>
 
 
