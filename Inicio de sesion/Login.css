@@ -1,7 +1,86 @@
 body{
     font-family:Georgia;
 }
-.inicio{
+.iniciosesion{
     display: flex;
-    justify-content: flex-end;
+ justify-content: center;
+align-items: center;
+flex-direction:column;
+flex-wrap:wrap;
+
+}
+.logo{
+
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction:column;
+flex-wrap:wrap;
+}
+.inicio{
+display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    justify-content: center;
+align-items: center;
+}
+.botoninicio{
+font-family:Georgia;
+background-color: #EFC227;
+font-size: medium;
+border-radius: 5px;
+color: #626267;
+width: 150px;
+height: 40px;
+}
+.crearusuatio{
+font-size: medium;
+border-radius: 5px;
+color: #626267;
+height: 40px;
+width: 200px;
+font-family:Georgia;
+background-color: #53B3CB; 
+}
+.borde{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+border-radius: 5px;
+border: #626267, 5px;
+
+}
+.imagen{
+    width:400px;
+    height:100px;
+}
+
+@media screen and (max-width: 400px) {
+    .iniciosesion{
+        margin-top: 15%;
+            flex-direction:row;
+         
+            
+            }
+        
+            .logo{
+                margin-right: 100px;
+                   
+                   }
+
+}
+
+
+@media screen and (min-width: 800px) {
+    .iniciosesion{
+margin-top: 15%;
+    flex-direction:row;
+ 
+    
+    }
+
+    .logo{
+        margin-right: 150px;
+           
+           }
 }
