@@ -31,7 +31,7 @@
 
         </div>
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 1: </h3>
+            <h3 class="pasoTitulo">Paso 1 </h3>
             <p>Desmontaje del iPhone 12 Pro Max </p>
             <img src="Imagenes/paso1.jpg" alt="">
             <p>
@@ -46,7 +46,7 @@
             <hr>
         </div>
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 2: </h3>
+            <h3 class="pasoTitulo">Paso 2 </h3>
             <p>En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.</p>
             <img src="Imagenes/paso2.jpg" alt="">
             <p>
@@ -59,7 +59,7 @@
             <hr>
         </div>
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 3: </h3>
+            <h3 class="pasoTitulo">Paso 3 </h3>
             <p></p>
             <img src="Imagenes/paso3.jpg" alt="">
             <p>
