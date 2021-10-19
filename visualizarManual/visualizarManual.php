@@ -11,7 +11,7 @@
     <section>
         <div id="amarilloMadre">
             <img src="Imagenes/paso1.jpg" alt="Imagen paso">
-            <h1>Desmontaje del iPhone 12 Pro Max</h1>
+            <h2>Desmontaje del iPhone 12 Pro Max </h2>
         </div>
         <button class="botonVolver">Volver<span> a manuales</span></button>
 
@@ -29,8 +29,8 @@
                 Hablando de dar: para poner fin a esta épica ola de desmontajes, regalamos a tres afortunados un Minnow Driver Kit! Aunque tendrás que trabajar para ello. Para poner a prueba la cámara del iPhone 12 Pro Max, la usamos para tomar en secreto dos fotos en este desmontaje con la Aplicación de cámara Halide. "Usa este formulario para adivinar correctamente qué dos pasos de abajo contienen una foto tomada en el iPhone, y entrarás para ganar.
             </p>
         </div>
-        <div>
-            <h4>Paso 1: </h4>
+        <div class="paso">
+            <h3 class="pasoTitulo">Paso 1: </h3>
             <p>Desmontaje del iPhone 12 Pro Max </p>
             <img src="Imagenes/paso1.jpg" alt="">
             <p>
@@ -44,8 +44,8 @@
             </p>
             <hr>
         </div>
-        <div>
-            <h4>Paso 2: </h4>
+        <div class="paso">
+            <h3 class="pasoTitulo">Paso 2: </h3>
             <p>En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.</p>
             <img src="Imagenes/paso2.jpg" alt="">
             <p>
@@ -57,8 +57,8 @@
             </p>
             <hr>
         </div>
-        <div>
-            <h4>Paso 3: </h4>
+        <div class="paso">
+            <h3 class="pasoTitulo">Paso 3: </h3>
             <p></p>
             <img src="Imagenes/paso3.jpg" alt="">
             <p>

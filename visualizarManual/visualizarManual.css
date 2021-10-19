@@ -2,43 +2,89 @@
     box-sizing: border-box;
 }
 
-
 body {
     margin: 2vh;
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
 }
 
+section,
+article {
+    margin: 1vh;
+}
+
+img {
+    object-fit: cover;
+}
+
 #amarilloMadre,
-#amarilloMadre h1,
-#amarilloMadre img{
+#amarilloMadre h2,
+#amarilloMadre img,
+.paso img {
     width: 100%;
 }
 
 #amarilloMadre,
-#amarilloMadre img{
+#amarilloMadre img,
+.paso img {
     max-height: 15vh;
 }
 
 #amarilloMadre {
+    display: flex;
+    align-self: stretch;
     position: relative;
     text-align: center;
     background-color: #EFC227;
 }
 
 #amarilloMadre img {
-    object-fit: cover;
+    opacity: 0.4;
 }
 
-#amarilloMadre h1 {
-    position: absolute; 
-    top: 20%;
+#amarilloMadre h2 {
+    position: absolute;
     color: white;
+    text-shadow: 0px 1px 5px #626267;
 }
 
-img{
-    width: 4vh;
-    max-height: 4vh;
-    opacity:0.4;
+@media(max-width: 250px) {
+    h2 {
+        font-size: large;
+    }
+}   
+
+button,
+img:not(#amarilloMadre img),
+h3,
+p {
+    border-radius: 8px;
+}
+
+button {
+    background-color: #53B3CB;
+    margin: 1vh;
+    text-transform: uppercase;
+    color: #626267;
+    font-size: 2vh;
+    width: max-content;
+    border: none;
+    padding: 1% 4%;
+    cursor: pointer;
+}
+
+button span {
+    display: none;
+}
+
+#infoManual img {
+    width: 100%;
+    max-height: 30%;
+}
+
+#infoManual p {
+    background-color: #F15946;
+    color: white;
+    opacity: 0.8;
 }
 
 hr {
@@ -46,6 +92,10 @@ hr {
     height: 3px;
 }
 
+h3,
+p {
+    padding: 1vh;
+}
 
 h3,
 h4,
@@ -53,8 +103,16 @@ p {
     color: #626267;
 }
 
-h3 {
+h3:not(.pasoTitulo) {
+    text-align: center;
     background-color: white;
-    border-radius: 8px;
     box-shadow: 0 10px 10px -5px #626267;
+}
+
+.paso p {
+    margin: 0%;
+}
+
+article div:last-of-type hr:last-of-type {
+    display: none;
 }
