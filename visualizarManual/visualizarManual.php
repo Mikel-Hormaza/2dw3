@@ -12,7 +12,6 @@
         <div id="amarilloMadre">
             <img src="Imagenes/paso1.jpg" alt="Imagen paso">
             <h1>Desmontaje del iPhone 12 Pro Max</h1>
-
         </div>
         <button class="botonVolver">Volver<span> a manuales</span></button>
 

@@ -12,26 +12,27 @@ body {
     position: relative;
     text-align: center;
     width: 100%;
+    background-color: #EFC227;
+    padding: 0%;
 }
 
 #amarilloMadre img {
     width: 100%;
-    max-height: 10vh;
+    max-height: 15vh;
     object-fit: cover;
 }
 
 #amarilloMadre h1 {
+    position: absolute; 
+    top: 10%;
     color: white;
-    background-color: rgba(239, 194, 39, 0.75);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-10%, -10%);
+    width: 100%;
 }
 
 img{
     width: 4vh;
     max-height: 4vh;
+    opacity:0.4;
 }
 
 hr {
