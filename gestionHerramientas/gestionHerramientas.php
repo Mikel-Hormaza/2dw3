@@ -10,7 +10,7 @@
 
 <body>
     <section>
-        <img src="fotos/gestioHerramientas/imgGestionHerramientas.jpg" alt="Imagen manual">
+        <img src="Imagenes/imgGestionHerramientas.jpg" alt="Imagen manual">
         <button class="botonVolver">Volver<span> a biblioteca</span></button>
         <div id=botones>
             <button>Crear</button>
@@ -44,33 +44,33 @@
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestioHerramientas/taladro.jpg" alt="Taladro">
+            <img src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestioHerramientas/sierra.jpg" alt="Taladro">
+            <img src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestioHerramientas/taladro.jpg" alt="Taladro">
+            <img src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Fotos/gestioHerramientas/sierra.jpg" alt="Taladro">
+            <img src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
     </main>
 
     <div id="botonesInicioFinal">
-        <button><img src="Fotos/gestioHerramientas/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Fotos/gestioHerramientas/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Fotos/gestioHerramientas/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Fotos/gestioHerramientas/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
     </div>
 
 
