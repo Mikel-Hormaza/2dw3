@@ -57,12 +57,14 @@ img {
 button,
 img:not(#amarilloMadre img),
 h3,
-p {
+p,
+#equipoNecesario,
+#seguridad {
     border-radius: 8px;
 }
 
 button,
-.paso h3{
+.paso h3 {
     text-transform: uppercase;
 }
 
@@ -80,9 +82,11 @@ button {
     padding: 1% 4%;
 }
 
-#infoManual button {
+#infoManual button,
+#equipoNecesario button,
+#seguridad button {
     margin-top: 1vh;
-    padding: 0% 10px ;
+    padding: 0% 10px;
     background-color: #EFC227;
 }
 
@@ -95,14 +99,39 @@ button span {
     max-height: 30%;
 }
 
-#infoManual p {
-    background-color: #5C8001;
-    color: white;
+#infoManual p,
+#equipoNecesario,
+#seguridad {
     opacity: 0.8;
 }
 
+#infoManual p,
+#equipoNecesario p,
+#seguridad p {
+    color: white;
+}
+
+#equipoNecesario h4,
+#seguridad h4{
+    color: #626267;
+    background-color: #EFC227;
+    padding:10px;
+    margin-bottom: 1vh;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#infoManual p,
+#seguridad{
+    background-color: #5C8001;
+}
+
+#equipoNecesario {
+    background-color: #318EA5;
+}
+
+
 hr {
-    background-color: #A8902D;
+    background-color: #4F6E01;
     height: 3px;
 }
 
@@ -112,7 +141,6 @@ p {
 }
 
 h3,
-h4,
 p {
     color: #626267;
 }
@@ -123,7 +151,7 @@ h3:not(.pasoTitulo) {
     box-shadow: 0 10px 10px -5px #626267;
 }
 
-.paso h3{
+.paso h3 {
     text-align: center;
 }
 
@@ -135,6 +163,8 @@ article div:last-of-type hr:last-of-type {
     display: none;
 }
 
-#mas {
+#mas,
+#masEquipo,
+#masSeguridad {
     display: none;
 }

@@ -1,15 +1,26 @@
 window.addEventListener("load", inicio);
 
-/*Clicar idBotonDesplegar: desplegarContenido
-categoria: desplegarBotonCategoria*/
+/*Mostrar más*/
 function inicio() {
-    document.getElementById("botonLeerMas").addEventListener("click", mostrarTexto);
+    document.getElementById("botonLeerMas").addEventListener("click", mostrarDetalles);
+    document.getElementById("botonLeerMasEquipo").addEventListener("click", mostrarEquipo);
+    document.getElementById("botonLeerMasSeguridad").addEventListener("click", mostrarSeguridad);
 }
 
-function mostrarTexto() {
-    let puntos = document.getElementById("puntos");
-    let masText = document.getElementById("mas");
-    let btnText = document.getElementById("botonLeerMas");
+function mostrarDetalles(){
+  mostrarTexto("puntos", "mas", "botonLeerMas");
+}
+function mostrarEquipo(){
+  mostrarTexto("puntosEquipo", "masEquipo", "botonLeerMasEquipo");
+}
+function mostrarSeguridad(){
+  mostrarTexto("puntosSeguridad", "masSeguridad", "botonLeerMasSeguridad");
+}
+
+function mostrarTexto(puntosSuspensivos, mas, boton) {
+    let puntos = document.getElementById(puntosSuspensivos);
+    let masText = document.getElementById(mas);
+    let btnText = document.getElementById(boton);
   
     if (puntos.style.display == "none") {
       puntos.style.display = "inline";
