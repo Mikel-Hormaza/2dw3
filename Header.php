@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div class="grid-container">
+        <div class="prueba">
             <img src="Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
             <nav class="item2">
                 <ul>

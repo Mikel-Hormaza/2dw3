@@ -47,15 +47,10 @@ img.logo {
     background-color: white;
 }  
 
-.item1 { grid-area: logo; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: sesion; }
-
-.grid-container {
-    display: grid;
-    grid-template-areas:
-    'logo menu sesion';
-    padding: 10px;
+.prueba {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*Tablet*/
