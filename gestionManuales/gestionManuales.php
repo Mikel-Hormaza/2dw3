@@ -33,7 +33,7 @@
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
                 <a>maquina-herramienta</a>
-                <a>electronica</a>
+                <a>electrónica</a>
                 <a>herramienta taller</a>
             </div>
         </div>
