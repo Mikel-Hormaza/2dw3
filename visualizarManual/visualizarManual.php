@@ -73,7 +73,7 @@
         </div>
         <div class="paso">
             <div>
-                <h3 class="pasoTitulo">Paso 2sss </h3>
+                <h3 class="pasoTitulo">Paso 20 </h3>
                 <p>En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo. el cuadrado es redondo... de nuevo.</p>
 
             </div><img src="Imagenes/paso2.jpg" alt="">
