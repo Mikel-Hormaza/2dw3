@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="visualizarManual.css">
     <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
-
+    <?php require_once "leerBDManual.php"?>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
             <img src="Imagenes/paso1.jpg" alt="Imagen paso">
             <h2>Desmontaje del iPhone 12 Pro Max para rotura de pantalla </h2>
         </div>
-        <button id="botonVolver">Volver<span> a manuales</span></button>
+        <button id="botonVolver">Volver<span> a biblioteca</span></button>
 
     </section>
 
