@@ -13,7 +13,7 @@
     <section>
         <div id="amarilloMadre">
             <img src="Imagenes/paso1.jpg" alt="Imagen paso">
-            <h2>Desmontaje del iPhone 12 Pro Max para rotura de patalla </h2>
+            <h2>Desmontaje del iPhone 12 Pro Max para rotura de pantalla </h2>
         </div>
         <button id="botonVolver">Volver<span> a manuales</span></button>
 
@@ -55,8 +55,10 @@
         </div>
 
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 1 </h3>
-            <p>Desmontaje del iPhone 12 Pro Max </p>
+            <div>
+                <h3 class="pasoTitulo">Paso 1 </h3>
+                <p>Desmontaje del iPhone 12 Pro Max </p>
+            </div>
             <img src="Imagenes/paso1.jpg" alt="">
             <p>
                 En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
@@ -70,9 +72,11 @@
             <hr>
         </div>
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 2 </h3>
-            <p>En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.</p>
-            <img src="Imagenes/paso2.jpg" alt="">
+            <div>
+                <h3 class="pasoTitulo">Paso 2sss </h3>
+                <p>En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo. el cuadrado es redondo... de nuevo.</p>
+
+            </div><img src="Imagenes/paso2.jpg" alt="">
             <p>
                 Los amigos no dejan que sus amigos desmonten los aparatos sin un plano de rayos X. Por suerte, somos los mejores amigos de Creative Electron que nos suministran un sinfín de rayos X.
 
@@ -83,8 +87,10 @@
             <hr>
         </div>
         <div class="paso">
-            <h3 class="pasoTitulo">Paso 3 </h3>
-            <p></p>
+            <div>
+                <h3 class="pasoTitulo">Paso 3 </h3>
+                <p></p>
+            </div>
             <img src="Imagenes/paso3.jpg" alt="">
             <p>
                 Los amigos no dejan que sus amigos desmonten los aparatos sin un plano de rayos X. Por suerte, somos los mejores amigos de Creative Electron que nos suministran un sinfín de rayos X.
