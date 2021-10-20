@@ -237,8 +237,7 @@ button {
 @media (min-width: 500px) {
     body {
         margin: 0% 10%;
-        box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
-    }
+}
 
     #botones {
         flex-direction: row;
