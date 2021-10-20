@@ -43,29 +43,29 @@
         <div>
             <button>editar</button>
             <button>eliminar</button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
+            <p>COD: 1- Nombre de manual</p>
+            <p>COD: 2- Nombre de herramienta</p>
             <img src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <button>eliminar</button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
+            <p>COD: 1- Nombre de manual</p>
+            <p>COD: 2- Nombre de herramienta</p>
             <img src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <button>eliminar</button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
+            <p>COD: 1- Nombre de manual</p>
+            <p>COD: 2- Nombre de herramienta</p>
             <img src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
             <button>editar</button>
             <button>eliminar</button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
+            <p>COD: 1- Nombre de manual</p>
+            <p>COD: 2- Nombre de herramienta</p>
             <img src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
     </main>
