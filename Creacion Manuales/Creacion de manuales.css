@@ -19,6 +19,12 @@ body {
         margin: 0% 12%;
     }
 }
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+}
+
 
 /*Es el contenedor que controla laposicion del boton de regreso y el busacdor de herramientas*/
 .burua {
