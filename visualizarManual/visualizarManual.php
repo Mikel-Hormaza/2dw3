@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="visualizarManual.css">
     <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
-    <?php require_once "leerBDManual.php"?>
+    <?php require_once "leerBDVisualizarManual.php"?>
 </head>
 
 <body>

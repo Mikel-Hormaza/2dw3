@@ -40,7 +40,7 @@ try{
     echo "</table>"; */
 echo("<br> DATOS MANUAL: <br>");
 var_dump($datosManual);
-echo("<br> DATOS PASOS: a <br>");
+echo("<br> DATOS PASOS: <br>");
 var_dump($datosPasos);
 
 }catch(PDOException $e){
