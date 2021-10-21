@@ -60,11 +60,11 @@ img.gmail {
 	height: 30px;
 }
 
-div.prueba {
+div.Footermain {
 	display: inline-flex;
 }
 
-div.prueba p{
+div.Footermain p{
 	display: block;
 	margin: auto;
 	align-items: flex-start;

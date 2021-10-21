@@ -11,9 +11,8 @@
 
 <body>
     <header>
-        <div class="prueba1">
-            <div>
-                
+        <div class="Headermain">
+            <div>  
                 <img src="Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
             </div>
             <nav class="item2">
