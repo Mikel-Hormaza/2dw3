@@ -16,4 +16,8 @@ class Manual {
     this.codUsuario = p_codUsuario;
     this.fechaCreacion = p_fechaCreacion;    
   }
+
+
+  
+
 }
