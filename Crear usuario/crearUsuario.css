@@ -47,9 +47,6 @@ nav li a:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }*/
 
-body {
-    background-color: #FFFFFF;
-}
 
 .create {
     margin-top: -2%;
@@ -101,6 +98,34 @@ body {
     margin-top: 2%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+
+body {
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+    }
+}
+
+
+@media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+ 
+
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+}
+
+
 
 /*Tablet*/
 @media only screen and (max-width: 800px) {
@@ -154,9 +179,6 @@ body {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }*/
     
-    body {
-        background-color: white;
-    }
     .create {
         margin-top: 2%;
         margin-left: 45%;
@@ -261,9 +283,6 @@ body {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }*/
     
-    body {
-        background-color: white;
-    }
     .create {
         margin-top: 6%;
         margin-left: 35%;
