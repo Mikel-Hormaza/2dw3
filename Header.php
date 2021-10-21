@@ -11,8 +11,11 @@
 
 <body>
     <header>
-        <div class="prueba">
-            <img src="Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
+        <div class="prueba1">
+            <div>
+                
+                <img src="Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
+            </div>
             <nav class="item2">
                 <ul>
                     <li><a href="#">INICIO</a></li>
@@ -23,7 +26,6 @@
             </nav>
             <input type="button" value="Iniciar sesion" class="sesion" class="item3">
         </div>
-
     </header>
 </body>
 

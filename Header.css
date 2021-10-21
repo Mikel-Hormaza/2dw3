@@ -47,10 +47,18 @@ img.logo {
     background-color: white;
 }  
 
-.prueba {
+.prueba1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.mobile-btn {
+    font-size:30px;
+    cursor:pointer; 
+    font-weight:bold;
+    float: right;
+    padding: 0 0.7em 0 0;
 }
 
 /*Tablet*/
@@ -59,7 +67,7 @@ img.logo {
     .item2 {grid-area: menu;}
     .item3 {grid-area: boton;}
     
-    .prueba {
+    .prueba1 {
         display: grid;
         grid-template-areas:
         'logo boton'
