@@ -131,7 +131,7 @@ img.twitter {
 	margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+/*Tablet*/
 
 @media only screen and (max-width: 820px){
 	
@@ -165,6 +165,8 @@ img.twitter {
 
 
 }
+
+/*Movil*/
 
 @media only screen and (max-width: 560px) {
 

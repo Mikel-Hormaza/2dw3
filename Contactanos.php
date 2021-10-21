@@ -20,6 +20,6 @@
                 <textarea name="" id="" cols="30" rows="10"></textarea>
             </fieldset>
         </form>
-        <?php require_once 'footer.php' ?>
+        
     </body>
 </html>
