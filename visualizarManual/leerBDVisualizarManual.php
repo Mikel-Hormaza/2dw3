@@ -35,22 +35,87 @@ try {
 
 $conexion = null;
 
-$largo = strlen($datosManual[0]["informacionManual"]);
+// $largo = strlen($datosManual[0]["informacionManual"]);
 $informacionManual = $datosManual[0]["informacionManual"];
 $equipoNecesario = $datosManual[0]["equipoNecesario"];
 $medidasDeSeguridad = $datosManual[0]["medidasDeSeguridad"];
 
-function mostrarBotonMostrar($texto, $tipoDeDato)
+
+function mostrarBotonMostrar($texto, $tipoDeDato) 
 {
-    global $largo;
-    if ($largo > 200) {
-        textoCortado($texto, $tipoDeDato);
-    } else {
-        textoEntero($tipoDeDato);
+    $textoProcesado = decidirSiRecortar($texto);
+
+    if ( ! is_array($textoProcesado)) {
+        imprimirTextoEntero($texto);
+    }
+    else {
+        imprimirTextoATrozos($textoProcesado, $tipoDeDato);
     }
 }
 
-function textoEntero($texto)
+function decidirSiRecortar($texto) 
+{
+    $lengthMax = 200;
+    if ( strlen($texto) < $lengthMax) {
+       echo $texto;
+       return  $texto;
+    }
+    else {
+       return textoATrozos($texto);
+        
+    }
+}
+
+function textoATrozos($texto) 
+{
+    // $primerTrozo = stristr($texto, ". ", 1);
+    // if (!empty($primerTrozo))
+    // {
+    //     $segundoTrozo = stristr($texto, ". ", 0);
+    //     return array ($primerTrozo, $segundoTrozo);
+    // }
+    // else // a lo bestia
+    // {
+        $primerTrozo = substr($texto, 0, 200);
+        $segundoTrozo = substr($texto, strlen($primerTrozo));
+        echo "<br> PRIMER TROZO ".$primerTrozo;
+        echo "<br> PRIMER2 TROZO ".$segundoTrozo;
+        return array ($primerTrozo, $segundoTrozo);
+
+    // }
+}
+
+function imprimirTextoATrozos($arrayDeTexto, $tipoDeDato)
+{
+    switch ($tipoDeDato) {
+        case 1:
+    ?>
+            <p><?php echo $arrayDeTexto[0] ?>
+                <span id="puntos">...</span><span id="mas"><?php echo $arrayDeTexto[1]  ?></span>
+                <button id="botonLeerMas">Mostrar</button>
+            </p><?php
+                break;
+            case 2:
+                ?>
+            <p><?php echo $arrayDeTexto[0]  ?>
+                <span id="puntosEquipo">...</span><span id="masEquipo"><?php echo $arrayDeTexto[1]  ?></span>
+                <br>
+                <button id="botonLeerMasEquipo">Mostrar</button>
+            </p>
+        <?php
+                break;
+            case 3:
+        ?>
+            <p><?php echo $arrayDeTexto[0]  ?>
+                <span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $arrayDeTexto[1]  ?>
+                </span> <br><button id="botonLeerMasSeguridad">Mostrar</button>
+            </p>
+<?php
+                break;
+        }
+}
+
+function imprimirTextoEntero($texto)
 { ?>
     <p><?php $texto ?></p>
     <?php

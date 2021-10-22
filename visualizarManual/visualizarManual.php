@@ -28,18 +28,18 @@
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
                     <h3>Creador: <?php echo $datosManual[0]["nomUsuario"]; ?></h3>
                 </div>
-                <?php mostrarBotonMostrar($informacionManual, 1);?>
+                <?php mostrarBotonMostrar($informacionManual,1);?>
             </div>
             <div id="equipoNecesario">
                 <h4>Equipo necesario</h4>
                 <div>
-                <?php mostrarBotonMostrar($equipoNecesario, 2);?>
+                <?php mostrarBotonMostrar($equipoNecesario,2);?>
                 </div>
             </div>
             <div id="seguridad">
                 <h4>Medidas de seguridad</h4>
                 <div>
-                <?php mostrarBotonMostrar($medidasDeSeguridad, 3);?>
+                <?php mostrarBotonMostrar($medidasDeSeguridad,3);?>
             </div>
             </div>
         </div>
