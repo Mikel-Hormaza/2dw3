@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<?php require_once '../Header.php'?>
         <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
 
         <div class="burua">
@@ -107,6 +108,9 @@
                         </div>
                 </div>
         </main>
+
+        <?php require_once '../footer.php'?>
+
 </body>
 
 </html>
