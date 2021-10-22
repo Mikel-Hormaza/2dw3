@@ -32,10 +32,7 @@
                                 <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea><br>
 
                                 <button class="gorde">Guardar</button>
-</form>
-
-
-
+                        </form>
 
                         <form class="fondo">
                                 <h4>Pasos</h4>

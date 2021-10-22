@@ -9,7 +9,8 @@ body {
 
 @media (min-width: 500px) {
     body {
-        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+        margin: 0% 10%;
+        box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
     }
 }
 
@@ -19,6 +20,7 @@ body {
         margin: 0% 12%;
     }
 }
+
 @media (min-width: 1025px) {
     body {
         margin: 0% 15%;
@@ -32,11 +34,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 /*Para controlar el buscador de herraminetas*/
 .buscador {
     width: 200px;
     height: 10%;
 }
+
 /*Es el contenedor que controla todo el formulario sobre la informacion del manual*/
 .formulario {
     margin-top: 10px;
@@ -44,15 +48,16 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    
+
 }
 
 /*El contenedor para controlar la posicion del formulario de lospasos*/
 .pasos {
-   display: flex;
-  
+    display: flex;
+
 
 }
+
 /*Para controlar la posicion y el diseño del boton de gurdar paso*/
 .gordepauso {
     font-family: Georgia;
@@ -64,6 +69,7 @@ body {
     border: none;
     cursor: pointer;
 }
+
 /*Para controlar la posicion y el diseño del boton para volver a lapantalla de gestionde manuales*/
 .return {
     font-size: medium;
@@ -77,6 +83,7 @@ body {
     cursor: pointer;
     margin: 20px;
 }
+
 /*Para controlar el formulario de la creacion de los pasos*/
 .fondo {
     display: flex;
@@ -88,6 +95,7 @@ body {
     margin: auto;
     margin-top: 1%;
 }
+
 /*Para contrtolar laposicion y el doiseño delboton que guarda la informacion del manual*/
 .gorde {
     font-family: Georgia;
@@ -101,6 +109,7 @@ body {
     border: none;
     cursor: pointer;
 }
+
 /*Es el contenedor que posiciona el boton de guardar paso*/
 
 /*Para controlar la posicion de el selector de archibos*/
@@ -108,109 +117,125 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 }
+
 /*Para controlar la posicion de el texto imagen*/
 .labelimg {
     margin-right: 250px;
 }
-.contenedor{
+
+/*Contenedor de los fromuarios de manual y paso*/
+.contenedor {
     display: grid;
     grid-template-columns: 50% auto;
 
 }
 
-.mostrarpasos{
+/*Contenedor para separar los pasos mostardos*/
+.mostrarpasos {
     margin-left: 5%;
     border-left: 5px solid black;
     grid-column: 2/3;
 }
-.formularios{
+/*Contenedor de los formularios de creacion de pasos y manuales*/
+.formularios {
     border-right: 5px solid black;
-    grid-column:1/2;
+    grid-column: 1/2;
     margin-right: 5%;
-} 
+}
 
 .paso img {
     width: 80%;
     max-height: 20vh;
 }
+
 h3:not(.pasoTitulo) {
     text-align: center;
     background-color: white;
     box-shadow: 0 10px 10px -5px #626267;
 }
+
 .paso h3 {
     text-align: center;
 }
+
 article div:last-of-type hr:last-of-type {
     display: none;
 }
 
-input{
+input {
     max-width: 100%;
     margin-right: 1vh;
 }
 
-.paso{
+.paso {
     margin: 0% 5vh;
 }
+
 @media screen and (max-width: 820px) {
-    .contenedor{
+    .contenedor {
         display: grid;
         grid-template-columns: auto auto;
-    
+
     }
-    
-    .mostrarpasos{
+
+    .mostrarpasos {
         margin-left: 0%;
         border-left: none;
         grid-column: 1/2;
     }
-    .formularios{
+
+    .formularios {
         margin-right: 0%;
         border-right: none;
-        grid-column:1/2;
-    } 
+        grid-column: 1/2;
+    }
+
     .paso img {
         width: 100%;
         max-height: 50vh;
     }
+
     .fondo {
         width: 90%;
- 
+
     }
 }
 
 @media screen and (max-width: 460px) {
     .fondo {
         width: 100%;
- 
+
     }
-    .contenedor{
+
+    .contenedor {
         display: grid;
         grid-template-columns: auto;
-    
+
     }
-    
-    .mostrarpasos{
+
+    .mostrarpasos {
         margin-left: 0%;
         border-left: none;
         grid-column: 1/2;
     }
-    .formularios{
+
+    .formularios {
         border-right: none;
-        grid-column:1/2;
+        grid-column: 1/2;
         margin-right: 0%;
-    } 
+    }
+
     .paso img {
         width: 100%;
         max-height: 70vh;
     }
 }
 
+/*Modifica el fondo del formulario depasos*/
 @media screen and (max-width: 1300px) {
     .fondo {
         width: 100%;
- 
+
     }
 
 }
