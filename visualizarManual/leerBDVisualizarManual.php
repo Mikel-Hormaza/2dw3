@@ -29,20 +29,6 @@ try{
     $resultadoPasos=$conexion->query($sqlPasos);
     $datosPasos = $resultadoPasos->fetchAll();
 
-
-
-/*     echo "<table border=2>";
-    foreach ($datosManual as $lerroa){
-        echo "<tr>";
-        echo "<td>" .$lerroa["codManual"]. "</td>"."<td>" ." izena: ". $lerroa["nombreManual"]."</td>". "<td>" ." helbidea: ". $lerroa["informacionManual"]."</td>";
-        echo "</tr>";
-    }
-    echo "</table>"; */
-echo("<br> DATOS MANUAL: <br>");
-var_dump($datosManual);
-echo("<br> DATOS PASOS: <br>");
-var_dump($datosPasos);
-
 }catch(PDOException $e){
     echo $sqlManual. "<br>" . $e->getMessage();
 }
