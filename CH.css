@@ -1,0 +1,35 @@
+input {
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+    border-radius: 10px;
+    position: relative;
+    justify-content: center;
+}
+
+.centrar {
+    margin-left: 95px; 
+    margin-top: 30px;
+}
+
+.br {
+    margin-top: 30px;
+}
+
+.orden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #efc227;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
