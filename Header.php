@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="Fotos/Icono.ico">
-    <link rel="stylesheet" type="text/css" href="Header.css">
+    <link rel="stylesheet" type="text/css" href="../Header.css">
 </head>
 
 <body>
     <header>
         <div class="Headermain">
             <div>  
-                <img src="Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
+                <img src="../Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
             </div>
             <nav class="item2">
                 <ul>

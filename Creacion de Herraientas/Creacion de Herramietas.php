@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php require_once 'Header.php'?>
+    <?php require_once '../Header.php'?>
         <div class="orden">
             <form action="">
                 <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
@@ -21,7 +21,7 @@
             <br>
             <button class="btn">Crear herramienta</button>
         </div>
-    <?php require_once 'footer.php'?>
+    <?php require_once '../footer.php'?>
 </body>
 
 </html>
