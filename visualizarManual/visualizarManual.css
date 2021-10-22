@@ -187,6 +187,16 @@ article div:last-of-type hr:last-of-type {
     display: none;
 }
 
+@media (min-width: 400px){
+    #infoManual img {
+        justify-self: center;
+        align-self: center;
+        margin-right: 1vh;
+        max-height: 25vh;
+    }
+
+}
+
 @media (min-width: 500px) {
     body {
         margin: 0% 10%;
@@ -204,9 +214,8 @@ article div:last-of-type hr:last-of-type {
     }
 
     #infoManual img {
-        align-self: center;
-        margin-right: 1vh;
-        max-height: max-content;
+        max-height: 70%;
+        max-width: 70%;
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 1;
@@ -316,6 +325,7 @@ article div:last-of-type hr:last-of-type {
 
     .paso div p{
         align-self: center;
+        font-weight: bold;
     }
 
     .paso img {
