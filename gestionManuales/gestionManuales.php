@@ -72,10 +72,10 @@
     </main>
 
     <div id="botonesInicioFinal">
-        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
-        <button><img src="Imagenes/triangulos.jpg" alt="triangulo"></button>
+        <button><img src="Imagenes/primero.png" alt="triangulo"></button>
+        <button><img src="Imagenes/anterior.png" alt="triangulo"></button>
+        <button><img src="Imagenes/siguiente.png" alt="triangulo"></button>
+        <button><img src="Imagenes/último.png" alt="triangulo"></button>
     </div>
 
 

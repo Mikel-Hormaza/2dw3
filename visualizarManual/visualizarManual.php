@@ -12,7 +12,7 @@
 <body>
     <section>
         <div id="amarilloMadre">
-            <img src="Imagenes/paso1.jpg" alt="Imagen paso">
+            <img src="Imagenes/<?php echo $datosManual[0]["fotoManual"] ?>" alt="Imagen paso">
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
         <button id="botonVolver">Volver<span> a biblioteca</span></button>
