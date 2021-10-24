@@ -35,125 +35,75 @@ try {
 
 $conexion = null;
 
-// $largo = strlen($datosManual[0]["informacionManual"]);
+//Utilizamos estas variables para llamar a mostrarBotonMostrar desde el PHP principal
 $informacionManual = $datosManual[0]["informacionManual"];
 $equipoNecesario = $datosManual[0]["equipoNecesario"];
 $medidasDeSeguridad = $datosManual[0]["medidasDeSeguridad"];
 
-
-function mostrarBotonMostrar($texto, $tipoDeDato) 
+/*Si textoProcesado en un string imprime el texto entero.
+Sino, llama a imprimir en trozos (en texto en dos, botón "mostrar"...)*/
+function mostrarBotonMostrar($texto, $tipoDeDato)
 {
     $textoProcesado = decidirSiRecortar($texto);
 
-    if ( ! is_array($textoProcesado)) {
+    if (!is_array($textoProcesado)) {
         imprimirTextoEntero($texto);
-    }
-    else {
+    } else {
         imprimirTextoATrozos($textoProcesado, $tipoDeDato);
     }
 }
-
-function decidirSiRecortar($texto) 
+/*Comprueba el largo del texto*/
+function decidirSiRecortar($texto)
 {
     $lengthMax = 200;
-    if ( strlen($texto) < $lengthMax) {
-       echo $texto;
-       return  $texto;
-    }
-    else {
-       return textoATrozos($texto);
-        
+    /*Si el largo del texto es inferior a 200 caracteres devuelve el texto entero*/
+    if (strlen($texto) < $lengthMax) {
+        echo $texto;
+        return  $texto;
+    } else {
+        /*Sino, devuelve un array con el primer y el segundo trozo del texto*/
+        return textoATrozos($texto);
     }
 }
-
-function textoATrozos($texto) 
+/*Devuelve un array con el primer y el segundo trozo del texto*/
+function textoATrozos($texto)
 {
-    // $primerTrozo = stristr($texto, ". ", 1);
-    // if (!empty($primerTrozo))
-    // {
-    //     $segundoTrozo = stristr($texto, ". ", 0);
-    //     return array ($primerTrozo, $segundoTrozo);
-    // }
-    // else // a lo bestia
-    // {
-        $primerTrozo = substr($texto, 0, 200);
-        $segundoTrozo = substr($texto, strlen($primerTrozo));
-        echo "<br> PRIMER TROZO ".$primerTrozo;
-        echo "<br> PRIMER2 TROZO ".$segundoTrozo;
-        return array ($primerTrozo, $segundoTrozo);
-
-    // }
+    $primerTrozo = substr($texto, 0, 200);
+    $segundoTrozo = substr($texto, strlen($primerTrozo));
+    return array($primerTrozo, $segundoTrozo);
 }
 
 function imprimirTextoATrozos($arrayDeTexto, $tipoDeDato)
 {
     switch ($tipoDeDato) {
         case 1:
-    ?>
-            <p><?php echo $arrayDeTexto[0] ?>
-                <span id="puntos">...</span><span id="mas"><?php echo $arrayDeTexto[1]  ?></span>
+?>
+            <div>
+                <p><?php echo $arrayDeTexto[0]; ?><span id="puntos">...</span><span id="mas"><?php echo $arrayDeTexto[1]; ?></span></p>
                 <button id="botonLeerMas">Mostrar</button>
-            </p><?php
-                break;
-            case 2:
-                ?>
-            <p><?php echo $arrayDeTexto[0]  ?>
-                <span id="puntosEquipo">...</span><span id="masEquipo"><?php echo $arrayDeTexto[1]  ?></span>
-                <br>
-                <button id="botonLeerMasEquipo">Mostrar</button>
-            </p>
+            </div><?php
+                    break;
+                case 2:
+                    ?>
+            <p><?php echo $arrayDeTexto[0]; ?><span id="puntosEquipo">...</span><span id="masEquipo"><?php echo $arrayDeTexto[1]; ?></span></p>
+            <button id="botonLeerMasEquipo">Mostrar</button>
         <?php
-                break;
-            case 3:
+                    break;
+                case 3:
         ?>
-            <p><?php echo $arrayDeTexto[0]  ?>
-                <span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $arrayDeTexto[1]  ?>
-                </span> <br><button id="botonLeerMasSeguridad">Mostrar</button>
-            </p>
-<?php
-                break;
-        }
-}
-
-function imprimirTextoEntero($texto)
-{ ?>
-    <p><?php $texto ?></p>
+            <p><?php echo $arrayDeTexto[0]; ?><span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $arrayDeTexto[1];?></span></p>
+            <button id="botonLeerMasSeguridad">Mostrar</button>
     <?php
-}
-
-function textoCortado($texto, $tipoDeDato)
-{
-    /*cortar a los X caracteres en vez de con un punto porque si no hay punto...*/
-    $primero = stristr($texto, ". ", 1);
-    $segundo = stristr($texto, ". ", 0);
-
-    switch ($tipoDeDato) {
-        case 1:
-    ?>
-            <p><?php echo $primero ?>
-                <span id="puntos">...</span><span id="mas"><?php echo $segundo ?></span>
-                <br>
-                <button id="botonLeerMas">Mostrar</button>
-            </p><?php
-                break;
-            case 2:
-                ?>
-            <p><?php echo $primero ?>
-                <span id="puntosEquipo">...</span><span id="masEquipo"><?php echo $segundo ?></span>
-                <br>
-                <button id="botonLeerMasEquipo">Mostrar</button>
-            </p>
-        <?php
-                break;
-            case 3:
-        ?>
-            <p><?php echo $primero ?>
-                <span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $segundo ?>
-                </span> <br><button id="botonLeerMasSeguridad">Mostrar</button>
-            </p>
-<?php
-                break;
+                    break;
+            }
         }
-    }
+
+        function imprimirTextoEntero($texto)
+        { ?>
+    <p><?php $texto ?></p>
+<?php
+        }
+
+
 
 ?>
