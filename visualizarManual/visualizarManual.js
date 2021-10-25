@@ -17,6 +17,7 @@ function mostrarSeguridad(){
   mostrarTexto("puntosSeguridad", "masSeguridad", "botonLeerMasSeguridad");
 }
 
+/*Mostar la parte del texto oculta*/
 function mostrarTexto(puntosSuspensivos, mas, boton) {
     let puntos = document.getElementById(puntosSuspensivos);
     let masText = document.getElementById(mas);
@@ -24,11 +25,11 @@ function mostrarTexto(puntosSuspensivos, mas, boton) {
   
     if (puntos.style.display == "none") {
       puntos.style.display = "inline";
-      btnText.innerHTML = " Mostrar"; 
+      btnText.innerHTML = "Mostrar"; 
       masText.style.display = "none";
     } else {
       puntos.style.display = "none";
-      btnText.innerHTML = " ocultar"; 
+      btnText.innerHTML = "Ocultar"; 
       masText.style.display = "inline";
     }
   }

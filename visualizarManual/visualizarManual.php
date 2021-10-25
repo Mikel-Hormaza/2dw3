@@ -15,7 +15,7 @@
             <img src="Imagenes/<?php echo $datosManual[0]["fotoManual"] ?>" alt="Imagen paso">
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
-        <button id="botonVolver">Volver<span> a biblioteca</span></button>
+        <button id="botonVolver">Volver<span> a gestión de manuales</span></button>
 
     </section>
 
