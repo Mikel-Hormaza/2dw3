@@ -10,11 +10,11 @@
 </head>
 
 <body>
-<?php require_once '../Header.php'?>
+
         <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
 
         <div class="burua">
-                <button class="return">Volver a la gestion de manuales</button>
+                <button class="return">Volver <span>a la gestion de manuales</span></button>
 
                 <input class="buscador" type="search" placeholder="Nombre de la herramienta">
         </div>
@@ -25,8 +25,9 @@
 
                                 <textarea placeholder="Descripcion de la reparacion"></textarea><br>
 
-                                <label>Imagen:</label>
-                                <input type="file"><br>
+                               
+                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
+                                <input type="file" class="imagen" name="photo" id="upload-photo" /><br>
 
                                 <textarea placeholder="Herramientas necesarias"></textarea><br>
 
@@ -42,15 +43,15 @@
 
                                 <textarea placeholder="Descripcion del paso"></textarea><br>
 
-                                <label class="labelimg">Imagen:</label>
-                                <input class="imagen" type="file"><br>
+
+                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
+                                <input type="file" class="imagen" name="photo" id="upload-photo" />
+                        
 
 
                                 <button class="gordepauso">Guardar Paso</button>
 
                         </form><br>
-
-
                 </div>
 
 
@@ -109,7 +110,7 @@
                 </div>
         </main>
 
-        <?php require_once '../footer.php'?>
+     
 
 </body>
 
