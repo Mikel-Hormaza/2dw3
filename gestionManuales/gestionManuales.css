@@ -114,7 +114,7 @@ button {
     justify-content: center;
 }
 
-/*No mostrar los el texto de los botonesy*/
+/*No mostrar los el texto de los botones*/
 #listaManuales div button p {
     display: none;
 }
@@ -152,7 +152,6 @@ button {
 #listaManuales div p:nth-child(even) {
     display: none;
 }
-
 
 .fotoDelManual {
     display: none;
@@ -270,16 +269,13 @@ button {
 
     #botonesInicioFinal img {
         max-width: 5vh;
-
     }
 }
 
 @media(min-width: 550px) {
 
-
     #listaManuales div button {
         background-color: #EFC227;
-        justify-content: center;
         margin: 5px;
         padding: 0%;
     }
@@ -309,10 +305,6 @@ button {
     #botones {
         flex-direction: row;
         justify-content: space-evenly;
-    }
-
-    #botones button {
-        font-size: 80%;
     }
 
     /*Al principio del div: botones
