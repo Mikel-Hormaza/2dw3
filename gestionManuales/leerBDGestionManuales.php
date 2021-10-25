@@ -22,19 +22,6 @@ try {
 
     $resultadoManuales = $conexion->query($sqlManuales);
     $datosManuales = $resultadoManuales->fetchAll();
-
-    echo ("<br> DATOS MANUALES: <br>");
-    var_dump($datosManuales);
-
-    echo "<table border=2>";
-    foreach ($datosManuales as $manual) {
-        echo "<tr>";
-        echo "<td>" . $manual["codManual"] . "</td>" . "<td>" . " Nombre Manual: " . $manual["nombreManual"] . "</td>" . "<td>" . " Nombre herraminta: " . $manual["nombreHerramienta"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>"; 
-
-
 } catch (PDOException $e) {
     echo $sqlManuales . "<br>" . $e->getMessage();
 }

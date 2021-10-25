@@ -6,7 +6,7 @@
     <title>Gestión manuales</title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
-    <?php require_once "leerBDGestionManuales.php"?>
+    <?php require_once "leerBDGestionManuales.php" ?>
 </head>
 
 <body>
@@ -42,32 +42,56 @@
 
     <main id="listaManuales">
         <div>
-            <button>editar</button>
-            <button>eliminar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
+            <button>
+                <p>eliminar</p>
+                <img src="Imagenes/delete.png" alt="eliminar">
+            </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img src="Imagenes/taladro.jpg" alt="Taladro">
+            <img  class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
-            <button>eliminar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
+            <button>
+                <p>eliminar</p>
+                <img src="Imagenes/delete.png" alt="eliminar">
+            </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img src="Imagenes/sierra.jpg" alt="Taladro">
+            <img  class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
-            <button>eliminar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
+            <button>
+                <p>eliminar</p>
+                <img src="Imagenes/delete.png" alt="eliminar">
+            </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img src="Imagenes/taladro.jpg" alt="Taladro">
+            <img class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
-            <button>eliminar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
+            <button>
+                <p>eliminar</p>
+                <img src="Imagenes/delete.png" alt="eliminar">
+            </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img src="Imagenes/sierra.jpg" alt="Taladro">
+            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
     </main>
 
