@@ -27,7 +27,7 @@ section img {
 
 .botonVolver {
     background-color: #53B3CB;
-    margin: 1vh;
+    margin: 1vh 0px 0px 0px;
 }
 
 button span {
