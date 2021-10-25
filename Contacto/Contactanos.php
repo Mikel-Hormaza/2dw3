@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php require_once '../Header.php'?>
+        
         <form action="" method="">
             <fieldset>
                 <input type="text" name="izena" placeholder="Maria del mar"><br>

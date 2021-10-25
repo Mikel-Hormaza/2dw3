@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
     <link rel="stylesheet" type="text/css" href="CH.css">
-</head>
+
 
 <body>
     <?php require_once '../Header.php'?>

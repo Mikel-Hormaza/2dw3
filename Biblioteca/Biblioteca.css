@@ -1,0 +1,56 @@
+/*La barra de busqueda*/
+.box{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;  
+}
+
+.contenedor{
+    width: 200px;
+    vertical-align: middle;
+    background: #2b303b;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.contenedor input#buscar{
+    width: 175px;
+    height: 40px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+
+}
+
+.contenedor:hover, .contenedor:focus, .contenedor:active{
+    outline:none;
+    background-color: #efc227;
+}
+
+.contenedor input#buscar:hover, .contenedor input#buscar:active{
+    outline:none;
+    background-color: #efc227;
+}
+
+
+/*Los botones*/
+.btn {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #efc227;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
