@@ -334,6 +334,7 @@ button {
     }
 
     #listaManuales div img {
+        border-radius: 8px;
         grid-area: 1/4/3/5;
     }
 
