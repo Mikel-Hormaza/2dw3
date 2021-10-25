@@ -56,7 +56,7 @@ function mostrarBotonMostrar($texto, $tipoDeDato)
 function decidirSiRecortar($texto)
 {
     $lengthMax = 200;
-    /*Si el largo del texto es inferior a 200 caracteres devuelve el texto entero*/
+    /*Si el largo del texto es inferior a 200 caracteres devuelve el texto entero - un stromg*/
     if (strlen($texto) < $lengthMax) {
         echo $texto;
         return  $texto;
