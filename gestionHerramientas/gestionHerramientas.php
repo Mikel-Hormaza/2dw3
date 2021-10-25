@@ -6,6 +6,7 @@
     <title>Gestion Herramientas</title>
     <link rel="stylesheet" href="gestionHerramientas.css">
     <script src="gestionHerramientas.js"></script>
+    <?php require_once "leerBDGestionManual.php" ?>
 </head>
 
 <body>
