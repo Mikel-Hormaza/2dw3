@@ -1,10 +1,10 @@
 <html>
     <head>
-        <title>Fix Point - Inicio2</title>
+        <title>Fix Point - Inicio</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="icon" type="image/png" href="Fotos/Icono.ico">
-        <link type="text/css" rel="stylesheet" href="inicio2.css">
+        <link type="text/css" rel="stylesheet" href="Inicio.css">
     </head>
     <body>
     <header>
@@ -33,17 +33,23 @@
             </div>
         </div>
         <div class="container">
+            <div class="div1">
                 <img class="imagen1" src="profesionalidad1.jpg">
                 <div class="carac1"><h3>PROFESIONALIDAD</h3></div>
-            
+            </div>
+            <div class="div2">
                 <img class="imagen2" src="sostenibilidad.jpg">
                 <div class="carac2"><h3>SOSTENIBILIDAD</h3></div>
-
+            </div>
+            <div class="div3">
                 <img class="imagen3" src="reparar.jpg">
                 <div class="carac3"><h3>RESPONSABILIDAD</h3></div>
-
+            </div>
+            <div class="div4">
                 <img class="imagen4" src="solidaridad2.png">
                 <div class="carac4"><h3>SOLIDARIDAD</h3></div>
+            </div>
+
         </div>
         <footer class="footer-distributed">
         <div class="footer-I">

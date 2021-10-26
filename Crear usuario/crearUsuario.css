@@ -91,7 +91,7 @@ nav li a:hover {
 }
 .volver {
     margin-left: 17%;
-    width: 18%;
+    width: 20%;
     height: 40px;
     background-color: #53b3cb;
     border-radius: 7px;
@@ -216,7 +216,7 @@ body {
     }
     .volver {
         margin-left: 8%;
-        width: 30%;
+        width: 34%;
         height: 40px;
         background-color: #53b3cb;
         border-radius: 7px;
@@ -320,7 +320,7 @@ body {
     }
     .volver {
         margin-left: 7%;
-        width: 46%;
+        width: 52%;
         height: 40px;
         background-color: #53b3cb;
         border-radius: 7px;

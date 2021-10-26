@@ -24,18 +24,18 @@
         </div>
             
     </header>-->
-    <form method="post">
+    <form method="post" action="crearUsuario2.php">
         <br>
         <input type="submit" class="volver" value="VOLVER AL INICIO DE SESIÓN" >
         <h2 class="create">Crear usuario</h2>
         <br>
-        <input type="text" class="nombre" placeholder="  Nombre" pattern="[A-Za-z]{3,}" title="Solo se admiten letras, mínimo 3" required>
+        <input type="text" name="nombre" class="nombre" placeholder="  Nombre" pattern="[A-Za-z]{3,}" title="Solo se admiten letras, mínimo 3" required>
         <br><br>
-        <input type="text" class="correo" placeholder="  Correo eletrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Tiene que coincidir con este formato: caracteres@caracteres.dominio" required>
+        <input type="text" name="correo" class="correo" placeholder="  Correo eletrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Tiene que coincidir con este formato: caracteres@caracteres.dominio" required>
         <br><br>
-        <input type="password" class="password" placeholder="  Nueva contraseña" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Tiene que tener al menos 8 caracteres, un número, una minúscula y una mayúscula" required> <!-- Al menos 1 número, mayus y minus-->
+        <input type="password" name="contraseña" class="password" placeholder="  Nueva contraseña" title="Tiene que tener al menos 8 caracteres, un número, una minúscula y una mayúscula" required>  <!--Al menos 1 número, mayus y minus-->
         <br><br>
-        <input type="password" class="repeatPW" placeholder="  Repita la contraseña" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Tiene que tener al menos 8 caracteres, un número, una minúscula y una mayúscula" required>
+        <input type="password" name="contraseña2" class="repeatPW" placeholder="  Repita la contraseña"  title="Tiene que tener al menos 8 caracteres, un número, una minúscula y una mayúscula" required>
         <br><br><br><br><br>
         <input type="submit" class="registrarse" value="Registrarse">
     </form>
