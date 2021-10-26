@@ -10,6 +10,7 @@
 </head>
 
 <body>
+        <?php require_once '../Header.php'?>
         <main class="iniciosesion">
                 <div class="logo">
                         <img class="imagen" src="../Fotos/Fix Point logo.PNG"><br>
@@ -27,6 +28,7 @@
                 </fieldset>
 
         </main>
+        <?php require_once '../footer.php'?>
 </body>
 
 </html>

@@ -1,7 +1,10 @@
 /*Para cambiar la letra de toda la pagina*/
 body {
     font-family: Georgia;
+   
 }
+
+
 
 /*Para que el contenido de la pagina cuando este en formato movil este en una sola columna*/
 .iniciosesion {
@@ -63,27 +66,24 @@ body {
 }
 
 /*Para controlar el tamaño de la imagen del logo*/
-.imagen {
-    width: 400px;
-    height: 100px;
-}
 
+.imagen {
+    width: 300px;
+    height: 75px;
+}
 /*Cuando el tamaño de la pagina se modifica para que el diseño tambien lo aga*/
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
 
     /*Para controlar que en tamaño tablet el logo y el formulario no esten en una sola columna */
     .iniciosesion {
-        margin-top: 15%;
         flex-direction: row;
-
-
     }
 
-    .logo {
-        margin-right: 100px;
-
+ 
+    .imagen {
+        width: 200px;
+        height: 50px;
     }
-
 }
 
 
@@ -91,14 +91,13 @@ body {
 
     /*Para que en tamaño orddenador el logo y el formulario no esten en una sola columna*/
     .iniciosesion {
-        margin-top: 15%;
+        margin: 10%;
         flex-direction: row;
 
 
     }
-
-    .logo {
-        margin-right: 150px;
-
+    .imagen {
+        width: 400px;
+        height: 100px;
     }
 }
