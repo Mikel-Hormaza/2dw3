@@ -2,10 +2,19 @@ window.addEventListener("load", inicio);
 
 /*Mostrar más*/
 function inicio() {
-    document.getElementById("botonLeerMas").addEventListener("click", mostrarDetalles);
+  calcularSiAnadirFuncionAlBoton();
+/*     document.getElementById("botonLeerMas").addEventListener("click", mostrarDetalles);
     document.getElementById("botonLeerMasEquipo").addEventListener("click", mostrarEquipo);
-    document.getElementById("botonLeerMasSeguridad").addEventListener("click", mostrarSeguridad);
+    document.getElementById("botonLeerMasSeguridad").addEventListener("click", mostrarSeguridad); */
 }
+
+/*Comprobar si hay uno o dos párrafos een los div. Si hay uno, no añadir addEventListener al botón porque no existe.
+Si hay dos, añadir*/
+function calcularSiAnadirFuncionAlBoton(){
+  let div1 = document.getElementById("divInfoDetallesManual");
+  let largoDeDiv1 = div1.getElementsByTagName("P");
+  alert(largoDeDiv1.length);
+}  
 
 function mostrarDetalles(){
   mostrarTexto("puntos", "mas", "botonLeerMas");
@@ -33,9 +42,3 @@ function mostrarTexto(puntosSuspensivos, mas, boton) {
       masText.style.display = "inline";
     }
   }
-
-/*   mostrarEdukia();
-
-  function mostrarEdukia(){
-    alert (<?php $informacionManual;?>);
-  } */
