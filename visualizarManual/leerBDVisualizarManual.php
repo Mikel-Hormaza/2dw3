@@ -6,7 +6,7 @@ $password = "";
 /* <!-- 
 AQUÍ PASAR COMO SESSION EL COD DE MANUAL?
  --> */
-$_SESSION['codManualSeleccionado'] = 2;
+$_SESSION['codManualSeleccionado'] = 1;
 $codManualSeleccionado = $_SESSION['codManualSeleccionado'];
 
 /*Conectar con la BD y leer los datos del manual y sus pasos*/
@@ -56,9 +56,8 @@ function mostrarBotonMostrar($texto, $tipoDeDato)
 function decidirSiRecortar($texto)
 {
     $lengthMax = 200;
-    /*Si el largo del texto es inferior a 200 caracteres devuelve el texto entero - un stromg*/
+    /*Si el largo del texto es inferior a 200 caracteres devuelve el texto entero - un string*/
     if (strlen($texto) < $lengthMax) {
-        echo $texto;
         return  $texto;
     } else {
         /*Sino, devuelve un array con el primer y el segundo trozo del texto*/
@@ -68,7 +67,7 @@ function decidirSiRecortar($texto)
 /*Devuelve un array con el primer y el segundo trozo del texto*/
 function textoATrozos($texto)
 {
-    $primerTrozo = substr($texto, 0, 200);
+    $primerTrozo = substr($texto, 0, 150);
     $segundoTrozo = substr($texto, strlen($primerTrozo));
     return array($primerTrozo, $segundoTrozo);
 }
@@ -98,9 +97,9 @@ function imprimirTextoATrozos($arrayDeTexto, $tipoDeDato)
             }
         }
 
-        function imprimirTextoEntero($texto)
-        { ?>
-    <p><?php $texto ?></p>
+function imprimirTextoEntero($texto)
+{ ?>
+<p><?php echo $texto ?></p>
 <?php
         }
 

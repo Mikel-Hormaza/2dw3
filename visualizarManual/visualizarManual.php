@@ -15,7 +15,7 @@
             <img src="Imagenes/<?php echo $datosManual[0]["fotoManual"] ?>" alt="Imagen paso">
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
-        <button id="botonVolver">Volver<span> a gestión de manuales</span></button>
+        <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
 
     </section>
 
@@ -28,7 +28,9 @@
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
                     <h3>Creador: <?php echo $datosManual[0]["nomUsuario"]; ?></h3>
                 </div>
+                <div>
                 <?php mostrarBotonMostrar($informacionManual, 1); ?>
+                </div>
             </div>
             <div id="equipoNecesario">
                 <div>
@@ -46,12 +48,13 @@
 
 
         <?php
+        $numPaso = 0;
         foreach ($datosPasos as $paso) {
         ?>
             <div class="paso">
                 <div>
-                    <?php $numPaso = 1; ?>
-                    <h3 class="pasoTitulo">Paso<?php echo $numPaso ?></h3>
+                    <?php $numPaso++; ?>
+                    <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
                     <p><?php echo $paso["tituloPaso"] ?></p>
                 </div>
                 <img src="Imagenes/<?php echo $paso["fotoPaso"] ?>" alt="">

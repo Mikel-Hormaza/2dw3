@@ -33,3 +33,9 @@ function mostrarTexto(puntosSuspensivos, mas, boton) {
       masText.style.display = "inline";
     }
   }
+
+/*   mostrarEdukia();
+
+  function mostrarEdukia(){
+    alert (<?php $informacionManual;?>);
+  } */
