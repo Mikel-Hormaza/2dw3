@@ -12,10 +12,10 @@ try {
     $sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta";
 
-$resultadoHerramienta = $conexion->query($sqlherramienta);
-$datosHerramienta = $resultadoHerramienta->fetchAll();
+    $resultadoHerramienta = $conexion->query($sqlherramienta);
+    $datosHerramienta = $resultadoHerramienta->fetchAll();
 
-$sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
+    $sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta, manual, usuario WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
 
 }catch (PDOException $e){
@@ -23,4 +23,3 @@ $sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerram
 
 }
 $konexioa=null;
-?>
