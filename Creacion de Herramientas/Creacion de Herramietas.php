@@ -12,11 +12,11 @@
 <body>
     <?php require_once '../Header.php'?>
         <div class="orden">
-            <form action="">
+            <form action="" class="formula">
                 <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
                 <input type="text" name="categoria" class="centrar" placeholder="Categoria"><br>
-                <label for="Imagen" >Imagen:</label>
-                <input type="file" class="br">
+                <label for="Imagen" class="label-img">Imagen:</label>
+                <input type="file" class="br" name="picture">
             </form>
             <br>
             <button class="btn">Crear herramienta</button>

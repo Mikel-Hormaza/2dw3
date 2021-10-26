@@ -9,14 +9,14 @@
     </head>
     <body>
         <?php require_once '../Header.php'?>
-        
+        <img src="" alt="">
         <form action="" method="">
             <fieldset>
                 <input type="text" name="izena" placeholder="Maria del mar"><br>
-                <input type="text" name="izena" placeholder="G&oacute;mez L&oacute;pez"><br>
-                <input type="text" name="izena" placeholder="mariagomez@gmail.com"><br>
-                <input type="text" name="izena" placeholder="654654654"><br>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Escribe &aacute;qui tu mensaje"></textarea>
+                <input type="text" name="abizena" placeholder="G&oacute;mez L&oacute;pez"><br>
+                <input type="text" name="gmail" placeholder="mariagomez@gmail.com"><br>
+                <input type="text" name="telefonoa" placeholder="654654654"><br>
+                <textarea name="" class="tarea" cols="30" rows="10" placeholder="Escribe &aacute;qui tu mensaje"></textarea>
             </fieldset>
         </form>
         <?php require_once '../footer.php'?>

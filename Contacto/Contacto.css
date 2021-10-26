@@ -36,4 +36,10 @@ fieldset {
         position: relative;
         justify-content: center;
     }
+
+    .tarea {
+        margin: 0;
+        width: 196px;
+        height: 108px;
+    }
 }

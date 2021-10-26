@@ -1,8 +1,6 @@
 html {
     margin-top: 10px;
-    margin-right: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
 }
 
 body {
@@ -20,7 +18,7 @@ nav {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0%;
     background: #EFC227;
     text-decoration: none;
     border-radius: 3px;
@@ -30,7 +28,7 @@ nav li a {
     color: white;
     display: block;
     text-decoration: none;
-    padding: .5em 1em;
+    padding: .4em 1em;
     border-radius: 3px;
 }
 
@@ -41,7 +39,7 @@ nav li a:hover {
 
 /*Esta es una clase para la imagen*/
 img.logo {
-    width: 160px;
+    width: 130px;
     height: 45px;
 }
 
@@ -57,12 +55,14 @@ img.logo {
     border-radius: 5px;
     position: relative;
     justify-content: center;
+    margin-left: 0%;
 }  
 
 .Headermain {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0%;
 }
 
 .mobile-btn {
@@ -79,7 +79,6 @@ img.logo {
         margin: 0% 12%;
     }
 
-    
     .item1 {grid-area: logo;}
     .item2 {grid-area: menu;}
     .item3 {grid-area: boton;}
@@ -94,7 +93,13 @@ img.logo {
       }
     
     .sesion {
-        width: 90px;    
+        margin-left: 0%;
+    }
+
+    img.logo {
+        margin-left: 20px;
+        width: 100px;
+        height: 20px;
     }
 }
 
@@ -111,6 +116,5 @@ img.logo {
 
     .sesion {
         width: 100px;
-    }
-    
+    } 
 }
