@@ -6,8 +6,8 @@ $password = "";
 
 
 try {
-    $konexioa = new PDO("mysql:host=$servidor;dbname=fixpoint",$usuario, $password);
-    $konexioa->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint",$usuario, $password);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta";
@@ -16,7 +16,7 @@ $resultadoHerramienta = $conexion->query($sqlherramienta);
 $datosHerramienta = $resultadoHerramienta->fetchAll();
 
 $sqlherramienta="SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
-    FROM herramienta";
+    FROM herramienta, manual, usuario WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
 
 }catch (PDOException $e){
     echo $sqlherramienta."<br>" .$e->getMessage();
