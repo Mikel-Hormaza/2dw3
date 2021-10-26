@@ -5,8 +5,8 @@
         <title>Fix Point</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
-        <link rel="stylesheet" type="text/css" href="Creacion de manuales.css">
+        <link rel="icon" type="image/png" href="../Imagenes/Icono.ico">
+        <link rel="stylesheet" type="text/css" href="creacionManuales.css">
 </head>
 
 <body>
@@ -14,26 +14,26 @@
         <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
 
         <div class="burua">
-                <button class="return">Volver <span>a la gestion de manuales</span></button>
+                <button class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
 
                 <input class="buscador" type="search" placeholder="Nombre de la herramienta">
         </div>
         <main class="contenedor">
                 <div class="formularios">
                         <form class="formulario">
-                                <input type="text" placeholder="Nombre"><br>
+                                <input type="text" placeholder="Nombre">
 
-                                <textarea placeholder="Descripcion de la reparacion"></textarea><br>
+                                <textarea placeholder="Descripcion de la reparacion"></textarea>
 
-                               
-                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
-                                <input type="file" class="imagen" name="photo" id="upload-photo" /><br>
 
-                                <textarea placeholder="Herramientas necesarias"></textarea><br>
+                                <label class="labelimg" for="upload-photo">Seleccione la imagen del manual</label>
+                                <input type="file" class="imagen" name="photo" id="upload-photo" />
 
-                                <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea><br>
+                                <textarea placeholder="Herramientas necesarias"></textarea>
 
-                                <button class="gorde">Guardar</button>
+                                <textarea placeholder="Medidas de seguridad"></textarea>
+
+                                <button class="gorde">Guardar datos del manual</button>
                         </form>
 
                         <form class="fondo">
@@ -44,12 +44,12 @@
                                 <textarea placeholder="Descripcion del paso"></textarea><br>
 
 
-                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
+                                <label class="labelimg" for="upload-photo">Seleccione imagen del paso</label>
                                 <input type="file" class="imagen" name="photo" id="upload-photo" />
-                        
 
 
-                                <button class="gordepauso">Guardar Paso</button>
+
+                                <button class="gordepauso">Guardar paso</button>
 
                         </form><br>
                 </div>
@@ -61,7 +61,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Fotos/reparacion.jpg" alt="">
+                                <img src="Imagenes/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -78,7 +78,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Fotos/reparacion.jpg" alt="">
+                                <img src="Imagenes/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -95,7 +95,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Fotos/reparacion.jpg" alt="">
+                                <img src="Imagenes/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -110,7 +110,7 @@
                 </div>
         </main>
 
-     
+
 
 </body>
 
