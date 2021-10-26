@@ -4,7 +4,6 @@
 <head>
         <title>Fix Point</title>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="icon" type="image/png" href="../Imagenes/Icono.ico">
         <link rel="stylesheet" type="text/css" href="creacionManuales.css">
 </head>
@@ -26,7 +25,7 @@
                                 <textarea placeholder="Descripcion de la reparacion"></textarea>
 
 
-                                <label class="labelimg" for="upload-photo">Seleccione la imagen del manual</label>
+                                <label class="labelimg" for="upload-photo">Imagen<span> del manual</span></label>
                                 <input type="file" class="imagen" name="photo" id="upload-photo" />
 
                                 <textarea placeholder="Herramientas necesarias"></textarea>
@@ -44,14 +43,18 @@
                                 <textarea placeholder="Descripcion del paso"></textarea><br>
 
 
-                                <label class="labelimg" for="upload-photo">Seleccione imagen del paso</label>
+                                <label class="labelimg" for="upload-photo">Imagen<span> del paso</span></label>
                                 <input type="file" class="imagen" name="photo" id="upload-photo" />
 
 
 
                                 <button class="gordepauso">Guardar paso</button>
 
-                        </form><br>
+                        </form>
+                        <div id="botonesCierre">
+                                <button class="gordepauso">Salir sin guardar</button>
+                                <button class="gordepauso">Finalizar y guardar manual</button>
+                        </div>
                 </div>
 
 

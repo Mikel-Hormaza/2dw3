@@ -32,7 +32,9 @@ body {
     justify-content: center;
 }
 
+/*Controlar el formulario de la creacion de los pasos*/
 .fondo {
+    background-color: #5C8001;
     margin: 1vh;
     border-radius: 8px;
 }
@@ -48,6 +50,7 @@ body {
 
 /*Para controlar la posicion y el diseño del boton para volver a lapantalla de gestionde manuales*/
 .return {
+    text-transform: uppercase;
     font-size: medium;
     border-radius: 5px;
     color: #626267;
@@ -64,14 +67,11 @@ body {
     color: #626267;
 }
 
-button span {
+span {
     display: inline;
 }
 
-/*Para controlar el formulario de la creacion de los pasos*/
-.fondo {
-    background-color: #5C8001;
-}
+
 
 .fondo h4 {
     align-self: center;
@@ -81,6 +81,7 @@ button span {
 /*Para contrtolar laposicion y el doiseño delboton que guarda la informacion del manual*/
 .gorde,
 .gordepauso {
+    text-transform: uppercase;
     font-family: Georgia;
     width: fit-content;
     background-color: #EFC227;
@@ -104,6 +105,7 @@ button span {
 
 /*Para controlar la posicion de el texto imagen*/
 .labelimg {
+    text-transform: uppercase;
     cursor: pointer;
     background-color: #EFC227;
     font-size: medium;
@@ -115,22 +117,33 @@ button span {
     align-self: center;
 }
 
+/*Contenedor de los formularios de creacion de pasos y manuales*/
+.formularios {
+    border-right: 5px solid black;
+    grid-column: 1/2;
+    margin-right: 5%;
+}
+
+#botonesCierre{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#botonesCierre button{
+    margin: 1vh;
+    background-color: #A8902D;
+    color: white;
+    width: 30vh;
+}
+
+
 /*Contenedor para separar los pasos creados*/
 .mostrarpasos {
     margin-left: 5%;
     border-left: 5px solid black;
     grid-column: 2/3;
 }
-
-/*Contenedor de los formularios de creacion de pasos y manuales*/
-.formularios {
-    border-right: 5px solid black;
-    grid-column: 1/2;
-    margin-right: 5%;
-
-}
-
-
 
 h3:not(.pasoTitulo) {
     text-align: center;
@@ -152,14 +165,13 @@ h3:not(.pasoTitulo) {
     max-height: 20vh;
 }
 
-article div:last-of-type hr:last-of-type {
-    display: none;
-}
 
 input {
     max-width: 100%;
     margin-right: 1vh;
 }
+
+
 
 
 @media (min-width: 500px) {
@@ -186,7 +198,6 @@ input {
     .contenedor {
         display: grid;
         grid-template-columns: auto auto;
-
     }
 
     .mostrarpasos {
@@ -206,65 +217,63 @@ input {
         max-height: 50vh;
     }
 
-
 }
 
 @media screen and (max-width: 460px) {
-
-    .contenedor {
-        display: grid;
-        grid-template-columns: auto;
-
-    }
-
-    .mostrarpasos {
-        margin-left: 0%;
-        border-left: none;
-        grid-column: 1/2;
-    }
-
-    .formularios {
-        border-right: none;
-        grid-column: 1/2;
-        margin-right: 0%;
-    }
 
     .paso img {
         width: 100%;
         max-height: 70vh;
     }
 
-    button span {
+    span {
         display: none;
     }
 }
 
+@media screen and (max-width: 700px) {
 
-@media screen and (max-width: 370px) {
-    .fondo {
+    
+.formulario {
+    max-width: 90%;
+}
 
-        width: 100%;
-        margin-left: 10%;
 
-    }
 
-    .gorde {
-
-        margin-left: 70px;
-
-    }
-
-    .formularios {
-        width: 70%;
-    }
-
-    .formulario {
-        width: 100%;
-        margin-left: 10%;
-    }
-
-    .mostrarpasos {
-        width: 90%;
-    }
+.formulario >*,
+.fondo >*{
+    width: 80%;
+}
 
 }
+
+@media screen and (max-width: 600px) {
+
+    
+    .formulario  {
+        display: flex;
+        align-items: left;
+        max-width: 85%;
+    }
+    .formulario >*{
+        width: 75%;
+    }
+    
+    }
+
+    @media screen and (max-width: 550px) {
+
+    
+        .formulario  {
+            display: flex;
+            align-items: left;
+            max-width: 75%;
+        }
+        .formulario >*{
+            width: 65%;
+        }
+        
+        }
+
+
+
