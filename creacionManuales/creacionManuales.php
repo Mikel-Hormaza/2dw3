@@ -5,16 +5,16 @@
         <title>Fix Point</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" type="image/png" href="../Imagenes/Icono.ico">
-        <link rel="stylesheet" type="text/css" href="creacionManuales.css">
+        <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
+        <link rel="stylesheet" type="text/css" href="Creacion de manuales.css">
 </head>
 
 <body>
-<?php require_once '../Header.php'?>
+
         <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
 
         <div class="burua">
-                <button class="return">Volver a la gestion de manuales</button>
+                <button class="return">Volver <span>a la gestion de manuales</span></button>
 
                 <input class="buscador" type="search" placeholder="Nombre de la herramienta">
         </div>
@@ -23,14 +23,15 @@
                         <form class="formulario">
                                 <input type="text" placeholder="Nombre"><br>
 
-                                <textarea placeholder="Descripcion de la reparación"></textarea><br>
+                                <textarea placeholder="Descripcion de la reparacion"></textarea><br>
 
-                                <label>Imagen:</label>
-                                <input type="file"><br>
+                               
+                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
+                                <input type="file" class="imagen" name="photo" id="upload-photo" /><br>
 
                                 <textarea placeholder="Herramientas necesarias"></textarea><br>
 
-                                <textarea placeholder="Medidas de seguridad que hay que tomar"></textarea><br>
+                                <textarea placeholder="Medidas de seguridad que hay  que tomar"></textarea><br>
 
                                 <button class="gorde">Guardar</button>
                         </form>
@@ -40,17 +41,17 @@
 
                                 <input type="text" placeholder="Titulo"><br>
 
-                                <textarea placeholder="Descripción del paso"></textarea><br>
+                                <textarea placeholder="Descripcion del paso"></textarea><br>
 
-                                <label class="labelimg">Imagen:</label>
-                                <input class="imagen" type="file"><br>
+
+                                <label class="labelimg" for="upload-photo">Seleccione imagen</label>
+                                <input type="file" class="imagen" name="photo" id="upload-photo" />
+                        
 
 
                                 <button class="gordepauso">Guardar Paso</button>
 
                         </form><br>
-
-
                 </div>
 
 
@@ -60,7 +61,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Imagenes/reparacion.jpg" alt="">
+                                <img src="Fotos/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -77,7 +78,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Imagenes/reparacion.jpg" alt="">
+                                <img src="Fotos/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -94,7 +95,7 @@
                                         <h3 class="pasoTitulo">Paso 1 </h3>
                                         <p>Desmontaje del iPhone 12 Pro Max </p>
                                 </div>
-                                <img src="Imagenes/reparacion.jpg" alt="">
+                                <img src="Fotos/reparacion.jpg" alt="">
                                 <p>
                                         En caso de que no lo hayas oído, el cuadrado es redondo... de nuevo.
 
@@ -109,7 +110,7 @@
                 </div>
         </main>
 
-        <?php require_once '../footer.php'?>
+     
 
 </body>
 
