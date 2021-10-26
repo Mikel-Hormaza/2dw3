@@ -6,7 +6,7 @@ $password = "";
 /* <!-- 
 AQUÍ PASAR COMO SESSION EL COD DE MANUAL?
  --> */
-$_SESSION['codManualSeleccionado'] = 2;
+$_SESSION['codManualSeleccionado'] = 1;
 $codManualSeleccionado = $_SESSION['codManualSeleccionado'];
 
 /*Conectar con la BD y leer los datos del manual y sus pasos*/
@@ -90,16 +90,16 @@ function imprimirTextoATrozos($arrayDeTexto, $tipoDeDato)
                     break;
                 case 3:
         ?>
-            <p><?php echo $arrayDeTexto[0]; ?><span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $arrayDeTexto[1];?></span></p>
+            <p><?php echo $arrayDeTexto[0]; ?><span id="puntosSeguridad">...</span><span id="masSeguridad"><?php echo $arrayDeTexto[1]; ?></span></p>
             <button id="botonLeerMasSeguridad">Mostrar</button>
     <?php
                     break;
             }
         }
 
-function imprimirTextoEntero($texto)
-{ ?>
-<p><?php echo $texto ?></p>
+        function imprimirTextoEntero($texto)
+        { ?>
+    <p><?php echo $texto ?></p>
 <?php
         }
 

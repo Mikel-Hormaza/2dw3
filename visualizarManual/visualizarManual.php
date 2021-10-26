@@ -29,7 +29,7 @@
                     <h3>Creador: <?php echo $datosManual[0]["nomUsuario"]; ?></h3>
                 </div>
                 <div id="divInfoDetallesManual">
-                <?php mostrarBotonMostrar($informacionManual, 1); ?>
+                    <?php mostrarBotonMostrar($informacionManual, 1); ?>
                 </div>
             </div>
             <div id="equipoNecesario">
