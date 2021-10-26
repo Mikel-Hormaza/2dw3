@@ -79,60 +79,78 @@ button {
     width: 100%;
 }
 
-/*MANUALES*/
+/*HERRAMIENTAS*/
 
-#listaManuales {
+#listaHerramientas {
     margin: 1vh 1vh;
     border-radius: 15px;
 }
 
-#listaManuales div {
+#listaHerramientas div {
     display: grid;
-    grid-template-columns: auto 30%;
+    grid-template-columns: 15% auto;
     color: white;
 }
 
-#listaManuales div:nth-child(1) {
+#listaHerramientas div:nth-child(1) {
     border-radius: 10px 10px 0px 0px;
 }
 
-#listaManuales div:last-child {
+#listaHerramientas div:last-child {
     border-radius: 0px 0px 10px 10px;
 }
 
-#listaManuales div:nth-child(odd) {
+#listaHerramientas div:nth-child(odd) {
     background-color: #4F6E01;
 }
 
-#listaManuales div:nth-child(even) {
+#listaHerramientas div:nth-child(even) {
     background-color: #5C8001;
 }
 
-#listaManuales div button {
+#listaHerramientas div button {
+    background-color: transparent;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin: 1vh;
+}
+
+/*No mostrar los el texto de los botones*/
+#listaHerramientas div button p {
     display: none;
 }
 
-#listaManuales div p {
+/*Mostrar los iconos editar y eliminar la imagen del manual*/
+#listaHerramientas div button img {
+    max-height: 3vh;
+    max-width: 3vh;
+    margin: auto;
+}
+
+#listaHerramientas div p {
     margin: auto 1vh auto 1vh;
 }
 
-#listaManuales div p:nth-child(even) {
-    grid-column-start: 1;
-    grid-column-end: 2;
+#listaHerramientas div p:nth-child(even) {
+    font-size: small;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-#listaManuales div p:nth-child(odd) {
+#listaHerramientas div p:nth-child(odd) {
     display: none;
 }
 
-#listaManuales div img {
+.fotoDelManual {
+    display: none;
     max-width: 7vh;
     height: auto;
     object-fit: contain;
     grid-column-start: 2;
     grid-column-end: 3;
     margin: 1vh auto 1vh auto;
-}   
+}
 
 #botonesInicioFinal {
     display: flex;
@@ -141,15 +159,16 @@ button {
 }
 
 #botonesInicioFinal button {
-    height: 3em;
-    width: 3em;
+    height: 2em;
+    width: 2em;
     margin: 1vh;
     border-radius: 5px;
     padding: 0%;
+    align-content: center;
 }
 
-#botonesInicioFinal img{
-    max-width: 5vh;
+#botonesInicioFinal img {
+    max-width: 3vh;
     height: auto;
 }
 
@@ -163,6 +182,18 @@ button {
 
     section img {
         max-height: 15vh;
+    }
+
+    #listaHerramientas div p:nth-child(odd) {
+        font-size: medium;
+    }
+
+    #listaHerramientas div button img {
+        max-height: 3vh;
+        max-width: 3vh;
+    }
+    #listaHerramientas div p:nth-child(even){
+        font-size: medium;
     }
 
     /*Quitar la barra del buscador y poner
@@ -227,17 +258,48 @@ button {
     .mostrar {
         display: block;
     }
-}
 
-@media (max-width: 430px) {
-    #listaManuales div img {
-        max-width: 6vh;
+    #botonesInicioFinal button {
+        height: 6vh;
+        width: 6vh;
+        padding: auto;
+    }
+
+    #botonesInicioFinal img {
+        max-width: 5vh;
     }
 }
 
-@media (min-width: 500px) {
+
+@media(min-width: 550px) {
+
+    #listaHerramientas div{
+        grid-template-columns: 10% auto;
+    }
+
+    #listaHerramientas div button {
+        background-color: #EFC227;
+        justify-content: center;
+        margin: 5px;
+    }
+
+    /*No mostrar los el texto de los botones*/
+    #listaHerramientas div button p {
+        display: none;
+    }
+
+    #listaHerramientas div button img {
+        max-height: 4vh;
+        max-width: 4vh;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+}
+
+@media (min-width: 800px) {
     body {
-        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+        margin: 0% 10%;
     }
 
     #botones {
@@ -245,44 +307,61 @@ button {
         justify-content: space-evenly;
     }
 
-    #botones button {
-        font-size: 80%;
-    }
-
     /*Al principio del div: botones
         en el centro: texto
         final: foto*/
 
-    #listaManuales div {
+    #listaHerramientas div {
         grid-template-columns: 15% auto 20%;
         grid-template-rows: 50% 50%;
     }
 
-    #listaManuales div p {
+    #listaHerramientas div p {
         text-align: end;
     }
 
-    #listaManuales div p:nth-child(even) {
+    #listaHerramientas div p:nth-child(even) {
         grid-area: 1/2/2/3;
     }
 
     /*Mostrar categoria*/
-    #listaManuales div p:nth-child(odd) {
+    #listaHerramientas div p:nth-child(odd) {
         display: block;
         grid-area: 2/2/3/3;
     }
 
-    #listaManuales div img {
+    #listaHerramientas div img {
+        border-radius: 8px;
         grid-area: 1/3/3/4;
     }
 
-    #listaManuales div button {
+    #listaHerramientas div button {
         display: block;
         margin: 1vh auto 1vh auto;
         padding: 5%;
         margin: auto;
         grid-area: 1/1/3/2;
     }
+
+    /*Ocultar icono de botón*/
+    #listaHerramientas div button img {
+        display: none
+    }
+
+    /*Mostrar texto de botón*/
+    #listaHerramientas div button p {
+        display: block
+    }
+
+    .fotoDelManual {
+        display: block;
+        max-height: 7vh;
+        max-width: 7vh;
+        object-fit: contain;
+        align-self: center;
+        margin: 1vh auto 1vh auto;
+    }
+
 }
 
 @media (min-width: 860px) {
@@ -300,6 +379,11 @@ button {
     /*Muestro el texto del botón volver*/
     button span {
         display: inline;
+    }
+
+    #listaHerramientas div img {
+        max-height: 10vh;
+        max-width: 10vh;
     }
 }
 

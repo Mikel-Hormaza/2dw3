@@ -6,7 +6,6 @@
     <title>Gestion Herramientas</title>
     <link rel="stylesheet" href="gestionHerramientas.css">
     <script src="gestionHerramientas.js"></script>
-    <?php require_once "../gestionHerramientas/leerBDGestionHerramientas.php" ?>
 </head>
 
 <body>
@@ -40,30 +39,42 @@
         </div>
     </section>
 
-    <main id="listaManuales">
+    <main id="listaHerramientas">
         <div>
-            <button>editar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Imagenes/taladro.jpg" alt="Taladro">
+            <img class="fotoDelManual"src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Imagenes/sierra.jpg" alt="Taladro">
+            <img class="fotoDelManual"src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Imagenes/taladro.jpg" alt="Taladro">
+            <img class="fotoDelManual"src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
-            <button>editar</button>
+            <button>
+                <p>editar</p>
+                <img src="Imagenes/edit.png" alt="editar">
+            </button>
             <p>Nombre de herramienta</p>
             <p>Categoría de herramienta</p>
-            <img src="Imagenes/sierra.jpg" alt="Taladro">
+            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
     </main>
 
