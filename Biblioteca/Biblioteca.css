@@ -92,3 +92,63 @@ img.fotos {
     align-items: center;
     grid-column: 3/3;
 }
+
+/*BOTONES*/
+.btnCambio {
+    background-color: #EFC227;
+    text-transform: uppercase;
+    color: #626267;
+    font-size: 2vh;
+    width: max-content;
+    border-radius: 8px;
+    border: none;
+    padding: 1% 4%;
+    cursor: pointer;
+}
+
+.botonVolver {
+    background-color: #53B3CB;
+    margin: 1vh 0px 0px 0px;
+}
+
+button span {
+    display: inline;
+}
+
+.botonDesplegar,
+.contenidoADesplegar {
+    display: none;
+}
+
+.botonCategoria,
+.contenidoCategoria {
+    display: none;
+}
+
+#botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#botones button {
+    margin-bottom: 1em;
+}
+
+#botonesInicioFinal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 50px;   
+}
+
+#botonesInicioFinal button {
+    height: 6vh;
+    width: 6vh;
+    padding: auto;
+}
+
+#botonesInicioFinal img {
+    max-width: 5vh;
+    height: auto;
+}

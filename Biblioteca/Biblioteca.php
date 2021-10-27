@@ -46,6 +46,12 @@
                 <label for="">Taladro</label>
             </div>
         </section>
+        <div id="botonesInicioFinal">
+            <button class="btnCambio"><img src="../Biblioteca/Fotos/primero.png" alt="triangulo"></button>
+            <button class="btnCambio"><img src="../Biblioteca/Fotos/anterior.png" alt="triangulo"></button>
+            <button class="btnCambio"><img src="../Biblioteca/Fotos/siguiente.png" alt="triangulo"></button>
+            <button class="btnCambio"><img src="../Biblioteca/Fotos/último.png" alt="triangulo"></button>
+        </div>
     <?php require_once '../footer.php'?>
 </body>
 

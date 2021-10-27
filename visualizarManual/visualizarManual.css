@@ -30,7 +30,7 @@ img {
     max-height: 15vh;
 }
 
-.paso img{
+.paso img {
     max-height: 20vh;
 }
 
@@ -50,6 +50,15 @@ img {
     position: absolute;
     color: white;
     text-shadow: 0px 1px 5px #626267;
+}
+
+#botonVolver a {
+    text-decoration: none;
+    color: #626267;
+}
+
+#infoManual div:nth-of-type(2) {
+    width: 100%;
 }
 
 @media(max-width: 200px) {
@@ -93,7 +102,7 @@ button {
 
 #botonLeerMas,
 #botonLeerMasEquipo,
-#botonLeerMasSeguridad{
+#botonLeerMasSeguridad {
     margin: 5px;
 }
 
@@ -115,7 +124,7 @@ button span {
     display: none;
 }
 
-#infoManual div:nth-of-type(2){
+#infoManual div:nth-of-type(2) {
     border-radius: 8px;
 }
 
@@ -197,7 +206,7 @@ article div:last-of-type hr:last-of-type {
     display: none;
 }
 
-@media (min-width: 400px){
+@media (min-width: 400px) {
     #infoManual img {
         justify-self: center;
         align-self: center;
@@ -234,7 +243,6 @@ article div:last-of-type hr:last-of-type {
 
     #infoManual div {
         align-self: center;
-        margin-left: 1vh;
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 1;
@@ -245,7 +253,7 @@ article div:last-of-type hr:last-of-type {
         grid-area: 2/1/3/3;
     }
 
-    .paso img{
+    .paso img {
         max-height: 30vh;
     }
 
@@ -282,7 +290,7 @@ article div:last-of-type hr:last-of-type {
 
     #equipoNecesario div,
     #seguridad div {
-        border-radius:8px;
+        border-radius: 8px;
         bottom: 0%;
     }
 
@@ -324,16 +332,16 @@ article div:last-of-type hr:last-of-type {
         grid-row-end: 2;
         display: flex;
         flex-direction: row;
-        flex-basis: content; 
+        flex-basis: content;
         justify-content: flex-start;
     }
 
-    .paso div h3{
-        line-height:0%;
+    .paso div h3 {
+        line-height: 0%;
         width: 14vh;
     }
 
-    .paso div p{
+    .paso div p {
         align-self: center;
         font-weight: bold;
     }
@@ -374,13 +382,13 @@ article div:last-of-type hr:last-of-type {
     body {
         margin: 0% 15%;
     }
-    
-    #infoManual div{
+
+    #infoManual div {
         margin: auto;
         max-width: 100%;
     }
 
-    #infoManual div h3{ 
+    #infoManual div h3 {
         font-size: x-large;
         align-content: center;
     }

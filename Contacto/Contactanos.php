@@ -9,7 +9,10 @@
     </head>
     <body>
         <?php require_once '../Header.php'?>
-        <img src="" alt="">
+        <div>
+            <img src="../Contacto/Fotos/capa-1080x675.png" alt="" class="imagenFondo">
+
+        </div>
         <form action="" method="">
             <fieldset>
                 <input type="text" name="izena" placeholder="Maria del mar"><br>
