@@ -14,7 +14,7 @@
             </div>
             <nav class="item2">
                 <ul>
-                    <li><a href="#">INICIO</a></li>
+                    <li><a href="Inicio.php">INICIO</a></li>
                     <li><a href="#">BIBLIOTECA</a></li>
                     <li><a href="#">ALQUILER</a></li>
                     <li><a href="#">FIXPOINT</a></li>

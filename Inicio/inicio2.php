@@ -8,7 +8,7 @@
 
         <script> 
             function iniciaSesion() {
-               window.location.replace("crearUsuario.php");
+               window.location.replace(); /* "/2dw3/Crear usuario/crearUsuario.php" */
             }
         </script>
 
@@ -17,11 +17,11 @@
     <header>
         <div class="Headermain">
             <div>  
-                <img src="../Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1">
+                <img src="../Fotos/Fix Point logo.PNG" alt="" class="logo" class="item1" onclick="">
             </div>
             <nav class="item2">
                 <ul>
-                    <li><a href="#">INICIO</a></li>
+                    <li><a href="Inicio.php">INICIO</a></li>
                     <li><a href="#">BIBLIOTECA</a></li>
                     <li><a href="#">ALQUILER</a></li>
                     <li><a href="#">FIXPOINT</a></li>

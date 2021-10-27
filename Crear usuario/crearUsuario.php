@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Fotos/Icono.ico">
     <link type="text/css" rel="stylesheet" href="crearUsuario.css">
+
+    <!--<script>
+        function volver() {
+            window.location.replace(); 
+        }
+    </script>-->
+
 </head>
 <body>
 <header>
@@ -28,7 +35,7 @@
 
     <form method="post" action="crearUsuario2.php">
         <br>
-        <input type="submit" class="volver" value="VOLVER" >
+        <input type="submit" class="volver" value="VOLVER"> <!-- onclick="volver()" -->
         <h2 class="create">Crear usuario</h2>
         <br>
         <input type="text" name="nombre" class="nombre" placeholder="  Nombre" pattern="[A-Za-z]{3,}" title="Solo se admiten letras, mínimo 3" required>
