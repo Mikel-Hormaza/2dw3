@@ -25,7 +25,7 @@ try {
                 $sql="INSERT INTO usuario (nomUsuario, passUsuario, correoUsuario, permisoUsuario)
                 VALUES ('$nombre', '$contraseña', '$correo', 'usuario');";
                 $konexioa->exec($sql);
-                echo "Nuevo registro. Usuario " .$nombre . " creado";
+                echo "Nuevo registro. Usuario " .$nombre . " creado correctamente.";
             }
         }
     } else {
