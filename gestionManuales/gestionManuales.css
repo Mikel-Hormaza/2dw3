@@ -249,22 +249,27 @@ button {
         display: block;
     }
 
-    .contenidoADesplegar a:hover {
+    .contenidoADesplegar a:hover,
+    .contenidoCategoria a:hover {
         background-color: #A8902D;
+        color: white;
     }
 
-    .contenidoCategoriaa:hover {
-        background-color: #A8902D;
-    }
-
-    .mostrar {
+    /*Esto permite ver las opciones*/
+    .mostrarDesplegarOpciones,
+    .mostrarDesplegarCategorias {
         display: block;
+    }
+
+    /*Esto permite ver las opciones*/
+    .ocultarDesplegarOpciones,
+    .ocultarDesplegarCategorias {
+        display: none;
     }
 
     #botonesInicioFinal button {
         height: 6vh;
         width: 6vh;
-        padding: auto;
     }
 
     #botonesInicioFinal img {
@@ -395,7 +400,7 @@ button {
         max-height: 10vh;
         max-width: 10vh;
     }
-    
+
 }
 
 @media (min-width: 1025px) {
