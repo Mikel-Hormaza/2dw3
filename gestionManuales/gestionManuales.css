@@ -255,16 +255,23 @@ button {
         color: white;
     }
 
-    /*Esto permite ver las opciones*/
+    /*Permite ver las opciones desplegables*/
     .mostrarDesplegarOpciones,
-    .mostrarDesplegarCategorias {
+    .mostrarDesplegarCategorias,
+    .mostrarBotonCategoria {
+        cursor: pointer;
         display: block;
     }
 
-    /*Esto permite ver las opciones*/
+    /*Permite ocultar las opciones desplegables*/
     .ocultarDesplegarOpciones,
-    .ocultarDesplegarCategorias {
+    .ocultarDesplegarCategorias,
+    .ocultarBotonCategoria {
         display: none;
+    }
+
+    section a {
+        text-transform: uppercase;
     }
 
     #botonesInicioFinal button {
