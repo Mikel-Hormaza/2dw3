@@ -4,7 +4,6 @@
     color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
 } 
-
 .nombre {
     margin-left: 40%;
     width: 23%;
@@ -164,18 +163,15 @@ html {
     margin-bottom: 10px;
     margin-left: 10px;
 }
-
 body {
     margin: 2vh;
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
 }
 
-
 /*Esto es para la parte del navegador*/
 nav {
     padding: 1em;
 }
-
 nav ul {
     list-style: none;
     padding: 0;
@@ -184,7 +180,6 @@ nav ul {
     text-decoration: none;
     border-radius: 3px;
 }
-
 nav li a {
     color: white;
     display: block;
@@ -192,18 +187,15 @@ nav li a {
     padding: .5em 1em;
     border-radius: 3px;
 }
-
 nav li a:hover {
     background: tomato;
     color: white;
 }
-
 /*Esta es una clase para la imagen*/
 img.logo {
     width: 160px;
     height: 45px;
 }
-
 
 /*Esta clase es para el boton de inicio de sesion*/
 .sesion {
@@ -217,13 +209,11 @@ img.logo {
     position: relative;
     justify-content: center;
 }  
-
 .Headermain {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .mobile-btn {
     font-size:30px;
     cursor:pointer; 
@@ -289,7 +279,6 @@ img.logo {
 	font: bold 16px sans-serif;
 	padding: 30px 50px;
 }
-
 .footer-I, .footer-C, .footer-D{
 	display: inline-block;
 	vertical-align: top;
@@ -300,7 +289,6 @@ img.logo {
 .footer-I{
 	width: 40%;
 }
-
 img.logo {
 	width: 170px; 
 	height: 50px;	
@@ -311,38 +299,30 @@ img.logo {
 .footer-C{
 	width: 35%;
 }
-
-
 .footer-C p span{
 	font-weight: normal;
 	font-size:14px;
 	line-height:2;
 }
-
 .footer-C p a{
 	color:  #5383d3;
 	text-decoration: none;
 }
-
 img.maps {
 	width: 30px;
 	height: 30px;
 }
-
 img.telefono {
 	width: 35px;
 	height: 30px;
 }
-
 img.gmail {
 	width: 35px;
 	height: 30px;
 }
-
 div.Footermain {
 	display: inline-flex;
 }
-
 div.Footermain p{
 	display: block;
 	margin: auto;
@@ -354,7 +334,6 @@ div.Footermain p{
 .footer-D{
 	width: 20%;
 }
-
 .footer-logos{
 	line-height: 20px;
 	color:  #92999f;
@@ -362,7 +341,6 @@ div.Footermain p{
 	font-weight: normal;
 	margin: 0;
 }
-
 .footer-logos span{
 	display: block;
 	color:  #ffffff;
@@ -370,29 +348,24 @@ div.Footermain p{
 	font-weight: bold;
 	margin-bottom: 20px;
 }
-
 img.facebook {
 	width: 35px;
 	height: 30px;
 	margin-top: 3px;
 }
-
 img.instagram {
 	width: 33px;
 	height: 30px;
 	margin-top: 3px;
 }
-
 img.twitter {
 	width: 33px;
 	height: 30px;
 	margin-top: 3px;
 }
-
 .footer-icons{
 	margin-top: 25px;
 }
-
 .footer-icons a{
 	display: inline-block;
 	width: 35px;
@@ -430,19 +403,15 @@ img.twitter {
         grid-gap: 10px;
         padding: 10px;
 	}
-
 	.footer-I, .footer-C, .footer-D{
 		display: block;
 		width: 100%;
 		margin-bottom: 40px;
 		text-align: center;
 	}
-
 	.footer-C i{
 		margin-left: 0;
 	}
-
-
 }
 
 /*Movil*/
@@ -460,18 +429,15 @@ img.twitter {
         grid-gap: 10px;
         padding: 10px;
 	}
-
 	.footer-I, .footer-C, .footer-D{
 		display: block;
 		width: 100%;
 		margin-bottom: 40px;
 		text-align: center;
 	}
-
 	.footer-C i{
 		margin-left: 0;
 	}
-
 }
 
 /*----------------------------------------------------------------------------------------------------------------------*/

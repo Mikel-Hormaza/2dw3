@@ -16,6 +16,8 @@ if(isset($_POST["submit"])){
          
         //----------------------------------------------------------------------------------------------------------------//
 
+        //INSERTS
+
         /*$insert = $db->query("INSERT into herramienta (nombreHerramienta, categoria, fotoHerramienta) 
         VALUES ('Alicates', 'herramienta taller', '$imgContent')");*/
         
@@ -27,6 +29,8 @@ if(isset($_POST["submit"])){
 
         //---------------------------------------------------------------------------------------------------------------//
 
+        //UPDATES
+
         //$update = $db->query("UPDATE herramienta SET fotoHerramienta='$imgContent' WHERE codHerramienta='1';");
         //$update = $db->query("UPDATE herramienta SET fotoHerramienta='$imgContent' WHERE codHerramienta='2';");
         //$update = $db->query("UPDATE herramienta SET fotoHerramienta='$imgContent' WHERE codHerramienta='3';");
@@ -36,7 +40,7 @@ if(isset($_POST["submit"])){
 
         //$update = $db->query("UPDATE paso SET fotoPaso='$imgContent' WHERE codPaso='5';");
 
-        if($update){
+        if($insert){
             echo "Insertado con éxito";
         }else{
             echo "Fallo al insertar";
