@@ -3,10 +3,6 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 
-/* <!-- 
-AQUÍ PASAR COMO SESSION EL COD DE MANUAL?
- --> */
-
 
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);

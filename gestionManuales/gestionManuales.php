@@ -41,6 +41,28 @@
     </section>
 
     <main id="listaManuales">
+
+        <?php
+/*         foreach ($datosManuales as $manual) {
+        ?>
+            <div>
+                <button>
+                    <p>editar</p>
+                    <img src="Imagenes/edit.png" alt="editar">
+                </button>
+                <button>
+                    <p>eliminar</p>
+                    <img src="Imagenes/delete.png" alt="eliminar">
+                </button>
+                <p>COD: <?php echo $manual["codManual"] . " - " . $manual["nombreManual"] ?></p>
+                <p>COD: <?php echo $manual["manual.codHerramienta"] . " - " . $manual["manual.codHerramienta"] ?></p>
+                
+
+            </div>
+        <?php
+        }
+        ?> */
+
         <div>
             <button>
                 <p>editar</p>
@@ -52,7 +74,7 @@
             </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img  class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
+            <img class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
         </div>
         <div>
             <button>
@@ -65,7 +87,7 @@
             </button>
             <p>COD: 1- Nombre de manual</p>
             <p>COD: 2- Nombre de herramienta</p>
-            <img  class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
+            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
         </div>
         <div>
             <button>
