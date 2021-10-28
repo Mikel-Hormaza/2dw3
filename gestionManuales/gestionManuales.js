@@ -10,28 +10,29 @@ function inicio() {
     document.getElementById("idBotonCategoria").addEventListener("click", desplegarContenidoCategoria);
 }
 
-/* Al clicar el botón, añadir al elemento la clase mostrar con display block*/
-function desplegarContenido() {
-    document.getElementById("idBloqueDesplegar").classList.toggle("mostrar");
+
+
+/* Al clicar el botón, añadir al elemento la clase mostrarDesplegarOpciones con display block*/
+/* function desplegarContenido() {
+    document.getElementById("idBloqueDesplegar").classList.toggle("mostrarDesplegarOpciones");
 }
 function desplegarBotonCategoria(){
-    document.getElementById("idBotonCategoria").classList.toggle("mostrar");
+    document.getElementById("idBotonCategoria").classList.toggle("mostrarDesplegarOpciones");
 }
 
 function desplegarContenidoCategoria(){
-    document.getElementById("idContenidoCategoria").classList.toggle("mostrar");
+    document.getElementById("idContenidoCategoria").classList.toggle("mostrarDesplegarOpciones");
 }
 
 function ocultarBloqueDesplegado(){
     if (!event.target.matches('.botonDesplegar')) {
-        var contenido = document.getElementsByClassName("contenidoADesplegar");
-        
-        var i;
+        let contenido = document.getElementsByClassName("contenidoADesplegar");
+        let i;
         for (i = 0; i < contenido.length; i++) {
-            var abrirContenido = contenido[i];
-            if (abrirContenido.classList.contains('mostrar')) {
-                abrirContenido.classList.remove('mostrar');
+            let abrirContenido = contenido[i];
+            if (abrirContenido.classList.contains('mostrarDesplegarOpciones')) {
+                abrirContenido.classList.remove('mostrarDesplegarOpciones');
             }
         }
     }
-}
+} */
