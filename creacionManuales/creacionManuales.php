@@ -4,7 +4,7 @@
 <head>
         <title>Fix Point</title>
         <meta charset="utf-8">
-        <link rel="icon" type="image/png" href="../Imagenes/Icono.ico">
+        <link rel="icon" type="image/png" href="Imagenes/reparacion.jpg">
         <link rel="stylesheet" type="text/css" href="creacionManuales.css">
 </head>
 
@@ -22,17 +22,17 @@
                         <form class="formulario">
                                 <input type="text" placeholder="Nombre">
 
-                                <textarea placeholder="Descripcion de la reparacion"></textarea>
+                                <textarea placeholder="Descripción de la reparación"></textarea>
 
 
-                                <label class="labelimg" for="upload-photo">Imagen<span> del manual</span></label>
+                                <label class="labelimg" for="upload-photo">Insertar imagen<span> del manual</span></label>
                                 <input type="file" class="imagen" name="photo" id="upload-photo" />
 
                                 <textarea placeholder="Herramientas necesarias"></textarea>
 
                                 <textarea placeholder="Medidas de seguridad"></textarea>
 
-                                <button class="gorde">Guardar datos del manual</button>
+                                <button class="gorde">Crear manual</button>
                         </form>
 
                         <form class="fondo">
@@ -43,7 +43,7 @@
                                 <textarea placeholder="Descripcion del paso"></textarea><br>
 
 
-                                <label class="labelimg" for="upload-photo">Imagen<span> del paso</span></label>
+                                <label class="labelimg" for="upload-photo">Insertar imagen<span> del paso</span></label>
                                 <input type="file" class="imagen" name="photo" id="upload-photo" />
 
 
@@ -52,6 +52,7 @@
 
                         </form>
                         <div id="botonesCierre">
+                                <!--AL QUITAR UN BOTÓN ENCOJE-->
                                 <button class="gordepauso">Salir sin guardar</button>
                                 <button class="gordepauso">Finalizar y guardar manual</button>
                         </div>
