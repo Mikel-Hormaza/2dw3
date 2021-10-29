@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/png" href="Imagenes/reparacion.jpg">
         <link rel="stylesheet" type="text/css" href="creacionManuales.css">
+        <script src="Manual.js"></script>
         <script src="validarDatosManual.js"></script>
         <?php require_once "validarDatosManual_BD.php" ?>
 </head>
@@ -17,24 +18,24 @@
         <div class="burua">
                 <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
 
-                <input class="buscador" type="search" placeholder="Nombre de la herramienta">
+                <input id="idCodHerramienta" class="buscador" type="search" placeholder="Nombre de la herramienta">
         </div>
         <main class="contenedor">
                 <div class="formularios">
                         <form class="formulario" action="#" method="post">
                                 <input id="idNombreManual" type="text" placeholder="Nombre" maxlength="150" required="required">
 
-                                <textarea placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
+                                <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
 
 
                                 <label class="labelimg" for="upload-photo">Insertar imagen<span> del manual</span></label>
-                                <input type="file" required="required" class="imagen" name="photo" id="upload-photo"  />
+                                <input id="idImagenManual" type="file" required="required" class="imagen" name="photo" id="upload-photo" />
 
-                                <textarea placeholder="Herramientas necesarias" maxlength="250"></textarea>
+                                <textarea id="idHerramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"></textarea>
 
-                                <textarea placeholder="Medidas de seguridad" maxlength="250"></textarea>
+                                <textarea id="idMedidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"></textarea>
 
-                                <button type ="button" id="idBotonCrearManual" class="gorde" value="crearManual">Crear manual</button>
+                                <button type="button" id="idBotonCrearManual" class="gorde" value="crearManual">Crear manual</button>
                         </form>
 
                         <form class="fondo">
