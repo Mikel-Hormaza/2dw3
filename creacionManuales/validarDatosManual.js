@@ -9,7 +9,7 @@ function crearObjetoManual() {
     let today = new Date();
     let fechaCreacion = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-    let manual1 = new Manual(document.getElementById("idNombreManual").value,
+    let manualObj = new Manual(document.getElementById("idNombreManual").value,
         document.getElementById("idDescripcionManual").value,
         document.getElementById("idImagenManual").value,
         document.getElementById("idHerramientasNecesarias").value,
