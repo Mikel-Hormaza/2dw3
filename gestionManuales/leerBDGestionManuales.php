@@ -3,6 +3,8 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 
+$primeraVariableLimit = 0;
+$segudaVariableLimit = 8;
 
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
@@ -13,7 +15,7 @@ try {
     FROM manual,herramienta
     WHERE manual.codHerramienta like herramienta.codHerramienta 
     ORDER BY fechaCreacion
-    LIMIT 0, 4";
+    LIMIT $primeraVariableLimit, $segudaVariableLimit";
 
 
     $resultadoManuales = $conexion->query($sqlManuales);
