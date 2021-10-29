@@ -6,33 +6,35 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/png" href="Imagenes/reparacion.jpg">
         <link rel="stylesheet" type="text/css" href="creacionManuales.css">
+        <script src="validarDatosManual.js"></script>
+        <?php require_once "validarDatosManual_BD.php" ?>
 </head>
 
 <body>
 
-        <!--Contenedor del boton de regreso el buscador de herrramientas y el fromulario de manuales-->
+        <!--Contenedor del botón de regreso el buscador de herramientas y el formulario de manuales-->
 
         <div class="burua">
-                <button class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
+                <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
 
                 <input class="buscador" type="search" placeholder="Nombre de la herramienta">
         </div>
         <main class="contenedor">
                 <div class="formularios">
-                        <form class="formulario">
-                                <input type="text" placeholder="Nombre">
+                        <form class="formulario" action="#" method="post">
+                                <input id="idNombreManual" type="text" placeholder="Nombre" maxlength="150" required="required">
 
-                                <textarea placeholder="Descripción de la reparación"></textarea>
+                                <textarea placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
 
 
                                 <label class="labelimg" for="upload-photo">Insertar imagen<span> del manual</span></label>
-                                <input type="file" class="imagen" name="photo" id="upload-photo" />
+                                <input type="file" required="required" class="imagen" name="photo" id="upload-photo"  />
 
-                                <textarea placeholder="Herramientas necesarias"></textarea>
+                                <textarea placeholder="Herramientas necesarias" maxlength="250"></textarea>
 
-                                <textarea placeholder="Medidas de seguridad"></textarea>
+                                <textarea placeholder="Medidas de seguridad" maxlength="250"></textarea>
 
-                                <button class="gorde">Crear manual</button>
+                                <button type ="button" id="idBotonCrearManual" class="gorde" value="crearManual">Crear manual</button>
                         </form>
 
                         <form class="fondo">
@@ -53,7 +55,7 @@
                         </form>
                         <div id="botonesCierre">
                                 <!--AL QUITAR UN BOTÓN ENCOJE-->
-                                <button class="gordepauso">Salir sin guardar</button>
+                                <button type="button" id="salirSinGuardar" class="gordepauso">Salir sin guardar</button>
                                 <button class="gordepauso">Finalizar y guardar manual</button>
                         </div>
                 </div>
