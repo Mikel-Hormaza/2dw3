@@ -5,19 +5,6 @@ body {
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
 }
 
-/*Es el contenedor que controla laposicion del boton de regreso y el busacdor de herramientas*/
-.burua {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-}
-
-/*El buscador de herramientas*/
-.buscador {
-    width: 200px;
-    height: 10%;
-}
-
 /*Contenedor de los formularios de manual y paso*/
 .contenedor {
     display: grid;
@@ -43,6 +30,12 @@ body {
     margin: 1vh 4vh;
 }
 
+textarea,
+input {
+    font-family: Georgia;
+    border-radius: 8px;
+}
+
 /*El contenedor para controlar la posicion del formulario de lospasos*/
 .pasos {
     display: flex;
@@ -60,9 +53,11 @@ body {
     border: none;
     cursor: pointer;
     margin: 20px;
+    background-color: #53B3CB;
+    margin: 1vh 0px 0px 1vh;
 }
 
-.return a{
+.return a {
     text-decoration: none;
     color: #626267;
 }
@@ -121,16 +116,16 @@ span {
 .formularios {
     border-right: 5px solid black;
     grid-column: 1/2;
-    margin-right: 5%;
+    /*     margin-right: 5%; */
 }
 
-#botonesCierre{
+#botonesCierre {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#botonesCierre button{
+#botonesCierre button {
     margin: 1vh;
     background-color: #A8902D;
     color: white;
@@ -169,9 +164,11 @@ h3:not(.pasoTitulo) {
     display: none;
 }
 
-input {
-    max-width: 100%;
-    margin-right: 1vh;
+
+
+#botonesCierre button {
+    min-height: 5vh;
+    height: max-content;
 }
 
 
@@ -201,20 +198,18 @@ input {
 
 @media screen and (max-width: 820px) {
     .contenedor {
-        display: grid;
-        grid-template-columns: auto auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .mostrarpasos {
         margin-left: 0%;
         border-left: none;
-        grid-column: 1/2;
     }
 
     .formularios {
         margin-right: 0%;
         border-right: none;
-        grid-column: 1/2;
         justify-self: center;
         max-width: 65vh;
     }
@@ -222,32 +217,6 @@ input {
     .paso img {
         width: 100%;
         max-height: 50vh;
-    }
-
-}
-
-/*Ajustar ancho de los formularios*/
-
-@media screen and (max-width: 650px) {
-
-    .formularios {
-        max-width: 55vh;
-    }
-
-}
-
-@media screen and (max-width: 550px) {
-
-    .formularios {
-        max-width: 45vh;
-    }
-
-}
-
-@media screen and (max-width: 380px) {
-
-    .formularios {
-        max-width: 35vh;
     }
 
 }

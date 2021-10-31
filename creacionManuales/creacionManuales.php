@@ -15,15 +15,15 @@
 
         <!--Contenedor del botón de regreso el buscador de herramientas y el formulario de manuales-->
 
-        <div class="burua">
-                <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
-
-                <input id="idCodHerramienta" class="buscador" type="search" placeholder="Nombre de la herramienta">
-        </div>
+        <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
         <main class="contenedor">
                 <div class="formularios">
+
                         <form class="formulario" action="#" method="post">
-                                <input id="idNombreManual" type="text" placeholder="Nombre" maxlength="150" required="required">
+
+                                <input id="idCodHerramienta" class="buscador" type="text" placeholder="Nombre de la herramienta">
+
+                                <input id="idNombreManual" type="text" placeholder="Nombre de manual" maxlength="150" required="required">
 
                                 <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
 
@@ -56,8 +56,8 @@
                         </form>
                         <div id="botonesCierre">
                                 <!--AL QUITAR UN BOTÓN ENCOJE-->
-                                <button type="button" id="salirSinGuardar" class="gordepauso">Salir sin guardar</button>
-                                <button class="gordepauso">Finalizar y guardar manual</button>
+                                <button type="button" id="salirSinGuardar" class="gordepauso">Finalizar</button>
+                                <button class="gordepauso">Finalizar y mostrar manual</button>
                         </div>
                 </div>
 
