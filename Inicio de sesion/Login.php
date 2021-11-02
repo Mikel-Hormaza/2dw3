@@ -13,7 +13,7 @@
 <body>
         <main class="iniciosesion">
                 <div class="logo">
-                        <img class="imagen" src="../Fotos/Fix Point logo.PNG" onclick="window.location='';"><br>
+                        <img class="imagen" src="../Fotos/Fix Point logo.PNG" onclick="window.location='../Inicio de sesion/Login.php';"><br>
                         <label>Inicie sesion para acceder a contenido privado</label>
                 </div><br><br>
 
