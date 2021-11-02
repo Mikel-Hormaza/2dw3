@@ -1,10 +1,29 @@
 /*Para cambiar la letra de toda la pagina*/
 body {
     font-family: Georgia;
-   
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+    }
 }
 
 
+@media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+ 
+
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+}
 
 /*Para que el contenido de la pagina cuando este en formato movil este en una sola columna*/
 .iniciosesion {
