@@ -6,7 +6,7 @@
     <title>Gestion Herramientas</title>
     <link rel="stylesheet" href="gestionHerramientas.css">
     <script src="gestionHerramientas.js"></script>
-    <!--?php require_once "../gestionHerramientas/leerBDGestionHerramientas.php" ?-->
+    <?php require_once "../gestionHerramientas/leerBDGestionHerramientas.php" ?>
 </head>
 
 <body>
@@ -41,42 +41,24 @@
     </section>
 
     <main id="listaHerramientas">
+
+    <?php
+        foreach ($datosHerramienta as $herramienta) {
+           
+        ?>
+
         <div>
             <button>
                 <p>editar</p>
                 <img src="Imagenes/edit.png" alt="editar">
             </button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
+            <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
+            <p> <?php echo $herramienta["categoria"]?></p>
+            <?php echo $imagen?>
         </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
-        </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
-        </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <p>Nombre de herramienta</p>
-            <p>Categoría de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
-        </div>
+        <?php
+        }
+        ?>
     </main>
 
     <div id="botonesInicioFinal">
