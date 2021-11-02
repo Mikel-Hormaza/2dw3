@@ -6,8 +6,7 @@ function inicio() {
 
 function crearObjetoManual() {
 
-    let today = new Date();
-    let fechaCreacion = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
 
     let manualObj = new Manual(document.getElementById("idNombreManual").value,
         document.getElementById("idDescripcionManual").value,
@@ -16,6 +15,13 @@ function crearObjetoManual() {
         document.getElementById("idMedidasSeguridad").value,
         document.getElementById("idCodHerramienta").value,
         "1" /*Cod user */ ,
-        fechaCreacion);
+        fechaCreacion());
 
+}
+
+
+function fechaCreacion(){
+    let today = new Date();
+    let fechaCreacion = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    return fechaCreacion;
 }
