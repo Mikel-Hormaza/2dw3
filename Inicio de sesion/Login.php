@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
         <title>Fix Point</title>
@@ -7,14 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
         <link rel="stylesheet" type="text/css" href="Login.css">
-        <?php require_once "../Inicio%20de%20sesion/LeerBDInicioSesion.php" ?>
+        <?php require_once "../Inicio de sesion/LeerBDInicioSesion.php" ?>
 </head>
 
 <body>
-        <?php require_once '../Header.php'?>
         <main class="iniciosesion">
                 <div class="logo">
-                        <img class="imagen" src="../Fotos/Fix Point logo.PNG"><br>
+                        <img class="imagen" src="../Fotos/Fix Point logo.PNG" onclick="window.location='';"><br>
                         <label>Inicie sesion para acceder a contenido privado</label>
                 </div><br><br>
 
