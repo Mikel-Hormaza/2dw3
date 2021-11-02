@@ -55,8 +55,7 @@
             </button>
             <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <p> <?php echo $herramienta["categoria"]?></p>
-            <?php echo $imagen?>
-            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt=" ">
+           <img class="fotoDelManual" <?php echo $imagen?>/>
         </div>
         <?php
         }
