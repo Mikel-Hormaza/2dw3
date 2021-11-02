@@ -18,11 +18,17 @@ try {
     $sqlherramientaususario = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta, manual, usuario WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
 
-    $resultadoHerramienta = $conexion->query($sqlherramientaususario);
-    $datosHerramienta = $resultadoHerramienta->fetchAll();
+    $misherramientas = $conexion->query($sqlherramientaususario);
+    $datosMisHerramienta = $misherramientas->fetchAll();
+
+    $sqlcategoriaherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta
+    FROM herramienta WHERE categoria=$categoria";
+
+    $categoriaherramienta = $conexion->query($sqlcategoriaherramienta);
+    $datosCategoria = $categoriaherramienta->fetchAll();
 
 
 } catch (PDOException $e) {
     echo $sqlherramienta . "<br>" . $e->getMessage();
 }
-$konexioa = null;
+$conexion = null;

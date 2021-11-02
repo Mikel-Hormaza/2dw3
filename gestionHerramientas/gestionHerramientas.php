@@ -6,12 +6,13 @@
     <title>Gestion Herramientas</title>
     <link rel="stylesheet" href="gestionHerramientas.css">
     <script src="gestionHerramientas.js"></script>
+    <!--?php require_once "../gestionHerramientas/leerBDGestionHerramientas.php" ?-->
 </head>
 
 <body>
     <section>
-        <img src="Imagenes/imgGestionHerramientas.jpg" alt="Imagen manual">
-        <button class="botonVolver">Volver<span> a biblioteca</span></button>
+        <img src="Imagenes/imgGestionHerramientas.jpg" alt="Imagen herramienta">
+        <button class="botonVolver"><a>Volver<span> a biblioteca</span></a></button>
         <div id=botones>
             <button>Crear</button>
         </div>
