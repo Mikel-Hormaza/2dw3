@@ -1,4 +1,5 @@
 <?php
+//Conexion con localhost
 $servidor  = "localhost";
 $usuario = "root";
 $password = "";
@@ -6,36 +7,40 @@ $password = "";
 
 
 try {
+    //Conexion con nuestra base de datos de fixpoint
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    //Select para coger la informacion de las herramientas
     $sqlherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta";
 
     $resultadoHerramienta = $conexion->query($sqlherramienta);
     $datosHerramienta = $resultadoHerramienta->fetchAll();
 
+    //Select para coger la informacion de las herramientas segun el usuario
     $sqlherramientaususario = "SELECT herramienta.codHerramienta, nombreHerramienta, categoria, fotoHerramienta FROM herramienta, manual, usuario WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
 
     $misherramientas = $conexion->query($sqlherramientaususario);
     $datosMisHerramienta = $misherramientas->fetchAll();
 
+    //Select para coger la informacion de las herramientas segun la categoria seleccionada
     $sqlcategoriaherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta
     FROM herramienta ";/*WHERE categoria=$categoria*/
 
     $categoriaherramienta = $conexion->query($sqlcategoriaherramienta);
     $datosCategoria = $categoriaherramienta->fetchAll();
 
-    //Prepare PDO SQL
+    //Preparar PDO SQL
     $sqlimagen = $conexion->prepare("SELECT fotoHerramienta FROM herramienta WHERE codHerramienta='1'");
 
-    //Do the db query
+    //Hacer la consulta db
 
     if ($sqlimagen) {
         $sqlimagen->execute();
 
-        //Get the content of the record into $row
-        $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Everything with id=$id should be in record buffer
+        //Coge el contenido del registro dentro de $row
+        $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
 
         $image = $row['fotoHerramienta'];
 
@@ -43,7 +48,6 @@ try {
     } else {
         echo "No image found";
     }
-
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
