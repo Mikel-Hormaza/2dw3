@@ -25,6 +25,7 @@
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
                 <a id="categoria">Categoría</a>
                 <a>Creados por mí</a>
+                <a>Todos</a>
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
@@ -55,6 +56,7 @@
             <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <p> <?php echo $herramienta["categoria"]?></p>
             <?php echo $imagen?>
+            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt=" ">
         </div>
         <?php
         }
