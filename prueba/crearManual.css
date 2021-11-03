@@ -5,7 +5,7 @@
 
 section,
 main{
-    padding: 1vh;
+    margin: 1vh;
 }
 
 #textoAmarillo{
@@ -29,7 +29,7 @@ main{
     top: 2vh;
 }
 
-#textoAmarillo p span{
+button{
     text-transform: uppercase;
 }
 
@@ -40,13 +40,13 @@ main{
 }
 
 button{
-    border-radius: 8px;
     background-color: #53B3CB;
     font-size: 2vh;
     width: max-content;
     border: none;
     cursor: pointer;
     margin: 1vh 0px 0px 0px;
+    padding: 1% 4%;
 }
 
 button,
@@ -60,6 +60,53 @@ button span {
 
 a{
     text-decoration: none;
+}
+
+#contenedorBuscarNomHerramienta,
+button
+{
+    border-radius: 8px;
+}
+
+#contenedorBuscarNomHerramienta{
+    background-color: rgba(92, 128, 1, 0.8);
+    padding: 2% 0%;
+    min-height: 20vh;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form input{
+    width: 90%;
+    font-size: 15px;
+}
+
+ul{
+    margin-top: 0%;
+    list-style-type: none;
+    justify-self: center;
+    width: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.parrafoElementoListaImpar {
+    background-color: rgba(185, 193, 196, 0.8);
+    color: #626267;
+}
+
+.parrafoElementoListaPar {
+    background-color: rgba(98, 98, 103, 0.8);
+    color: #B9C1C4;
+}
+
+.parrafoElementoListaImpar,
+.parrafoElementoListaPar{
+    margin: 0%;
 }
 
 @media (min-width: 400px) {
