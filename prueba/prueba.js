@@ -1,18 +1,15 @@
 //declaro el array
 
 let arrayOpciones=[];
-//let arrayOpciones = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
 
 window.addEventListener("load", inicio);
 
 function inicio() {
-    //después de meter cada caracter
-    arrayOpciones =leerPHP();
-    console.log(arrayOpciones);
+    arrayOpciones =leerPHP(); //lee los nombres de herramientas
     document.getElementById("idBusquedaNombreHerramienta").addEventListener("keyup", comprobarSiHayElementos);
 }
 
-/*Si hay resutados de una búsqueda 1: eliminar 2: volver a buscar */
+/*Si hay resutados de una búsqueda 1ºeliminar 2ºvolver a filtrar */
 function comprobarSiHayElementos() {
     let elementosLista = document.getElementById("mostrarBloqueResultados").childElementCount;
     if (elementosLista > 0) {
@@ -29,7 +26,6 @@ function filtra() {
     if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
         //recorro el array y si algún string CONTIENE el texto, lo muestro
         for (i = 0; i < arrayOpciones.length; i++) {
-            alert(" A VERSI"+ arrayOpciones[i]+"CONTIENE "+document.getElementById("idBusquedaNombreHerramienta").value);
             if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
                 //Crear elementos
                 let elementoLista = document.createElement("li");

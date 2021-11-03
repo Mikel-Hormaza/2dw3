@@ -13,8 +13,6 @@
 
 <body>
 
-        <!--Contenedor del botón de regreso el buscador de herramientas y el formulario de manuales-->
-
         <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
         <main class="contenedor">
                 <div class="formularios">
