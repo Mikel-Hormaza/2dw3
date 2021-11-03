@@ -5,7 +5,8 @@ $usuario = "root";
 $password = "";
 
 
-$error=$errorpass="";
+$error="";
+$errorpass="";
 $errorinicio="";
 try {
     //Conexion con la base de datos fixpoint

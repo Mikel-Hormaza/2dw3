@@ -247,16 +247,29 @@ button {
         display: block;
     }
 
-    .contenidoADesplegar a:hover {
+    .contenidoADesplegar a:hover,
+    .contenidoCategoria a:hover {
         background-color: #A8902D;
+        color: white;
     }
 
-    .contenidoCategoriaa:hover {
-        background-color: #A8902D;
-    }
-
-    .mostrar {
+    /*Permite ver las opciones desplegables*/
+    .mostrarDesplegarOpciones,
+    .mostrarDesplegarCategorias,
+    .mostrarBotonCategoria {
+        cursor: pointer;
         display: block;
+    }
+
+    /*Permite ocultar las opciones desplegables*/
+    .ocultarDesplegarOpciones,
+    .ocultarDesplegarCategorias,
+    .ocultarBotonCategoria {
+        display: none;
+    }
+
+    section a {
+        text-transform: uppercase;
     }
 
     #botonesInicioFinal button {
