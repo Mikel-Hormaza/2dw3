@@ -33,8 +33,8 @@ for ($i = 0; $i < sizeof($nombresHerramientas); $i++) {
     var datosPHP =
         <?php echo '["' . implode('", "', $arraySoloNombresHerramientas) . '"]' ?>;
         console.log(datosPHP);
-    let spanInner = document.getElementsByTagName('span');
-    console.log(spanInner);
+    let spanInner = document.getElementsByName("spanNombresHerramientas");
+        console.log(spanInner);
     let scriptHTML = datosPHP;
     spanInner.innerHTML = scriptHTML;
 </script>

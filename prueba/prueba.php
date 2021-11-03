@@ -12,7 +12,7 @@
 <body>
 
     <div id="contenedor">
-        <span id="nombresHerramientas" > </span>
+        <span id="spanNombresHerramientas" > </span>
         <form id="formulario" action="#" method="POST" onsubmit="false">
             <input id="idBusquedaNombreHerramienta" type="text" name="herramienta" placeholder="Type to search..">
         </form>

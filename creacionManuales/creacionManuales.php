@@ -9,22 +9,27 @@
         <script src="Manual.js"></script>
         <script src="validarDatosManual.js"></script>
         <?php require_once "validarDatosManual_BD.php" ?>
+        <?php require_once 'llamarBDNombresHerramientas.php' ?>
+        <script src="prueba.js"></script>
 </head>
 
 <body>
 
         <button id="VOLVER" class="return"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
         <main class="contenedor">
+        <span id="spanNombresHerramientas" name="spanNombresHerramientas"> </span>
                 <div class="formularios">
 
                         <form class="formulario" action="#" method="post">
 
                                 <input id="idCodHerramienta" class="buscador" type="text" placeholder="Nombre de la herramienta">
 
+                                <ul id="mostrarBloqueResultados">
+                                </ul>
+
                                 <input id="idNombreManual" type="text" placeholder="Nombre de manual" maxlength="150" required="required">
 
                                 <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
-
 
                                 <label class="labelimg" for="upload-photo">Insertar imagen<span> del manual</span></label>
                                 <input id="idImagenManual" type="file" required="required" class="imagen" name="photo" id="upload-photo" />
