@@ -5,7 +5,8 @@ $usuario = "root";
 $password = "";
 
 
-
+$error=$errorpass="";
+$errorinicio="";
 try {
     //Conexion con la base de datos fixpoint
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
@@ -19,25 +20,33 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $nombreUsuario= $datosUsuario['nomUsuario'];
-    $Contraseña= $datosUsuario['passUsuario'];
-
-    $nombre= isset($_REQUEST['NombredeUsuario'])? $_REQUEST['NombredeUsuario'] : null;
-    $pass= isset($_REQUEST['Contraseña'])? $_REQUEST['Contraseña'] : null;
-
-
-
-    if($nombreUsuario == $nombre && $Contraseña == $pass){
-        session_start();
-        $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
-      
-        header('Location: ../Inicio de sesion/Login.php');
-        die();
-    }else{
-        echo 'Nombre de usuario o contraseña erroneos';
+foreach ($datosUsuario as $usuarios) {
+if(isset($_POST['InicioSesion'])) {
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $nombreUsuario= $usuarios['nomUsuario'];
+        $Contraseña= $usuarios['passUsuario'];
+        if(empty($_POST["NombredeUsuario"])){
+            $error= "Escriba un nombre de usuario"; 
+         }elseif(empty($_POST["Contraseña"])){
+            $errorpass="Escriba una contraseña";
+         }else{
+        $nombre= isset($_REQUEST['NombredeUsuario'])? $_REQUEST['NombredeUsuario'] : null;
+        $pass= isset($_REQUEST['Contraseña'])? $_REQUEST['Contraseña'] : null;
+    
+    
+    
+        if($nombreUsuario == $nombre && $Contraseña == $pass){
+            session_start();
+            $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
+          
+            header('Location: ../Inicio de sesion/Login.php');
+            die();
+        }else{
+           $errorinicio="Nombre de usuario o contraseña erroneos";
+        }
     }
+    }
+}
 }
 
 $conexion = null;
