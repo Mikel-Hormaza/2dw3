@@ -58,15 +58,17 @@ body {
     background-color: #EFC227;
     font-size: medium;
     border-radius: 5px;
+    border: none;
     color: #626267;
     width: 150px;
     height: 40px;
 }
 
 /*El boton de crear usuario*/
-.crearusuatio {
+.crearusuario {
     font-size: medium;
     border-radius: 5px;
+    border: none;
     color: #626267;
     height: 40px;
     width: 200px;
