@@ -1,13 +1,14 @@
 //declaro el array
 
-let arrayOpciones = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
+let arrayOpciones=[];
+//let arrayOpciones = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
 
 window.addEventListener("load", inicio);
 
-
-
 function inicio() {
     //después de meter cada caracter
+    arrayOpciones =leerPHP();
+    console.log(arrayOpciones);
     document.getElementById("idBusquedaNombreHerramienta").addEventListener("keyup", comprobarSiHayElementos);
 }
 
@@ -28,6 +29,7 @@ function filtra() {
     if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
         //recorro el array y si algún string CONTIENE el texto, lo muestro
         for (i = 0; i < arrayOpciones.length; i++) {
+            alert(" A VERSI"+ arrayOpciones[i]+"CONTIENE "+document.getElementById("idBusquedaNombreHerramienta").value);
             if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
                 //Crear elementos
                 let elementoLista = document.createElement("li");
@@ -55,4 +57,9 @@ function eliminarElementosBusquedaPrevia(elementosLista) {
         elementosLista--;
     }
 
+}
+
+function leerPHP() {
+    let arrayNombresHerramientas = document.getElementsByTagName('span').innerHTML;
+    return arrayNombresHerramientas;
 }
