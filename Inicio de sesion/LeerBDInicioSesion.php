@@ -32,9 +32,7 @@ if(isset($_POST['InicioSesion'])) {
          }else{
         $nombre= isset($_REQUEST['NombredeUsuario'])? $_REQUEST['NombredeUsuario'] : null;
         $pass= isset($_REQUEST['Contraseña'])? $_REQUEST['Contraseña'] : null;
-    
-    
-    
+        
         if($nombreUsuario == $nombre && $Contraseña == $pass){
             session_start();
             $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
@@ -50,6 +48,3 @@ if(isset($_POST['InicioSesion'])) {
 }
 
 $conexion = null;
-
-
-?>

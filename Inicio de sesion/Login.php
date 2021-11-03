@@ -19,11 +19,11 @@
 
                 <fieldset class="borde">
 
-                        <form class="inicio"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" action="LeerBDInicioSesion.php">
+                        <form class="inicio" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action="LeerBDInicioSesion.php">
                                 <input type="text" name="NombredeUsuario" placeholder="Nombre de usuario"><br><br>
                                 <input type="text" name="Contraseña" placeholder="Contraseña"><br><br>
-                                <span><?php echo $error;?></span>
-                                <span><?php echo $errorinicio;?></span><br>
+                                <span><?php echo $error; ?></span>
+                                <span><?php echo $errorinicio; ?></span><br>
                                 <input type="submit" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br>
                                 <button class="crearusuatio">Crear nueva cuenta</button>
                         </form>
