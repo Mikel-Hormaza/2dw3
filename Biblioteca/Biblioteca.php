@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php require_once '../Header.php'?>
+    <?php require_once '../Header/Header.php'?>
         <div class="box">
             <div class="contenedor">
                 <span><i class="icon-buscar"></i></span>
@@ -52,7 +52,7 @@
             <button class="btnCambio"><img src="../Biblioteca/Fotos/siguiente.png" alt="triangulo"></button>
             <button class="btnCambio"><img src="../Biblioteca/Fotos/último.png" alt="triangulo"></button>
         </div>
-    <?php require_once '../footer.php'?>
+    <?php require_once '../Footer/footer.php'?>
 </body>
 
 </html>

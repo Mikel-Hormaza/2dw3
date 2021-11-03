@@ -8,11 +8,10 @@
         <link rel="stylesheet" type="text/css" href="Contacto.css">     
     </head>
     <body>
-        <?php require_once '../Header.php'?>
-        <div>
+        <?php require_once '../Header/Header.php'?>
+        <!--div>
             <img src="../Contacto/Fotos/capa-1080x675.png" alt="" class="imagenFondo">
-
-        </div>
+        </div-->
         <form action="" method="">
             <fieldset>
                 <input type="text" name="izena" placeholder="Maria del mar"><br>
@@ -22,6 +21,6 @@
                 <textarea name="" class="tarea" cols="30" rows="10" placeholder="Escribe &aacute;qui tu mensaje"></textarea>
             </fieldset>
         </form>
-        <?php require_once '../footer.php'?>
+        <?php require_once '../Footer/footer.php'?>
     </body>
 </html>

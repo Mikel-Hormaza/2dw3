@@ -33,18 +33,16 @@ fieldset {
 }
 
 img.imagenFondo {
-    width: 1185px;
-    height: 400px;
-    
+    width: auto;
+    height: auto;
 }
-
+/*
 @media only screen and (max-width: 560px) {
     input {
-        width: 50%;
+        width: 90%;
         height: 30px;
         margin: 0.5rem;
         border-radius: 10px;
-        position: relative;
         justify-content: center;
     }
 
@@ -53,4 +51,4 @@ img.imagenFondo {
         width: 196px;
         height: 108px;
     }
-}
+}*/

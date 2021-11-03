@@ -10,7 +10,7 @@
 
 
 <body>
-    <?php require_once '../Header.php'?>
+    <?php require_once '../Header/Header.php'?>
         <div class="orden">
             <form action="" class="formula">
                 <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
