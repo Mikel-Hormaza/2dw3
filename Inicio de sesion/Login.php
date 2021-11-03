@@ -22,7 +22,7 @@
 
                         <form class="inicio" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action="LeerBDInicioSesion.php">
                                 <input type="text" name="NombredeUsuario" placeholder="Nombre de usuario"><br><br>
-                                <input type="text" name="Contraseña" placeholder="Contraseña"><br><br>
+                                <input type="text" name="Contraseña" placeholder="Contraseña"><br>
                                 <!--Si hay un error el mensage aparecera en el span recogido  desde el php ddonde esta el textode error--->
                                 <span><?php echo $error; ?></span>
                                 <span><?php echo $errorpass; ?></span>
