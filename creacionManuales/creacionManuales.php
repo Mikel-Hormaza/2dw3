@@ -10,7 +10,7 @@
         <script src="validarDatosManual.js"></script>
         <?php require_once "validarDatosManual_BD.php" ?>
         <?php require_once 'llamarBDNombresHerramientas.php' ?>
-        <script src="prueba.js"></script>
+        <script src="buscarHerramientas.js"></script>
 </head>
 
 <body>

@@ -164,13 +164,16 @@ h3:not(.pasoTitulo) {
     display: none;
 }
 
-
-
 #botonesCierre button {
     min-height: 5vh;
     height: max-content;
 }
 
+ul{
+    display: inline;
+    background-color: pink;
+    position: relative;
+}
 
 /*Configurar margen de la pantalla*/
 
