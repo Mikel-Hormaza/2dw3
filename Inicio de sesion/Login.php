@@ -19,9 +19,9 @@
 
                 <fieldset class="borde">
 
-                        <form class="inicio">
-                                <input type="text" placeholder="Nombre de usuario"><br><br>
-                                <input type="text" placeholder="Contraseña"><br><br>
+                        <form class="inicio"  method="post" action="LeerBDInicioSesion.php">
+                                <input type="text" name="NombredeUsuario" placeholder="Nombre de usuario"><br><br>
+                                <input type="text" name="Contraseña" placeholder="Contraseña"><br><br>
                                 <button class="botoninicio">Iniciar sesion</button><br><br>
                                 <button class="crearusuatio">Crear nueva cuenta</button>
                         </form>

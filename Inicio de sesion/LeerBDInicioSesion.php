@@ -19,4 +19,28 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $nombreUsuario= $datosUsuario['nomUsuario'];
+    $Contraseña= $datosUsuario['passUsuario'];
+
+    $nombre= isset($_REQUEST['NombredeUsuario'])? $_REQUEST['NombredeUsuario'] : null;
+    $pass= isset($_REQUEST['Contraseña'])? $_REQUEST['Contraseña'] : null;
+
+
+
+    if($nombreUsuario == $nombre && $Contraseña == $pass){
+        session_start();
+        $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
+      
+        header('Location: ../Inicio de sesion/Login.php');
+        die();
+    }else{
+        echo 'Nombre de usuario o contraseña erroneos';
+    }
+}
+
 $conexion = null;
+
+
+?>
