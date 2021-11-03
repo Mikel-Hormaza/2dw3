@@ -11,43 +11,48 @@ function inicio() {
     document.getElementById("idBusquedaNombreHerramienta").addEventListener("keyup", comprobarSiHayElementos);
 }
 
-function filtra() {
-    let elementoCoincide;
-    let parrafo;
-    if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
-        //recorro el array y si algún string CONTIENE el texto, lo muestro
-        for (i = 0; i < arrayOpciones.length; i++) {
-            if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
-                let elementoLista = elementoCoincide += i;
-                let p = parrafo += i;
-                //elemento de lista
-                elementoLista = document.createElement("li");
-                elementoLista.setAttribute("class", "elementoLista");
-                //parrafo del elemento de lista
-                p = document.createElement("p");
-                p.setAttribute("class", "parrafoElementoLista");
-                p = document.createTextNode(arrayOpciones[i]);
-                elementoLista.appendChild(p);
-                document.getElementById("mostrarBloqueResultados").appendChild(elementoLista);
-            }
-        }
-    }
-}
-
+/*Si hay resutados de una búsqueda 1: eliminar 2: volver a buscar */
 function comprobarSiHayElementos() {
     let elementosLista = document.getElementById("mostrarBloqueResultados").childElementCount;
     if (elementosLista > 0) {
-        alert("HAYQUEelimunar");
-        eliminarElementosBusquedaPrevia();
-        //filtra();
+        eliminarElementosBusquedaPrevia(elementosLista);
+        filtra();
     } else {
         filtra();
     }
 }
 
-function eliminarElementosBusquedaPrevia() {
-        let elementoAEliminar = ul.getElementsByClassName("elementoLista");
-        elementoAEliminar.remove();
-        let parrafoElementoAEliminar = ul.getElementsByClassName("parrafoElementoLista");
-        parrafoElementoAEliminar.remove();
+/* Si hay texto en el input comprueba que el texto coincida con el contenido
+de los elementos del array. Muestra las concidencias como elementos de una lista */
+function filtra() {
+    if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
+        //recorro el array y si algún string CONTIENE el texto, lo muestro
+        for (i = 0; i < arrayOpciones.length; i++) {
+            if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
+                //Crear elementos
+                let elementoLista = document.createElement("li");
+                let parrafoLista = document.createElement("p");
+                let texto = document.createTextNode(arrayOpciones[i]);
+                parrafoLista.appendChild(texto);
+                elementoLista.appendChild(parrafoLista);
+                //atributos
+                parrafoLista.setAttribute("class", "parrafoElementoLista");
+                elementoLista.setAttribute("class", "elementoLista");
+                //añadir a la ul
+                let ul = document.getElementById("mostrarBloqueResultados");
+                ul.appendChild(elementoLista);
+            }
+        }
+    }
+}
+
+
+function eliminarElementosBusquedaPrevia(elementosLista) {
+
+    while (elementosLista > 0) {
+        let li = document.querySelector(".elementoLista");
+        document.getElementById("mostrarBloqueResultados").removeChild(li);
+        elementosLista--;
+    }
+
 }
