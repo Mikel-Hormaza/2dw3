@@ -27,7 +27,8 @@
                                 <span><?php echo $error; ?></span>
                                 <span><?php echo $errorpass; ?></span>
                                 <span><?php echo $errorinicio; ?></span><br>
-                                <input type="submit" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br>
+                               <!--- <button id="Iniciosesionwa" onclick="conprobar()" class="botoninicio">Inicio de sesion</button><br><br> --->
+                               <!--- <input type="submit" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br> --->
                                 <button class="crearusuario">Crear nueva cuenta</button>
                         </form>
                 </fieldset>

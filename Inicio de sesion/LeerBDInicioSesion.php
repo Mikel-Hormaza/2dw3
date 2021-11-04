@@ -21,15 +21,19 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+
 foreach ($datosUsuario as $usuarios) {
     if (isset($_POST['InicioSesion'])) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contraseña = $usuarios['passUsuario'];
+            
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
+            
             } elseif (empty($_POST["Contraseña"])) {
                 $errorpass = "Escriba una contraseña";
+       
             } else {
                 $nombre = isset($_REQUEST['NombredeUsuario']) ? $_REQUEST['NombredeUsuario'] : null;
                 $pass = isset($_REQUEST['Contraseña']) ? $_REQUEST['Contraseña'] : null;
@@ -38,7 +42,7 @@ foreach ($datosUsuario as $usuarios) {
                     session_start();
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
 
-                    header('Location: ../Inicio de sesion/Login.php');
+                    header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contraseña erroneos";
@@ -46,6 +50,7 @@ foreach ($datosUsuario as $usuarios) {
             }
         }
     }
+
 }
 
 $conexion = null;
