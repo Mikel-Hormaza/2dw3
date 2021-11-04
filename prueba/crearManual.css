@@ -166,7 +166,7 @@ ul li:last-child p{
 
 #registrarHerramientas img{
     display: none;
-    max-height: 13vh;
+    max-height: 10vh;
     max-width: 20vh;
     justify-self: center;
 }
@@ -194,7 +194,7 @@ ul li:last-child p{
     }
 
     #registrarHerramientas{
-        width: 35vh;
+        width: 40vh;
         align-self: flex-end;
     }
 
@@ -223,6 +223,20 @@ ul li:last-child p{
     ul{
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    #registrarHerramientas{
+        display: flex;
+        width: 55vh;
+    }
+
+    #registrarHerramientas p{
+        display: inline;
+        text-align: center;
+    }
+
+    #registrarHerramientas img{
+        display: block;
     }
 }
 
