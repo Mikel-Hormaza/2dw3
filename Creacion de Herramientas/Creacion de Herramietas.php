@@ -11,6 +11,7 @@
 
 <body>
     <?php require_once '../Header/Header.php'?>
+    <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
         <div class="orden">
             <form action="" class="formula">
                 <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
@@ -21,7 +22,7 @@
             <br>
             <button class="btn">Crear herramienta</button>
         </div>
-    <?php require_once '../footer.php'?>
+    <?php require_once '../Footer/footer.php'?>
 </body>
 
 </html>
