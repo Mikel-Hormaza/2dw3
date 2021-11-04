@@ -14,11 +14,25 @@ function comprobarSiHayElementos() {
     let elementosLista = document.getElementById("mostrarBloqueResultados").childElementCount;
     if (elementosLista > 0) {
         eliminarElementosBusquedaPrevia(elementosLista);
-        filtra();
-    } else {
-        filtra();
+    } 
+    filtra();
+    configurarClicadoSobreElementoLista();
+}
+
+/* si hay elementos en la lista añadir a cada elemento el evento click */
+function configurarClicadoSobreElementoLista() {
+    if (document.getElementById("mostrarBloqueResultados").childElementCount > 0) {
+        for (i = 1; i <= document.getElementById("mostrarBloqueResultados").childElementCount; i++) {
+            document.querySelector("ul li:nth-child(" + i + ") p").addEventListener("click", seleccionarElemento,1);
+            console.log(document.querySelector("ul li:nth-child("+i+") p").textContent);
+        }
     }
 }
+
+function seleccionarElemento(a) {
+    alert("click" + a);
+}
+
 
 /* Si hay texto en el input comprueba que el texto coincida con el contenido
 de los elementos del array. Muestra las concidencias como elementos de una lista */
