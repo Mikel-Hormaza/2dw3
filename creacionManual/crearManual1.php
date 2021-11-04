@@ -7,7 +7,7 @@
     <script src="buscadorHerramientas.js"></script>
 </head>
 
-<body>
+<body id="bodyCrearManual1">
     <section>
         <div class="titulo" id="amarillo">
             <img src="Imagenes/crearManual.PNG" alt="Imagen crear">

@@ -3,7 +3,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-section,
 main{
     margin: 1vh;
 }
@@ -59,6 +58,10 @@ button{
     padding: 1% 4%;
 }
 
+#botonVolver{
+    margin-left: 1vh;
+}
+
 div button{
     background-color: #EFC227;
 }
@@ -100,19 +103,18 @@ form{
     justify-content: center;
 }
 
-form label{
-    background-color: aqua;
-    width: 100%;
-    font-size: 15px;
-}
-
 form input{
     width: 100%;
 }
 
 form input,
-li{
+li,
+textarea{
     font-size: 15px;
+}
+
+textarea{
+    min-height: 20vh;
 }
 
 li p:hover{
@@ -135,7 +137,7 @@ li p{
 
 /* redordear los bordes superiores del input
 y los bordes inferiores del último resultado */
-input{
+#idBusquedaNombreHerramienta{
     border-radius: 8px 8px 0px 0px;
     cursor: text;
 }
@@ -186,6 +188,46 @@ ul li:last-child p{
     margin-bottom: 5px;
 }
 
+h3{
+    color: #626267;
+}
+
+#bodyCrearManual2 h3{
+    margin: 1vh;
+}
+
+/* FORMULARIOS */
+
+body div form input,
+body div form textarea{
+    border-radius: 8px;
+}
+
+label{
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #EFC227;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    text-align: center;
+    max-width: fit-content;
+    padding: 1vh 4vh;
+}
+
+.classInputFileIMG{
+    display: none;
+}
+
+#bodyCrearManual2 form > *{
+    margin-bottom: 1vh;
+}
+
+label,
+button{
+    align-self: center;
+}
+
 @media (min-width: 350px){
     #registrarHerramientas div button span{
         display: inline;
@@ -220,6 +262,11 @@ ul li:last-child p{
     #botonVolver span{
         display: inline;
     }
+
+    #bodyCrearManual2 div{
+        padding: 1vh;
+    }
+
 }
 
 @media (min-width: 600px){
@@ -248,16 +295,22 @@ ul li:last-child p{
 }
 
 @media (min-width: 700px){
+
+    #bodyCrearManual2 div{
+        padding: 0vh;
+    }
+
     #contenedorBuscarNomHerramienta{
         margin-top: 3vh;
     }
 
-    h3{
+    #bodyCrearManual1 h3{
         margin-top: 7vh;
     }
 
     form input,
-    li{
+    li,
+    textarea{
         font-size: 18px;
     }
 

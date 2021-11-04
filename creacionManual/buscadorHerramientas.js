@@ -60,7 +60,7 @@ function configurarClicadoSobreElementoLista() {
 
 /* añadir el texto del elemento seleccionado al input */
 function seleccionarElemento(event) {
-    document.querySelector("input").value = event.target.textContent;
+    document.querySelector(".idBusquedaNombreHerramienta").value = event.target.textContent;
 }
 
 /*Al desplegar la lista de opciones necesitamos que los elementos pares e impares
