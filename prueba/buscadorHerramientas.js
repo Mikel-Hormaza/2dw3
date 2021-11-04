@@ -5,7 +5,7 @@ let contador;
 window.addEventListener("load", inicio);
 
 function inicio() {
-    arrayOpciones = leerPHP(); //lee los nombres de herramientas
+    arrayOpciones = leerPHP(); //leer los nombres de herramientas y guardarlo en un array
     document.getElementById("idBusquedaNombreHerramienta").addEventListener("keyup", comprobarSiHayElementos);
 }
 
@@ -14,9 +14,39 @@ function comprobarSiHayElementos() {
     let elementosLista = document.getElementById("mostrarBloqueResultados").childElementCount;
     if (elementosLista > 0) {
         eliminarElementosBusquedaPrevia(elementosLista);
-    } 
+    }
     filtra();
     configurarClicadoSobreElementoLista();
+}
+
+/* Si hay texto en el input comprueba que el texto coincida con el contenido
+de los elementos del array. Muestra las concidencias como elementos de una lista */
+function filtra() {
+    if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
+        contador = 0; // esta variable se utiliza en anadirClaseElementos
+        crearElementosListaYParrafos();
+    }
+}
+
+/*recorro el array y si algún string CONTIENE el texto, lo muestro*/
+function crearElementosListaYParrafos() {
+    for (i = 0; i < arrayOpciones.length; i++) {
+        if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
+            //Crear elementos
+            let elementoLista = document.createElement("li");
+            let parrafoLista = document.createElement("p");
+            let texto = document.createTextNode(arrayOpciones[i]);
+            parrafoLista.appendChild(texto);
+            elementoLista.appendChild(parrafoLista);
+            //atributos
+            parrafoLista.setAttribute("class", "parrafoElementoLista");
+            anadirClaseElementos(parrafoLista);
+            elementoLista.setAttribute("class", "elementoLista");
+            //añadir a la ul
+            let ul = document.getElementById("mostrarBloqueResultados");
+            ul.appendChild(elementoLista);
+        }
+    }
 }
 
 /* si hay elementos en la lista añadir a cada elemento el evento click */
@@ -24,41 +54,13 @@ function configurarClicadoSobreElementoLista() {
     if (document.getElementById("mostrarBloqueResultados").childElementCount > 0) {
         for (i = 1; i <= document.getElementById("mostrarBloqueResultados").childElementCount; i++) {
             document.querySelector("ul li:nth-child(" + i + ") p").addEventListener("click", seleccionarElemento);
-            console.log(document.querySelector("ul li:nth-child("+i+") p").textContent);
         }
     }
 }
 
-function seleccionarElemento() {
-    alert("click");
-}
-
-
-/* Si hay texto en el input comprueba que el texto coincida con el contenido
-de los elementos del array. Muestra las concidencias como elementos de una lista */
-function filtra() {
-    if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
-        contador = 0
-        //recorro el array y si algún string CONTIENE el texto, lo muestro
-        for (i = 0; i < arrayOpciones.length; i++) {
-            if (arrayOpciones[i].includes(document.getElementById("idBusquedaNombreHerramienta").value)) {
-                //Crear elementos
-                let elementoLista = document.createElement("li");
-                let parrafoLista = document.createElement("p");
-                let texto = document.createTextNode(arrayOpciones[i]);
-                parrafoLista.appendChild(texto);
-                elementoLista.appendChild(parrafoLista);
-                //atributos
-                parrafoLista.setAttribute("class", "parrafoElementoLista");
-                anadirClaseElementos(parrafoLista);
-                elementoLista.setAttribute("class", "elementoLista");
-                //añadir a la ul
-                let ul = document.getElementById("mostrarBloqueResultados");
-                ul.appendChild(elementoLista);
-            }
-        }
-    }
-
+/* añadir el texto del elemento seleccionado al input */
+function seleccionarElemento(event) {
+    document.querySelector("input").value = event.target.textContent;
 }
 
 /*Al desplegar la lista de opciones necesitamos que los elementos pares e impares
@@ -71,17 +73,14 @@ function anadirClaseElementos(elemento) {
     } else {
         elemento.setAttribute("class", "parrafoElementoListaImpar");
     }
-
 }
 
 function eliminarElementosBusquedaPrevia(elementosLista) {
-
     while (elementosLista > 0) {
         let li = document.querySelector(".elementoLista");
         document.getElementById("mostrarBloqueResultados").removeChild(li);
         elementosLista--;
     }
-
 }
 
 function leerPHP() {
