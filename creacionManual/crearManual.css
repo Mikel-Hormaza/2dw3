@@ -8,19 +8,26 @@ main{
     margin: 1vh;
 }
 
-#textoAmarillo{
+.titulo{
     max-height: 15vh;
     position: relative;
-    background-color: #EFC227;
     display: flex;
     text-align: center;
 }
 
-#textoAmarillo > *{ 
+#amarillo{
+    background-color: #EFC227;
+}
+
+#verde{
+    background-color: #5C8001;
+}
+
+.titulo > *{ 
     width: 100%;
 }
 
-#textoAmarillo p {
+.titulo p {
     font-weight: bold;
     font-size: 3vh;
     color: white;
@@ -33,7 +40,7 @@ img {
     object-fit: cover;
 }
 
-#textoAmarillo img{
+.titulo img{
     max-height: 15vh;
     opacity: 0.1;
 }

@@ -9,7 +9,7 @@
 
 <body>
     <section>
-        <div id="textoAmarillo">
+        <div class="titulo" id="amarillo">
             <img src="Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Crear manual</p>
         </div>
