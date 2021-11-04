@@ -7,6 +7,7 @@ window.addEventListener("load", inicio);
 function inicio() {
     arrayOpciones = leerPHP(); //leer los nombres de herramientas y guardarlo en un array
     document.getElementById("idBusquedaNombreHerramienta").addEventListener("keyup", comprobarSiHayElementos);
+    document.getElementById("siguientePaso").addEventListener("click", siguientePaso);
 }
 
 /*Si hay resutados de una búsqueda 1ºeliminar 2ºvolver a filtrar */
@@ -86,4 +87,36 @@ function eliminarElementosBusquedaPrevia(elementosLista) {
 function leerPHP() {
     let arrayNombresHerramientas = document.getElementsByTagName('span').innerHTML;
     return arrayNombresHerramientas;
+}
+/* comprueba que el input no está en blanco y que el nombre existe + submit*/
+function siguientePaso(){
+    let nombreHerramientaSeleccionado = document.getElementById("idBusquedaNombreHerramienta").value;
+    if(comprobarQueHayaTexto(nombreHerramientaSeleccionado)){
+        if(comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado)){
+            document.getElementById("formulario").submit();
+        }else{
+            alert("no coincide" );
+        }
+    }else{
+        alert("introduce el nombre de la herramienta");
+    }
+}
+
+function comprobarQueHayaTexto(nombreHerramientaSeleccionado){
+    if(nombreHerramientaSeleccionado.length==0){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+/* busca en la lista de herramientas y comprueba que el texto introducido coincida con un elemento de la lista */
+function comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado){
+    let coincidenciaEncontrada = false;
+    for (i = 0; i < arrayOpciones.length; i++) {
+        if (arrayOpciones[i]==nombreHerramientaSeleccionado) {
+            return true;
+        }
+    }
+    return coincidenciaEncontrada;
 }
