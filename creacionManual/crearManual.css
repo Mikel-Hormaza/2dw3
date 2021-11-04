@@ -3,26 +3,27 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-main{
+main {
     margin: 1vh;
 }
 
-.titulo{
+.titulo {
     max-height: 15vh;
     position: relative;
     display: flex;
     text-align: center;
 }
 
-#amarillo{
+#amarillo {
     background-color: #EFC227;
 }
 
-#verde{
+#verde {
+    margin-top: 2vh;
     background-color: #5C8001;
 }
 
-.titulo > *{ 
+.titulo>* {
     width: 100%;
 }
 
@@ -32,23 +33,23 @@ main{
     color: white;
     text-shadow: 0px 1px 3px #626267;
     position: absolute;
-    top: 0%;
+    top: 15%;
 }
 
 img {
     object-fit: cover;
 }
 
-.titulo img{
+.titulo img {
     max-height: 15vh;
     opacity: 0.1;
 }
 
-button{
+button {
     text-transform: uppercase;
 }
 
-button{
+button {
     background-color: #53B3CB;
     font-size: 2vh;
     width: max-content;
@@ -58,16 +59,16 @@ button{
     padding: 1% 4%;
 }
 
-#botonVolver{
+#botonVolver {
     margin-left: 1vh;
 }
 
-div button{
+div button {
     background-color: #EFC227;
 }
 
 button,
-a{
+a {
     color: #626267;
 }
 
@@ -75,54 +76,32 @@ button span {
     display: none;
 }
 
-#siguientePaso{
+#siguientePaso {
     float: right;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 #contenedorBuscarNomHerramienta,
 button,
-main div:last-of-type
-{
+main div:last-of-type {
     border-radius: 8px;
 }
 
-#contenedorBuscarNomHerramienta{
+#contenedorBuscarNomHerramienta {
     background-color: rgba(92, 128, 1, 0.8);
     min-height: 10vh;
     padding: 2% 1%;
 }
 
-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-form input{
-    width: 100%;
-}
-
-form input,
-li,
-textarea{
-    font-size: 15px;
-}
-
-textarea{
-    min-height: 20vh;
-}
-
-li p:hover{
+li p:hover {
     background-color: #EFC227;
     cursor: pointer;
 }
 
-ul{
+ul {
     margin-top: 0%;
     list-style-type: none;
     justify-self: center;
@@ -131,18 +110,18 @@ ul{
     padding-right: 2px;
 }
 
-li p{
+li p {
     padding: 1%;
 }
 
 /* redordear los bordes superiores del input
 y los bordes inferiores del último resultado */
-#idBusquedaNombreHerramienta{
+#idBusquedaNombreHerramienta {
     border-radius: 8px 8px 0px 0px;
     cursor: text;
 }
 
-ul li:last-child p{
+ul li:last-child p {
     border-radius: 0px 0px 8px 8px;
 }
 
@@ -157,97 +136,134 @@ ul li:last-child p{
 }
 
 .parrafoElementoListaImpar,
-.parrafoElementoListaPar{
+.parrafoElementoListaPar {
     margin: 0%;
 }
 
-#registrarHerramientas{
+#registrarHerramientas {
     background-color: rgba(168, 144, 45, 0.8);
     padding: 1vh;
     margin-top: 1vh;
 }
 
-#registrarHerramientas div{
+#registrarHerramientas div {
     display: flex;
     flex-direction: column;
-    align-items: center; /* elementos en el centro */
+    align-items: center;
+    /* elementos en el centro */
 }
 
-#registrarHerramientas img{
+#registrarHerramientas img {
     display: none;
     max-height: 10vh;
     max-width: 20vh;
     justify-self: center;
 }
 
-#registrarHerramientas p{
+#registrarHerramientas p {
     color: white;
     font-weight: bold;
-    font-size:16px;
+    font-size: 16px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-h3{
+h3 {
     color: #626267;
 }
 
-#bodyCrearManual2 h3{
+#bodyCrearManual2 h3,
+#bodyCrearManual3 h3 {
     margin: 1vh;
 }
 
 /* FORMULARIOS */
 
 body div form input,
-body div form textarea{
+body div form textarea {
     border-radius: 8px;
 }
 
-label{
-    text-transform: uppercase;
-    cursor: pointer;
-    background-color: #EFC227;
-    font-size: medium;
-    border-radius: 5px;
-    color: #626267;
-    text-align: center;
-    max-width: fit-content;
-    padding: 1vh 4vh;
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.classInputFileIMG{
+form input {
+    width: 100%;
+}
+
+form input,
+li,
+textarea {
+    font-size: 15px;
+}
+
+textarea {
+    height: 15vh;
+}
+
+/*No mostrar el input type file que busca fotos*/
+.classInputFileIMG {
     display: none;
 }
 
-#bodyCrearManual2 form > *{
+#bodyCrearManual2 form>*,
+#bodyCrearManual3 form>*  {
     margin-bottom: 1vh;
 }
 
 label,
-button{
+button {
     align-self: center;
 }
 
-@media (min-width: 350px){
-    #registrarHerramientas div button span{
+.botonesOpcionesFormulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.botonesOpcionesFormulario button:nth-child(2),
+.botonesOpcionesFormulario button:nth-child(3){
+    color: white;
+}
+
+.botonesOpcionesFormulario button:nth-child(2) {
+    background-color: #5C8001;
+}
+
+.botonesOpcionesFormulario button:nth-child(3){
+    background-color: #626267;
+}
+
+#botonesOpcionesFormularioPaso button:nth-child(2){
+    background-color: #626267;
+}
+
+@media (min-width: 350px) {
+    #registrarHerramientas div button span {
         display: inline;
     }
 }
 
-@media(min-width: 400px){
-        /*     para colocar el bloque de registrar herramienta a la derecha
+@media(min-width: 400px) {
+
+    /*     para colocar el bloque de registrar herramienta a la derecha
     display main flex y al bloque de registro aling-self flex-end */
-    main{
+    main {
         display: flex;
         flex-direction: column;
     }
 
-    #registrarHerramientas{
-        width: 40vh;
+    #registrarHerramientas {
+        width: 37vh;
         align-self: flex-end;
     }
 
-    #siguientePaso{
+    #siguientePaso {
         align-self: flex-end;
     }
 
@@ -259,61 +275,64 @@ button{
         box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
     }
 
-    #botonVolver span{
+    #botonVolver span {
         display: inline;
     }
 
-    #bodyCrearManual2 div{
+    #bodyCrearManual2 form,
+    #bodyCrearManual3 form {
         padding: 1vh;
     }
 
 }
 
-@media (min-width: 600px){
-    form{
+@media (min-width: 600px) {
+    form {
         width: 80%;
         margin: 0% 10%;
     }
-    ul{
+
+    ul {
         padding-left: 10%;
         padding-right: 10%;
     }
 
-    #registrarHerramientas{
-        display: flex;
-        width: 55vh;
-    }
-
-    #registrarHerramientas p{
+    #registrarHerramientas p {
         display: inline;
         text-align: center;
     }
-
-    #registrarHerramientas img{
-        display: block;
-    }
 }
 
-@media (min-width: 700px){
+@media (min-width: 700px) {
 
-    #bodyCrearManual2 div{
+    #bodyCrearManual2 div,
+    #bodyCrearManual3 div {
         padding: 0vh;
     }
 
-    #contenedorBuscarNomHerramienta{
+    #contenedorBuscarNomHerramienta {
         margin-top: 3vh;
     }
 
-    #bodyCrearManual1 h3{
+    #bodyCrearManual1 h3 {
         margin-top: 7vh;
     }
 
     form input,
     li,
-    textarea{
+    textarea {
         font-size: 18px;
     }
 
+    #registrarHerramientas {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 45vh;
+    }
+
+    #registrarHerramientas img {
+        display: block;
+    }
 
 }
 
@@ -321,14 +340,31 @@ button{
     body {
         margin: 0% 12%;
     }
+
+    .botonesOpcionesFormulario {
+        display: grid;
+        grid-template-columns: 48% 52%;
+        grid-template-rows: 50% 50%;
+        place-items: center; /* centra los elementos en la celda */
+    }
+
+    .botonesOpcionesFormulario button:nth-child(3){
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .botonesOpcionesFormulario button{
+        width: 90%;
+    }
 }
 
 @media (min-width: 900px) {
-    form{
+    form {
         width: 70%;
         margin: 0% 15%;
     }
-    ul{
+
+    ul {
         padding-left: 15%;
         padding-right: 15%;
     }
@@ -339,5 +375,8 @@ button{
         margin: 0% 15%;
     }
 
-}
+    .botonesOpcionesFormulario button{
+        width: 25vh;
+    }
 
+}
