@@ -55,9 +55,9 @@
                     <p>eliminar</p>
                     <img src="Imagenes/delete.png" alt="eliminar">
                 </button>
-                <p>COD: <?php echo $manual["codManual"] . " - " . $manual["nombreManual"] ?></p>
-                <p>COD: <?php echo $manual["codHerramienta"] . " - " . $manual["nombreHerramienta"] ?></p>
-                <img class="fotoDelManual" src="Imagenes/<?php echo $manual["fotoManual"] ?>" alt=" ">
+                <p>Código manual: <?php echo $manual["codManual"] . " - " . $manual["nombreManual"] ?></p>
+                <p>Código herramienta: <?php echo $manual["codHerramienta"] . " - " . $manual["nombreHerramienta"] ?></p>
+                <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,'.base64_encode($manual["fotoManual"]).'"/>' ?>
 
             </div>
         <?php
