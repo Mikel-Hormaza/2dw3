@@ -23,14 +23,14 @@ function comprobarSiHayElementos() {
 function configurarClicadoSobreElementoLista() {
     if (document.getElementById("mostrarBloqueResultados").childElementCount > 0) {
         for (i = 1; i <= document.getElementById("mostrarBloqueResultados").childElementCount; i++) {
-            document.querySelector("ul li:nth-child(" + i + ") p").addEventListener("click", seleccionarElemento,1);
+            document.querySelector("ul li:nth-child(" + i + ") p").addEventListener("click", seleccionarElemento);
             console.log(document.querySelector("ul li:nth-child("+i+") p").textContent);
         }
     }
 }
 
-function seleccionarElemento(a) {
-    alert("click" + a);
+function seleccionarElemento() {
+    alert("click");
 }
 
 
