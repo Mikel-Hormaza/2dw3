@@ -233,7 +233,7 @@ article div:last-of-type hr:last-of-type {
     }
 
     #infoManual img {
-        max-height: 70%;
+        height: 85%;
         max-width: 70%;
         grid-column-start: 1;
         grid-column-end: 2;
@@ -348,7 +348,7 @@ article div:last-of-type hr:last-of-type {
 
     .paso img {
         align-self: center;
-        height: 60%;
+        height: 75%;
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 2;
