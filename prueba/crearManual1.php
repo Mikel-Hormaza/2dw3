@@ -16,7 +16,8 @@
         <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
     </section>
     <main>
-        <span id="spanNombresHerramientas">Introduce el nombre de la máquina-herramienta</span>
+        <span id="spanNombresHerramientas"></span>
+        <h3>Para iniciar la creación del manual introduce el nombre de la máquina-herramienta reparada</h3>
         <div id="contenedorBuscarNomHerramienta">
             <form id="formulario">
                 <input id="idBusquedaNombreHerramienta" type="text" name="herramienta" placeholder="Nombre de la herramienta reparada">
@@ -24,7 +25,14 @@
             <ul id="mostrarBloqueResultados">
             </ul>
         </div>
-        <button id="siguentePaso"><a href="">Siguiente paso</a></button>
+        <div id="registrarHerramientas">
+            <img src="Imagenes/duda.png" alt="Duda">
+            <div>
+                <p>¿No encuentras tu herramienta?</p>
+                <button><a href="">Registrar <span>herramienta</span></a></button>
+            </div>
+        </div>
+        <button id="siguientePaso"><a href="">Siguiente paso</a></button>
     </main>
 
 </body>
