@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(!empty($_POST["herramienta"])){
         $_SESSION['nombreHerramientaSeleccionada']=validarDatos($_POST["herramienta"]);
@@ -14,5 +16,8 @@ function validarDatos($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
+
+header('Location: 2crearManual.php');
+die();
 
 ?>

@@ -10,7 +10,7 @@ function inicio() {
     document.getElementById("siguientePaso").addEventListener("click", siguientePaso);
 }
 
-/*Si hay resutados de una búsqueda 1ºeliminar 2ºvolver a filtrar */
+/*Si hay resutados de una búsqueda 1ºeliminar los de la busqueda anterior 2ºvolver a filtrar */
 function comprobarSiHayElementos() {
     let elementosLista = document.getElementById("mostrarBloqueResultados").childElementCount;
     if (elementosLista > 0) {
@@ -50,7 +50,7 @@ function crearElementosListaYParrafos() {
     }
 }
 
-/* si hay elementos en la lista añadir a cada elemento el evento click */
+/*Si hay elementos en la lista añadir a cada elemento el evento click */
 function configurarClicadoSobreElementoLista() {
     if (document.getElementById("mostrarBloqueResultados").childElementCount > 0) {
         for (i = 1; i <= document.getElementById("mostrarBloqueResultados").childElementCount; i++) {
@@ -65,7 +65,7 @@ function seleccionarElemento(event) {
 }
 
 /*Al desplegar la lista de opciones necesitamos que los elementos pares e impares
-tengan atributos distintos para diferenciarse mejor. Esta funcion añade dos clases
+tengan colores distintos para diferenciarse mejor. Esta funcion añade dos clases
 en función de si son pares o impares*/
 function anadirClaseElementos(elemento) {
     contador++;

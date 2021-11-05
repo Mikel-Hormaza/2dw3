@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="crearManual.css">
+    <?php require_once '2formularioManual.php' ?>
 </head>
 
 <body id="bodyCrearManual2">

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="crearManual.css">
     <?php require_once 'llamarBDNombresHerramientas.php' ?>
-    <script src="buscadorHerramientas.js"></script>
+    <script src="1buscadorHerramientas.js"></script>
     <?php session_start(); ?> <!-- PARCHE -->
 </head>
 
@@ -20,7 +20,7 @@
         <span id="spanNombresHerramientas"></span>
         <h3>Para iniciar la creación del manual introduce el nombre de la máquina-herramienta reparada</h3>
         <div id="contenedorBuscarNomHerramienta">
-            <form id="formulario" method="post" action="formularioHerramienta.php">
+            <form id="formulario" method="post" action="1formularioHerramienta.php">
                 <input id="idBusquedaNombreHerramienta" type="text" name="herramienta" placeholder="Nombre de la herramienta reparada" required="required">
             </form>
             <ul id="mostrarBloqueResultados">
