@@ -20,7 +20,6 @@
 
     </head>
     <body>
-    <?php require_once '../Header.php';?>
         <div class="quienesSomos">
             <div class="quienes"><h2>¿QUIÉNES SOMOS?</h2></div>
             <div class="somos"><h3>FixPoint es una organización de Soria llevada a cabo en el centro educativo Pico Frentes. 
@@ -48,6 +47,5 @@
                 <div class="carac4"><h3>SOLIDARIDAD</h3></div>
             </div>
         </div>
-        <?php require_once '../footer.php';?>
     </body>
 </html>

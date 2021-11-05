@@ -35,7 +35,6 @@ if(isset($_POST["submit"])){
         //$update = $db->query("UPDATE herramienta SET fotoHerramienta='$imgContent' WHERE codHerramienta='2';");
         //$update = $db->query("UPDATE herramienta SET fotoHerramienta='$imgContent' WHERE codHerramienta='3';");
 
-
         //$update = $db->query("UPDATE manual SET fotoManual='$imgContent' WHERE codManual='2';");
 
         //$update = $db->query("UPDATE paso SET fotoPaso='$imgContent' WHERE codPaso='5';");

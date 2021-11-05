@@ -42,120 +42,44 @@
         <input type="password" name="contraseña2" class="repeatPW" placeholder="  Repita la contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Mínimo 8 caracteres, 1 mayúscula, 1 minúscula y 1 número" required>
         <br><br><br><br><br>
         
-        <input type="submit" class="registrarse" onclick="validarUsuario()" value="Registrarse">
+        <input type="submit" class="registrarse" value="Registrarse">
     </form>
 
     <script>
-        
-        /*window.addEventListener("load", hasiera);
+        window.addEventListener("load", hasiera);
 
         function hasiera() {
-            //alert ("Kaixo");
-            document.getElementsByClassName("registrarse").addEventListener("click", validarNombre());
-        }*/
-
-        /*function recogerDatos() {
-            let izena = document.getElementsByClassName("nombre")[0].value;
-            let emaila = document.getElementsByClassName("correo")[0].value;
-            let pasahitza1 = document.getElementsByClassName("password")[0].value;
-            let pasahitza2 = document.getElementsByClassName("repeatPW")[0].value;
-            let lehenPasahitza = document.getElementsByClassName("password")[0].value;
-            let  bigarrenPasahitza = document.getElementsByClassName("repeatPW")[0].value;
-
-            function validarNombre() {
-                let regName = /^[A-Za-z]+$/;
-
-                if (!regName.test(izena)) {
-                    alert ("Izen desegokia. Hizkiak soilik onartzen dira");
-                    return false;
-                } else {
-                    //alert ("Izen egokia");
-                    return true;
-                }
-            }
-            function validarEmail() {
-                let RegEmaila = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;
-
-                if (!RegEmaila.test(emaila)) {
-                    alert ("Emaila desegokia");
-                    return false;
-                } else {
-                    //alert ("Emaila egokia");
-                    return true;
-                }
-            }
-            function validarContra() {
-                let regPasahitza1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-
-                if (!regPasahitza1.test(pasahitza1)) {
-                    alert ("Lehen pasahitza desegokia");
-                    return false;
-                } else {
-                    //alert ("Lehen pasahitza egokia");
-                    return true;
-                }
-            }
-            function validarContra2() {
-                let regpasahitza2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-                if (!regpasahitza2.test(pasahitza2)) {
-                    alert ("Bigarren pasahitza desegokia");
-                    return false;
-                } else {
-                    //alert ("Bigarren pasahitza egokia");
-                    return true;
-                }
-            }
-            function compararContraseñas() {
-                if (pasahitza1 != pasahitza2) {
-                    alert ("Pasahitzak ez datoz bat");
-                    return false;
-                } else {
-                    //alert ("Pasahitzak bat datoz");
-                    return true;
-                }
-            }
-
-            if (validarNombre() && validarEmail() && validarContra() && validarContra2()) {
-                alert ("Datu denak egokiak");
-                if (compararContraseñas()) {
-                    alert ("Dena PERFECT");
-                    return true;
-                } else {
-                    //alert ("Pasahitzak ez datoz bat");
-                }
-            } else {
-                alert ("Daturen bat desegokia");
-            }
-
-        }*/
+            alert ("hasiera");
+            document.getElementsByClassName("registrarse").addEventListener("click", validarNombre);
+        }
 
         function validarNombre() {
-            let izena = document.getElementsByClassName("nombre")[0].value;
-            let regName = /^[A-Za-z]+$/;  /*SOLO LETRAS*/
-
-            //alert (izena);
+            alert ("validar nombre");
+            /*let izena = document.getElementsByClassName("nombre")[0].value;
+            let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//
 
             if (!regName.test(izena)) {
-                //alert ("Izen desegokia. Hizkiak soilik onartzen dira");
+                alert ("Izen desegokia. Hizkiak soilik onartzen dira");
                 return false;
             } else {
-                //alert ("Izen egokia");
+                alert ("Izen egokia");
                 return true;
-            }
+            }*/
         }
+
         function validarEmail() {
             let emaila = document.getElementsByClassName("correo")[0].value;
             let regEmaila = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  /*CARACTERES@CARACTERES.DOMINIO*/
 
             if (!regEmaila.test(emaila)) {
-                //alert ("Emaila desegokia. Formatu honetakoa izan behar da: karaktereak@karaktereak.domeinua");
+                alert ("Emaila desegokia. Formatu honetakoa izan behar da: karaktereak@karaktereak.domeinua");
                 return false;
             } else {
-                //alert ("Email egokia");
+                alert ("Email egokia");
                 return true;
             }
         }
+
         function validarContra() {
             let pasahitza1 = document.getElementsByClassName("password")[0].value;
             let regPasahitza1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  /*8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM*/
@@ -168,6 +92,7 @@
                 return true;
             }
         }
+
         function validarContra2() {
             let pasahitza2 = document.getElementsByClassName("repeatPW")[0].value;
             let regPasahitza2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   /*8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM*/
@@ -180,6 +105,7 @@
                 return true;
             }
         }
+
         function compararContraseñas() {
             let lehenPasahitza = document.getElementsByClassName("password")[0].value;
             let  bigarrenPasahitza = document.getElementsByClassName("repeatPW")[0].value;
@@ -195,7 +121,7 @@
             }
         }
 
-        function validarUsuario() {
+        function validarTodo() {
           //----------------------------------------------- OPCIÓN (de 1 en 1)--------------------------------------------------//
             if (validarNombre()) {
                 //alert ("Izen egokia");

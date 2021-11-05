@@ -320,8 +320,6 @@ img.twitter {
 
 }
 
-
-
 .quienes {
     position: absolute;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
     top: 4%;
@@ -474,46 +472,6 @@ img.twitter {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/*Esto es para la parte del navegador*/
-/*
-nav {
-    padding: 1em;
-    display: inline-block;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: #EFC227;    
-    text-decoration: none;
-}
-nav li a {
-    color: white;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-}
-nav li a:hover {
-    background: tomato;
-    color: white;
-}*/
-
-/*Esta es una clase para la imagen*/
-
-/*img.logo{
-    width: 11%; 
-    height: 5%;
-}
-.sesion {
-    border-radius: 4px;
-    border-color: #53B3CB;
-    color: #53B3CB;
-    background-color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-*/
-
 @media only screen and (max-width: 900px) {
     .quienesSomos {
         position: relative;
@@ -541,6 +499,7 @@ nav li a:hover {
         font-size: 110%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
+
     .container {
         position: relative;
         display: grid;
@@ -549,16 +508,6 @@ nav li a:hover {
         margin-left: 3%;
         margin-top: 7%;
     }
-
-    /*position: relative;
-    display: grid;
-    text-align: center;
-    margin-left: 3%;
-    justify-content: center;
-    margin-top: 4%;
-    margin-bottom: 6%;*/
-
-
 
     .div1 {
         display: flex;
@@ -591,7 +540,7 @@ nav li a:hover {
     }
     .imagen1 {
         width: 80%;
-        height: 110%;
+        height: 100%;
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row: 1;
@@ -599,7 +548,7 @@ nav li a:hover {
     }
     .imagen2 {
         width: 80%;
-        height: 110%;
+        height: 100%;
         grid-column-start: 3;
         grid-column-end: 4;
         grid-row: 1;
@@ -607,7 +556,7 @@ nav li a:hover {
     }
     .imagen3 {
         width: 80%;
-        height: 82%;
+        height: 78%;
         margin-top: 13%;
         grid-column-start: 1;
         grid-column-end: 2;
@@ -616,41 +565,22 @@ nav li a:hover {
     }
     .imagen4 {
         width: 80%;
-        height: 82%;
+        height: 78%;
         margin-top: 13%;
         grid-column-start: 3;
         grid-column-end: 4;
         grid-row: 2;
         border-radius: 3%;
     }
-
-    /*width: 14%;
-    position: absolute;
-    color: #5c8001;
-    top: 30%;
-    left: 11%;
-    align-items: center;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    padding: 0.3%;
-    font-size:x-small;
-    background-color: #EFC227CC;
-    border-radius: 7%;
-    font-family: Georgia, 'Times New Roman', Times, serif;*/
-
-
-
     .carac1 {
-        /*width: 30%;*/
         position: absolute;
         color: #5c8001;
-        top: 15%;
-        /*left: 8%;*/
+        top: 13%;
         align-items: center;
         /*grid-column-start: 1;
         grid-column-end: 2;
         grid-row: 1;*/
-        font-size:x-small;
+        font-size: 60%;
         background-color: #EFC227E6;
         border-radius: 7px;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -659,13 +589,13 @@ nav li a:hover {
         /*width: 30%;*/
         position:absolute;
         color: #5c8001;
-        top: 15%;
+        top: 13%;
         /*left: 10%;*/
         align-items: center;
         /*grid-column-start: 3;
         grid-column-end: 4;
         grid-row: 1;*/
-        font-size:x-small;
+        font-size: 60%;
         background-color: #EFC227E6;
         border-radius: 7px;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -674,13 +604,13 @@ nav li a:hover {
         /*width: 30%;*/
         position: absolute;
         color: #5c8001;
-        top: 70%;
+        top: 68%;
         /*left: 8%;*/
         align-items: center;
         /*grid-column-start: 1;
         grid-column-end: 2;
         grid-row: 2;*/
-        font-size:x-small;
+        font-size: 60%;
         background-color: #EFC227E6;
         border-radius: 7px;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -689,56 +619,17 @@ nav li a:hover {
         /*width: 30%;*/
         position: absolute;
         color: #5c8001;
-        top: 70%;
+        top: 68%;
         /*left: 15%;*/
         align-items: center;
         /*grid-column-start: 3;
         grid-column-end: 4;
         grid-row: 2;*/
-        font-size:x-small;
+        font-size: 60%;
         background-color: #EFC227E6;
         border-radius: 7px;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    
-    /*Esto es para la parte del navegador*/
-    /*
-    nav {
-        padding: 1em;
-        display: inline-block;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background: #EFC227;    
-        text-decoration: none;
-    }
-    nav li a {
-        color: white;
-        display: block;
-        text-decoration: none;
-        padding: .5em 1em;
-    }
-    nav li a:hover {
-        background: tomato;
-        color: white;
-    }*/
-
-    /*Esta es una clase para la imagen*/
-    
-    /*img.logo{
-        width: 120px; 
-        height: 30px;
-    }
-    .sesion {
-        border-radius: 4px;
-        border-color: #53B3CB;
-        color: #53B3CB;
-        background-color: white;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }*/
 }
 
 @media only screen and (max-width: 560px) {
@@ -769,14 +660,6 @@ nav li a:hover {
         font-size: 92%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-
-    /*position: relative;
-    display: grid;
-    text-align: center;
-    margin-left: 3%;
-    justify-content: center;
-    margin-top: 4%;
-    margin-bottom: 6%;*/
 
     .container {
         position: relative;
@@ -863,7 +746,7 @@ nav li a:hover {
         grid-column-end: 1;
         grid-row-start: 1;
         grid-row-end: 2;*/
-        font-size: xx-small;
+        font-size: 50%;
         background-color: #EFC227E6;
         border-radius: 7%;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -878,7 +761,7 @@ nav li a:hover {
         grid-column-end: 1;
         grid-row-start: 3;
         grid-row-end: 4;*/
-        font-size: xx-small;
+        font-size: 50%;
         background-color: #EFC227E6;
         border-radius: 7%;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -893,7 +776,7 @@ nav li a:hover {
         grid-column-end: 1;
         grid-row-start: 5;
         grid-row-end: 6;*/
-        font-size: xx-small;
+        font-size: 50%;
         background-color: #EFC227E6;
         border-radius: 7%;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -908,58 +791,10 @@ nav li a:hover {
         grid-column-end: 1;
         grid-row-start: 7;
         grid-row-end: 8;*/
-        font-size:xx-small;
+        font-size: 50%;
         background-color: #EFC227E6;
         border-radius: 7%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    
-    /*Esto es para la parte del navegador*/
-    /*
-    nav {
-        padding: 1em;
-        display: inline-block;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background: #EFC227;    
-        text-decoration: none;
-        width: 95%;
-    }
-    nav li a {
-        color: white;
-        display: block;
-        text-decoration: none;
-        padding: .5em 1em;
-    }
-    nav li a:hover {
-        background: tomato;
-        color: white;
-    }*/
-
-    /*Esta es una clase para la imagen*/
-    /*
-    img.logo{
-        width: 25%; 
-        height: 5%;
-    }
-    .sesion {
-        border-radius: 4px;
-        border-color: #53B3CB;
-        color: #53B3CB;
-        background-color: white;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }*/
 }
 
-/*Movil*/
-/*@media screen and (min-width: 480px) {
-    nav ul {
-      display: flex;
-      justify-content:center;
-    }
-  }
-*/
