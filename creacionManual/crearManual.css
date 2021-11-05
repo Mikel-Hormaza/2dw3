@@ -220,27 +220,9 @@ button {
     align-self: center;
 }
 
-.botonesOpcionesFormulario {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.botonesOpcionesFormulario button:nth-child(2),
-.botonesOpcionesFormulario button:nth-child(3){
-    color: white;
-}
-
-.botonesOpcionesFormulario button:nth-child(2) {
-    background-color: #5C8001;
-}
-
-.botonesOpcionesFormulario button:nth-child(3){
-    background-color: #626267;
-}
-
-#botonesOpcionesFormularioPaso button:nth-child(2){
-    background-color: #626267;
+.botonesOpcionesFormulario{
+    display: grid;
+    place-items: center;
 }
 
 @media (min-width: 350px) {
@@ -340,22 +322,6 @@ button {
     body {
         margin: 0% 12%;
     }
-
-    .botonesOpcionesFormulario {
-        display: grid;
-        grid-template-columns: 48% 52%;
-        grid-template-rows: 50% 50%;
-        place-items: center; /* centra los elementos en la celda */
-    }
-
-    .botonesOpcionesFormulario button:nth-child(3){
-        grid-column-start: 2;
-        grid-column-end: 3;
-    }
-
-    .botonesOpcionesFormulario button{
-        width: 90%;
-    }
 }
 
 @media (min-width: 900px) {
@@ -374,9 +340,4 @@ button {
     body {
         margin: 0% 15%;
     }
-
-    .botonesOpcionesFormulario button{
-        width: 25vh;
-    }
-
 }
