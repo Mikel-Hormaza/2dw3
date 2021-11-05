@@ -24,7 +24,13 @@ body {
         margin: 0% 15%;
     }
 }
+#NombredeUsuario, #Contraseña{
+    font-size: large;
+}
 
+input{
+    border-radius: 8px;
+}
 /*Para que el contenido de la pagina cuando este en formato movil este en una sola columna*/
 .iniciosesion {
     display: flex;
@@ -41,6 +47,7 @@ body {
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+   
 }
 
 /*El contenedro que contiene el formulario de inicio de sesion*/
@@ -83,7 +90,7 @@ body {
     align-items: center;
     border-radius: 5px;
     border: #626267, 5px;
-
+    margin-left:none;
 }
 
 /*Para controlar el tamaño de la imagen del logo*/
@@ -100,10 +107,19 @@ body {
         flex-direction: row;
     }
 
- 
+    .borde {
+     margin:none;
+    }
     .imagen {
         width: 200px;
         height: 50px;
+    }
+    .logo {
+        
+      margin-left: 10%;
+        
+       
+       
     }
 }
 
@@ -114,9 +130,10 @@ body {
     .iniciosesion {
         margin: 10%;
         flex-direction: row;
-
-
     }
+    .borde {
+        margin:10%;
+       }
     .imagen {
         width: 400px;
         height: 100px;
