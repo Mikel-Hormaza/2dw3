@@ -19,6 +19,22 @@ class Manual {
     this._nombreManual = p_nombreManual;
   }
 
+  get informacionManual() {
+    return this._informacionManual;
+  }
+
+  set informacionManual(p_informacionManual) {
+    this._informacionManual = p_informacionManual;
+  }
+
+  get equipoNecesario() {
+    return this._equipoNecesario;
+  }
+
+  set equipoNecesario(p_equipoNecesario) {
+    this._equipoNecesario = p_equipoNecesario;
+  }
+
 
 
 }
