@@ -112,7 +112,7 @@ img.logo {
     
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 550px) {
     nav ul {
         display: flex;
     }
@@ -130,7 +130,7 @@ img.logo {
     }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
     body {
         margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
     }

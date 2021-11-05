@@ -12,7 +12,7 @@
 <body>
     <section>
         <div id="amarilloMadre">
-            <img src="Imagenes/<?php echo $datosManual[0]["fotoManual"] ?>" alt="Imagen paso">
+            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($datosManual[0]["fotoManual"]).'"/>' ?>
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
         <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
@@ -22,7 +22,7 @@
     <article>
         <div id="informacionInicial">
             <div id="infoManual">
-                <img src="Imagenes/<?php echo $datosManual[0]["fotoManual"] ?>" alt="">
+            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($datosManual[0]["fotoManual"]).'"/>' ?>
                 <div>
                     <h3>Código de manual: <?php echo $datosManual[0]["codManual"]; ?></h3>
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
@@ -57,7 +57,7 @@
                     <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
                     <p><?php echo $paso["tituloPaso"] ?></p>
                 </div>
-                <img src="Imagenes/<?php echo $paso["fotoPaso"] ?>" alt="">
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($paso["fotoPaso"]).'"/>' ?>
                 <p><?php echo $paso["descripcionPaso"] ?></p>
                 <hr>
             </div>

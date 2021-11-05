@@ -8,9 +8,9 @@ form {
     align-items: center;
     
 }
-  
+
 input {
-    width: 90%;
+    width: 95%;
     height: 30px;
     margin: 0.5rem;
     border-radius: 10px;
@@ -19,11 +19,12 @@ input {
 }
 
 textarea {
-    border-radius: 10px;
+    border-radius: 8px;
+    resize: none;
 }
 
 fieldset {
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 2px 2px 10px
 }
 
@@ -32,23 +33,51 @@ fieldset {
     opacity: 5;
 }
 
-img.imagenFondo {
-    width: auto;
-    height: auto;
+
+.titulo {
+    max-height: 20vh;
+    position: relative;
+    text-align: right;
 }
-/*
-@media only screen and (max-width: 560px) {
+
+#amarillo {
+    background-color: #EFC227;
+}
+
+.titulo p {
+    font-weight: bold;
+    font-size: 3vh;
+    color: white;
+    text-shadow: 0px 1px 3px #626267;
+    position: absolute;
+    top: 10%;
+}
+.titulo img {
+    max-height: 15vh;
+    opacity: 0.1;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 880px) {
+    form {
+        width: 80%;
+        max-width: 600px;
+    }
+    
+    input {
+        width: 95%;
+        height: 30px;
+    }
+    
+    textarea {
+        width: 100%;
+        height: 30%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
     input {
         width: 90%;
         height: 30px;
-        margin: 0.5rem;
-        border-radius: 10px;
-        justify-content: center;
     }
-
-    .tarea {
-        margin: 0;
-        width: 196px;
-        height: 108px;
-    }
-}*/
+}

@@ -25,6 +25,7 @@
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
                 <a id="categoria">Categoría</a>
                 <a>Creados por mí</a>
+                <a>Todos</a>
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
@@ -41,58 +42,28 @@
     </section>
 
     <main id="listaManuales">
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <button>
-                <p>eliminar</p>
-                <img src="Imagenes/delete.png" alt="eliminar">
-            </button>
-            <p>COD: 1- Nombre de manual</p>
-            <p>COD: 2- Nombre de herramienta</p>
-            <img  class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
-        </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <button>
-                <p>eliminar</p>
-                <img src="Imagenes/delete.png" alt="eliminar">
-            </button>
-            <p>COD: 1- Nombre de manual</p>
-            <p>COD: 2- Nombre de herramienta</p>
-            <img  class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
-        </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <button>
-                <p>eliminar</p>
-                <img src="Imagenes/delete.png" alt="eliminar">
-            </button>
-            <p>COD: 1- Nombre de manual</p>
-            <p>COD: 2- Nombre de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/taladro.jpg" alt="Taladro">
-        </div>
-        <div>
-            <button>
-                <p>editar</p>
-                <img src="Imagenes/edit.png" alt="editar">
-            </button>
-            <button>
-                <p>eliminar</p>
-                <img src="Imagenes/delete.png" alt="eliminar">
-            </button>
-            <p>COD: 1- Nombre de manual</p>
-            <p>COD: 2- Nombre de herramienta</p>
-            <img class="fotoDelManual" src="Imagenes/sierra.jpg" alt="Taladro">
-        </div>
+
+        <?php
+        foreach ($datosManuales as $manual) {
+        ?>
+            <div>
+                <button>
+                    <p>editar</p>
+                    <img src="Imagenes/edit.png" alt="editar">
+                </button>
+                <button>
+                    <p>eliminar</p>
+                    <img src="Imagenes/delete.png" alt="eliminar">
+                </button>
+                <p>Código manual: <?php echo $manual["codManual"] . " - " . $manual["nombreManual"] ?></p>
+                <p>Código herramienta: <?php echo $manual["codHerramienta"] . " - " . $manual["nombreHerramienta"] ?></p>
+                <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,'.base64_encode($manual["fotoManual"]).'"/>' ?>
+
+            </div>
+        <?php
+        }
+        ?>
+
     </main>
 
     <div id="botonesInicioFinal">

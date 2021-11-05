@@ -11,14 +11,20 @@
 
 <body>
     <?php require_once '../Header/Header.php'?>
-    <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
+    <!--button id="botonVolver"><a href="">Volver<span> al inicio</span></a></button-->
         <div class="orden">
-            <form action="" class="formula">
-                <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
-                <input type="text" name="categoria" class="centrar" placeholder="Categoria"><br>
-                <label for="Imagen" class="label-img">Imagen:</label>
-                <input type="file" class="br" name="picture">
-            </form>
+            <fieldset>
+                <form action="" class="formula">
+                    <input type="text" name="izena" class="centrar" placeholder="Nombre"><br>
+                    <select name="categoria"class="centrar" placeholder="Categoria">
+                        <option value="MH">maquina-herramienta</option>
+                        <option value="E">electronica</option>
+                        <option value="HT">herramienta taller</option>
+                    </select>
+                    <label for="Imagen" class="label-img">Imagen:</label>
+                    <input type="file" class="br" name="picture">
+                </form>
+            </fieldset>
             <br>
             <button class="btn">Crear herramienta</button>
         </div>
