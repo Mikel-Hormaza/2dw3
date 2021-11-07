@@ -1,10 +1,16 @@
 <?php
+
+session_start();
+
 $servidor  = "localhost";
 $usuario = "root";
 $password = "";
+#PARCHE
+$_SESSION['primeraVariableLimit']=0;
+$_SESSION['segudaVariableLimit']=8;
 
-$primeraVariableLimit = 0;
-$segudaVariableLimit = 8;
+$primeraVariableLimit = $_SESSION['primeraVariableLimit'];
+$segudaVariableLimit = $_SESSION['segudaVariableLimit'];
 
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);

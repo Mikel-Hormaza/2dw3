@@ -21,7 +21,7 @@
 
     <section>
         <div>
-            <button id="idBotonDesplegar" class="botonDesplegar"></button>
+            <button id="idBotonDesplegar" class="botonDesplegar">&#128270</button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
                 <a id="categoria">Categoría</a>
                 <a>Creados por mí</a>
@@ -32,7 +32,7 @@
 
 
         <div>
-            <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
+            <button id="idBotonCategoria" class="botonCategoria">Categoría &#128270</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
                 <a>maquina-herramienta</a>
                 <a>electrónica</a>

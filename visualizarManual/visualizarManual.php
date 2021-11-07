@@ -15,7 +15,7 @@
             <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($datosManual[0]["fotoManual"]).'"/>' ?>
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
-        <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
+        <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
 
     </section>
 

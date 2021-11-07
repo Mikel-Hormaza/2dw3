@@ -177,7 +177,7 @@ button {
     height: auto;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 450px) {
 
     body section:nth-child(2) {
         display: flex;
@@ -238,6 +238,11 @@ button {
         min-width: 160px;
         overflow: auto;
         border-radius: 10%;
+        margin-top: 10px;
+    }
+
+    .contenidoCategoria{
+        margin-left: -9vh;
     }
 
     .contenidoADesplegar a,

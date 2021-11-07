@@ -4,7 +4,7 @@ $usuario = "root";
 $password = "";
 
 /* <!-- 
-AQUÍ PASAR COMO SESSION EL COD DE MANUAL?
+PARCHE desde biblioteca
  --> */
 $_SESSION['codManualSeleccionado'] = 1;
 $codManualSeleccionado = $_SESSION['codManualSeleccionado'];
