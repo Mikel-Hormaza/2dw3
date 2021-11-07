@@ -1,30 +1,30 @@
 class Manual {
-  constructor(p_nombreManual,
-    p_informacionManual,
+  constructor(p_tituloManual,
+    p_descripcionManual,
     p_equipoNecesario,
     p_medidasDeSeguridad,
     p_fotoManual) {
-    this._nombreManual = p_nombreManual;
-    this._informacionManual = p_informacionManual;
+    this._tituloManual = p_tituloManual;
+    this._descripcionManual = p_descripcionManual;
     this._equipoNecesario = p_equipoNecesario;
     this._medidasDeSeguridad = p_medidasDeSeguridad;
     this._fotoManual = p_fotoManual;
   }
 
-  get nombreManual() {
-    return this._nombreManual;
+  get tituloManual() {
+    return this._tituloManual;
   }
 
-  set nombreManual(p_nombreManual) {
-    this._nombreManual = p_nombreManual;
+  set tituloManual(p_tituloManual) {
+    this._tituloManual = p_tituloManual;
   }
 
-  get informacionManual() {
-    return this._informacionManual;
+  get descripcionManual() {
+    return this._descripcionManual;
   }
 
-  set informacionManual(p_informacionManual) {
-    this._informacionManual = p_informacionManual;
+  set descripcionManual(p_descripcionManual) {
+    this._descripcionManual = p_descripcionManual;
   }
 
   get equipoNecesario() {
@@ -50,7 +50,5 @@ class Manual {
   set fotoManual(p_fotoManual) {
     this._fotoManual = p_fotoManual;
   }
-
-
 
 }

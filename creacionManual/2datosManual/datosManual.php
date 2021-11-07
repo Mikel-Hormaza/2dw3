@@ -18,13 +18,13 @@
     </section>
     <div>
         <h3>Introduce los datos del manual</h3>
-        <form method="post" action="validarDatosManual.php">
+        <form id="formulario" method="post" action="validarDatosManual.php">
             <input id="idNombreManual" type="text" placeholder="Título de manual" maxlength="150" required="required">
             <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
-            <textarea id="idHerramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"></textarea>
-            <textarea id="idMedidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"></textarea>
+            <textarea id="idHerramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"  required="required"></textarea>
+            <textarea id="idMedidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"  required="required"></textarea>
             <button type ="button" id="classInputButton1" class="classInputButton" onclick="document.getElementById('classInputFileIMG1').click();">Insertar imagen</button>
-            <input id="classInputFileIMG1" class="classInputFileIMG" name="classInputFileIMG" type="file" />
+            <input id="classInputFileIMG1" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
             <div class="botonesOpcionesFormulario">
                 <button type ="button">siguiente</button>
             </div>
