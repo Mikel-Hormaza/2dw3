@@ -8,7 +8,6 @@ $arraySoloNombresHerramientas = array();
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
 
-    //ezarri pdo exception modura
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT nombreHerramienta FROM herramienta";

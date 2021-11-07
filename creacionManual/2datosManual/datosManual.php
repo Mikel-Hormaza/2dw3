@@ -20,9 +20,9 @@
         <h3>Introduce los datos del manual</h3>
         <form id="formulario" method="post" action="validarDatosManual.php">
             <input id="idNombreManual" type="text" name="nombreManual" placeholder="Título de manual" maxlength="150" required="required">
-            <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
-            <textarea id="idHerramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"  required="required"></textarea>
-            <textarea id="idMedidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"  required="required"></textarea>
+            <textarea id="idDescripcionManual" name="descripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
+            <textarea id="idHerramientasNecesarias" name="herramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"  required="required"></textarea>
+            <textarea id="idMedidasSeguridad" name="medidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"  required="required"></textarea>
             <button type ="button" id="classInputButton1" class="classInputButton" onclick="document.getElementById('classInputFileIMG1').click();">Insertar imagen</button>
             <input id="classInputFileIMG1" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
             <div class="botonesOpcionesFormulario">

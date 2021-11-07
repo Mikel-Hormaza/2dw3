@@ -12,7 +12,7 @@ function comprobacionesYSubmit(){
     if (validarDatos()){
         document.getElementById("formulario").submit();
     }else{
-        alert("ERROR");
+        alert("ERROR en comprobacionesYSubmit");
     }
 }
 
@@ -23,7 +23,6 @@ function validarDatos() {
         return false;
     } else {
         if(crearObjetoManual().validarFotoManual()){
-            alert("OK");
             return true;
         }else{
             alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
@@ -50,26 +49,26 @@ function crearObjetoManual() {
 
 function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
     let error = false;
-    mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; //largo de esta parte del string=24
+    mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; 
     if (manual.tituloManual.length == 0) {
         error = true;
-        mensajeErrorFaltanDatos += "el título \n"
+        mensajeErrorFaltanDatos += "el título \n";
     }
     if (manual.descripcionManual.length == 0) {
         error = true;
-        mensajeErrorFaltanDatos += "la descripción \n"
+        mensajeErrorFaltanDatos += "la descripción \n";
     }
     if (manual.equipoNecesario.length == 0) {
         error = true;
-        mensajeErrorFaltanDatos += "el equipo o herramientas necesarias \n"
+        mensajeErrorFaltanDatos += "el equipo o herramientas necesarias \n";
     }
     if (manual.medidasDeSeguridad.length == 0) {
         error = true;
-        mensajeErrorFaltanDatos += "medidas de seguridad necesarias \n"
+        mensajeErrorFaltanDatos += "medidas de seguridad necesarias \n";
     }
     if (manual.fotoManual.length == 0) {
         error = true;
-        mensajeErrorFaltanDatos += "una imagen para el manual \n"
+        mensajeErrorFaltanDatos += "una imagen para el manual \n";
     }
     /*si todos los campos se han rellenado, eliminar el mensaje de error */
     if (error == false) {
