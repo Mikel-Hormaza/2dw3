@@ -203,6 +203,7 @@ textarea {
 
 textarea {
     height: 15vh;
+    resize: none;
 }
 
 /*No mostrar el input type file que busca fotos*/

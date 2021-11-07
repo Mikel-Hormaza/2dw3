@@ -35,6 +35,22 @@ class Manual {
     this._equipoNecesario = p_equipoNecesario;
   }
 
+  get medidasDeSeguridad() {
+    return this._medidasDeSeguridad;
+  }
+
+  set medidasDeSeguridad(p_medidasDeSeguridad) {
+    this._medidasDeSeguridad = p_medidasDeSeguridad;
+  }
+
+  get fotoManual() {
+    return this._fotoManual;
+  }
+
+  set fotoManual(p_fotoManual) {
+    this._fotoManual = p_fotoManual;
+  }
+
 
 
 }

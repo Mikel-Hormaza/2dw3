@@ -17,7 +17,7 @@ function validarDatos($dato)
     return $dato;
 }
 
-header('Location:');
+header('Location: ../2datosManual/datosManual.php');
 die();
 
 ?>
