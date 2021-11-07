@@ -73,7 +73,7 @@ class Manual
 
     public function getCodUsuario()
     {
-        return $this->CodUsuario;
+        return $this->codUsuario;
     }
 
     public function getFechaCreacion()

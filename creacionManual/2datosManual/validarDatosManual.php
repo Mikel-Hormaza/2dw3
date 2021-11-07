@@ -6,13 +6,12 @@ $_SESSION["codUsuario"] = 1;
 $_SESSION["codHerramientaSeleccionada"] = 1; #parche
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "cod herramienta: " . $_SESSION["codHerramientaSeleccionada"];
     validarDatos();
 }
 
 function validarDatos()
 {
-        /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos*/
+    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos*/
     if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
         echo comprobarSiSeHanIntroducidoTodosLosDatos();
     } else {
@@ -24,47 +23,52 @@ function validarDatos()
     }
 }
 
-function insertarManualBD($manual){
-
+function insertarManualBD($manual)
+{
     $servidor  = "localhost";
     $user = "root";
     $pass = "";
 
-    $titulo=$manual->getTitulo();
-    $descripcionManual=$manual->getDescripcionManual();
-    $equipoNecesario=$manual->getEquipoNecesario();
-    $medidasSeguridad=$manual->getMedidasDeSeguridad();
-    $fotoManual=$manual->getFotoManual();
+    $titulo = $manual->getTituloManual();
+    $descripcionManual = $manual->getDescripcionManual();
+    $equipoNecesario = $manual->getEquipoNecesario();
+    $medidasSeguridad = $manual->getMedidasDeSeguridad();
+    $fotoManual = addslashes(file_get_contents($manual->getFotoManual()));
+    $codHerramienta = $manual->getCodHerramienta();
+    $codUsuario = $manual->getCodUsuario();
+    $fecha = $manual->getFechaCreacion();
 
 
-    try{
-        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint",$user, $pass);
-    
+    try {
+        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
+
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-        $sql = "INSERT INTO manual (nombreManual,
-         informacionManual,
-          equipoNecesario,
-           medidasDeSeguridad,
-            fotoManual,
-             codHerramienta,
-              codUsuario,
-               fechaCreacion) 
-        VALUES ('$titulo',
-         '$manual->getDescripcionManual()',
-          '$manual->getEquipoNecesario()', 'Dispositivo apagado', 'taladro.jpg', 1, 1, '2021-10-25')
-        "; 
-    
-        $conexion->exec($sql);
-    
 
-    
-    }catch(PDOException $e){
-        echo $sql. "<br>" . $e->getMessage();
+        $sql = "INSERT INTO manual (nombreManual,
+        informacionManual,
+        equipoNecesario,
+        medidasDeSeguridad,
+        fotoManual,
+        codHerramienta,
+        codUsuario,
+        fechaCreacion) 
+        VALUES ('$titulo',
+        '$descripcionManual',
+        '$equipoNecesario', 
+        '$medidasSeguridad',
+        '$fotoManual', 
+        '$codHerramienta', 
+        '$codUsuario', 
+        '$fecha');
+        ";
+
+        $conexion->exec($sql);
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
     }
-    
-    $conexion=null;
+
+    $conexion = null;
 }
 
 function fechaDeHoy()
