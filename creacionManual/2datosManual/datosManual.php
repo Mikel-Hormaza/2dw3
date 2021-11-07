@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
-    <script src="../Manual.js"></script>
+    <script src="Manual.js"></script>
     <script src="validarDatosManual.js"></script>
     <?php session_start(); ?>
 </head>
