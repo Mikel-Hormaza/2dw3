@@ -5,15 +5,15 @@ function inicio() {
 }
 
 function anadirEventoClickABotones() {
-    document.querySelector(".botonesOpcionesFormulario button:nth-child(1)").addEventListener("click", validarDatos);
+    document.querySelector(".botonesOpcionesFormulario button").addEventListener("click", validarDatos);
 }
 
 function validarDatos() {
     alert("guardar ysalir");
-    crearManual();
+    crearObjetoManual();
 }
 
-function crearManual() {
+function crearObjetoManual() {
 
     let v_nombreManual = document.getElementById("idNombreManual").value;
     let v_informacionManual = document.getElementById("idDescripcionManual").value;
@@ -26,4 +26,10 @@ function crearManual() {
         v_equipoNecesario,
         v_medidasDeSeguridad,
         v_fotoManual);
+/* 
+alert(manual1.nombreManual); ejemplo getter
+
+manual1.nombreManual="manolo";
+alert(manual1.nombreManual); ejemplo setter */
+
 }
