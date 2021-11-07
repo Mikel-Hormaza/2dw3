@@ -19,7 +19,7 @@
     <div>
         <h3>Introduce los datos del manual</h3>
         <form id="formulario" method="post" action="validarDatosManual.php">
-            <input id="idNombreManual" type="text" placeholder="Título de manual" maxlength="150" required="required">
+            <input id="idNombreManual" type="text" name="nombreManual" placeholder="Título de manual" maxlength="150" required="required">
             <textarea id="idDescripcionManual" placeholder="Descripción de la reparación" maxlength="350" required="required"></textarea>
             <textarea id="idHerramientasNecesarias" placeholder="Herramientas necesarias" maxlength="250"  required="required"></textarea>
             <textarea id="idMedidasSeguridad" placeholder="Medidas de seguridad" maxlength="250"  required="required"></textarea>

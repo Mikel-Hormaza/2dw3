@@ -51,4 +51,14 @@ class Manual {
     this._fotoManual = p_fotoManual;
   }
 
+  /* mediante una expresión regular y el método exec comprobamos si el archivo tiene una extensión válida */
+  validarFotoManual() {
+    let extensionesValidas = /(\.jpg|\.jpeg|\.png)$/i;
+    if (extensionesValidas.exec(this.fotoManual)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

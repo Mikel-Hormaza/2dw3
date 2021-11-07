@@ -12,7 +12,7 @@ function comprobacionesYSubmit(){
     if (validarDatos()){
         document.getElementById("formulario").submit();
     }else{
-        alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
+        alert("ERROR");
     }
 }
 
@@ -22,9 +22,11 @@ function validarDatos() {
         alert(comprobarSiSeHanIntroducidoTodosLosDatos(crearObjetoManual()));
         return false;
     } else {
-        if(validarExtensionFotoManual()){
+        if(crearObjetoManual().validarFotoManual()){
+            alert("OK");
             return true;
         }else{
+            alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
             return false;
         }
     }
@@ -69,20 +71,10 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
         error = true;
         mensajeErrorFaltanDatos += "una imagen para el manual \n"
     }
-    /*     si todos los campos se han rellenado, eliminar el mensaje de error */
+    /*si todos los campos se han rellenado, eliminar el mensaje de error */
     if (error == false) {
         mensajeErrorFaltanDatos = "";
     }
     return mensajeErrorFaltanDatos;
 }
 
-/* mediante una expresión regular y el método exec comprobamos si el archivo tiene una extensión válida */
-function validarExtensionFotoManual() {
-    let extensionesValidas = /(\.jpg|\.jpeg|\.png)$/i;
-    if (extensionesValidas.exec(crearObjetoManual().fotoManual)) {
-        return true;
-    } else {
-        return false;
-    }
-
-}
