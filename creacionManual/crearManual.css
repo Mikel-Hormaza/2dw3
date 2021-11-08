@@ -222,8 +222,13 @@ button {
 }
 
 .botonesOpcionesFormulario{
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.botonesOpcionesFormulario button:nth-child(2){
+    background-color: #626267;
+    color: white;
 }
 
 @media (min-width: 350px) {
@@ -265,6 +270,12 @@ button {
     #bodyCrearManual2 form,
     #bodyCrearManual3 form {
         padding: 1vh;
+    }
+
+    .botonesOpcionesFormulario{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        place-items: center;
     }
 
 }

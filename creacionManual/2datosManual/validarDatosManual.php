@@ -5,40 +5,69 @@ require_once 'Manual.php';
 $_SESSION["codUsuario"] = 1;
 $_SESSION["codHerramientaSeleccionada"] = 1; #parche
 
+$servidor  = "localhost";
+$user = "root";
+$pass = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     validarDatos();
 }
 
+/*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
+    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true -  insert*/
 function validarDatos()
 {
-    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos*/
     if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
         echo comprobarSiSeHanIntroducidoTodosLosDatos();
     } else {
-        if (crearObjetoManual()->validarFotoManual()) {
-            insertarManualBD(crearObjetoManual());
+        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) > 1) {
+            echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
         } else {
-            echo "foto not ok";
+            if (crearObjetoManual()->validarFotoManual()) {
+                insertarManualBD(crearObjetoManual());
+            } else {
+                echo "foto not ok";
+            }
         }
     }
 }
 
+function tituloManualUniqueBD()
+{
+
+    global $servidor;
+    global $user;
+    global $pass;
+
+    try {
+        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
+
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "SELECT COUNT(codManual)
+        from manual
+        WHERE nombreManual like'manual prueba3'";
+
+        $resultado = $conexion->query($sql);
+        $codManual = $resultado->fetchAll();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    return $codManual[0]["COUNT(codManual)"];
+}
+
 function insertarManualBD($manual)
 {
-    $servidor  = "localhost";
-    $user = "root";
-    $pass = "";
-
-    $check = getimagesize($_FILES["classInputFileIMG"]["tmp_name"]);
-    if($check !== false){
-        $image = $_FILES['classInputFileIMG']['tmp_name'];
-        $fotoManual = addslashes(file_get_contents($image));
-    }
+    $insertarBDcompletado = true;
+    global $servidor;
+    global $user;
+    global $pass;
 
     $titulo = $manual->getTituloManual();
     $descripcionManual = $manual->getDescripcionManual();
     $equipoNecesario = $manual->getEquipoNecesario();
     $medidasSeguridad = $manual->getMedidasDeSeguridad();
+    $fotoManual = imagenManual();
     $codHerramienta = $manual->getCodHerramienta();
     $codUsuario = $manual->getCodUsuario();
     $fecha = $manual->getFechaCreacion();
@@ -66,24 +95,63 @@ function insertarManualBD($manual)
         '$codUsuario', 
         '$fecha');
         ";
-    echo "la puta ama";
         $conexion->exec($sql);
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
+        $insertarBDcompletado = false;
     }
-
     $conexion = null;
+    if ($insertarBDcompletado) {
+        guardarCodManualSeleccionado($titulo);
+    }
+    return $insertarBDcompletado;
 }
 
+/* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
+function guardarCodManualSeleccionado($titulo)
+{
+    global $servidor;
+    global $user;
+    global $pass;
+
+    try {
+        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
+
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "SELECT codManual
+        FROM manual
+        WHERE nombreManual like '$titulo'";
+
+        $resultado = $conexion->query($sql);
+        $codManual = $resultado->fetchAll();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $_SESSION["codManualSeleccionado"] = $codManual[0]["codManual"];
+}
+
+/* devuelve la fecha del día de creación del manual */
 function fechaDeHoy()
 {
     return date("Y-m-d");
 }
 
+function imagenManual()
+{
+    $check = getimagesize($_FILES["classInputFileIMG"]["tmp_name"]);
+    if ($check !== false) {
+        $image = $_FILES['classInputFileIMG']['tmp_name'];
+        $fotoManual = addslashes(file_get_contents($image));
+    }
+    return $fotoManual;
+}
+
+/* devuelve un objeto manual */
 function crearObjetoManual()
 {
     $manual1 = new Manual(
-        strtolower(validarDato($_POST["nombreManual"])),
+        strtolower(validarDato($_POST["nombreManual"])), //devuelve el título en minúscula
         validarDato($_POST["descripcionManual"]),
         validarDato($_POST["herramientasNecesarias"]),
         validarDato($_POST["medidasSeguridad"]),
@@ -95,6 +163,7 @@ function crearObjetoManual()
     return $manual1;
 }
 
+/*comprueba que tods los datos se han introducido */
 function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
@@ -126,6 +195,33 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
     if (strlen($_SESSION["codUsuario"]) == 0) {
         $error = true;
         $mensajeErrorFaltanDatos .= "error al leer el código de usuario <br>";
+    }
+    if ($error == false) {
+        $mensajeErrorFaltanDatos = "";
+    }
+    return $mensajeErrorFaltanDatos;
+}
+
+/* comprueba el largo de los atributos según largo en la BD*/
+function comprobarLargoDeAtributosIntroducidos($manual)
+{
+    $error = false;
+    $mensajeErrorFaltanDatos = "Atención: atributo demasiado largo: <br>";
+    if (strlen($manual->getTituloManual()) > 150) {
+        $error = true;
+        $mensajeErrorFaltanDatos .= "el título <br>";
+    }
+    if (strlen($manual->getDescripcionManual()) > 350) {
+        $error = true;
+        $mensajeErrorFaltanDatos .= "la descripción <br>";
+    }
+    if (strlen($manual->getEquipoNecesario()) > 250) {
+        $error = true;
+        $mensajeErrorFaltanDatos .= "el equipo o herramientas necesarias <br>";
+    }
+    if (strlen($manual->getMedidasDeSeguridad()) > 250) {
+        $error = true;
+        $mensajeErrorFaltanDatos .= "medidas de seguridad necesarias <br>";
     }
     if ($error == false) {
         $mensajeErrorFaltanDatos = "";
