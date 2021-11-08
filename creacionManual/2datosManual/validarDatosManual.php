@@ -29,11 +29,16 @@ function insertarManualBD($manual)
     $user = "root";
     $pass = "";
 
+    $check = getimagesize($_FILES["classInputFileIMG"]["tmp_name"]);
+    if($check !== false){
+        $image = $_FILES['classInputFileIMG']['tmp_name'];
+        $fotoManual = addslashes(file_get_contents($image));
+    }
+
     $titulo = $manual->getTituloManual();
     $descripcionManual = $manual->getDescripcionManual();
     $equipoNecesario = $manual->getEquipoNecesario();
     $medidasSeguridad = $manual->getMedidasDeSeguridad();
-    $fotoManual = addslashes(file_get_contents($manual->getFotoManual()));
     $codHerramienta = $manual->getCodHerramienta();
     $codUsuario = $manual->getCodUsuario();
     $fecha = $manual->getFechaCreacion();
@@ -41,7 +46,6 @@ function insertarManualBD($manual)
 
     try {
         $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
-
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -62,7 +66,7 @@ function insertarManualBD($manual)
         '$codUsuario', 
         '$fecha');
         ";
-
+    echo "la puta ama";
         $conexion->exec($sql);
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
@@ -79,11 +83,11 @@ function fechaDeHoy()
 function crearObjetoManual()
 {
     $manual1 = new Manual(
-        validarDato($_POST["nombreManual"]),
+        strtolower(validarDato($_POST["nombreManual"])),
         validarDato($_POST["descripcionManual"]),
         validarDato($_POST["herramientasNecesarias"]),
         validarDato($_POST["medidasSeguridad"]),
-        validarDato($_POST["classInputFileIMG"]),
+        $_FILES["classInputFileIMG"]["name"],
         $_SESSION["codHerramientaSeleccionada"],
         $_SESSION["codUsuario"],
         fechaDeHoy()
@@ -111,7 +115,7 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
         $error = true;
         $mensajeErrorFaltanDatos .= "medidas de seguridad necesarias <br>";
     }
-    if (strlen($_POST["classInputFileIMG"]) == 0) {
+    if (empty($_FILES['classInputFileIMG']['name'])) {
         $error = true;
         $mensajeErrorFaltanDatos .= "una imagen para el manual <br>";
     }
