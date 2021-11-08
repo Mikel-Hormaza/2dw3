@@ -51,4 +51,16 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($n) {
+        session_start();
+        $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
+
+        header('Location: ../gestionHerramientas/gestionHerramientas.php');
+        die(); 
+    } 
+
+}
+
 $conexion = null;
