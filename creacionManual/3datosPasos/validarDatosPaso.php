@@ -163,6 +163,10 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
         $error = true;
         $mensajeErrorFaltanDatos .= "la descripción <br>";
     }
+    if (empty($_FILES['classInputFileIMG']['name'])) {
+        $error = true;
+        $mensajeErrorFaltanDatos .= "una imagen para el paso <br>";
+    }
     if (empty($_SESSION["codManualSeleccionado"])) {
         $error = true;
         $mensajeErrorFaltanDatos .= "error al leer el código de manual <br>";
@@ -178,21 +182,13 @@ function comprobarLargoDeAtributosIntroducidos($Paso)
 {
     $error = false;
     $mensajeErrorFaltanDatos = "Atención: atributo demasiado largo: <br>";
-    if (strlen($Paso->getTituloPaso()) > 150) {
+    if (strlen($Paso->getTituloPaso()) > 80) {
         $error = true;
         $mensajeErrorFaltanDatos .= "el título <br>";
     }
-    if (strlen($Paso->getDescripcionPaso()) > 350) {
+    if (strlen($Paso->getDescripcionPaso()) > 300) {
         $error = true;
         $mensajeErrorFaltanDatos .= "la descripción <br>";
-    }
-    if (strlen($Paso->getEquipoNecesario()) > 250) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "el equipo o herramientas necesarias <br>";
-    }
-    if (strlen($Paso->getMedidasDeSeguridad()) > 250) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "medidas de seguridad necesarias <br>";
     }
     if ($error == false) {
         $mensajeErrorFaltanDatos = "";
