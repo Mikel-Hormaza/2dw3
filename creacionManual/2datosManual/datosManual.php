@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+<html lang="es">
+    
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
@@ -27,6 +28,7 @@
             <input id="classInputFileIMG1" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
             <div class="botonesOpcionesFormulario">
                 <button type ="button">siguiente</button>
+                <button type ="button">eliminar</button>
             </div>
         </form>
         <span id="gestionarDatosFormularioManual"></span>

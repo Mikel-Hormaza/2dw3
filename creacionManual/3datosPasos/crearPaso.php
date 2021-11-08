@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-
+<html lang="es">
+    
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
+    <script src="Paso.js"></script>
+    <script src="validarDatosPaso.js"></script>
+    <?php session_start(); ?>
 </head>
 
 <body id="bodyCrearManual3">
@@ -21,8 +25,8 @@
             <button id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG2').click();" >Insertar imagen del paso</button>
             <input id="classInputFileIMG2" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
             <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
-                <button type ="button">crear paso</button>
-                <button type ="button">eliminar</button>
+                <button type ="button" id="idBotoncrearPaso">crear paso</button>
+                <button type ="button" id="idBotonEliminarPaso">eliminar</button>
             </div>
         </form>
     </div>
