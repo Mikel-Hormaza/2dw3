@@ -34,7 +34,7 @@ function validarDatos() {
 function crearObjetoPaso() {
     let v_tituloPaso = document.getElementById("idNombrePaso").value;
     let v_descripcionPaso = document.getElementById("idDescripcionPaso").value;
-    let v_fotoPaso = document.getElementById("classInputFileIMG1").value.replace(/^.*\\/, "");
+    let v_fotoPaso = document.getElementById("classInputFileIMG").value.replace(/^.*\\/, "");
     //la expresión regular elimina la "ruta fakepath" y devuelve el nombre del archivo más su extensión
 
     let paso1 = new Paso(v_tituloPaso,

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
@@ -19,11 +19,11 @@
     </section>
     <div>
         <h3>Describe el primer paso de la reparación</h3>
-        <form action="#" enctype="multipart/form-data">
-            <input type="text" placeholder="Título del paso" maxlength="150" require="required">
-            <textarea placeholder="Descripción del paso" maxlength="500" require="required"></textarea>
-            <button id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG2').click();" >Insertar imagen del paso</button>
-            <input id="classInputFileIMG2" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
+        <form id="formulario" action="validarDatosPaso.php" enctype="multipart/form-data">
+            <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
+            <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
+            <button type ="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();" >Insertar imagen del paso</button>
+            <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required"/>
             <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
                 <button type ="button" id="idBotoncrearPaso">crear paso</button>
                 <button type ="button" id="idBotonEliminarPaso">eliminar</button>

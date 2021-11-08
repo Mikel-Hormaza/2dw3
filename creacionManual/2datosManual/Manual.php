@@ -81,7 +81,7 @@ class Manual
         return $this->fechaCreacion;
     }
   
-
+/*     comprobar la extensión de la imagen. si es correcto: return true */
     public function validarFotoManual()
     {
         $ext = pathinfo($this->getFotoManual(), PATHINFO_EXTENSION);

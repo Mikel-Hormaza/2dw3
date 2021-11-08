@@ -1,9 +1,8 @@
 <?php
 
 session_start();
-require_once 'Manual.php';
-$_SESSION["codUsuario"] = 1;
-$_SESSION["codHerramientaSeleccionada"] = 1; #parche
+require_once 'Paso.php';
+/* el cod de manual $_SESSION["codManualSeleccionado"] */
 
 $servidor  = "localhost";
 $user = "root";
@@ -14,19 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 /*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
-    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true realiza las comprobaciones
+    Si no hay errores,comprueba la foto del Paso. Si ésta devuelve true realiza las comprobaciones
     contra la BD antes de la insert*/
 function validarDatos()
 {
     if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
         echo comprobarSiSeHanIntroducidoTodosLosDatos();
     } else {
-        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) > 1) {
-            echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
+        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoPaso())) > 1) {
+            echo comprobarLargoDeAtributosIntroducidos(crearObjetoPaso());
         } else {
-            if (crearObjetoManual()->validarFotoManual()) {
-                if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
-                    insertarManualBD(crearObjetoManual());
+            if (crearObjetoPaso()->validarFotoPaso()) {
+                if (comprobacionesEnBD("tituloUnique", crearObjetoPaso()->getTituloPaso()) == 0) {
+                    insertarPasoBD(crearObjetoPaso());
                     echo "foto subida";
                 } else {
                     echo "el titulo ya existe en la BD";
@@ -38,21 +37,21 @@ function validarDatos()
     }
 }
 
-function insertarManualBD($manual)
+function insertarPasoBD($Paso)
 {
     $insertarBDcompletado = true;
     global $servidor;
     global $user;
     global $pass;
 
-    $titulo = $manual->getTituloManual();
-    $descripcionManual = $manual->getDescripcionManual();
-    $equipoNecesario = $manual->getEquipoNecesario();
-    $medidasSeguridad = $manual->getMedidasDeSeguridad();
-    $fotoManual = imagenManual();
-    $codHerramienta = $manual->getCodHerramienta();
-    $codUsuario = $manual->getCodUsuario();
-    $fecha = $manual->getFechaCreacion();
+    $titulo = $Paso->getTituloPaso();
+    $descripcionPaso = $Paso->getDescripcionPaso();
+    $equipoNecesario = $Paso->getEquipoNecesario();
+    $medidasSeguridad = $Paso->getMedidasDeSeguridad();
+    $fotoPaso = imagenPaso();
+    $codHerramienta = $Paso->getCodHerramienta();
+    $codUsuario = $Paso->getCodUsuario();
+    $fecha = $Paso->getFechaCreacion();
 
 
     try {
@@ -60,19 +59,19 @@ function insertarManualBD($manual)
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO manual (nombreManual,
-        informacionManual,
+        $sql = "INSERT INTO Paso (nombrePaso,
+        informacionPaso,
         equipoNecesario,
         medidasDeSeguridad,
-        fotoManual,
+        fotoPaso,
         codHerramienta,
         codUsuario,
         fechaCreacion) 
         VALUES ('$titulo',
-        '$descripcionManual',
+        '$descripcionPaso',
         '$equipoNecesario', 
         '$medidasSeguridad',
-        '$fotoManual', 
+        '$fotoPaso', 
         '$codHerramienta', 
         '$codUsuario', 
         '$fecha');
@@ -84,13 +83,13 @@ function insertarManualBD($manual)
     }
     $conexion = null;
     if ($insertarBDcompletado) {
-        /* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta  */
-        comprobacionesEnBD("obtenerCodManual", $titulo);
+        /* guardar en $_SESSION["codPasoSeleccionado"] el cod de la herramienta  */
+        comprobacionesEnBD("obtenerCodPaso", $titulo);
     }
     return $insertarBDcompletado;
 }
-/* si codManualSeleccionado==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
-i codManualSeleccionado==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
+/* si codPasoSeleccionado==tituloUnique: devolver un count con los Pasoes con el mismo título en la BD 
+i codPasoSeleccionado==obtenerCodPaso: guardar en $_SESSION["codPasoSeleccionado"] el cod de la herramienta */
 function comprobacionesEnBD($tipoComprobacion, $dato)
 {
     global $servidor;
@@ -103,53 +102,53 @@ function comprobacionesEnBD($tipoComprobacion, $dato)
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         if ($tipoComprobacion == "tituloUnique") {
-            $sql = "SELECT COUNT(codManual)
-            from manual
-            WHERE nombreManual like'$dato'";
+            $sql = "SELECT COUNT(codPaso)
+            from Paso
+            WHERE nombrePaso like'$dato'";
 
             $resultado = $conexion->query($sql);
-            $tituloManual = $resultado->fetchAll();
-        } elseif ($tipoComprobacion == "obtenerCodManual") {
-            $sql = "SELECT codManual
-            FROM manual
-            WHERE nombreManual like '$dato'";
+            $tituloPaso = $resultado->fetchAll();
+        } elseif ($tipoComprobacion == "obtenerCodPaso") {
+            $sql = "SELECT codPaso
+            FROM Paso
+            WHERE nombrePaso like '$dato'";
 
             $resultado = $conexion->query($sql);
-            $codManual = $resultado->fetchAll();
+            $codPaso = $resultado->fetchAll();
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
 
     if ($tipoComprobacion == "tituloUnique") {
-        return $tituloManual[0]["COUNT(codManual)"];
-    } elseif ($tipoComprobacion == "obtenerCodManual") {
-        $_SESSION["codManualSeleccionado"] = $codManual[0]["codManual"];
+        return $tituloPaso[0]["COUNT(codPaso)"];
+    } elseif ($tipoComprobacion == "obtenerCodPaso") {
+        $_SESSION["codPasoSeleccionado"] = $codPaso[0]["codPaso"];
     }
 }
 
-/* devuelve la fecha del día de creación del manual */
+/* devuelve la fecha del día de creación del Paso */
 function fechaDeHoy()
 {
     return date("Y-m-d");
 }
 
-function imagenManual()
+function imagenPaso()
 {
     $check = getimagesize($_FILES["classInputFileIMG"]["tmp_name"]);
     if ($check !== false) {
         $image = $_FILES['classInputFileIMG']['tmp_name'];
-        $fotoManual = addslashes(file_get_contents($image));
+        $fotoPaso = addslashes(file_get_contents($image));
     }
-    return $fotoManual;
+    return $fotoPaso;
 }
 
-/* devuelve un objeto manual */
-function crearObjetoManual()
+/* devuelve un objeto Paso */
+function crearObjetoPaso()
 {
-    $manual1 = new Manual(
-        strtolower(validarDato($_POST["nombreManual"])), //devuelve el título en minúscula
-        validarDato($_POST["descripcionManual"]),
+    $Paso1 = new Paso(
+        strtolower(validarDato($_POST["nombrePaso"])), //devuelve el título en minúscula
+        validarDato($_POST["descripcionPaso"]),
         validarDato($_POST["herramientasNecesarias"]),
         validarDato($_POST["medidasSeguridad"]),
         $_FILES["classInputFileIMG"]["name"],
@@ -157,7 +156,7 @@ function crearObjetoManual()
         $_SESSION["codUsuario"],
         fechaDeHoy()
     );
-    return $manual1;
+    return $Paso1;
 }
 
 /*comprueba que tods los datos se han introducido */
@@ -165,31 +164,15 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
     $mensajeErrorFaltanDatos = "Por favor, introduzca: <br>";
-    if (strlen($_POST["nombreManual"]) == 0) {
+    if (strlen($_POST["nombrePaso"]) == 0) {
         $error = true;
         $mensajeErrorFaltanDatos .= "el título <br>";
     }
-    if (strlen($_POST["descripcionManual"]) == 0) {
+    if (strlen($_POST["descripcionPaso"]) == 0) {
         $error = true;
         $mensajeErrorFaltanDatos .= "la descripción <br>";
     }
-    if (strlen($_POST["herramientasNecesarias"]) == 0) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "el equipo o herramientas necesarias <br>";
-    }
-    if (strlen($_POST["medidasSeguridad"]) == 0) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "medidas de seguridad necesarias <br>";
-    }
-    if (empty($_FILES['classInputFileIMG']['name'])) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "una imagen para el manual <br>";
-    }
-    if (empty($_SESSION["codHerramientaSeleccionada"])) {
-        $error = true;
-        $mensajeErrorFaltanDatos .= "error al leer el código de herramienta <br>";
-    }
-    if (empty($_SESSION["codUsuario"])) {
+    if (strlen($_SESSION["codUsuario"]) == 0) {
         $error = true;
         $mensajeErrorFaltanDatos .= "error al leer el código de usuario <br>";
     }
@@ -200,23 +183,23 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
 }
 
 /* comprueba el largo de los atributos según largo en la BD*/
-function comprobarLargoDeAtributosIntroducidos($manual)
+function comprobarLargoDeAtributosIntroducidos($Paso)
 {
     $error = false;
     $mensajeErrorFaltanDatos = "Atención: atributo demasiado largo: <br>";
-    if (strlen($manual->getTituloManual()) > 150) {
+    if (strlen($Paso->getTituloPaso()) > 150) {
         $error = true;
         $mensajeErrorFaltanDatos .= "el título <br>";
     }
-    if (strlen($manual->getDescripcionManual()) > 350) {
+    if (strlen($Paso->getDescripcionPaso()) > 350) {
         $error = true;
         $mensajeErrorFaltanDatos .= "la descripción <br>";
     }
-    if (strlen($manual->getEquipoNecesario()) > 250) {
+    if (strlen($Paso->getEquipoNecesario()) > 250) {
         $error = true;
         $mensajeErrorFaltanDatos .= "el equipo o herramientas necesarias <br>";
     }
-    if (strlen($manual->getMedidasDeSeguridad()) > 250) {
+    if (strlen($Paso->getMedidasDeSeguridad()) > 250) {
         $error = true;
         $mensajeErrorFaltanDatos .= "medidas de seguridad necesarias <br>";
     }

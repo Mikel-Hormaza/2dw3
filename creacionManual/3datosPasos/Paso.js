@@ -1,7 +1,6 @@
 class Paso {
   constructor(p_tituloPaso,
     p_descripcionPaso,
-    p_equipoNecesario,
     p_fotoPaso) {
     this._tituloPaso = p_tituloPaso;
     this._descripcionPaso = p_descripcionPaso;
