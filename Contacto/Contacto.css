@@ -28,6 +28,18 @@ fieldset {
     box-shadow: 2px 2px 10px
 }
 
+.btn {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #efc227;
+    text-transform: uppercase;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
 .Fondo{
     background-color: #efc227;
     opacity: 5;
@@ -51,6 +63,7 @@ fieldset {
     text-shadow: 0px 1px 3px #626267;
     position: absolute;
     top: 10%;
+    left: 30%;
 }
 .titulo img {
     max-height: 15vh;
