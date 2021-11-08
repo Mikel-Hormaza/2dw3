@@ -27,7 +27,9 @@ body {
 #NombredeUsuario, #Contraseña{
     font-size: large;
 }
-
+span{
+    color: red;
+}
 input{
     border-radius: 8px;
 }

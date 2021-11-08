@@ -8,7 +8,7 @@
         <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
         <link rel="stylesheet" type="text/css" href="Login.css">
         <?php require_once "../Inicio de sesion/LeerBDInicioSesion.php" ?>
-        <script type = "text/javascript" src="Login.js"></script>  
+        <script src="../Inicio de sesion/Login.js"></script>
 </head>
 
 <body>
@@ -21,21 +21,21 @@
 
                 <fieldset class="borde">
 
-                        <form class="inicio" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action="LeerBDInicioSesion.php">
-                                <input type="text" id="NombredeUsuario" placeholder="Nombre de usuario"><br><br>
-                                <input type="text" id="Contraseña" placeholder="Contraseña"><br>
+                        <form id="formulario" class="inicio" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action="LeerBDInicioSesion.php">
+                                <input type="text" name="NombredeUsuario" id="NombredeUsuario" placeholder="Nombre de usuario"><br><br>
+                                <input type="text" name ="Contraseña" id="Contraseña" placeholder="Contraseña"><br>
                                 <!--Si hay un error el mensage aparecera en el span recogido  desde el php ddonde esta el textode error--->
                                 <span><?php echo $error; ?></span>
                                 <span><?php echo $errorpass; ?></span>
                                 <span><?php echo $errorinicio; ?></span><br>
-                                <button id="Iniciosesion" onclick="comprobarnom()" class="botoninicio">Inicio de sesion</button><br><br> 
-                                <!--- <input type="submit" id="Iniciosesion" onclick="comprobarnom()" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br> --->
+                                <input type="button" id="Iniciosesion" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br> 
                                 <button class="crearusuario">Crear nueva cuenta</button>
                         </form>
                 </fieldset>
 
         </main>
         <?php require_once '../footer.php' ?>
+       
 </body>
 
 </html>
