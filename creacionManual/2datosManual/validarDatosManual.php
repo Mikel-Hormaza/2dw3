@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 /*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
-    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true -  insert*/
+    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true realiza las comprobaciones
+    contra la BD antes de la insert*/
 function validarDatos()
 {
     if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
@@ -24,36 +25,17 @@ function validarDatos()
             echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
         } else {
             if (crearObjetoManual()->validarFotoManual()) {
-                insertarManualBD(crearObjetoManual());
+                if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
+                    insertarManualBD(crearObjetoManual());
+                    echo "foto subida";
+                } else {
+                    echo "el titulo ya existe en la BD";
+                }
             } else {
                 echo "foto not ok";
             }
         }
     }
-}
-
-function tituloManualUniqueBD()
-{
-
-    global $servidor;
-    global $user;
-    global $pass;
-
-    try {
-        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
-
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sql = "SELECT COUNT(codManual)
-        from manual
-        WHERE nombreManual like'manual prueba3'";
-
-        $resultado = $conexion->query($sql);
-        $codManual = $resultado->fetchAll();
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-    return $codManual[0]["COUNT(codManual)"];
 }
 
 function insertarManualBD($manual)
@@ -102,13 +84,14 @@ function insertarManualBD($manual)
     }
     $conexion = null;
     if ($insertarBDcompletado) {
-        guardarCodManualSeleccionado($titulo);
+        /* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta  */
+        comprobacionesEnBD("obtenerCodManual", $titulo);
     }
     return $insertarBDcompletado;
 }
-
-/* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
-function guardarCodManualSeleccionado($titulo)
+/* si codManualSeleccionado==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
+i codManualSeleccionado==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
+function comprobacionesEnBD($tipoComprobacion, $dato)
 {
     global $servidor;
     global $user;
@@ -119,16 +102,30 @@ function guardarCodManualSeleccionado($titulo)
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT codManual
-        FROM manual
-        WHERE nombreManual like '$titulo'";
+        if ($tipoComprobacion == "tituloUnique") {
+            $sql = "SELECT COUNT(codManual)
+            from manual
+            WHERE nombreManual like'$dato'";
 
-        $resultado = $conexion->query($sql);
-        $codManual = $resultado->fetchAll();
+            $resultado = $conexion->query($sql);
+            $tituloManual = $resultado->fetchAll();
+        } elseif ($tipoComprobacion == "obtenerCodManual") {
+            $sql = "SELECT codManual
+            FROM manual
+            WHERE nombreManual like '$dato'";
+
+            $resultado = $conexion->query($sql);
+            $codManual = $resultado->fetchAll();
+        }
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-    $_SESSION["codManualSeleccionado"] = $codManual[0]["codManual"];
+
+    if ($tipoComprobacion == "tituloUnique") {
+        return $tituloManual[0]["COUNT(codManual)"];
+    } elseif ($tipoComprobacion == "obtenerCodManual") {
+        $_SESSION["codManualSeleccionado"] = $codManual[0]["codManual"];
+    }
 }
 
 /* devuelve la fecha del día de creación del manual */
