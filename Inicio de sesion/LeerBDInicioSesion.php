@@ -4,7 +4,7 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 
-echo "xdkvjbsdvk.sdjbvkds.jbsakcj, b   ".$_POST["NombredeUsuario"];
+
 
 $error = "";
 $errorpass = "";
@@ -14,7 +14,7 @@ try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Select para coger la informacion de la base de datos
-    $sqlUsuario = "SELECT nomUsuario, passUsuario 
+    $sqlUsuario = "SELECT codUsuario, nomUsuario, passUsuario 
     FROM usuario";
 
     $resultadoUsuario = $conexion->query($sqlUsuario);
@@ -26,7 +26,8 @@ try {
 foreach ($datosUsuario as $usuarios) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nombreUsuario = $usuarios['nomUsuario'];
-            $Contraseña = $usuarios['passUsuario'];
+            $Contrasena = $usuarios['passUsuario'];
+            $codUsuario= $usuarios['codUsuario'];
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -35,24 +36,24 @@ foreach ($datosUsuario as $usuarios) {
                 </script>
                 ";
             
-            } elseif (empty($_POST["Contraseña"])) {
-                $errorpass = "Escriba una contraseña";
+            } elseif (empty($_POST["Contrasena"])) {
+                $errorpass = "Escriba una contrasena";
                 echo"<script language='javascript'>
                 alert($errorpass);
                 </script>
                 ";
             } else {
                 $nombre = isset($_REQUEST['NombredeUsuario']) ? $_REQUEST['NombredeUsuario'] : null;
-                $pass = isset($_REQUEST['Contraseña']) ? $_REQUEST['Contraseña'] : null;
+                $pass = isset($_REQUEST['Contrasena']) ? $_REQUEST['Contrasena'] : null;
 
-                if ($nombreUsuario == $nombre && $Contraseña == $pass) {
+                if ($nombreUsuario == $nombre && $Contrasena == $pass) {
                     session_start();
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
                 } else {
-                    $errorinicio = "Nombre de usuario o contraseña erroneos";
+                    $errorinicio = "Nombre de usuario o contrasena erroneos";
                     echo"<script language='javascript'>
                     alert($errorinicio);
                     </script>
