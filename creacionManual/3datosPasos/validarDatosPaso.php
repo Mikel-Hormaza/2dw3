@@ -50,7 +50,7 @@ function insertarPasoBD($Paso)
     $medidasSeguridad = $Paso->getMedidasDeSeguridad();
     $fotoPaso = imagenPaso();
     $codHerramienta = $Paso->getCodHerramienta();
-    $codUsuario = $Paso->getCodUsuario();
+    $codManualSeleccionado = $Paso->getcodManualSeleccionado();
     $fecha = $Paso->getFechaCreacion();
 
 
@@ -65,7 +65,7 @@ function insertarPasoBD($Paso)
         medidasDeSeguridad,
         fotoPaso,
         codHerramienta,
-        codUsuario,
+        codManualSeleccionado,
         fechaCreacion) 
         VALUES ('$titulo',
         '$descripcionPaso',
@@ -73,7 +73,7 @@ function insertarPasoBD($Paso)
         '$medidasSeguridad',
         '$fotoPaso', 
         '$codHerramienta', 
-        '$codUsuario', 
+        '$codManualSeleccionado', 
         '$fecha');
         ";
         $conexion->exec($sql);
@@ -127,11 +127,6 @@ function comprobacionesEnBD($tipoComprobacion, $dato)
     }
 }
 
-/* devuelve la fecha del día de creación del Paso */
-function fechaDeHoy()
-{
-    return date("Y-m-d");
-}
 
 function imagenPaso()
 {
@@ -149,17 +144,13 @@ function crearObjetoPaso()
     $Paso1 = new Paso(
         strtolower(validarDato($_POST["nombrePaso"])), //devuelve el título en minúscula
         validarDato($_POST["descripcionPaso"]),
-        validarDato($_POST["herramientasNecesarias"]),
-        validarDato($_POST["medidasSeguridad"]),
         $_FILES["classInputFileIMG"]["name"],
-        $_SESSION["codHerramientaSeleccionada"],
-        $_SESSION["codUsuario"],
-        fechaDeHoy()
+        $_SESSION["codHerramientaSeleccionada"]
     );
     return $Paso1;
 }
 
-/*comprueba que tods los datos se han introducido */
+/*comprueba que todos los datos se han introducido */
 function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
@@ -172,9 +163,9 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
         $error = true;
         $mensajeErrorFaltanDatos .= "la descripción <br>";
     }
-    if (strlen($_SESSION["codUsuario"]) == 0) {
+    if (empty($_SESSION["codManualSeleccionado"])) {
         $error = true;
-        $mensajeErrorFaltanDatos .= "error al leer el código de usuario <br>";
+        $mensajeErrorFaltanDatos .= "error al leer el código de manual <br>";
     }
     if ($error == false) {
         $mensajeErrorFaltanDatos = "";
