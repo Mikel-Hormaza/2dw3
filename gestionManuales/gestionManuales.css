@@ -335,6 +335,7 @@ button {
     #listaManuales div {
         grid-template-columns: 15% 15% auto 20%;
         grid-template-rows: 50% 50%;
+        min-height: 10vh;
     }
 
     #listaManuales div p:nth-child(even) {
