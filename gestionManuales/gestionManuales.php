@@ -66,12 +66,13 @@
 
     </main>
 
-    <div id="botonesInicioFinal">
-        <button><img src="Imagenes/primero.png" alt="triangulo"></button>
-        <button><img src="Imagenes/anterior.png" alt="triangulo"></button>
-        <button><img src="Imagenes/siguiente.png" alt="triangulo"></button>
-        <button><img src="Imagenes/último.png" alt="triangulo"></button>
-    </div>
+    <form id="botonesInicioFinal" action="leerBDGestionManuales.php">
+        <span id="spanBotonesInicioFinal"><?PHP echo $primeraVariableLimit.",". $manualMax;?></span>
+        <button id="primero" name="primero"><img src="Imagenes/primero.png" alt="primero"></button>
+        <button id="anterior" name="anterior"><img src="Imagenes/anterior.png" alt="anterior"></button>
+        <button id="siguiente" name="siguiente"><img src="Imagenes/siguiente.png" alt="siguiente"></button>
+        <button id="ultimo" name="ultimo"><img src="Imagenes/último.png" alt="ultimo"></button>
+    </form>
 
 
 </body>

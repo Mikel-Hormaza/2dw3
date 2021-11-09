@@ -177,6 +177,10 @@ button {
     height: auto;
 }
 
+#spanBotonesInicioFinal{
+    display: none;
+}
+
 @media (min-width: 450px) {
 
     body section:nth-child(2) {
