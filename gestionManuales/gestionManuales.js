@@ -10,15 +10,15 @@ function inicio() {
 /* leer las variables de la primera posición del limit y el límite máximo 
 las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
-    let arrayPrimeraYmaxLimit = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
-    let primeraVariableLimit = parseInt(arrayPrimeraYmaxLimit[0]);
-    let maxLimit = parseInt(arrayPrimeraYmaxLimit[1]);
-    mostrarOcultarBotonesInicioFinal(primeraVariableLimit, maxLimit);
+    let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
+    let primeraVariableLimit = parseInt(arrayDatosPHP[0]);
+    let codigoDelUltimoManualDeLaTabla = parseInt(arrayDatosPHP[1]);
+    let codigoDelUltimoManualDeLaTablaMostrado =parseInt(arrayDatosPHP[2]);
+    mostrarOcultarBotonesInicioFinal(primeraVariableLimit, codigoDelUltimoManualDeLaTabla, codigoDelUltimoManualDeLaTablaMostrado);
 }
 /* en función de las variables leídas, deshabilitar botones inutilizables */
-function mostrarOcultarBotonesInicioFinal(primeraVariableLimit, maxLimit) {
-    let segundaVariableLimit = parseInt(primeraVariableLimit + 8);
-    if (segundaVariableLimit >= maxLimit) {
+function mostrarOcultarBotonesInicioFinal(primeraVariableLimit, codigoDelUltimoManualDeLaTabla, codigoDelUltimoManualDeLaTablaMostrado) {
+    if (codigoDelUltimoManualDeLaTabla==codigoDelUltimoManualDeLaTablaMostrado) {
         let botonSiguiente = document.getElementById("siguiente");
         let botonUltimo = document.getElementById("ultimo");
         deshabilitarBoton(botonSiguiente);

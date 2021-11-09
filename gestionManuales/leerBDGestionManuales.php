@@ -43,9 +43,9 @@ try {
     echo $sqlManuales . "<br>" . $e->getMessage();
 }
 
-$codigoDelUltimoManual= end($datoNumTotalManuales)["codManual"];
-$codigoDelUltimoManualMostrado=end($datosManuales)["codManual"];
-echo ($codigoDelUltimoManual."+".$codigoDelUltimoManualMostrado);
+$codigoDelUltimoManualDeLaTabla= end($datoNumTotalManuales)["codManual"];
+$codigoDelUltimoManualDeLaTablaMostrado=end($datosManuales)["codManual"];
+echo ($codigoDelUltimoManualDeLaTabla."+".$codigoDelUltimoManualDeLaTablaMostrado);
  
 $conexion = null;
 

@@ -55,7 +55,7 @@
                 </button>
                 <p>Código manual: <?php echo $manual["codManual"] . " - " . $manual["nombreManual"] ?></p>
                 <p>Código herramienta: <?php echo $manual["codHerramienta"] . " - " . $manual["nombreHerramienta"] ?></p>
-                <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,'.base64_encode($manual["fotoManual"]).'"/>' ?>
+                <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,' . base64_encode($manual["fotoManual"]) . '"/>' ?>
 
             </div>
         <?php
@@ -65,7 +65,7 @@
     </main>
 
     <form method="POST" id="botonesInicioFinal" action="leerBDGestionManuales.php">
-        <span id="spanBotonesInicioFinal"><?PHP echo $primeraVariableLimit.",". $manualMax;?></span>
+        <span id="spanBotonesInicioFinal"><?PHP echo $primeraVariableLimit . "," . $codigoDelUltimoManualDeLaTabla . "," . $codigoDelUltimoManualDeLaTablaMostrado; ?></span>
         <button id="primero" name="primero"><img src="Imagenes/primero.png" alt="primero"></button>
         <button id="anterior" name="anterior"><img src="Imagenes/anterior.png" alt="anterior"></button>
         <button id="siguiente" name="siguiente"><img src="Imagenes/siguiente.png" alt="siguiente"></button>
