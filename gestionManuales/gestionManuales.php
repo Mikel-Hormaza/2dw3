@@ -6,7 +6,6 @@
     <title>Gestión manuales</title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
-    <?php require_once "leerBDGestionManuales.php" ?>
 </head>
 
 <body>
@@ -29,7 +28,6 @@
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
         </div>
-
 
         <div>
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#128270</button>
@@ -66,7 +64,7 @@
 
     </main>
 
-    <form id="botonesInicioFinal" action="leerBDGestionManuales.php">
+    <form method="POST" id="botonesInicioFinal" action="leerBDGestionManuales.php">
         <span id="spanBotonesInicioFinal"><?PHP echo $primeraVariableLimit.",". $manualMax;?></span>
         <button id="primero" name="primero"><img src="Imagenes/primero.png" alt="primero"></button>
         <button id="anterior" name="anterior"><img src="Imagenes/anterior.png" alt="anterior"></button>

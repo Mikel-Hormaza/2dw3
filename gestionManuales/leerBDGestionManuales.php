@@ -1,16 +1,22 @@
 <?php
-
 session_start();
 
 $servidor  = "localhost";
 $usuario = "root";
 $password = "";
-#PARCHE
-$_SESSION['primeraVariableLimit']=0;
-$_SESSION['segundaVariableLimit']=8;
 
+/* la primera vez que la página se carga, la primera variable vale cero
+si */
+
+/* if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['primeraVariableLimit']=limitesFuncion();
+}else{
+    $_SESSION['primeraVariableLimit']=6;
+}
+ */
+$_SESSION['primeraVariableLimit']=0;
 $primeraVariableLimit = $_SESSION['primeraVariableLimit'];
-$segundaVariableLimit = $_SESSION['segundaVariableLimit'];
+$maxLimit = 8;
 
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
@@ -21,28 +27,35 @@ try {
     FROM manual,herramienta
     WHERE manual.codHerramienta like herramienta.codHerramienta 
     ORDER BY fechaCreacion
-    LIMIT $primeraVariableLimit, $segundaVariableLimit";
+    LIMIT $primeraVariableLimit, $maxLimit";
 
     $resultadoManuales = $conexion->query($sqlManuales);
     $datosManuales = $resultadoManuales->fetchAll();
 
-    
-    $sqlTotalManuales = "SELECT COUNT(codManual) from manual";
-    $resultadoTotalManual = $conexion->query($sqlTotalManuales);
-    $datoTotalManual = $resultadoTotalManual->fetchAll();
+    $sqlNumManuales = "SELECT codManual
+    FROM manual
+    ORDER by fechaCreacion";
 
+    $numTotalManuales = $conexion->query($sqlNumManuales);
+    $datoNumTotalManuales = $numTotalManuales->fetchAll();
 
 } catch (PDOException $e) {
     echo $sqlManuales . "<br>" . $e->getMessage();
 }
 
-$manualMax=$datoTotalManual[0]['COUNT(codManual)'];
+$codigoDelUltimoManual= end($datoNumTotalManuales)["codManual"];
+$codigoDelUltimoManualMostrado=end($datosManuales)["codManual"];
+echo ($codigoDelUltimoManual."+".$codigoDelUltimoManualMostrado);
  
 $conexion = null;
 
-/* if(isset($_GET['primero'])){
-echo "primero";
+function limitesFuncion(){
+    echo "enviado";
+    if(isset($_POST['siguiente'])){
+        echo "siguiente";
+        $_SESSION['primeraVariableLimit']=$_SESSION['primeraVariableLimit']+8;
+    }
 }
- */
 
-?>
+
+require_once "gestionManuales.php";

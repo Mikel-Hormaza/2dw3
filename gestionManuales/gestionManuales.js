@@ -15,21 +15,28 @@ function botonesInicioFinal() {
     let maxLimit = parseInt(arrayPrimeraYmaxLimit[1]);
     mostrarOcultarBotonesInicioFinal(primeraVariableLimit, maxLimit);
 }
-
+/* en función de las variables leídas, deshabilitar botones inutilizables */
 function mostrarOcultarBotonesInicioFinal(primeraVariableLimit, maxLimit) {
-    let segundaVariableLimit=primeraVariableLimit+8;
-    if(!segundaVariableLimit<maxLimit){
+    let segundaVariableLimit = parseInt(primeraVariableLimit + 8);
+    if (segundaVariableLimit >= maxLimit) {
         let botonSiguiente = document.getElementById("siguiente");
         let botonUltimo = document.getElementById("ultimo");
         deshabilitarBoton(botonSiguiente);
         deshabilitarBoton(botonUltimo);
     }
+    if (primeraVariableLimit < 1) {
+        let botonSiguiente = document.getElementById("anterior");
+        let botonUltimo = document.getElementById("primero");
+        deshabilitarBoton(botonSiguiente);
+        deshabilitarBoton(botonUltimo);
+    }
 }
 
-function deshabilitarBoton(boton){
-    boton.type="button";
+function deshabilitarBoton(boton) {
+    boton.type = "button";
     boton.style.backgroundColor = "#626267";
-    boton.style.cursor="context-menu";
+    boton.style.cursor = "context-menu";
+    boton.style.opacity="0.4";
 }
 
 function desplegable1() {
