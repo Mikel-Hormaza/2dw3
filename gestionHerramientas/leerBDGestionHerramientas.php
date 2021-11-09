@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $codherramienta = $herramineta['codHerramienta'];
 
         session_start();
-        $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
+        $_SESSION[$herramineta['codHerramienta']] = $_REQUEST[$herramineta['codHerramienta']];
 
         header('Location: ../gestionHerramientas/gestionHerramientas.php');
         die(); 
