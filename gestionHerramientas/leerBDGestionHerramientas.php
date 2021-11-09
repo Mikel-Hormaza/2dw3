@@ -51,16 +51,16 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-
+foreach ($datosHerramienta as $herramienta) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($n) {
+    $codherramienta = $herramineta['codHerramienta'];
+
         session_start();
         $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
 
         header('Location: ../gestionHerramientas/gestionHerramientas.php');
         die(); 
-    } 
 
 }
-
+}
 $conexion = null;
