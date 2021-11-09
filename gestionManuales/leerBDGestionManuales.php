@@ -10,7 +10,7 @@ $maxLimit = 1; //la cantidad de manuales que se pueden mostrar
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     botonesNavegacionInicioFinal();
 } else {
-    $primeraVariableLimit = 0;
+    $primeraVariableLimit = 1;
     llamarBD($primeraVariableLimit, "ASC");
 }
 
@@ -144,3 +144,5 @@ function llamarBD($primeraVariableLimit, $AscODesc)
 }
 
 require_once "gestionManuales.php";
+
+?>

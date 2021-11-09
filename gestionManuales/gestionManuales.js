@@ -7,27 +7,26 @@ function inicio() {
     botonesInicioFinal();
 }
 
-/* leer las variables de la primera posición del limit y el límite máximo 
-las variables se encuentran en el innertext del span*/
+/* leer las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
     let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
     let codigoDelPrimerManualDeLaTabla = parseInt(arrayDatosPHP[0]);
     let codigoDelPrimerManualDeLaTablaMostrado = parseInt(arrayDatosPHP[1]);
     let codigoDelUltimoManualDeLaTablaMostrado = parseInt(arrayDatosPHP[2]);
     let codigoDelUltimoManualDeLaTabla =parseInt(arrayDatosPHP[3]);
-    mostrarOcultarBotonesInicioFinal(primeraVariableLimit, codigoDelUltimoManualDeLaTabla, codigoDelUltimoManualDeLaTablaMostrado);
+    mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla);
 }
 /* en función de las variables leídas, deshabilitar botones inutilizables */
-function mostrarOcultarBotonesInicioFinal(primeraVariableLimit, codigoDelUltimoManualDeLaTabla, codigoDelUltimoManualDeLaTablaMostrado) {
-    if (codigoDelUltimoManualDeLaTabla==codigoDelUltimoManualDeLaTablaMostrado) {
+function mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla) {
+    if (codigoDelPrimerManualDeLaTabla==codigoDelPrimerManualDeLaTablaMostrado) {
+        let botonInicio = document.getElementById("primero");
+        let botonAnterior = document.getElementById("anterior");
+        deshabilitarBoton(botonInicio);
+        deshabilitarBoton(botonAnterior);
+    }
+    if (codigoDelUltimoManualDeLaTablaMostrado==codigoDelUltimoManualDeLaTabla) {
         let botonSiguiente = document.getElementById("siguiente");
         let botonUltimo = document.getElementById("ultimo");
-        deshabilitarBoton(botonSiguiente);
-        deshabilitarBoton(botonUltimo);
-    }
-    if (primeraVariableLimit < 1) {
-        let botonSiguiente = document.getElementById("anterior");
-        let botonUltimo = document.getElementById("primero");
         deshabilitarBoton(botonSiguiente);
         deshabilitarBoton(botonUltimo);
     }
