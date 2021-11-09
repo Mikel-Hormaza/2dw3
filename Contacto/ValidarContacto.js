@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("formulario").addEventListener('submit', validarFormulario); 
   });
 
-function validarFormulario(evento) {
+/*function validarFormulario(evento) {
     evento.preventDefault();
     var izena = document.getElementById('izena').value;
     if(izena.length == 0) {
@@ -14,8 +14,8 @@ function validarFormulario(evento) {
         alert('No has escrito nada en el apellido');
     }
 
-    var gmail = document.getElementById('gmail').value;
-    if(gmail.length == 0) {
+    var email = document.getElementById('email').value;
+    if(email.length == 0) {
         alert('No has escrito nada en el mail');
     }
 
@@ -30,13 +30,27 @@ function validarFormulario(evento) {
         alert('No has escrito nada en el mesua');
     }
     this.submit();
-}
+}*/
 
-function pruebaemail (valor){
-	re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-	if(!re.exec(valor)){
-		alert('email no valido');
-	}
-	else alert('email valido');
-	}
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+  
+function validate() {
+  const $result = $("#result");
+  const email = $("#email").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    $result.text(email + " is valid :)");
+    $result.css("color", "green");
+  } else {
+    $result.text(email + " is not valid :(");
+    $result.css("color", "red");
+  }
+  return false;
+}
+  
+$("#email").on("input", validate);
 

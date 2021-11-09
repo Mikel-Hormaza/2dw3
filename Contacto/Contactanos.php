@@ -18,7 +18,7 @@
             <fieldset>
                 <input type="text" id="izena" name="izena" placeholder="Maria del mar"><br>
                 <input type="text" id="abizena" name="abizena" placeholder="G&oacute;mez L&oacute;pez"><br>
-                <input type="text" id="gmail" name="gmail" placeholder="mariagomez@gmail.com"><br>
+                <input type="text" id="email" name="email" placeholder="mariagomez@gmail.com"><br>
                 <input type="text" id="telefonoa" name="telefonoa" placeholder="654654654"><br>
                 <textarea name="" class="tarea" id="mesua" cols="80" rows="10" placeholder="Escribe &aacute;qui tu mensaje"></textarea>
                 <input type="submit" value="Enviar" class="btn" onClick="pruebaemail(correo.value);">
