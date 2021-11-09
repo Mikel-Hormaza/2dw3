@@ -32,9 +32,10 @@ class Usuario {
     }
 
     validarNombreUsuario() {
+        let f_nombreUsuario = document.getElementById("nombre").value;
         let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//
 
-        if (!regName.test(d_nombreUsuario)) {
+        if (!regName.test(f_nombreUsuario)) {
             alert ("Nombre no apropiado. Solo se admiten letras");
             return false;
         } else {
@@ -43,9 +44,10 @@ class Usuario {
         }
     }
     validarContra1Usuario() {
+        let f_contra1Usuario = document.getElementById("password").value;
         let regPassword1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
 
-        if (!regPassword1.test(d_contra1Usuario)) {
+        if (!regPassword1.test(f_contra1Usuario)) {
             alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
@@ -54,9 +56,10 @@ class Usuario {
         }
     }
     validarContra2Usuario() {
+        let f_contra2Usuario = document.getElementById("repeatPW").value;
         let regPassword2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
 
-        if (!regPassword2.test(d_contra2Usuario)) {
+        if (!regPassword2.test(f_contra2Usuario)) {
             alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
@@ -65,9 +68,10 @@ class Usuario {
         }
     }
     validarEmailUsuario() {
+        let f_emailUsuario = document.getElementById("correo").value;
         let regEmail = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  //CARACTERES@CARACTERES.DOMINIO//
 
-        if (!regEmail.test(d_emailUsuario)) {
+        if (!regEmail.test(f_emailUsuario)) {
             alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
             return false;
         } else {
@@ -76,7 +80,10 @@ class Usuario {
         }
     }
     compararContraseñas() {
-        if (d_contra1Usuario != d_contra2Usuario) {
+        let f_contra1 = document.getElementById("password").value;
+        let f_contra2 = document.getElementById("repeatPW").value;
+
+        if (f_contra1 != f_contra2) {
             alert ("Las contraseñas no coinciden");
             return false;
         } else {
