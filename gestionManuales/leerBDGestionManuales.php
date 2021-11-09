@@ -4,67 +4,84 @@ session_start();
 $primeraVariableLimit;
 $datosManuales;
 $datoNumTotalManuales;
-$codigoDelUltimoManualDeLaTablaMostrado;
-$codigoDelUltimoManualDeLaTabla;
 $maxLimit = 1; //la cantidad de manuales que se pueden mostrar
 
 /* la primera vez que la página se carga, la primera variable vale cero*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    botonesInicioFinal();
+    botonesNavegacionInicioFinal();
 } else {
     $primeraVariableLimit = 0;
     llamarBD($primeraVariableLimit, "ASC");
 }
 
 /*comprobar qué botón se ha seleccionado*/
-function  botonesInicioFinal(){
+function  botonesNavegacionInicioFinal(){
     if (isset($_POST['primero'])) {
-        avanzarONoAvanzar("primero");
+        controlarBotonesInicioAnteriorSigUltimo("primero");
     }
     if (isset($_POST['anterior'])) {
-        avanzarONoAvanzar("anterior");
+        controlarBotonesInicioAnteriorSigUltimo("anterior");
     }
     if (isset($_POST['siguiente'])) {
-        avanzarONoAvanzar("siguiente");
+        controlarBotonesInicioAnteriorSigUltimo("siguiente");
     }
     if (isset($_POST['ultimo'])) {
-        avanzarONoAvanzar("ultimo");
+        controlarBotonesInicioAnteriorSigUltimo("ultimo");
     }
 }
 
-function avanzarONoAvanzar($nombreBoton)
+/* controla los botones inicio - anterior -siguiente - fin */
+function controlarBotonesInicioAnteriorSigUltimo($nombreBoton)
 {
     global $maxLimit;
     if($nombreBoton=="siguiente"||$nombreBoton=="ultimo"){
         if ($_COOKIE["codigoDelUltimoManualDeLaTablaMostrado"] !== $_COOKIE["codigoDelUltimoManualDeLaTabla"]) {
-            if($nombreBoton=="siguiente"){
-                $_SESSION['primeraVariableLimit']+=$maxLimit;
-                llamarBD($_SESSION['primeraVariableLimit'], "ASC");
-            }
-            elseif($nombreBoton=="ultimo"){
-                $_SESSION['primeraVariableLimit']=0;
-                llamarBD($_SESSION['primeraVariableLimit'], "DESC");
-            }
+            avanzarONoAvanzar($nombreBoton, $maxLimit);
         }else{
-            echo "son iguales <br>";
-            llamarBD($_SESSION['primeraVariableLimit'], $_COOKIE["ordenUltimaBusqueda"]);
+            repetirLlamadaPreviaALaBD();
         }
     }
     if($nombreBoton=="anterior"||$nombreBoton=="primero"){
         if ($_COOKIE["codigoDelPrimerManualDeLaTablaMostrado"] !== $_COOKIE["codigoDelPrimerManualDeLaTabla"]) {
-            if($nombreBoton=="anterior"){
-                $_SESSION['primeraVariableLimit']+=$maxLimit;
-                llamarBD($_SESSION['primeraVariableLimit'], "ASC");
-            }
-            elseif($nombreBoton=="primero"){
-                $_SESSION['primeraVariableLimit']=0;
-                llamarBD($_SESSION['primeraVariableLimit'], $_COOKIE["ordenUltimaBusqueda"]);
-            }
+            retrocederONoRetroceder($nombreBoton, $maxLimit);
         }else{
-            echo "son iguales <br>";
-            llamarBD($_SESSION['primeraVariableLimit'], $_COOKIE["ordenUltimaBusqueda"]);
+            repetirLlamadaPreviaALaBD();
         }
     }
+}
+/* "siguiente"-> si el primer manual que vemos es X, y en cada pantalla vemos Y manuales, a X le sumamos Y para que muestre manuales a partir de X+Y
+"último" -> selecciona los ultimos X manuales. Para ello les llama en orden DESC */
+function avanzarONoAvanzar($nombreBoton, $maxLimit){
+    if($nombreBoton=="siguiente"){
+        $_SESSION['primeraVariableLimit']+=$maxLimit;
+        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+    }
+    elseif($nombreBoton=="ultimo"){
+        $_SESSION['primeraVariableLimit']=0;
+        llamarBD($_SESSION['primeraVariableLimit'], "DESC");
+    }
+}
+
+/* "anterior"-> si el primer manual que vemos es X, y en cada pantalla vemos Y manuales, a X le restamos Y para que muestre manuales a partir de X-Y
+                nota: como no podemos ver un manual en -X, en caso de ser X <0, X pasa a valer 0
+"último" -> selecciona los ultimos X manuales. Para ello les llama en orden DESC */
+function retrocederONoRetroceder($nombreBoton, $maxLimit){
+    if($nombreBoton=="anterior"){
+        $_SESSION['primeraVariableLimit']-=$maxLimit;
+        if($_SESSION['primeraVariableLimit']<0){
+            $_SESSION['primeraVariableLimit']=0;
+        }
+        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+    }
+    elseif($nombreBoton=="primero"){
+        $_SESSION['primeraVariableLimit']=0;
+        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+    }
+}
+/* cuando no podemos ir a la "última" o "primera" página de manuales porque ya estamos en ella, llamamos a la BD con los mismos parámetros de la última select realizada
+es necesario volver a llamar a la BD para que vuelva a mostrarnos manuales */
+function repetirLlamadaPreviaALaBD(){
+    llamarBD($_SESSION['primeraVariableLimit'], $_COOKIE["ordenUltimaBusqueda"]);
 }
 
 /* guardo mediante cookies el valor del último y primer cod de manual mostrado,

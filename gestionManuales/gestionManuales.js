@@ -11,9 +11,10 @@ function inicio() {
 las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
     let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
-    let primeraVariableLimit = parseInt(arrayDatosPHP[0]);
-    let codigoDelUltimoManualDeLaTabla = parseInt(arrayDatosPHP[1]);
-    let codigoDelUltimoManualDeLaTablaMostrado =parseInt(arrayDatosPHP[2]);
+    let codigoDelPrimerManualDeLaTabla = parseInt(arrayDatosPHP[0]);
+    let codigoDelPrimerManualDeLaTablaMostrado = parseInt(arrayDatosPHP[1]);
+    let codigoDelUltimoManualDeLaTablaMostrado = parseInt(arrayDatosPHP[2]);
+    let codigoDelUltimoManualDeLaTabla =parseInt(arrayDatosPHP[3]);
     mostrarOcultarBotonesInicioFinal(primeraVariableLimit, codigoDelUltimoManualDeLaTabla, codigoDelUltimoManualDeLaTablaMostrado);
 }
 /* en función de las variables leídas, deshabilitar botones inutilizables */
