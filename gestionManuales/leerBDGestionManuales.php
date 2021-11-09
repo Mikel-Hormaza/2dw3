@@ -5,17 +5,13 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 
-/* la primera vez que la página se carga, la primera variable vale cero
-si */
-
-/* if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['primeraVariableLimit']=limitesFuncion();
+/* la primera vez que la página se carga, la primera variable vale cero*/
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $primeraVariableLimit = $_SESSION['primeraVariableLimit'];
 }else{
-    $_SESSION['primeraVariableLimit']=6;
+    $primeraVariableLimit =0;
 }
- */
-$_SESSION['primeraVariableLimit']=0;
-$primeraVariableLimit = $_SESSION['primeraVariableLimit'];
+
 $maxLimit = 8;
 
 try {
@@ -38,24 +34,11 @@ try {
 
     $numTotalManuales = $conexion->query($sqlNumManuales);
     $datoNumTotalManuales = $numTotalManuales->fetchAll();
-
+    $conexion = null; 
 } catch (PDOException $e) {
     echo $sqlManuales . "<br>" . $e->getMessage();
 }
 
-$codigoDelUltimoManualDeLaTabla= end($datoNumTotalManuales)["codManual"];
-$codigoDelUltimoManualDeLaTablaMostrado=end($datosManuales)["codManual"];
-echo ($codigoDelUltimoManualDeLaTabla."+".$codigoDelUltimoManualDeLaTablaMostrado);
- 
-$conexion = null;
+setcookie("codigoDelUltimoManualDeLaTablaMostrado",end($datosManuales)["codManual"]);
+setcookie("codigoDelUltimoManualDeLaTabla",end($datoNumTotalManuales)["codManual"]);
 
-function limitesFuncion(){
-    echo "enviado";
-    if(isset($_POST['siguiente'])){
-        echo "siguiente";
-        $_SESSION['primeraVariableLimit']=$_SESSION['primeraVariableLimit']+8;
-    }
-}
-
-
-require_once "gestionManuales.php";

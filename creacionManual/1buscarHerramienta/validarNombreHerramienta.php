@@ -42,3 +42,4 @@ function validarDatos($dato)
 
 header('Location: ../2datosManual/datosManual.php');
 die();
+?>

@@ -6,6 +6,7 @@
     <title>Gestión manuales</title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
+    <?php require_once "leerBDGestionManuales.php" ?>
 </head>
 
 <body>
