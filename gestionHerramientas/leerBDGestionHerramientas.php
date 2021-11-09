@@ -46,7 +46,7 @@ try {
 
         $imagen = 'src="data:image/jpeg;base64,' . base64_encode($row['fotoHerramienta']) . '"';
     } else {
-        echo "No image found";
+        echo "Imagen no encontrada";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();
