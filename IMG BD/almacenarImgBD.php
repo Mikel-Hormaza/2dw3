@@ -19,7 +19,7 @@ if(isset($_POST["submit"])){
         //INSERTS
 
         /*$insert = $db->query("INSERT into herramienta (nombreHerramienta, categoria, fotoHerramienta) 
-        VALUES ('Alicates', 'herramienta taller', '$imgContent')");*/
+        VALUES ('Metro', 'herramienta taller', '$imgContent')");*/
         
         /*$insert = $db->query("INSERT into manual (nombreManual, informacionManual, equipoNecesario, medidasDeSeguridad, fotoManual, codHerramienta, codUsuario, fechaCreacion)
         VALUES ('Como desmontar un PC', 'En este manual vamos a explicar como abrirlo','destornillador', 'Dispositivo apagado', '$imgContent', '3', '1', '2021-11-27')");*/
@@ -44,8 +44,8 @@ if(isset($_POST["submit"])){
         }else{
             echo "Fallo al insertar";
         }
-    }else{
+        }else{
         echo "Por favor, selecciona archivo para insertar";
+        }
     }
-}
 ?>

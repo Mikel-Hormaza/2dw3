@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Fotos/Icono.ico">
     <link type="text/css" rel="stylesheet" href="crearUsuario.css">
-    <script src="validarUsuario.js"></script>
+    <script type="text/javascript" src="Usuario.js"></script>
+    <script type="text/javascript" src="validarUsuario.js"></script>
 </head>
 <body>
-    <form method="post" class="form">
+    <form method="post" class="form" id="form">
             <br>
             <input type="submit" class="volver" value="Volver a inicio de sesión">
         <fieldset class="fieldset">

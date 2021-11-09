@@ -1,111 +1,121 @@
 window.addEventListener("load", hasiera);
 
 function hasiera() {
-    document.getElementById("registrarse").addEventListener("click", validarNombre);
+    document.getElementById("registrarse").addEventListener("click", objetoUsuario);
 }
 
-function validarNombre() {
-    let izena = document.getElementsByClassName("nombre")[0].value;
-    let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//
+function objetoUsuario() {
+    let Nombre = document.getElementsByClassName("nombre")[0].value;
+    let Email = document.getElementsByClassName("correo")[0].value;
+    let Contraseña1 = document.getElementsByClassName("password")[0].value;
+    let Contraseña2 = document.getElementsByClassName("repeatPW")[0].value;
 
-    if (!regName.test(izena)) {
-        //alert ("Izen desegokia. Hizkiak soilik onartzen dira");
-        return false;
-    } else {
-        //alert ("Izen egokia");
-        return true;
-    }
-}
 
-function validarEmail() {
-    let emaila  = document.getElementsByClassName("correo")[0].value;
-    let regEmaila = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  /*CARACTERES@CARACTERES.DOMINIO*/
+    var usuario1 = {
+        nombre: Nombre,
+        email: Email,
+        contraseña1: Contraseña1,
+        contraseña2: Contraseña2,
 
-    if (!regEmaila.test(emaila)) {
-        //alert ("Emaila desegokia. Formatu honetakoa izan behar da: karaktereak@karaktereak.domeinua");
-        return false;
-    } else {
-        //alert ("Email egokia");
-        return true;
-    }
-}
+        validarNombre: function() {
+            let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//*/
 
-function validarContra() {
-    let pasahitza1 = document.getElementsByClassName("password")[0].value;
-    let regPasahitza1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  /*8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM*/
-
-    if (!regPasahitza1.test(pasahitza1)) {
-        //alert ("Lehen pasahitza desegokia. 8 karaktere izan behar ditu. Gutxienez letra larri bat, letra xehe bat eta zenbaki bat");
-        return false;
-    } else {
-        //alert ("Lehen pasahitza egokia");
-        return true;
-    }
-}
-
-function validarContra2() {
-    let pasahitza2 = document.getElementsByClassName("repeatPW")[0].value;
-    let regPasahitza2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   /*8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM*/
-
-    if (!regPasahitza2.test(pasahitza2)) {
-        //alert ("Bigarren pasahitza desegokia. 8 karaktere izan behar ditu. Gutxienez letra larri bat, letra xehe bat eta zenbaki bat");
-        return false;
-    } else {
-        //alert ("Bigarren pasahitza egokia");
-        return true;
-    }
-}
-
-function compararContraseñas() {
-    let lehenPasahitza = document.getElementsByClassName("password")[0].value;
-    let bigarrenPasahitza = document.getElementsByClassName("repeatPW")[0].value;
-
-    if (lehenPasahitza != bigarrenPasahitza) {
-        //alert ("Pasahitzak gaizki");
-        return false;
-    } else {
-        //alert ("Pasahitzak bat datoz");
-        return true;
-    }
-}
-
-function validarUsuario() {
-    if (validarNombre()) {
-        //alert ("Nombre apropiado");
-        if (validarEmail()) {
-            //alert ("Email apropiado");
-            if (validarContra()) {
+            if (!regName.test(usuario1.nombre)) {
+                //alert ("Nombre no apropiado");
+                return alert ("Nombre no apropiado");
+            } else {
+                //alert ("Nombre apropiado");
+                return alert ("Nombre apropiado");
+            }
+        },
+        validarContra: function() {
+            let regPassword1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
+    
+            if (!regPassword1.test(usuario1.contraseña1)) {
+                //alert ("Primera contraseña no apropiada");
+                return alert ("Primera contraseña no apropiada");
+            } else {
                 //alert ("Primera contraseña apropiada");
-                if (validarContra2()) {
-                    //alert ("Segunda contraseña apropiada");
-                    if (compararContraseñas() && confirm ("Lo quieres enviar?")) {
-                        alert ("Todo OK");
-
-                        let Nombre = document.getElementsByClassName("nombre")[0].value;
-                        let Email = document.getElementsByClassName("correo")[0].value;
-                        let Contraseña = document.getElementsByClassName("password")[0].value;
-
-                        var usuario1 = {
-                            nombre: Nombre,
-                            email: Email,
-                            contraseña: Contraseña
-                        };
-
-                        alert ("NOMBRE:  " + usuario1.nombre + "  EMAIL:  " + usuario1.email + "  CONTRASEÑA:  " + usuario1.contraseña);
-
+                return alert ("Primera contraseña apropiada");
+            }
+        },
+        validarContra2: function() {
+            let regPassword2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
+    
+            if (!regPassword2.test(usuario1.contraseña2)) {
+                //alert ("Segunda contraseña no apropiada");
+                return alert ("Segunda contraseña no apropiada");
+            } else {
+                //alert ("Segunda contraseña apropiada");
+                return alert ("Segunda contraseña apropiada");
+            }
+        },
+        validarEmail: function() {
+            let regEmail = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  //CARACTERES@CARACTERES.DOMINIO//
+    
+            if (!regEmail.test(usuario1.email)) {
+                //alert ("Email no apropiado");
+                alert ("Email no apropiado");
+            } else {
+                //alert ("Email apropiado");
+                alert ("Email apropiado");
+            }
+        },
+        compararContraseñas: function() {
+            if (usuario1.contraseña1 != usuario1.contraseña2) {
+                //alert ("Las contraseñas no coinciden");
+                return alert ("Las contraseñas no coinciden");
+            } else {
+                //alert ("Las contraseñas coinciden");
+                return alert ("Las contraseñas coinciden");
+            }
+        },
+        validarUsuario: function() {
+            if (validarNombre()) {
+                alert ("Nombre apropiado");
+                if (validarContra()) {
+                    alert ("Primera contraseña apropiada");
+                    if (validarContra2()) {
+                        alert ("Segunda contraseña apropiada");
+                        if (validarEmail()) {
+                            alert ("Email apropiado");
+                            if (compararContraseñas() && confirm ("Seguro que lo quieres enviar?")) {
+                                return alert ("Todo OK");
+                            } else {
+                                return alert ("Las contraseñas no coinciden");
+                            }
+                        } else {
+                            return alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
+                        }
                     } else {
-                        alert ("Las contraseñas no coinciden");
+                        return alert ("Segunda contraseña no apropiada. Debe tener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
                     }
                 } else {
-                    alert ("Segunda contraseña no apropiada. Debe tener 8 caracteres. Al menos una mayúscula, una minúscula y un número");
+                    return alert ("Primera contraseña no apropiada. Debe tener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
                 }
             } else {
-                alert ("Primera contraseña no apropiada. Debe tener 8 caracteres. Al menos una mayúscula, una minúscula y un número");
+                return alert ("Nombre no apropiado. Solo se admiten letras")
             }
-        } else {
-            alert ("Email no apropiado. Debe tener el siguiente formato: CARACTERES@CARACTERES.DOMINIO");
         }
-    } else {
-        alert ("Nombre no apropiado. Solo debe incluir letras");
+    };
+
+
+    /*function Usuario (nom, contr1, contr2, ema, perm) {
+        this.nombre = nom;
+        this.contraseña1 = contr1;
+        this.contraseña2 = contr2;
+        this.email = ema;
+        this.permiso = "usuario";
     }
+    var usuario1 = new Usuario (Nombre, Contraseña1, Contraseña2, Email);*/
+
+
+    alert (usuario1.validarEmail());
+
+    /*var arrayUsuarios = [];
+    arrayUsuarios[0] = {nombre: Nombre, contraseña: Contraseña, email: Email, permiso: "usuario"};*/
+
+
+    //alert ("Nombre: " + arrayUsuarios[0].nombre + "    Contraseña: " + arrayUsuarios[0].contraseña + "    Email: "  + arrayUsuarios[0].email + "    Permiso: " + arrayUsuarios[0].permiso);
+
 }
