@@ -7,13 +7,17 @@
         <link type="text/css" rel="stylesheet" href="Inicio.css">
     </head>
     <body>
-        <div class="quienesSomos">
+        <div class="container2">
             <div class="quienes"><h2>¿QUIÉNES SOMOS?</h2></div>
             <div class="somos"><h3>FixPoint es una organización de Soria llevada a cabo en el centro educativo Pico Frentes. 
                         Nos encargamos de recoger herramientas rotas o las que no funcionen bien para 
                         repararlas y poder volver a utilizarlas. De esta manera, ponemos a disposición pública 
                         las herramientas reparadas.</h3><h3>Invitamos a todo el que quiera a que se acerce a nuestro 
                         centro y ayudarnos a llevar adelante nuestro proyecto.</h3>
+                        <input type="button" class="mostrar" id="mostrar" value="Mostrar más">
+            </div>
+            <div class="portada">
+                <img class="imgPortada" src="/2dw3/Inicio/Fotos/portada.png" >
             </div>
         </div>
         <div class="container">

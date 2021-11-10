@@ -1,62 +1,58 @@
-//import {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas, validarUsuarioCompleto} from "./Usuario";
+//import {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas} from "./Usuario";
 
 window.addEventListener("load", inicio);
-
+ 
 function inicio() {
-    document.getElementById("registrarse").addEventListener("click", comprobarSiSeIntroducenLosDatos);
+    document.getElementById("registrarse").addEventListener("click", comprobacionesSubmit);
 }
-
+ 
 function comprobacionesSubmit() {
     if (validarDatos() == true) {
         //alert ("validarDatos OK");
         document.getElementById("form").submit();
         if (validarUsuarioCompleto() == true) {
-            //alert ("Nombre PERFECTO");
+            //alert ("PERFECTO");
         } else {
-            //alert ("Nombre SAD");
+            //alert ("SAD");
         }
     } else {
-        alert ("Error de comprobaciones y submit");
+        //alert ("Error de comprobaciones y submit");
     }
 }
 
 function validarDatos() {
     //alert ("validarDatos");
-
+ 
     if (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()).length > 1) {
         alert (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()));
+        todasLasValidaciones(crearObjetoUsuario());
         return false;
     } else {
         return true;
     }
 }
-
+ 
 function crearObjetoUsuario() {
     //alert ("crearObjetoUsuario");
-
+ 
     let d_nombreUsuario = document.getElementById("nombre").value;
     let d_contra1Usuario = document.getElementById("password").value;
     let d_contra2Usuario = document.getElementById("repeatPW").value;
     let d_emailUsuario = document.getElementById("correo").value;
-
+ 
     let usuario1 = new Usuario (d_nombreUsuario, d_contra1Usuario, d_contra2Usuario, d_emailUsuario);
     return usuario1;
-}
 
+}
+ 
 function comprobarSiSeIntroducenLosDatos(usuario) {
     //alert ("comprobarSiSeIntroducenLosDatos");
-    
+   
     let error = false;
     mensajeError = "Por favor, introduce: \n";
-
-    alert (usuario.nombre);
-    alert (usuario.contra1);
-    alert (usuario.contra2);
-    alert (usuario.email);
-
-    //alert (mensajeError);
-
-    /*if (usuario.nombre.length == 0) {
+ 
+ 
+    if (usuario.nombre.length == 0) {
         error = true;
         mensajeError += "Nombre \n";
     }
@@ -71,32 +67,39 @@ function comprobarSiSeIntroducenLosDatos(usuario) {
     if (usuario.contra2.length == 0) {
         error = true;
         mensajeError += "Segunda contraseña \n";
-    } 
-    
+    }
+   
     if (error == false) {
         mensajeError = "";
     }
-
-    return mensajeError;*/
+ 
+    return mensajeError;
 }
 
-function validarNombreUsuario(usuario) {
-    let f_nombreUsuario = document.getElementById("nombre").value;
-    let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//
-
-    if (!regName.test(usuario.nombre)) {
-        //alert ("Nombre no apropiado. Solo se admiten letras");
-        return false;
-    } else {
-        //alert ("Nombre apropiado");
-        return true;
+function todasLasValidaciones(){
+    OK = true;
+    if(!validarNombreUsuario()){
+        OK= false;
     }
+    return OK;
 }
-function validarContra1Usuario(usuario) {
+ 
+function validarNombreUsuario() {
+    if(crearObjetoUsuario().validarNombreUsuario()){
+        alert ("Nombre apropiado");
+    }else{
+        alert ("Nombre no apropiado. Solo se admiten letras");
+    }
+
+}
+
+/*
+function validarContra1Usuario() {
     let f_contra1Usuario = document.getElementById("password").value;
     let regPassword1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
-
-    if (!regPassword1.test(usuario.contra1)) {
+ 
+    if (!regPassword1.test(f_contra1Usuario)) {
+        //alert (f_contra1Usuario);
         //alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
         return false;
     } else {
@@ -104,11 +107,12 @@ function validarContra1Usuario(usuario) {
         return true;
     }
 }
-function validarContra2Usuario(usuario) {
+function validarContra2Usuario() {
     let f_contra2Usuario = document.getElementById("repeatPW").value;
     let regPassword2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
-
-    if (!regPassword2.test(usuario.contra2)) {
+ 
+    if (!regPassword2.test(f_contra2Usuario)) {
+        //alert (f_contra2Usuario);
         //alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
         return false;
     } else {
@@ -116,11 +120,12 @@ function validarContra2Usuario(usuario) {
         return true;
     }
 }
-function validarEmailUsuario(usuario) {
+function validarEmailUsuario() {
     let f_emailUsuario = document.getElementById("correo").value;
     let regEmail = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  //CARACTERES@CARACTERES.DOMINIO//
-
-    if (!regEmail.test(usuario.email)) {
+ 
+    if (!regEmail.test(f_emailUsuario)) {
+        //alert (f_emailUsuario);
         //alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
         return false;
     } else {
@@ -128,11 +133,11 @@ function validarEmailUsuario(usuario) {
         return true;
     }
 }
-function compararContraseñas(usuario) {
+function compararContraseñas() {
     let f_contra1 = document.getElementById("password").value;
     let f_contra2 = document.getElementById("repeatPW").value;
-
-    if (usuario.contra1 != usuario.contra2) {
+ 
+    if (f_contra1 != f_contra2) {
         //alert ("Las contraseñas no coinciden");
         return false;
     } else {
@@ -140,7 +145,7 @@ function compararContraseñas(usuario) {
         return true;
     }
 }
-
+ 
 function validarUsuarioCompleto() {
     if (this.validarNombreUsuario()) {
         //alert ("Nombre apropiado");
@@ -150,9 +155,12 @@ function validarUsuarioCompleto() {
                 //alert ("Segunda contraseña apropiada");
                 if (this.validarEmailUsuario()) {
                     //alert ("Email apropiado");
-                    if (this.compararContraseñas() && confirm ("Seguro que lo quieres enviar?")) {
-                        alert ("Enviado con éxito");
-                        return true;
+                    if (this.compararContraseñas()) {
+                        //alert ("Las contraseñas coinciden");
+                        if (confirm ("Seguro que lo quieres enviar?")) {
+                            alert ("Enviado con éxito");
+                            return true;
+                        }
                     } else {
                         alert ("Las contraseñas no coinciden");
                     }
@@ -168,11 +176,11 @@ function validarUsuarioCompleto() {
     } else {
         alert ("Nombre no apropiado. Solo se admiten letras");
     }
-}
-
+}*/
+ 
 /*function validarDatosIntroducidos() {
     alert ("validarDatosIntroducidos");
-
+ 
     if (validarUsuarioCompleto() == true) {
         alert ("validarUsuarioCompleto TRUE");
         return true;
@@ -181,4 +189,3 @@ function validarUsuarioCompleto() {
         return false;
     }
 }*/
-

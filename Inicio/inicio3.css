@@ -473,71 +473,40 @@ img.twitter {
 }
 
 @media only screen and (max-width: 900px) {
-
-
-    .container2 {
-        display: grid;
-        /*margin-top: 0%;*/
-        grid-template-areas: 
-        'quienes quienes'
-        'somos img';
-        grid-template-rows: 2fr 5fr;
-        grid-template-columns: 5fr 5fr;
+    .quienesSomos {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        background-color: #5c8001;
+        height: 70%;
+        margin-top: 2%;
     }
-
     .quienes {
-        margin-left: 9%;
-        width: 72%;
-        color: #626267;
-        background-color: #EFC227B3;
-        border-radius: 5px;
-        border: none;
-        font-size: 80%;
+        position: absolute;
+        /*top: 7%;*/
+        /*left: -33%;*/
+        color: #53B3CB;
+        font-size: 110%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .somos {
+        position: absolute;
+        /*top: 24%;*/
+        /*left: 20%;*/
+        /*right: -100%;*/
+        color: #53B3CB;
         text-align: left;
+        font-size: 110%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
-    .somos {
-        top: 17%;
-        margin-left: 9%;
-        margin-right: 50%;
-        color: white;
-        background-color: #5c8001B3;
-        border-radius: 5px;
-        border: none;
-        text-align: left;
-        font-size: 70%;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .portada {
-        margin-top: 60%;
-        margin-left: 110%;
-        width: 35%;
-        height: 35%;
-    }
-    .imgPortada {
-        width: 200%;
-        height: 170%;
-    }
-    .quienes h2 {
-        margin-left: 3%;
-    }
-    .somos h3 {
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-    .mostrar {
-        background-color: #EFC227;
-        border-radius: 3px;
-        border: none;
-    }
     .container {
         position: relative;
         display: grid;
         text-align: center;
         justify-content: center;
         margin-left: 3%;
-        top: 70%;
+        margin-top: 7%;
     }
 
     .div1 {
@@ -664,66 +633,41 @@ img.twitter {
 }
 
 @media only screen and (max-width: 560px) {
-    .container2 {
-        display: grid;
-        grid-template: 
-        'quienes'
-        'somos';
-        /*height: 50%;*/
-        margin-top: 0%;
-    }
-    .quienes {
-        margin-left: 9%;
-        /*margin-top: 70%;*/
-        width: 72%;
-        border-radius: 6px;
-        /*grid-area: quienes;
-        /*grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 2;*/
-        color: #626267;
-        background-color: #EFC227B3;
-        font-size: 65%;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+    .quienesSomos {
+        position: relative;
+        display: inline-block;
+        background-color: #5c8001;
         text-align: center;
+        height: 90%;
+        margin-top: 5%;
+    }
+
+    .quienes {
+        position: absolute;
+        top: 3%;
+        left: 4%;
+        color: #53B3CB;
+        font-size: 90%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .somos {
-        top: 9.8%;
-        /*grid-area: somos;*/
-        /*grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 3;*/
-        border-radius: 6px;
-        margin-left: 9%;
-        margin-right: 14%;
-        /*height: 40%;*/
-        color: white;
-        background-color: #5c8001B3;
+        position: absolute;
+        top: 14%;
+        left: 10%;
+        /*right: -50%;*/
+        color: #53B3CB;
         text-align: left;
-        font-size: 70%;
+        font-size: 92%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    .somos h3 {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-    .mostrar {
-        border-radius: 8px;
-        background-color: #EFC227;
-        border: none;
-        font-size: 100%;
-    }
-    .imgPortada {
-        display: none;
-    }
+
     .container {
+        position: relative;
         display: grid;
         text-align: center;
         justify-content:center;
-        right: 2%;
-        top: 45%;
+        right: 1%;
+        margin-top: 10%;
     }
 
     .div1 {
@@ -853,4 +797,3 @@ img.twitter {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
-

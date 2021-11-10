@@ -121,4 +121,4 @@ class Usuario {
     }
 }
 
-//export {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas, validarUsuarioCompleto};
+//export {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas};
