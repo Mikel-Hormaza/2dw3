@@ -1,5 +1,3 @@
-//import {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas} from "./Usuario";
-
 window.addEventListener("load", inicio);
  
 function inicio() {
@@ -8,15 +6,10 @@ function inicio() {
  
 function comprobacionesSubmit() {
     if (validarDatos() == true) {
-        //alert ("validarDatos OK");
+        alert ("validarDatos OK");
         document.getElementById("form").submit();
-        if (validarUsuarioCompleto() == true) {
-            //alert ("PERFECTO");
-        } else {
-            //alert ("SAD");
-        }
     } else {
-        //alert ("Error de comprobaciones y submit");
+        alert ("Error de comprobaciones y submit");
     }
 }
 
@@ -25,9 +18,9 @@ function validarDatos() {
  
     if (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()).length > 1) {
         alert (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()));
-        todasLasValidaciones(crearObjetoUsuario());
         return false;
     } else {
+        todasLasValidaciones(crearObjetoUsuario());
         return true;
     }
 }
@@ -42,7 +35,6 @@ function crearObjetoUsuario() {
  
     let usuario1 = new Usuario (d_nombreUsuario, d_contra1Usuario, d_contra2Usuario, d_emailUsuario);
     return usuario1;
-
 }
  
 function comprobarSiSeIntroducenLosDatos(usuario) {
@@ -77,9 +69,35 @@ function comprobarSiSeIntroducenLosDatos(usuario) {
 }
 
 function todasLasValidaciones(){
+    alert ("todasLasValidaciones");
     OK = true;
+    if (!comprobarSiSeIntroducenLosDatos()) {
+        alert ("Introducidos MAL");
+        OK = false;
+    }
+    if (!crearObjetoUsuario()) {
+        alert ("objeto MAL");
+        OK = false;
+    }
     if(!validarNombreUsuario()){
+        alert ("Nombre MAL");
         OK= false;
+    }
+    if (!validarContra1Usuario()) {
+        alert ("contra1 MAL");
+        OK = false;
+    }
+    if (!validarContra2Usuario()) {
+        alert ("contra2 MAL");
+        OK = false;
+    }
+    if (!validarEmailUsuario()) {
+        alert ("email MAL");
+        OK = false;
+    }
+    if (!compararContraseñas()) {
+        alert ("contraseñas MAL");
+        OK = false;
     }
     return OK;
 }
@@ -88,9 +106,36 @@ function validarNombreUsuario() {
     if(crearObjetoUsuario().validarNombreUsuario()){
         alert ("Nombre apropiado");
     }else{
-        alert ("Nombre no apropiado. Solo se admiten letras");
+        alert ("Nombre inapropiado");
     }
-
+}
+function validarContra1Usuario() {
+    if (crearObjetoUsuario().validarContra1Usuario()) {
+        alert ("Contra1 apropiado");
+    } else {
+        alert ("Contra2 inapropiado");
+    }
+}
+function validarContra2Usuario() {
+    if (crearObjetoUsuario().validarContra2Usuario()) {
+        alert ("Contra2 apropiado");
+    } else {
+        alert ("Contra2 inapropiado");
+    }
+}
+function validarEmailUsuario() {
+    if (crearObjetoUsuario().validarEmailUsuario()) {
+        alert ("Email apropiado");
+    } else {
+        alert ("Email inapropiado");
+    }
+}
+function compararContraseñas() {
+    if (crearObjetoUsuario().compararContraseñas()) {
+        alert ("Contras Iguales");
+    } else {
+        alert ("Contras distintas");
+    }
 }
 
 /*

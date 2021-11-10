@@ -91,34 +91,5 @@ class Usuario {
             return true;
         }
     }
-    validarUsuarioCompleto() {
-        if (this.validarNombreUsuario()) {
-            //alert ("Nombre apropiado");
-            if (this.validarContra1Usuario()) {
-                //alert ("Primera contraseña apropiada");
-                if (this.validarContra2Usuario()) {
-                    //alert ("Segunda contraseña apropiada");
-                    if (this.validarEmailUsuario()) {
-                        //alert ("Email apropiado");
-                        if (this.compararContraseñas() && confirm ("Seguro que lo quieres enviar?")) {
-                            alert ("Todo OK");
-                            return true;
-                        } else {
-                            alert ("Las contraseñas no coinciden");
-                        }
-                    } else {
-                        alert ("Email no apropiado. Debe tener el siguiente formato: CARACTERES@CARACTERES.DOMINIO");
-                    }
-                } else {
-                    alert ("Segunda contraseña no apropiada. Debe incluir al menos 8 carcateres. Una mayuscula, una minuscula y un numero");
-                }
-            } else {
-                alert ("Primera contraseña no apropiada. Debe incluir al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
-            }
-        } else {
-            alert ("Nombre no apropiado. Solo se admiten letras");
-        }
-    }
 }
 
-//export {validarNombreUsuario, validarContra1Usuario, validarContra2Usuario, validarEmailUsuario, compararContraseñas};
