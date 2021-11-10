@@ -4,13 +4,13 @@ session_start();
 $primeraVariableLimit;
 $datosManuales;
 $datoNumTotalManuales;
-$maxLimit = 1; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 2; //la cantidad de manuales que se pueden mostrar
 
 /* la primera vez que la página se carga, la primera variable vale cero*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     botonesNavegacionInicioFinal();
 } else {
-    $primeraVariableLimit = 1;
+    $primeraVariableLimit = 0;
     llamarBD($primeraVariableLimit, "ASC");
 }
 
@@ -89,13 +89,19 @@ guarda el cod del último y primer manual,
 guarda el orden ASC o DESC de la última busqueda realizada en la BD*/
 function guardarCookiesCodManuales($datosManuales, $datoNumTotalManuales, $AscODesc)
 {
- /*    el código del primer y último manual que se muestra */
+    /*el código del primer y último manual que se muestra */
     setcookie("codigoDelPrimerManualDeLaTablaMostrado", $datosManuales[0]["codManual"], time() + 3600, "/");
     setcookie("codigoDelUltimoManualDeLaTablaMostrado", end($datosManuales)["codManual"], time() + 3600, "/");
-/*     código del primer y último manual en la BD */
+    /*código del primer y último manual en la BD */
     setcookie("codigoDelUltimoManualDeLaTabla", end($datoNumTotalManuales)["codManual"], time() + 3600, "/");
     setcookie("codigoDelPrimerManualDeLaTabla", $datoNumTotalManuales[0]["codManual"], time() + 3600, "/");
     setcookie("ordenUltimaBusqueda", $AscODesc, time() + 3600, "/");
+
+    echo "en php";
+    echo $_COOKIE["codigoDelPrimerManualDeLaTabla"];
+    echo $_COOKIE["codigoDelPrimerManualDeLaTablaMostrado"];
+    echo $_COOKIE["codigoDelUltimoManualDeLaTablaMostrado"];
+    echo $_COOKIE["codigoDelUltimoManualDeLaTabla"];
 
 }
 
@@ -126,8 +132,14 @@ function llamarBD($primeraVariableLimit, $AscODesc)
             LIMIT $primeraVariableLimit, $maxLimit";
 
         $resultadoManuales = $conexion->query($sqlManuales);
-        $datosManuales = $resultadoManuales->fetchAll();
-
+        /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos. 
+        Para que no se muestren "invertidos" utilizo array_reverse */
+        if($AscODesc=="DESC"){
+            $datosManuales = array_reverse($resultadoManuales->fetchAll());
+         }else{
+            $datosManuales = $resultadoManuales->fetchAll();
+        } 
+        
         $sqlNumManuales = "SELECT codManual
             FROM manual
             ORDER by fechaCreacion";
@@ -135,10 +147,10 @@ function llamarBD($primeraVariableLimit, $AscODesc)
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
         $conexion = null;
+
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
-
     guardarCookiesCodManuales($datosManuales, $datoNumTotalManuales, $AscODesc);
     guardarPrimeraVariableLimit($primeraVariableLimit);
 }
