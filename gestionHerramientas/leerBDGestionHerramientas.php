@@ -3,7 +3,8 @@
 $servidor  = "localhost";
 $usuario = "root";
 $password = "";
-
+session_start();
+$codUsuario= $_SESSION[$usuarios['codUsuario']];
 
 
 try {
@@ -19,7 +20,8 @@ try {
     $datosHerramienta = $resultadoHerramienta->fetchAll();
 
     //Select para coger la informacion de las herramientas segun el usuario
-    $sqlherramientaususario = "SELECT herramienta.codHerramienta, nombreHerramienta, categoria, fotoHerramienta FROM herramienta, manual, usuario WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
+    $sqlherramientaususario = "SELECT herramienta.codHerramienta, nombreHerramienta, categoria, fotoHerramienta FROM herramienta, manual, usuario 
+    WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
 
     $misherramientas = $conexion->query($sqlherramientaususario);
     $datosMisHerramienta = $misherramientas->fetchAll();

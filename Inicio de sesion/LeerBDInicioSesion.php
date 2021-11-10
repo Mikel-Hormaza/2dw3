@@ -31,17 +31,11 @@ foreach ($datosUsuario as $usuarios) {
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
-                echo"<script language='javascript'>
-                alert($error);
-                </script>
-                ";
+                
             
             } elseif (empty($_POST["Contrasena"])) {
                 $errorpass = "Escriba una contrasena";
-                echo"<script language='javascript'>
-                alert($errorpass);
-                </script>
-                ";
+              
             } else {
                 $nombre = isset($_REQUEST['NombredeUsuario']) ? $_REQUEST['NombredeUsuario'] : null;
                 $pass = isset($_REQUEST['Contrasena']) ? $_REQUEST['Contrasena'] : null;
@@ -49,15 +43,14 @@ foreach ($datosUsuario as $usuarios) {
                 if ($nombreUsuario == $nombre && $Contrasena == $pass) {
                     session_start();
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
+                    $_SESSION[$usuarios['codUsuario']] = $_REQUEST[$usuarios['codUsuario']];
+                    $codUsuario= $_REQUEST[$usuarios['codUsuario']];
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contrasena erroneos";
-                    echo"<script language='javascript'>
-                    alert($errorinicio);
-                    </script>
-                    ";
+                    
                 }
             }
         }
