@@ -66,7 +66,7 @@
     </main>
 
     <form method="POST" id="botonesInicioFinal" action="leerBDGestionManuales.php">
-        <span id="spanBotonesInicioFinal"><?PHP echo $_COOKIE["codigoDelPrimerManualDeLaTabla"] . "," .$_COOKIE["codigoDelPrimerManualDeLaTablaMostrado"]. "," .$_COOKIE["codigoDelUltimoManualDeLaTablaMostrado"] . "," . $_COOKIE["codigoDelUltimoManualDeLaTabla"]; ?></span>
+        <span id="spanBotonesInicioFinal"><?PHP echo $_SESSION['codigoDelPrimerManualDeLaTabla'] . "," .$_SESSION['codigoDelPrimerManualDeLaTablaMostrado']. "," .$_SESSION['codigoDelUltimoManualDeLaTablaMostrado'] . "," . $_SESSION['codigoDelUltimoManualDeLaTabla']; ?></span>
         <button id="primero" name="primero"><img src="Imagenes/primero.png" alt="primero"></button>
         <button id="anterior" name="anterior"><img src="Imagenes/anterior.png" alt="anterior"></button>
         <button id="siguiente" name="siguiente"><img src="Imagenes/siguiente.png" alt="siguiente"></button>

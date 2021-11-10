@@ -2,9 +2,7 @@
 session_start();
 
 $primeraVariableLimit;
-$datosManuales;
-$datoNumTotalManuales;
-$maxLimit = 2; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
 
 /* la primera vez que la página se carga, la primera variable vale cero*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 /*comprobar qué botón se ha seleccionado*/
-function  botonesNavegacionInicioFinal(){
+function  botonesNavegacionInicioFinal()
+{
     if (isset($_POST['primero'])) {
         controlarBotonesInicioAnteriorSigUltimo("primero");
     }
@@ -34,79 +33,81 @@ function  botonesNavegacionInicioFinal(){
 function controlarBotonesInicioAnteriorSigUltimo($nombreBoton)
 {
     global $maxLimit;
-    if($nombreBoton=="siguiente"||$nombreBoton=="ultimo"){
-        if ($_COOKIE["codigoDelUltimoManualDeLaTablaMostrado"] !== $_COOKIE["codigoDelUltimoManualDeLaTabla"]) {
+    if ($nombreBoton == "siguiente" || $nombreBoton == "ultimo") {
+        if ($_SESSION['codigoDelUltimoManualDeLaTablaMostrado'] !== $_SESSION['codigoDelUltimoManualDeLaTabla']) {
             avanzarONoAvanzar($nombreBoton, $maxLimit);
-        }else{
+        } else {
             repetirLlamadaPreviaALaBD();
         }
     }
-    if($nombreBoton=="anterior"||$nombreBoton=="primero"){
-        if ($_COOKIE["codigoDelPrimerManualDeLaTablaMostrado"] !== $_COOKIE["codigoDelPrimerManualDeLaTabla"]) {
+    if ($nombreBoton == "anterior" || $nombreBoton == "primero") {
+        if ($_SESSION['codigoDelPrimerManualDeLaTablaMostrado'] !== $_SESSION['codigoDelPrimerManualDeLaTabla']) {
             retrocederONoRetroceder($nombreBoton, $maxLimit);
-        }else{
+        } else {
             repetirLlamadaPreviaALaBD();
         }
     }
 }
 /* "siguiente"-> si el primer manual que vemos es X, y en cada pantalla vemos Y manuales, a X le sumamos Y para que muestre manuales a partir de X+Y
 "último" -> selecciona los ultimos X manuales. Para ello les llama en orden DESC */
-function avanzarONoAvanzar($nombreBoton, $maxLimit){
-    if($nombreBoton=="siguiente"){
-        $_SESSION['primeraVariableLimit']+=$maxLimit;
+function avanzarONoAvanzar($nombreBoton, $maxLimit)
+{
+    if ($nombreBoton == "siguiente") {
+        $_SESSION['primeraVariableLimit'] += $maxLimit;
         llamarBD($_SESSION['primeraVariableLimit'], "ASC");
-    }
-    elseif($nombreBoton=="ultimo"){
-        $_SESSION['primeraVariableLimit']=0;
+    } elseif ($nombreBoton == "ultimo") {
+        $_SESSION['primeraVariableLimit'] = 0;
         llamarBD($_SESSION['primeraVariableLimit'], "DESC");
     }
 }
 
 /* "anterior"-> si el primer manual que vemos es X, y en cada pantalla vemos Y manuales, a X le restamos Y para que muestre manuales a partir de X-Y
-                nota: como no podemos ver un manual en -X, en caso de ser X <0, X pasa a valer 0
 "último" -> selecciona los ultimos X manuales. Para ello les llama en orden DESC */
-function retrocederONoRetroceder($nombreBoton, $maxLimit){
-    if($nombreBoton=="anterior"){
-        $_SESSION['primeraVariableLimit']-=$maxLimit;
-        if($_SESSION['primeraVariableLimit']<0){
-            $_SESSION['primeraVariableLimit']=0;
+function retrocederONoRetroceder($nombreBoton, $maxLimit)
+{
+    if ($nombreBoton == "anterior") {
+        /* como no podemos ver un manual en -X, solo een caso de ser X >= que Y le restaremos Y. 
+        Sino, llamaremos a la misma funcion que controlarBotones con "primero"*/
+        if ($_SESSION['primeraVariableLimit'] > $maxLimit) {
+            $_SESSION['primeraVariableLimit'] -= $maxLimit;
+            llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+        } else {
+            controlarBotonesInicioAnteriorSigUltimo("primero");
         }
-        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
-    }
-    elseif($nombreBoton=="primero"){
-        $_SESSION['primeraVariableLimit']=0;
+    } elseif ($nombreBoton == "primero") {
+        $_SESSION['primeraVariableLimit'] = 0;
         llamarBD($_SESSION['primeraVariableLimit'], "ASC");
     }
 }
 /* cuando no podemos ir a la "última" o "primera" página de manuales porque ya estamos en ella, llamamos a la BD con los mismos parámetros de la última select realizada
 es necesario volver a llamar a la BD para que vuelva a mostrarnos manuales */
-function repetirLlamadaPreviaALaBD(){
-    llamarBD($_SESSION['primeraVariableLimit'], $_COOKIE["ordenUltimaBusqueda"]);
+function repetirLlamadaPreviaALaBD()
+{
+    llamarBD($_SESSION['primeraVariableLimit'], $_SESSION['ordenUltimaBusqueda']);
 }
 
-/* guardo mediante cookies el valor del último y primer cod de manual mostrado,
+/* guardo en session el valor del último y primer cod de manual mostrado,
 guarda el cod del último y primer manual,
 guarda el orden ASC o DESC de la última busqueda realizada en la BD*/
-function guardarCookiesCodManuales($datosManuales, $datoNumTotalManuales, $AscODesc)
+function guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc)
 {
-    /*el código del primer y último manual que se muestra */
-    setcookie("codigoDelPrimerManualDeLaTablaMostrado", $datosManuales[0]["codManual"], time() + 3600, "/");
-    setcookie("codigoDelUltimoManualDeLaTablaMostrado", end($datosManuales)["codManual"], time() + 3600, "/");
-    /*código del primer y último manual en la BD */
-    setcookie("codigoDelUltimoManualDeLaTabla", end($datoNumTotalManuales)["codManual"], time() + 3600, "/");
-    setcookie("codigoDelPrimerManualDeLaTabla", $datoNumTotalManuales[0]["codManual"], time() + 3600, "/");
-    setcookie("ordenUltimaBusqueda", $AscODesc, time() + 3600, "/");
-
-    echo "en php";
-    echo $_COOKIE["codigoDelPrimerManualDeLaTabla"];
-    echo $_COOKIE["codigoDelPrimerManualDeLaTablaMostrado"];
-    echo $_COOKIE["codigoDelUltimoManualDeLaTablaMostrado"];
-    echo $_COOKIE["codigoDelUltimoManualDeLaTabla"];
-
+    $_SESSION['codigoDelPrimerManualDeLaTablaMostrado'] = $datosManuales[0]["codManual"];
+    $_SESSION['codigoDelUltimoManualDeLaTablaMostrado'] = end($datosManuales)["codManual"];
+    $_SESSION['codigoDelUltimoManualDeLaTabla'] = end($datoNumTotalManuales)["codManual"];
+    $_SESSION['codigoDelPrimerManualDeLaTabla'] = $datoNumTotalManuales[0]["codManual"];
+    $_SESSION['ordenUltimaBusqueda'] = $AscODesc;
 }
 
-function guardarPrimeraVariableLimit($primeraVariableLimit){
-    $_SESSION['primeraVariableLimit']=$primeraVariableLimit;
+function guardarPrimeraVariableLimit($primeraVariableLimit)
+{
+    $_SESSION['primeraVariableLimit'] = $primeraVariableLimit;
+}
+
+/* cuando seleccionamos el botón final, para obtener PrimeraVariableLimit restamos el maxLimit al count */
+function guardarCount($countDeTodosLosCodigosEnLaTabla, $maxLimit)
+{
+    $PVL = $countDeTodosLosCodigosEnLaTabla -= $maxLimit;
+    guardarPrimeraVariableLimit($PVL);
 }
 
 /* llama a la BD para cargar los manuales. 
@@ -132,29 +133,32 @@ function llamarBD($primeraVariableLimit, $AscODesc)
             LIMIT $primeraVariableLimit, $maxLimit";
 
         $resultadoManuales = $conexion->query($sqlManuales);
-        /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos. 
-        Para que no se muestren "invertidos" utilizo array_reverse */
-        if($AscODesc=="DESC"){
-            $datosManuales = array_reverse($resultadoManuales->fetchAll());
-         }else{
-            $datosManuales = $resultadoManuales->fetchAll();
-        } 
-        
+
         $sqlNumManuales = "SELECT codManual
             FROM manual
             ORDER by fechaCreacion";
 
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
-        $conexion = null;
 
+        $conexion = null;
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
-    guardarCookiesCodManuales($datosManuales, $datoNumTotalManuales, $AscODesc);
-    guardarPrimeraVariableLimit($primeraVariableLimit);
+
+    /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos. 
+        Para que no se muestren "invertidos" utilizo array_reverse */
+    if ($AscODesc == "DESC") {
+        $datosManuales = array_reverse($resultadoManuales->fetchAll());
+        $countDeTodosLosCodigosEnLaTabla = sizeof($datoNumTotalManuales);
+        guardarCount($countDeTodosLosCodigosEnLaTabla, $maxLimit);
+    } else {
+        $datosManuales = $resultadoManuales->fetchAll();
+        guardarPrimeraVariableLimit($primeraVariableLimit);
+    }
+
+
+    guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
 }
 
 require_once "gestionManuales.php";
-
-?>
