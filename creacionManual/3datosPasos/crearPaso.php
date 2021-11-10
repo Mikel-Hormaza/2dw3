@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../crearManual.css">
     <script src="Paso.js"></script>
     <script src="validarDatosPaso.js"></script>
-    <?php require_once "leerBDPasosDelManual.php" ?>
+    <?php require_once "leerBDPasosDelManual.php"; ?>
 </head>
 
 <body id="bodyCrearManual3">
@@ -33,20 +33,11 @@
 
     <div id="idDivPasos">
     <?php
-        $numPaso = 0;
-        foreach ($datosPasos as $paso) {
-        ?>
-            <div class="paso">
-                <div>
-                    <?php $numPaso++; ?>
-                    <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
-                    <p><?php echo $paso["tituloPaso"] ?></p>
-                </div>
-                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($paso["fotoPaso"]).'"/>' ?>
-                <p><?php echo $paso["descripcionPaso"] ?></p>
-            </div>
-        <?php
-        }
+    if(!empty($_SESSION["codManualSeleccionado"])){
+        $codManualSeleccionado=$_SESSION["codManualSeleccionado"];
+        llamarBD();
+        mostrarPasos();
+    }
         ?>
     </div>
     

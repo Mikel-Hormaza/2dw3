@@ -11,8 +11,6 @@ function anadirEventoClickABotones() {
 function comprobacionesYSubmit(){
     if (validarDatos()){
         document.getElementById("formulario").submit();
-    }else{
-        alert("ERROR en comprobacionesYSubmit");
     }
 }
 
