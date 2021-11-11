@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="icon" type="image/png" href="Fotos/Icono.ico">
-        <link type="text/css" rel="stylesheet" href="Inicio.css">
+        <link type="text/css" rel="stylesheet" href="IndexCasa.css">
     </head>
     <body>
         <div class="container2">
@@ -17,24 +17,24 @@
                         <input type="button" class="mostrar" id="mostrar" value="Mostrar más">
             </div>
             <div class="portada">
-                <img class="imgPortada" src="/2dw3/Inicio/Fotos/portada.png" >
+                <img class="imgPortada" src="/2dw3/Index/Fotos/portada.png" >
             </div>
         </div>
         <div class="container">
             <div class="div1">
-                <img class="imagen1" src="/2dw3/Inicio/Fotos/profesionalidad1.jpg">
+                <img class="imagen1" src="/2dw3/Index/Fotos/profesionalidad1.jpg">
                 <div class="carac1"><h3>PROFESIONALIDAD</h3></div>
             </div>
             <div class="div2">
-                <img class="imagen2" src="/2dw3/Inicio/Fotos/sostenibilidad.jpg">
+                <img class="imagen2" src="/2dw3/Index/Fotos/sostenibilidad.jpg">
                 <div class="carac2"><h3>SOSTENIBILIDAD</h3></div>
             </div>
             <div class="div3">
-                <img class="imagen3" src="/2dw3/Inicio/Fotos/reparar.jpg">
+                <img class="imagen3" src="/2dw3/Index/Fotos/reparar.jpg">
                 <div class="carac3"><h3>RESPONSABILIDAD</h3></div>
             </div>
             <div class="div4">
-                <img class="imagen4" src="/2dw3/Inicio/Fotos/solidaridad2.png">
+                <img class="imagen4" src="/2dw3/Index/Fotos/solidaridad2.png">
                 <div class="carac4"><h3>SOLIDARIDAD</h3></div>
             </div>
         </div>
