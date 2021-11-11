@@ -13,28 +13,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     validarDatos();
 }
 
-/*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
-    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true realiza las comprobaciones
-    contra la BD antes de la insert*/
+/*comprueba si se han introducido todos los datos - para ello compruebo el largo del mensaje de error 
+sino se han introducido, mostrar mensaje de error
+si se han introducido, comprobar largo según la BD*/
 function validarDatos()
 {
-    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
-        echo comprobarSiSeHanIntroducidoTodosLosDatos();
+    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) ==0) {
+        comprobarLargoDeAtributosSegunLargoEnLaBD();
+        
     } else {
-        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) > 1) {
-            echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
+        echo comprobarSiSeHanIntroducidoTodosLosDatos();
+    }
+}
+
+/* comprobar el largo de los atributos con respecto al largo máximo según la BD - para ello compruebo el largo del mensaje de error 
+si el largo no es orrecto, mostrar mensaje de error
+si es correcto, realizar comprobaciones de la clase */
+function comprobarLargoDeAtributosSegunLargoEnLaBD(){
+    if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) ==0) {
+        comprobacionesDelObjeto();
+    } else {
+        echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
+    }
+}
+
+/* validar la imagen introducida. 
+Si es correcta, antes de realizar la insert comprobar que en la BD no haya ningún manual con el mismo título
+si no hay otro manual con ese título, insertar manual
+sino, mostrar mensaje de error */
+function comprobacionesDelObjeto(){
+    if (crearObjetoManual()->validarFotoManual()) {
+        if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
+            insertarManualBD(crearObjetoManual());
         } else {
-            if (crearObjetoManual()->validarFotoManual()) {
-                if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
-                    insertarManualBD(crearObjetoManual());
-                    echo "foto subida";
-                } else {
-                    echo "el titulo ya existe en la BD";
-                }
-            } else {
-                echo "foto not ok";
-            }
+            echo "Ya existe en la base de datos un manual con este título";
         }
+    } else {
+        echo "Error en formato de imagen";
     }
 }
 
@@ -87,10 +102,10 @@ function insertarManualBD($manual)
         /* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta  */
         comprobacionesEnBD("obtenerCodManual", $titulo);
     }
-    return $insertarBDcompletado;
+
 }
-/* si codManualSeleccionado==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
-i codManualSeleccionado==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
+/* si tipoComprobacion==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
+si tipoComprobacion==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
 function comprobacionesEnBD($tipoComprobacion, $dato)
 {
     global $servidor;
