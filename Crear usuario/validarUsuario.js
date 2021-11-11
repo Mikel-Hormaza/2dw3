@@ -6,7 +6,7 @@ function inicio() {
  
 function comprobacionesSubmit() {
     if (validarDatos() == true) {
-        alert ("validarDatos OK");
+        alert ("TODO OK");
         document.getElementById("form").submit();
     } else {
         alert ("Error de comprobaciones y submit");
@@ -14,12 +14,11 @@ function comprobacionesSubmit() {
 }
 
 function validarDatos() {
-    //alert ("validarDatos");
- 
     if (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()).length > 1) {
         alert (comprobarSiSeIntroducenLosDatos(crearObjetoUsuario()));
         return false;
     } else {
+        // alert ("DatosOK");
         todasLasValidaciones(crearObjetoUsuario());
         return true;
     }
@@ -64,38 +63,35 @@ function comprobarSiSeIntroducenLosDatos(usuario) {
     if (error == false) {
         mensajeError = "";
     }
- 
     return mensajeError;
 }
 
-function todasLasValidaciones(){
-    alert ("todasLasValidaciones");
+function todasLasValidaciones(usuario){
+    //alert ("todasLasValidaciones");
     OK = true;
-    if (!comprobarSiSeIntroducenLosDatos()) {
+    //alert (usuario.validarNombreUsuario());
+
+    /*if (!usuario.comprobarSiSeIntroducenLosDatos()) {
         alert ("Introducidos MAL");
         OK = false;
-    }
-    if (!crearObjetoUsuario()) {
-        alert ("objeto MAL");
-        OK = false;
-    }
-    if(!validarNombreUsuario()){
+    }*/
+    if(!usuario.validarNombreUsuario()){
         alert ("Nombre MAL");
         OK= false;
     }
-    if (!validarContra1Usuario()) {
+    if (!usuario.validarContra1Usuario()) {
         alert ("contra1 MAL");
         OK = false;
     }
-    if (!validarContra2Usuario()) {
+    if (!usuario.validarContra2Usuario()) {
         alert ("contra2 MAL");
         OK = false;
     }
-    if (!validarEmailUsuario()) {
+    if (!usuario.validarEmailUsuario()) {
         alert ("email MAL");
         OK = false;
     }
-    if (!compararContraseñas()) {
+    if (!usuario.compararContraseñas()) {
         alert ("contraseñas MAL");
         OK = false;
     }
@@ -137,100 +133,3 @@ function compararContraseñas() {
         alert ("Contras distintas");
     }
 }
-
-/*
-function validarContra1Usuario() {
-    let f_contra1Usuario = document.getElementById("password").value;
-    let regPassword1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
- 
-    if (!regPassword1.test(f_contra1Usuario)) {
-        //alert (f_contra1Usuario);
-        //alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
-        return false;
-    } else {
-        //alert ("Primera contraseña apropiada");
-        return true;
-    }
-}
-function validarContra2Usuario() {
-    let f_contra2Usuario = document.getElementById("repeatPW").value;
-    let regPassword2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
- 
-    if (!regPassword2.test(f_contra2Usuario)) {
-        //alert (f_contra2Usuario);
-        //alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
-        return false;
-    } else {
-        //alert ("Segunda contraseña apropiada");
-        return true;
-    }
-}
-function validarEmailUsuario() {
-    let f_emailUsuario = document.getElementById("correo").value;
-    let regEmail = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  //CARACTERES@CARACTERES.DOMINIO//
- 
-    if (!regEmail.test(f_emailUsuario)) {
-        //alert (f_emailUsuario);
-        //alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
-        return false;
-    } else {
-        //alert ("Email apropiado");
-        return true;
-    }
-}
-function compararContraseñas() {
-    let f_contra1 = document.getElementById("password").value;
-    let f_contra2 = document.getElementById("repeatPW").value;
- 
-    if (f_contra1 != f_contra2) {
-        //alert ("Las contraseñas no coinciden");
-        return false;
-    } else {
-        //alert ("Las contraseñas coinciden");
-        return true;
-    }
-}
- 
-function validarUsuarioCompleto() {
-    if (this.validarNombreUsuario()) {
-        //alert ("Nombre apropiado");
-        if (this.validarContra1Usuario()) {
-            //alert ("Primera contraseña apropiada");
-            if (this.validarContra2Usuario()) {
-                //alert ("Segunda contraseña apropiada");
-                if (this.validarEmailUsuario()) {
-                    //alert ("Email apropiado");
-                    if (this.compararContraseñas()) {
-                        //alert ("Las contraseñas coinciden");
-                        if (confirm ("Seguro que lo quieres enviar?")) {
-                            alert ("Enviado con éxito");
-                            return true;
-                        }
-                    } else {
-                        alert ("Las contraseñas no coinciden");
-                    }
-                } else {
-                    alert ("Email no apropiado. Debe tener el siguiente formato: CARACTERES@CARACTERES.DOMINIO");
-                }
-            } else {
-                alert ("Segunda contraseña no apropiada. Debe incluir al menos 8 carcateres. Una mayuscula, una minuscula y un numero");
-            }
-        } else {
-            alert ("Primera contraseña no apropiada. Debe incluir al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
-        }
-    } else {
-        alert ("Nombre no apropiado. Solo se admiten letras");
-    }
-}*/
- 
-/*function validarDatosIntroducidos() {
-    alert ("validarDatosIntroducidos");
- 
-    if (validarUsuarioCompleto() == true) {
-        alert ("validarUsuarioCompleto TRUE");
-        return true;
-    } else {
-        alert ("validarUsuarioCompleto FALSE");
-        return false;
-    }
-}*/

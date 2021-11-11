@@ -1,10 +1,12 @@
 .create {
     margin-top: 10%;
-    margin-left: 26%;
+    margin-left: 30%;
     color: black;
+    font-size: 120%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 } 
 .nombre {
+    margin-top: -50%;
     margin-left: 25%;
     width: 50%;
     height: 30px;
@@ -33,16 +35,16 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .registrarse {
-    margin-left: 32%;
+    margin-left: 28%;
     margin-bottom: 5%;
-    width: 38%;
+    width: 48%;
     height: 50px;
     border-radius: 8px;
     border: none;
     background-color: #EFC227;
     color: black;
     text-transform: uppercase;
-    font-size: 110%;
+    font-size: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .volver {
@@ -73,6 +75,7 @@
         margin-left: 20%;
         margin-bottom: -10%;
         color: black;
+        font-size: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     } 
     .nombre {
@@ -103,14 +106,14 @@
         margin-left: 17%;
         margin-top: -20%;
         margin-bottom: 10%;
-        width: 65%;
+        width: 75%;
         height: 50px;
         border-radius: 8px;
         border: none;
         background-color: #EFC227;
-        color: #626267;
+        color: black;
         text-transform: uppercase;
-        font-size: 110%;
+        font-size: 100%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .volver {
@@ -137,44 +140,45 @@
 @media only screen and (max-width: 560px) {
     .create {
         margin-top: 8%;
-        margin-left: 23%;
+        margin-left: 15%;
         color: black;
+        font-size: 90%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     } 
     .nombre {
-        margin-left: 20%;
-        width: 50%;
+        margin-left: 0%;
+        width: 95%;
         height: 30px;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .correo {
-        margin-left: 20%;
-        width: 50%;
+        margin-left: 0%;
+        width: 95%;
         height: 30px;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .password {
-        margin-left: 20%;
-        width: 50%;
+        margin-left: 0%;
+        width: 95%;
         height: 30px;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .repeatPW {
-        margin-left: 20%;
-        width: 50%;
+        margin-left: 0%;
+        width: 95%;
         height: 30px;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .registrarse {
-        margin-left: 30%;
+        margin-left: 5%;
         margin-bottom: 5%;
-        width: 40%;
+        width: 90%;
         height: 50px;
         border-radius: 8px;
         border: none;
         background-color: #EFC227;
-        color: #626267;
-        font-size: 110%;
+        color: black;
+        font-size: 90%;
         text-transform: uppercase;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }

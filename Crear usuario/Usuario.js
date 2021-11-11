@@ -39,7 +39,7 @@ class Usuario {
             alert ("Nombre no apropiado. Solo se admiten letras");
             return false;
         } else {
-            alert ("Nombre apropiado");
+            // alert ("Nombre apropiado");
             return true;
         }
     }
@@ -51,7 +51,7 @@ class Usuario {
             alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
-            alert ("Primera contraseña apropiada");
+            // alert ("Primera contraseña apropiada");
             return true;
         }
     }
@@ -63,7 +63,7 @@ class Usuario {
             alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
-            alert ("Segunda contraseña apropiada");
+            // alert ("Segunda contraseña apropiada");
             return true;
         }
     }
@@ -75,7 +75,7 @@ class Usuario {
             alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
             return false;
         } else {
-            alert ("Email apropiado");
+            // alert ("Email apropiado");
             return true;
         }
     }
@@ -87,9 +87,12 @@ class Usuario {
             alert ("Las contraseñas no coinciden");
             return false;
         } else {
-            alert ("Las contraseñas coinciden");
+            // alert ("Las contraseñas coinciden");
             return true;
         }
     }
+    /*comprobarSiSeIntroducenLosDatos() {
+
+    }*/
 }
 

@@ -25,7 +25,7 @@
             <br><br>
             <input type="password" name="contraseña" class="password" id="password" placeholder="  Nueva contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Mínimo 8 caracteres, 1 mayúscula, 1 minúscula y 1 número" required>
             <br><br>
-            <input type="password" name="contraseña2" class="repeatPW" id="repeatPW" placeholder="  Repita la contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Mínimo 8 caracteres, 1 mayúscula, 1 minúscula y 1 número" required>
+            <input type="password" name="contraseña2" class="repeatPW" id="repeatPW" placeholder="  Repita contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Mínimo 8 caracteres, 1 mayúscula, 1 minúscula y 1 número" required>
             <br><br><br><br><br>
         
             <input type="submit" class="registrarse" id="registrarse" value="Registrarse">
