@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+$_SESSION["codUsuario"] = 1; #parche
+$_SESSION["permisoDeUsuario"] = "admin"; #parche
+
+
 $primeraVariableLimit;
 $maxLimit = 8; //la cantidad de manuales que se pueden mostrar
 

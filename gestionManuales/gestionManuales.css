@@ -177,7 +177,7 @@ button {
     height: auto;
 }
 
-#spanBotonesInicioFinal{
+#spanBotonesInicioFinal {
     display: none;
 }
 
@@ -214,8 +214,7 @@ button {
         display: none;
     }
 
-    .botonDesplegar,
-    .botonCategoria {
+    .botonDesplegar {
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -227,26 +226,24 @@ button {
         width: 2em;
     }
 
-    section div .botonCategoria {
-        width: max-content;
-    }
-
     .contenidoADesplegar,
     .contenidoCategoria {
         display: none;
         position: absolute;
-        /* Las propiedades 
-        top, right, bottom, y  left especifican el desplazamiento 
-        desde los bordes del bloque contenedor del elemento. */
-        background-color: #f1f1f1;
         min-width: 160px;
         overflow: auto;
         border-radius: 10%;
         margin-top: 10px;
+        border: 1px solid #626267;
     }
 
-    .contenidoCategoria{
-        margin-left: -9vh;
+    .contenidoCategoria {
+        margin-left: 170px;
+        margin-top: 7vh;
+    } 
+
+    #categoria:hover{
+        position: relative;
     }
 
     .contenidoADesplegar a,
@@ -266,16 +263,14 @@ button {
 
     /*Permite ver las opciones desplegables*/
     .mostrarDesplegarOpciones,
-    .mostrarDesplegarCategorias,
-    .mostrarBotonCategoria {
+    .mostrarDesplegarCategorias {
         cursor: pointer;
         display: block;
     }
 
     /*Permite ocultar las opciones desplegables*/
     .ocultarDesplegarOpciones,
-    .ocultarDesplegarCategorias,
-    .ocultarBotonCategoria {
+    .ocultarDesplegarCategorias {
         display: none;
     }
 

@@ -27,16 +27,16 @@
                 <a>Creados por mí</a>
                 <a>Todos</a>
             </div>
-            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-        </div>
-
-        <div>
-            <button id="idBotonCategoria" class="botonCategoria">Categoría &#128270</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
                 <a>maquina-herramienta</a>
                 <a>electrónica</a>
                 <a>herramienta taller</a>
             </div>
+            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
+        </div>
+
+        <div>
+
         </div>
     </section>
 
