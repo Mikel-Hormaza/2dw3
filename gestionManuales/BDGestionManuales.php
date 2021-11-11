@@ -8,21 +8,33 @@ $password = "";
 $_SESSION["codUsuario"] = 1; #parche
 $_SESSION["permisoDeUsuario"] = "admin"; #parche
 
+$maxLimit = 2; //la cantidad de manuales que se pueden mostrar
 
-$primeraVariableLimit;
-$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
-
-/* la primera vez que la página se carga, la primera variable vale cero*/
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    botonesNavegacionInicioFinal();
-} else {
+/*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
+/*IF: comprueba si hemos hecho submit en los botones de inicio final */
+if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($_POST['anterior']) or isset($_POST['siguiente']) or isset($_POST['ultimo']))) {
+    gestionarBotonesNavegacionInicioFinal();
+}
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']))) {
+    filtrarLosManualesMostrados($_SESSION['primeraVariableLimit']);
+}
+/*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
     $primeraVariableLimit = 0;
-    llamarBD($primeraVariableLimit, "ASC");
+    prepararWhereYLimitDeLaSelect($primeraVariableLimit, "ASC", $_SESSION["codUsuario"], null, false);
 }
 
-/* llama a la BD para cargar los manuales. 
-Recibe como parámetros el primer manual que muestra y el orden ASC o DESC del order by */
-function llamarBD($primeraVariableLimit, $AscODesc)
+function filtrarLosManualesMostrados($primeraVariableLimit)
+{
+    if (isset($_POST['idCreadosPorMi'])) {
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, false);
+    }
+    if (isset($_POST['idTodos'])) {
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, true);
+    }
+}
+
+/* llama a la BD para obtener los manuales y además los códigos de todos los manuales que compartes la where */
+function llamarBD($where, $primeraVariableLimit, $AscODesc)
 {
     global $maxLimit;
     global $datosManuales;
@@ -30,23 +42,21 @@ function llamarBD($primeraVariableLimit, $AscODesc)
     global $servidor;
     global $usuario;
     global $password;
-    try {
 
+    try {
         $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
         $sqlManuales = "SELECT codManual, nombreManual, fotoManual, manual.codHerramienta, nombreHerramienta
-            FROM manual,herramienta
-            WHERE manual.codHerramienta like herramienta.codHerramienta 
+            FROM manual,herramienta " . $where . "
             ORDER BY fechaCreacion $AscODesc
             LIMIT $primeraVariableLimit, $maxLimit";
-
         $resultadoManuales = $conexion->query($sqlManuales);
 
         $sqlNumManuales = "SELECT codManual
-            FROM manual
+            FROM manual, herramienta " . $where . "
             ORDER by fechaCreacion";
-
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
 
@@ -54,8 +64,9 @@ function llamarBD($primeraVariableLimit, $AscODesc)
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
-    /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos. 
-        Para que no se muestren "invertidos" utilizo array_reverse */
+
+    /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
+        Para que no se muestren "invertidos" utilizo array_reverse antes de mostrarlos*/
     if ($AscODesc == "DESC") {
         $datosManuales = array_reverse($resultadoManuales->fetchAll());
         $countDeTodosLosCodigosEnLaTabla = sizeof($datoNumTotalManuales);
@@ -65,8 +76,28 @@ function llamarBD($primeraVariableLimit, $AscODesc)
         guardarPrimeraVariableLimit($primeraVariableLimit);
     }
 
-
     guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
+}
+
+
+/* Prepara las clausulas WHERE, ORDER BY y LIMIT de la llamada a la BD y luego llama a la BD. 
+Recibe como parámetros:
+1. el primer manual que muestra
+2. el orden ASC o DESC del order by 
+3. el codUsuario del usuario
+4. la categoría seleccionada (si se ha seleccionado. Sino null)
+5. si se ha seleccionado mostrar todo (sino false)*/
+function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsuario, $categoriaSeleccionada, $mostrarTodosLosManuales)
+{
+    $where = "WHERE manual.codHerramienta like herramienta.codHerramienta";
+    if (!empty($categoriaSeleccionada)) {
+        $where .= "&& herramienta.categoria like '$categoriaSeleccionada'";
+    }
+    if ($mostrarTodosLosManuales == false) {
+        $where .= " && manual.codUsuario like '" . $codUsuario . "'";
+    }
+    $_SESSION["where"] = $where;
+    llamarBD($where, $primeraVariableLimit, $AscODesc);
 }
 
 /* comprobar en la tabla de herramientas cuáles son las categorías de las mismas y cargarlas */
@@ -89,32 +120,37 @@ function cargarLasOpcionesDeCategoriaExistentesEnLaBD()
     } catch (PDOException $e) {
         echo $sqlSelectCategorias . "<br>" . $e->getMessage();
     }
-    mostrarOpcionesCategorias($datosDeLasCategorias);
+    //mostrarOpcionesCategorias($datosDeLasCategorias);
 }
 
-/* muestra cada categoria encontrada en la BD como un elemento de la lista categorias */
+/*  
+PROBLEMA ESTA FUNCIÓN ES COMPLCIADA PORQUE CLARO CÓMO SE YO QUE ID DARLE
+muestra cada categoria encontrada en la BD como un elemento de la lista categorias 
 function mostrarOpcionesCategorias($categorias)
 {
     $cont = -1;
     foreach ($categorias as $categoria) {
         $cont++;
 ?>
-        <a><?php echo $categorias[$cont]["categoria"] ?></a>
+        <button type="submit"><?php echo $categorias[$cont]["categoria"] ?></button>
 <?php
     }
-}
+} */
 
+
+/* Por defecto la gestion de manuales muestra los manuales creados por el usuario logeado
+Pero si $permiso == admin entonces el usuario podrá ver también todos los manuales*/
 function comprobarOpcionesDesplegablesAMostrar($permiso)
 {
     if ($permiso == "admin") {
         return
-            "<a>Creados por mí</a>
-        <a>Todos</a>";
+            "<button type=" . "submit" . " id=" . "idCreadosPorMi" . " name=" . "idCreadosPorMi" . ">Creados por mí</button>
+        <button type=" . "submit" . "id=" . "idTodos" . " name=" . "idTodos" . ">Todos</button>";
     }
 }
 
 /*comprobar qué botón se ha seleccionado*/
-function  botonesNavegacionInicioFinal()
+function  gestionarBotonesNavegacionInicioFinal()
 {
     if (isset($_POST['primero'])) {
         controlarBotonesInicioAnteriorSigUltimo("primero");
@@ -130,10 +166,12 @@ function  botonesNavegacionInicioFinal()
     }
 }
 
-/* controla los botones inicio - anterior -siguiente - fin */
+/* controla los botones inicio - anterior -siguiente - fin 
+comprueba si el primer y último código mostrados en pantalla coinciden con el primer código de la consulta en la BD*/
 function controlarBotonesInicioAnteriorSigUltimo($nombreBoton)
 {
     global $maxLimit;
+    /*comprobar si el primer código mostrado en pantalla coincide con el primer código de la consulta en la BD */
     if ($nombreBoton == "siguiente" || $nombreBoton == "ultimo") {
         if ($_SESSION['codigoDelUltimoManualDeLaTablaMostrado'] !== $_SESSION['codigoDelUltimoManualDeLaTabla']) {
             avanzarONoAvanzar($nombreBoton, $maxLimit);
@@ -141,6 +179,7 @@ function controlarBotonesInicioAnteriorSigUltimo($nombreBoton)
             repetirLlamadaPreviaALaBD();
         }
     }
+    /*comprobar si el último código mostrado en pantalla coincide con el último código de la consulta en la BD */
     if ($nombreBoton == "anterior" || $nombreBoton == "primero") {
         if ($_SESSION['codigoDelPrimerManualDeLaTablaMostrado'] !== $_SESSION['codigoDelPrimerManualDeLaTabla']) {
             retrocederONoRetroceder($nombreBoton, $maxLimit);
@@ -155,10 +194,10 @@ function avanzarONoAvanzar($nombreBoton, $maxLimit)
 {
     if ($nombreBoton == "siguiente") {
         $_SESSION['primeraVariableLimit'] += $maxLimit;
-        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+        llamarBD($_SESSION["where"], $_SESSION['primeraVariableLimit'], "ASC");
     } elseif ($nombreBoton == "ultimo") {
         $_SESSION['primeraVariableLimit'] = 0;
-        llamarBD($_SESSION['primeraVariableLimit'], "DESC");
+        llamarBD($_SESSION["where"], $_SESSION['primeraVariableLimit'], "DESC");
     }
 }
 
@@ -171,20 +210,20 @@ function retrocederONoRetroceder($nombreBoton, $maxLimit)
         Sino, llamaremos a la misma funcion que controlarBotones con "primero"*/
         if ($_SESSION['primeraVariableLimit'] > $maxLimit) {
             $_SESSION['primeraVariableLimit'] -= $maxLimit;
-            llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+            llamarBD($_SESSION["where"], $_SESSION['primeraVariableLimit'], "ASC");
         } else {
-            controlarBotonesInicioAnteriorSigUltimo("primero");
+            retrocederONoRetroceder("primero", $maxLimit);
         }
     } elseif ($nombreBoton == "primero") {
         $_SESSION['primeraVariableLimit'] = 0;
-        llamarBD($_SESSION['primeraVariableLimit'], "ASC");
+        llamarBD($_SESSION["where"], $_SESSION['primeraVariableLimit'], "ASC");
     }
 }
-/* cuando no podemos ir a la "última" o "primera" página de manuales porque ya estamos en ella, llamamos a la BD con los mismos parámetros de la última select realizada
-es necesario volver a llamar a la BD para que vuelva a mostrarnos manuales */
+/* cuando clicamos ir a la "última" o "primera" página de manuales pero ya estamos en ella llamamos a la BD con los mismos parámetros de la última select realizada
+es necesario volver a llamar a la BD para que vuelva a mostrarnos lso manuales */
 function repetirLlamadaPreviaALaBD()
 {
-    llamarBD($_SESSION['primeraVariableLimit'], $_SESSION['ordenUltimaBusqueda']);
+    llamarBD($_SESSION["where"], $_SESSION['primeraVariableLimit'], $_SESSION['ordenUltimaBusqueda']);
 }
 
 /* guardo en session el valor del último y primer cod de manual mostrado,

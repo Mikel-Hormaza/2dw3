@@ -19,10 +19,10 @@
     </section>
 
     <section>
-        <div>
-            <button id="idBotonDesplegar" class="botonDesplegar">&#128270</button>
+        <form id="formulario" method="post" action="BDGestionManuales.php">
+            <button type="button" id="idBotonDesplegar" name="idBotonDesplegar" class="botonDesplegar">&#128270</button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
-            <a id="categoria">Categoría</a>
+            <button type="button" id="categoria" name="categoria">Categoria</button>
             <?php echo comprobarOpcionesDesplegablesAMostrar($_SESSION["permisoDeUsuario"]);?>
             </div>
             <div id="idContenidoCategoria" class="contenidoCategoria">
@@ -30,7 +30,7 @@
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
             <button id="idBotonBuscar"> Buscar </button>
-        </div>
+        </form>
 
         <div>
 
@@ -40,6 +40,7 @@
     <main id="listaManuales">
 
         <?php
+        if(!empty($datosManuales)){
         foreach ($datosManuales as $manual) {
         ?>
             <div>
@@ -58,11 +59,12 @@
             </div>
         <?php
         }
+    }
         ?>
 
     </main>
 
-    <form method="POST" id="botonesInicioFinal" action="leerBDGestionManuales.php">
+    <form method="POST" id="botonesInicioFinal" action="BDGestionManuales.php">
         <span id="spanBotonesInicioFinal"><?PHP echo $_SESSION['codigoDelPrimerManualDeLaTabla'] . "," .$_SESSION['codigoDelPrimerManualDeLaTablaMostrado']. "," .$_SESSION['codigoDelUltimoManualDeLaTablaMostrado'] . "," . $_SESSION['codigoDelUltimoManualDeLaTabla']; ?></span>
         <button id="primero" name="primero"><img src="Imagenes/primero.png" alt="primero"></button>
         <button id="anterior" name="anterior"><img src="Imagenes/anterior.png" alt="anterior"></button>
