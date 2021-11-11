@@ -27,7 +27,7 @@ function validarDatos()
 }
 
 /* comprobar el largo de los atributos con respecto al largo máximo según la BD - para ello compruebo el largo del mensaje de error 
-si el largo no es orrecto, mostrar mensaje de error
+si el largo no es correcto, mostrar mensaje de error
 si es correcto, realizar comprobaciones de la clase */
 function comprobarLargoDeAtributosSegunLargoEnLaBD(){
     if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) ==0) {
@@ -175,7 +175,8 @@ function crearObjetoManual()
     return $manual1;
 }
 
-/*comprueba que tods los datos se han introducido */
+/*comprueba que tods los datos se han introducido.
+Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
@@ -214,7 +215,8 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
     return $mensajeErrorFaltanDatos;
 }
 
-/* comprueba el largo de los atributos según largo en la BD*/
+/* comprueba el largo de los atributos según largo en la BD
+Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarLargoDeAtributosIntroducidos($manual)
 {
     $error = false;

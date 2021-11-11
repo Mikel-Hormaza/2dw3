@@ -150,7 +150,8 @@ function crearObjetoPaso()
     return $Paso1;
 }
 
-/*comprueba que todos los datos se han introducido */
+/*comprueba que tods los datos se han introducido.
+Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
@@ -177,7 +178,8 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
     return $mensajeErrorFaltanDatos;
 }
 
-/* comprueba el largo de los atributos según largo en la BD*/
+/* comprueba el largo de los atributos según largo en la BD
+Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarLargoDeAtributosIntroducidos($Paso)
 {
     $error = false;
