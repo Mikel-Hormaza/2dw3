@@ -6,7 +6,7 @@
     <title>Gestión manuales</title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
-    <?php require_once "leerBDGestionManuales.php" ?>
+    <?php require_once "BDGestionManuales.php" ?>
 </head>
 
 <body>
@@ -18,21 +18,18 @@
         </div>
     </section>
 
-
     <section>
         <div>
             <button id="idBotonDesplegar" class="botonDesplegar">&#128270</button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a id="categoria">Categoría</a>
-                <a>Creados por mí</a>
-                <a>Todos</a>
+            <a id="categoria">Categoría</a>
+            <?php echo comprobarOpcionesDesplegablesAMostrar($_SESSION["permisoDeUsuario"]);?>
             </div>
             <div id="idContenidoCategoria" class="contenidoCategoria">
-                <a>maquina-herramienta</a>
-                <a>electrónica</a>
-                <a>herramienta taller</a>
+                <?php cargarLasOpcionesDeCategoriaExistentesEnLaBD();?>
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
+            <button id="idBotonBuscar"> Buscar </button>
         </div>
 
         <div>
