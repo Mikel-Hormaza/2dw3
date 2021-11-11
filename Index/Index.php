@@ -17,7 +17,7 @@
                         <input type="button" class="mostrar" id="mostrar" value="Mostrar más">
             </div>
             <div class="portada">
-                <img class="imgPortada" src="/2dw3/Index/Fotos/portada.png" >
+                <img class="imgPortada" src="/2dw3/Index/Fotos/portada2.png" >
             </div>
         </div>
         <div class="container">

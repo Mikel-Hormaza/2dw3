@@ -321,8 +321,9 @@ img.twitter {
 }
 .quienes {
     position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
-    margin-left: 10%;
-    right: 5%;
+    left: 3%;
+    margin-right: 50%;
+    /* margin-right: 6%; */
     margin-top: 3%;
     color: #626267;
     background-color: #EFC227B3;
@@ -332,9 +333,9 @@ img.twitter {
 }
 .somos {
     position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
-    top: 5%;
-    left: 5%;
-    margin-right: 55%;
+    top: 0%;
+    left: 3%;
+    margin-right: 50%;
     color: white;
     background-color: #5c8001B3;
     border-radius: 5px;
@@ -346,14 +347,28 @@ img.twitter {
     position: relative;
     display: grid;
     text-align: center;
-    margin-left: 3%;
     justify-content: center;
-    margin-top: 4%;
+    margin-top: 15%;
     margin-bottom: 6%;
 }
+.mostrar {
+    background-color: #EFC227;
+    border-radius: 3px;
+    border: none;
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
 .portada {
+    /* background-color: lightcoral; */
+    margin-top: -30%;
+    margin-left: 40%;
+    width: 40%;
+    /* height: 40%; */
+}
+.imgPortada {
     width: 100%;
-    height: 80%;
+    height: 75%;
+    margin-left: 40%;
 }
 .quienes h2 {
     margin-left: 5%;
@@ -501,6 +516,7 @@ img.twitter {
  
     .quienes {
         border-radius: 6px;
+        width: 90%;
         color: #626267;
         background-color: #EFC227B3;
         font-size: 80%;
@@ -511,7 +527,7 @@ img.twitter {
         /* margin-left: -100%; */
         /* margin-right: 130%; */
         width: 45%;
-        margin-top: 0%;
+        margin-top: 5%;
         color: white;
         background-color: #5c8001B3;
         border-radius: 5px;
@@ -521,13 +537,18 @@ img.twitter {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .portada {
-        width: 80%;
-        height: 90%;
-        margin-top: -40%;
+        /* background-color: lightcoral; */
+        width: 50%;
+        /* height: 100%; */
+        margin-left: 45%;
+        margin-top: -35%;
     }
     .imgPortada {
-        width: 50%;
-        height: 60%;
+        margin-top: -5%;
+        margin-left: 15%;
+        /* right: 10%; */
+        /* margin-right: 10%; */
+        width: 80%;
     }
     .quienes h2 {
         margin-left: 3%;
@@ -548,8 +569,7 @@ img.twitter {
         display: grid;
         text-align: center;
         justify-content: center;
-        margin-left: 3%;
-        /* margin-top: 10%; */
+        margin-top: 10%;
     }
  
     .div1 {
