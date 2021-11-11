@@ -61,6 +61,7 @@ function mostrarPasos($datosPasos)
             </div>
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($paso["fotoPaso"]) . '"/>' ?>
             <p><?php echo $paso["descripcionPaso"] ?></p>
+            <span><?php echo $paso["codPaso"] ?></span>
         </div>
 <?php
     }

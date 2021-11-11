@@ -274,6 +274,10 @@ p {
     color: #626267;
 }
 
+/* .paso span{
+    display: none;
+}
+ */
 @media (min-width: 350px) {
     #registrarHerramientas div button span {
         display: inline;

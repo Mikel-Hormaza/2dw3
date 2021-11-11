@@ -2,10 +2,18 @@ window.addEventListener("load", inicio);
 
 function inicio() {
     anadirEventoClickABotones();
+    anadirIdALosPasos();
 }
 
 function anadirEventoClickABotones() {
     document.getElementById("idBotoncrearPaso").addEventListener("click", comprobacionesYSubmit);
+}
+
+function anadirIdALosPasos(){
+/*     utiizar
+    var x = document.getElementById("myDIV").childElementCount;
+    para contar los pasos. Si hay pasos con un bubleir generando IDs (contador++)
+     */
 }
 
 function comprobacionesYSubmit(){
