@@ -8,14 +8,14 @@ $password = "";
 $_SESSION["codUsuario"] = 1; #parche
 $_SESSION["permisoDeUsuario"] = "admin"; #parche
 
-$maxLimit = 2; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
 
 /*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
 /*IF: comprueba si hemos hecho submit en los botones de inicio final */
 if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($_POST['anterior']) or isset($_POST['siguiente']) or isset($_POST['ultimo']))) {
     gestionarBotonesNavegacionInicioFinal();
 }
-/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']))) {
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']) or isset($_POST['idmaquina-herramienta']) or isset($_POST['idelectronica']) or isset($_POST['idherramienta taller']))) {
     filtrarLosManualesMostrados($_SESSION['primeraVariableLimit']);
 }
 /*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
@@ -25,11 +25,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($
 
 function filtrarLosManualesMostrados($primeraVariableLimit)
 {
+    var_dump(isset($_POST['idherramienta taller']));
     if (isset($_POST['idCreadosPorMi'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, false);
     }
     if (isset($_POST['idTodos'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, true);
+    }
+    if (isset($_POST['idmaquina-herramienta'])) {
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idmaquina-herramienta'], false);
+    }
+    if (isset($_POST['idelectronica'])) {
+        echo "valor- ".$_POST['idelectronica']."-";
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idelectronica'], false);
+    }
+    if (isset($_POST['idherramienta taller'])) {
+        echo "valor- ".$_POST['idherramienta taller']."-";
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idherramienta taller'], false);
     }
 }
 
@@ -47,13 +59,12 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
         $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
         $sqlManuales = "SELECT codManual, nombreManual, fotoManual, manual.codHerramienta, nombreHerramienta
             FROM manual,herramienta " . $where . "
             ORDER BY fechaCreacion $AscODesc
             LIMIT $primeraVariableLimit, $maxLimit";
         $resultadoManuales = $conexion->query($sqlManuales);
-
+        var_dump($sqlManuales);
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
             ORDER by fechaCreacion";
@@ -65,7 +76,8 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
 
-    /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
+
+            /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
         Para que no se muestren "invertidos" utilizo array_reverse antes de mostrarlos*/
     if ($AscODesc == "DESC") {
         $datosManuales = array_reverse($resultadoManuales->fetchAll());
@@ -77,8 +89,9 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
     }
 
     guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
-}
+    
 
+}
 
 /* Prepara las clausulas WHERE, ORDER BY y LIMIT de la llamada a la BD y luego llama a la BD. 
 Recibe como parámetros:
@@ -89,13 +102,26 @@ Recibe como parámetros:
 5. si se ha seleccionado mostrar todo (sino false)*/
 function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsuario, $categoriaSeleccionada, $mostrarTodosLosManuales)
 {
-    $where = "WHERE manual.codHerramienta like herramienta.codHerramienta";
-    if (!empty($categoriaSeleccionada)) {
-        $where .= "&& herramienta.categoria like '$categoriaSeleccionada'";
+    var_dump($categoriaSeleccionada);
+    $where = "WHERE manual.codHerramienta like herramienta.codHerramienta ";
+/*     si el usuario tiene un permiso usuario al filtrar por categoría verá solo los de esa categoría que él mismo creó
+    si el usuario tiene permiso de admin al filtrar por categoría verá todos los manuales de esa categoría */
+    if($_SESSION["permisoDeUsuario"]=="usuario"){
+        if (!empty($categoriaSeleccionada)) {
+            $where .= "&& herramienta.categoria like '$categoriaSeleccionada' ";
+        }
+        if ($mostrarTodosLosManuales == false) {
+            $where .= " && manual.codUsuario like '" . $codUsuario . "'";
+        }
+    }else{
+        if (!empty($categoriaSeleccionada)) {
+            $where .= "&& herramienta.categoria like '$categoriaSeleccionada'";
+        }
+        if ($mostrarTodosLosManuales == false && empty($categoriaSeleccionada)) {
+            $where .= " && manual.codUsuario like '" . $codUsuario . "'";
+        }
     }
-    if ($mostrarTodosLosManuales == false) {
-        $where .= " && manual.codUsuario like '" . $codUsuario . "'";
-    }
+
     $_SESSION["where"] = $where;
     llamarBD($where, $primeraVariableLimit, $AscODesc);
 }
@@ -120,22 +146,30 @@ function cargarLasOpcionesDeCategoriaExistentesEnLaBD()
     } catch (PDOException $e) {
         echo $sqlSelectCategorias . "<br>" . $e->getMessage();
     }
-    //mostrarOpcionesCategorias($datosDeLasCategorias);
+    mostrarOpcionesCategorias($datosDeLasCategorias);
 }
 
-/*  
-PROBLEMA ESTA FUNCIÓN ES COMPLCIADA PORQUE CLARO CÓMO SE YO QUE ID DARLE
-muestra cada categoria encontrada en la BD como un elemento de la lista categorias 
+
+/* por cada categoria de herramientas encontrada en la BD como un botón del bloque de categorias*/
 function mostrarOpcionesCategorias($categorias)
 {
     $cont = -1;
     foreach ($categorias as $categoria) {
         $cont++;
-?>
-        <button type="submit"><?php echo $categorias[$cont]["categoria"] ?></button>
-<?php
+        crearBotonDeUnaCategoria($categorias[$cont]["categoria"]);
     }
-} */
+}
+
+
+/* para que los botones tengan id, value y name distintos creamos esos valores con un string al que llamamos id+el nombre de categoria */
+function crearBotonDeUnaCategoria($nomCategoria)
+{
+    $stringIdYName = "id";
+    $stringIdYName .= $nomCategoria;
+?>
+    <button type="submit" id="<?php echo $stringIdYName ?>" name="<?php echo $stringIdYName ?>" value="<?php echo $nomCategoria ?>"><?php echo $nomCategoria; ?></button>
+<?php
+}
 
 
 /* Por defecto la gestion de manuales muestra los manuales creados por el usuario logeado
@@ -145,7 +179,7 @@ function comprobarOpcionesDesplegablesAMostrar($permiso)
     if ($permiso == "admin") {
         return
             "<button type=" . "submit" . " id=" . "idCreadosPorMi" . " name=" . "idCreadosPorMi" . ">Creados por mí</button>
-        <button type=" . "submit" . "id=" . "idTodos" . " name=" . "idTodos" . ">Todos</button>";
+        <button type=" . "submit" . " id=" . "idTodos" . " name=" . "idTodos" . ">Todos</button>";
     }
 }
 
