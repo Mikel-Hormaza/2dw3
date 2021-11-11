@@ -3,7 +3,7 @@
 session_start();
 require_once 'Paso.php';
 /* el cod de manual $_SESSION["codManualSeleccionado"] */
-
+$_SESSION["codManualSeleccionado"]=5;  #parche
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
@@ -203,3 +203,5 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
+
+?>

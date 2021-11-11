@@ -1,16 +1,10 @@
 <?php
 session_start();
-
 $datosManual;
 $datosPasos;
 
-if(!empty($_SESSION["codManualSeleccionado"])){
-    $codManualSeleccionado=$_SESSION["codManualSeleccionado"];
-    llamarBD();
-    mostrarPasos();
-}else{
-    $_SESSION["codManualSeleccionado"]=5; #parche
-}
+$_SESSION["codManualSeleccionado"]=5; #parche
+$codManualSeleccionado=$_SESSION["codManualSeleccionado"];
 
 function llamarBD(){
     $servidor  = "localhost";
@@ -44,12 +38,16 @@ function llamarBD(){
     }
     
     $conexion = null;
-    
+
+    if(!empty($datosPasos)){
+        return true;
+    }else{
+        return false;
+    }
 }
 
-function mostrarPasos(){
-    global $datosPasos;
-    if(!empty($_SESSION["codManualSeleccionado"])){
+/*Muestra los pasos del manual */
+function mostrarPasos($datosPasos){
         $numPaso = 0;
         foreach ($datosPasos as $paso) {
         ?>
@@ -64,7 +62,6 @@ function mostrarPasos(){
             </div>
         <?php
         }
-    }
 }
 
 ?>
