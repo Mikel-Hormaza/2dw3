@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
     <script src="Paso.js"></script>
-    <script src="validarDatosPaso.js"></script>
+    <script src="gestionarDatosPasos.js"></script>
     <?php require_once "leerBDPasosDelManual.php"; ?>
 </head>
 

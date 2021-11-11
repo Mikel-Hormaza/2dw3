@@ -11,8 +11,6 @@ function anadirEventoClickABotones() {
 function comprobacionesYSubmit(){
     if (validarDatos()){
         document.getElementById("formulario").submit();
-    }else{
-        alert("ERROR en comprobacionesYSubmit");
     }
 }
 
@@ -25,7 +23,7 @@ function validarDatos() {
         if(crearObjetoPaso().validarFotoPaso()){
             return true;
         }else{
-            alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
+            alert("error en el formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
             return false;
         }
     }
