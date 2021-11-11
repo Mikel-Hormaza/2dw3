@@ -48,11 +48,13 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #efc227;
     font-size: medium;
+    text-transform: uppercase;
     border-radius: 5px;
     color: #626267;
     height: 40px;
     border: none;
     cursor: pointer;
+    margin-left: 10%;
 }
 
 img.fotos {

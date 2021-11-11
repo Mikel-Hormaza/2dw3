@@ -11,7 +11,7 @@
 
 <body>
     <?php require_once '../Header/Header.php'?>
-    <button id="botonVolver"><a href="">Volver<span> al inicio</span></a></button>
+    <button class="botonVolver">Volver<span> a gestion de herramientas</span></button>
         <div class="orden">
             <fieldset>
                 <form action="" class="formula">

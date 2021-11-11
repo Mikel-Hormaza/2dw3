@@ -37,7 +37,7 @@
     flex-direction: column;
 }
 
-.btn {
+button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #efc227;
     text-transform: uppercase;
@@ -47,18 +47,44 @@
     height: 40px;
     border: none;
     cursor: pointer;
+    width: max-content;
 }
 
-#botonVolver {
-    margin-left: 1vh;
+.botonVolver {
+    background-color: #53B3CB;
+    margin: 2vh 0px 0px 0px;
+    margin-bottom: 5%;
+    margin-left: 5%;
 }
+
+fieldset {
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px
+}
+
 
 .Categoria {
     display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    button span {
+        display: none;
+    }
+
+    form {
+        width: 80%;
+        max-width: 600px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
     .centrar {
         width: 50%;
     }
+
+    fieldset {
+    
+    }
+    
 }
