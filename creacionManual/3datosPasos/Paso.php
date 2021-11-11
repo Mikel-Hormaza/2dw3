@@ -53,7 +53,7 @@ class Paso
 
         if (!in_array($ext, $extensionesValidas)) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

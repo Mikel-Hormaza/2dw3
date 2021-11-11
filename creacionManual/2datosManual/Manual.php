@@ -80,8 +80,8 @@ class Manual
     {
         return $this->fechaCreacion;
     }
-  
-/*     comprobar la extensión de la imagen. si es correcto: return true */
+
+    /*comprobar la extensión de la imagen. si es correcto: return true */
     public function validarFotoManual()
     {
         $ext = pathinfo($this->getFotoManual(), PATHINFO_EXTENSION);
@@ -89,7 +89,7 @@ class Manual
 
         if (!in_array($ext, $extensionesValidas)) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

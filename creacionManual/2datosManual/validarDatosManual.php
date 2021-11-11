@@ -18,9 +18,8 @@ sino se han introducido, mostrar mensaje de error
 si se han introducido, comprobar largo según la BD*/
 function validarDatos()
 {
-    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) ==0) {
+    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) == 0) {
         comprobarLargoDeAtributosSegunLargoEnLaBD();
-        
     } else {
         echo comprobarSiSeHanIntroducidoTodosLosDatos();
     }
@@ -29,19 +28,21 @@ function validarDatos()
 /* comprobar el largo de los atributos con respecto al largo máximo según la BD - para ello compruebo el largo del mensaje de error 
 si el largo no es correcto, mostrar mensaje de error
 si es correcto, realizar comprobaciones de la clase */
-function comprobarLargoDeAtributosSegunLargoEnLaBD(){
-    if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) ==0) {
+function comprobarLargoDeAtributosSegunLargoEnLaBD()
+{
+    if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) == 0) {
         comprobacionesDelObjeto();
     } else {
         echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
     }
 }
 
-/* validar la imagen introducida. 
+/* validaciones del objeto
 Si es correcta, antes de realizar la insert comprobar que en la BD no haya ningún manual con el mismo título
 si no hay otro manual con ese título, insertar manual
 sino, mostrar mensaje de error */
-function comprobacionesDelObjeto(){
+function comprobacionesDelObjeto()
+{
     if (crearObjetoManual()->validarFotoManual()) {
         if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
             insertarManualBD(crearObjetoManual());
@@ -102,7 +103,6 @@ function insertarManualBD($manual)
         /* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta  */
         comprobacionesEnBD("obtenerCodManual", $titulo);
     }
-
 }
 /* si tipoComprobacion==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
 si tipoComprobacion==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */

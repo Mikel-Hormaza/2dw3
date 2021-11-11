@@ -3,7 +3,7 @@
 session_start();
 require_once 'Paso.php';
 /* el cod de manual $_SESSION["codManualSeleccionado"] */
-$_SESSION["codManualSeleccionado"]=5;  #parche
+$_SESSION["codManualSeleccionado"] = 5;  #parche
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
@@ -17,41 +17,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     contra la BD antes de la insert*/
 function validarDatos()
 {
-    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
-        echo comprobarSiSeHanIntroducidoTodosLosDatos();
+    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) == 0) {
+        comprobarLargoDeAtributosSegunLargoEnLaBD();
     } else {
-        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoPaso())) > 1) {
-            echo comprobarLargoDeAtributosIntroducidos(crearObjetoPaso());
-        } else {
-            if (crearObjetoPaso()->validarFotoPaso()) {
-                if (comprobacionesEnBD("tituloUnique", crearObjetoPaso()->getTituloPaso()) == 0) {
-                    insertarPasoBD(crearObjetoPaso());
-                    echo "foto subida";
-                } else {
-                    echo "el titulo ya existe en la BD";
-                }
-            } else {
-                echo "foto not ok";
-            }
-        }
+        echo comprobarSiSeHanIntroducidoTodosLosDatos();
     }
+}
+
+/* comprobar el largo de los atributos con respecto al largo máximo según la BD - para ello compruebo el largo del mensaje de error 
+si el largo no es correcto, mostrar mensaje de error
+si es correcto, realizar comprobaciones de la clase */
+function comprobarLargoDeAtributosSegunLargoEnLaBD()
+{
+    if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoPaso())) == 0) {
+        comprobacionesDelObjeto();
+    } else {
+        echo comprobarLargoDeAtributosIntroducidos(crearObjetoPaso());
+    }
+}
+
+/* realiza la comprobacion del objeto. Si devuelve true, inserta el paso en la BD y actualizar*/
+function comprobacionesDelObjeto()
+{
+    if (crearObjetoPaso()->validarFotoPaso()) {
+        insertarEnBDYActualizar();
+    } else {
+        echo "foto not ok";
+    }
+}
+
+function insertarEnBDYActualizar()
+{
+    insertarPasoBD(crearObjetoPaso());
+    header('Location: ../../creacionManual/3datosPasos/crearPaso.php');
+    die();
 }
 
 function insertarPasoBD($Paso)
 {
-    $insertarBDcompletado = true;
     global $servidor;
     global $user;
     global $pass;
 
     $titulo = $Paso->getTituloPaso();
     $descripcionPaso = $Paso->getDescripcionPaso();
-    $equipoNecesario = $Paso->getEquipoNecesario();
-    $medidasSeguridad = $Paso->getMedidasDeSeguridad();
     $fotoPaso = imagenPaso();
-    $codHerramienta = $Paso->getCodHerramienta();
-    $codManualSeleccionado = $Paso->getcodManualSeleccionado();
-    $fecha = $Paso->getFechaCreacion();
+    $codManualSeleccionado = $Paso->getCodManual();
 
 
     try {
@@ -59,72 +70,21 @@ function insertarPasoBD($Paso)
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO Paso (nombrePaso,
-        informacionPaso,
-        equipoNecesario,
-        medidasDeSeguridad,
+        $sql = "INSERT INTO Paso (tituloPaso,
+        descripcionPaso,
         fotoPaso,
-        codHerramienta,
-        codManualSeleccionado,
-        fechaCreacion) 
+        codManual) 
         VALUES ('$titulo',
         '$descripcionPaso',
-        '$equipoNecesario', 
-        '$medidasSeguridad',
         '$fotoPaso', 
-        '$codHerramienta', 
-        '$codManualSeleccionado', 
-        '$fecha');
-        ";
+        '$codManualSeleccionado');";
+
         $conexion->exec($sql);
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
         $insertarBDcompletado = false;
     }
     $conexion = null;
-    if ($insertarBDcompletado) {
-        /* guardar en $_SESSION["codPasoSeleccionado"] el cod de la herramienta  */
-        comprobacionesEnBD("obtenerCodPaso", $titulo);
-    }
-    return $insertarBDcompletado;
-}
-/* si codPasoSeleccionado==tituloUnique: devolver un count con los Pasoes con el mismo título en la BD 
-i codPasoSeleccionado==obtenerCodPaso: guardar en $_SESSION["codPasoSeleccionado"] el cod de la herramienta */
-function comprobacionesEnBD($tipoComprobacion, $dato)
-{
-    global $servidor;
-    global $user;
-    global $pass;
-
-    try {
-        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
-
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        if ($tipoComprobacion == "tituloUnique") {
-            $sql = "SELECT COUNT(codPaso)
-            from Paso
-            WHERE nombrePaso like'$dato'";
-
-            $resultado = $conexion->query($sql);
-            $tituloPaso = $resultado->fetchAll();
-        } elseif ($tipoComprobacion == "obtenerCodPaso") {
-            $sql = "SELECT codPaso
-            FROM Paso
-            WHERE nombrePaso like '$dato'";
-
-            $resultado = $conexion->query($sql);
-            $codPaso = $resultado->fetchAll();
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-
-    if ($tipoComprobacion == "tituloUnique") {
-        return $tituloPaso[0]["COUNT(codPaso)"];
-    } elseif ($tipoComprobacion == "obtenerCodPaso") {
-        $_SESSION["codPasoSeleccionado"] = $codPaso[0]["codPaso"];
-    }
 }
 
 
@@ -145,7 +105,7 @@ function crearObjetoPaso()
         strtolower(validarDato($_POST["nombrePaso"])), //devuelve el título en minúscula
         validarDato($_POST["descripcionPaso"]),
         $_FILES["classInputFileIMG"]["name"],
-        $_SESSION["codHerramientaSeleccionada"]
+        $_SESSION["codManualSeleccionado"]
     );
     return $Paso1;
 }
@@ -178,7 +138,7 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
     return $mensajeErrorFaltanDatos;
 }
 
-/* comprueba el largo de los atributos según largo en la BD
+/* comprueba el largo de los atributos según largo más en la BD
 Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarLargoDeAtributosIntroducidos($Paso)
 {
@@ -205,5 +165,3 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
-
-?>

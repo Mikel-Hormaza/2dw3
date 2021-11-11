@@ -19,7 +19,7 @@
     </section>
     <div>
         <h3>Describe el primer paso de la reparación</h3>
-        <form id="formulario" action="validarDatosPaso.php" enctype="multipart/form-data">
+        <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
             <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
             <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
             <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
