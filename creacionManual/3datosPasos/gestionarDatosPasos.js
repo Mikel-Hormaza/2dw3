@@ -12,7 +12,11 @@ function anadirEventoClickABotones() {
 function anadirIdALosPasos(){
 /*     utiizar
     var x = document.getElementById("myDIV").childElementCount;
-    para contar los pasos. Si hay pasos con un bubleir generando IDs (contador++)
+    para contar los pasos. Si hay pasos con un bucle ir generando IDs (contador++)
+    <div>
+  <span onclick="this.parentElement.style.display = 'none';" class="closebtn">&times;</span>
+  <p>To close this container, click on the X symbol to the right.</p>
+</div>
      */
 }
 
