@@ -4,10 +4,19 @@ function inicio() {
     document.getElementById("idBotonDesplegar").addEventListener("click", desplegarOpcionesDeFiltrado);
     document.getElementById("categoria").addEventListener("click", desplegarCategorías);
     botonesInicioFinal();
+    contarManuales();
+    console.log('hey');
+}
+
+function contarManuales(){
+    let countManuales = document.getElementById("listaManuales").childElementCount;
+    alert('hey1');
+console.log(countManuales);
 }
 
 /* leer las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
+    alert('hey');
     let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
     let codigoDelPrimerManualDeLaTabla = parseInt(arrayDatosPHP[0]);
     let codigoDelPrimerManualDeLaTablaMostrado = parseInt(arrayDatosPHP[1]);

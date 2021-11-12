@@ -12,10 +12,20 @@ $maxLimit = 8; //la cantidad de manuales que se pueden mostrar
 
 /*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
 /*IF: comprueba si hemos hecho submit en los botones de inicio final */
-if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($_POST['anterior']) or isset($_POST['siguiente']) or isset($_POST['ultimo']))) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero'])
+    or isset($_POST['anterior'])
+    or isset($_POST['siguiente'])
+    or isset($_POST['ultimo']))) {
     gestionarBotonesNavegacionInicioFinal();
 }
-/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']) or isset($_POST['idmaquina-herramienta']) or isset($_POST['idelectronica']) or isset($_POST['idherramienta-taller']))) {
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif (
+    $_SERVER["REQUEST_METHOD"] == "POST"
+    && (isset($_POST['idCreadosPorMi'])
+        or isset($_POST['idTodos'])
+        or isset($_POST['idmaquina-herramienta'])
+        or isset($_POST['idelectronica'])
+        or isset($_POST['idherramienta-taller']))
+) {
     filtrarLosManualesMostrados();
 }
 /*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
@@ -42,7 +52,6 @@ function filtrarLosManualesMostrados()
     if (isset($_POST['idelectronica'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idelectronica'], false);
     }
-
 }
 
 /* llama a la BD para obtener los manuales y además los códigos de todos los manuales que compartes la where */
@@ -65,8 +74,6 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
             LIMIT $primeraVariableLimit, $maxLimit";
         $resultadoManuales = $conexion->query($sqlManuales);
 
-        var_dump($sqlManuales);
-
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
             ORDER by fechaCreacion, codManual ";
@@ -79,7 +86,7 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
 
-            /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
+    /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
         Para que no se muestren "invertidos" utilizo array_reverse antes de mostrarlos*/
     if ($AscODesc == "DESC") {
         $datosManuales = array_reverse($resultadoManuales->fetchAll());
@@ -93,7 +100,7 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
     guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
 }
 
-/* Prepara las clausulas WHERE, ORDER BY y LIMIT de la llamada a la BD y luego llama a la BD. 
+/* Prepara la clausula WHERE de la llamada a la BD y luego llama a la BD. 
 Recibe como parámetros:
 1. el primer manual que muestra
 2. el orden ASC o DESC del order by 
@@ -103,16 +110,16 @@ Recibe como parámetros:
 function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsuario, $categoriaSeleccionada, $mostrarTodosLosManuales)
 {
     $where = "WHERE manual.codHerramienta like herramienta.codHerramienta ";
-/*     si el usuario tiene un permiso usuario al filtrar por categoría verá solo los de esa categoría que él mismo creó
+    /*     si el usuario tiene un permiso usuario al filtrar por categoría verá solo los de esa categoría que él mismo creó
     si el usuario tiene permiso de admin al filtrar por categoría verá todos los manuales de esa categoría */
-    if($_SESSION["permisoDeUsuario"]=="usuario"){
+    if ($_SESSION["permisoDeUsuario"] == "usuario") {
         if (!empty($categoriaSeleccionada)) {
             $where .= "&& herramienta.categoria like '$categoriaSeleccionada' ";
         }
         if ($mostrarTodosLosManuales == false) {
             $where .= " && manual.codUsuario like '" . $codUsuario . "'";
         }
-    }else{
+    } else {
         if (!empty($categoriaSeleccionada)) {
             $where .= "&& herramienta.categoria like '$categoriaSeleccionada'";
         }

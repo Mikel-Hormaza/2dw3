@@ -263,15 +263,16 @@ button {
         width: 100%;
     }
 
-    .contenidoADesplegar button:nth-child(odd),
-    .contenidoCategoria button:nth-child(odd) {
-        background-color: #b9c1c4;
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
         border-radius: 0px;
         padding: 1em 1em;
         display: block;
         width: 100%;
     }
-
+    .contenidoCategoria button{
+        background-color: #b9c1c4;
+    }
 
     .contenidoADesplegar button:hover,
     .contenidoCategoria button:hover {
