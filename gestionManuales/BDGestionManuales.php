@@ -8,7 +8,7 @@ $password = "";
 $_SESSION["codUsuario"] = 1; #parche
 $_SESSION["permisoDeUsuario"] = "admin"; #parche
 
-$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 3; //la cantidad de manuales que se pueden mostrar
 
 /*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
 /*IF: comprueba si hemos hecho submit en los botones de inicio final */
@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($
 
 function filtrarLosManualesMostrados($primeraVariableLimit)
 {
+    $primeraVariableLimit = 0;
     var_dump(isset($_POST['idherramienta taller']));
     if (isset($_POST['idCreadosPorMi'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, false);
@@ -61,13 +62,14 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
 
         $sqlManuales = "SELECT codManual, nombreManual, fotoManual, manual.codHerramienta, nombreHerramienta
             FROM manual,herramienta " . $where . "
-            ORDER BY fechaCreacion $AscODesc
+            ORDER BY fechaCreacion  $AscODesc, codManual
             LIMIT $primeraVariableLimit, $maxLimit";
         $resultadoManuales = $conexion->query($sqlManuales);
-        var_dump($sqlManuales);
+
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
-            ORDER by fechaCreacion";
+            ORDER by fechaCreacion, codManual ";
+
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
 
@@ -75,7 +77,6 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }
-
 
             /*cuando seleccionamos el boton "último" llamo a la BD y selecciono los últimos manuales utilizando DESC. 
         Para que no se muestren "invertidos" utilizo array_reverse antes de mostrarlos*/
@@ -89,8 +90,6 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
     }
 
     guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
-    
-
 }
 
 /* Prepara las clausulas WHERE, ORDER BY y LIMIT de la llamada a la BD y luego llama a la BD. 
@@ -102,7 +101,6 @@ Recibe como parámetros:
 5. si se ha seleccionado mostrar todo (sino false)*/
 function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsuario, $categoriaSeleccionada, $mostrarTodosLosManuales)
 {
-    var_dump($categoriaSeleccionada);
     $where = "WHERE manual.codHerramienta like herramienta.codHerramienta ";
 /*     si el usuario tiene un permiso usuario al filtrar por categoría verá solo los de esa categoría que él mismo creó
     si el usuario tiene permiso de admin al filtrar por categoría verá todos los manuales de esa categoría */
@@ -121,7 +119,6 @@ function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsu
             $where .= " && manual.codUsuario like '" . $codUsuario . "'";
         }
     }
-
     $_SESSION["where"] = $where;
     llamarBD($where, $primeraVariableLimit, $AscODesc);
 }
