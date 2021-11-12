@@ -237,18 +237,17 @@ button {
         display: none;
         position: absolute;
         overflow: auto;
-        border-radius: 10px;
         margin-top: 10px;
-        border: 1px solid #626267;
+        border: 2px solid #626267;
     }
 
     
     .contenidoADesplegar{
-        width: 175px;
+        width: 180px;
     }
 
     .contenidoCategoria {
-        margin-left: 175px;
+        margin-left: 178px;
         width: 240px;
     } 
 
@@ -256,17 +255,26 @@ button {
         position: relative;
     }
 
-    .contenidoADesplegar a,
-    .contenidoCategoria a {
-        background-color: #EFC227;
-        color: #626267;
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
         padding: 1em 1em;
-        text-decoration: none;
         display: block;
+        width: 100%;
     }
 
-    .contenidoADesplegar a:hover,
-    .contenidoCategoria a:hover {
+    .contenidoADesplegar button:nth-child(odd),
+    .contenidoCategoria button:nth-child(odd) {
+        background-color: #b9c1c4;
+        border-radius: 0px;
+        padding: 1em 1em;
+        display: block;
+        width: 100%;
+    }
+
+
+    .contenidoADesplegar button:hover,
+    .contenidoCategoria button:hover {
         background-color: #A8902D;
         color: white;
     }
