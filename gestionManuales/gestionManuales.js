@@ -8,9 +8,10 @@ function inicio() {
     console.log('hey');
 }
 
+/*PARCHE si hay un único manual */
 function contarManuales(){
     let countManuales = document.getElementById("listaManuales").childElementCount;
-    alert('hey1');
+    alert(countManuales);
 console.log(countManuales);
 }
 
