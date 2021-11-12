@@ -8,27 +8,30 @@ $password = "";
 $_SESSION["codUsuario"] = 1; #parche
 $_SESSION["permisoDeUsuario"] = "admin"; #parche
 
-$maxLimit = 3; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
 
 /*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
 /*IF: comprueba si hemos hecho submit en los botones de inicio final */
 if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero']) or isset($_POST['anterior']) or isset($_POST['siguiente']) or isset($_POST['ultimo']))) {
     gestionarBotonesNavegacionInicioFinal();
 }
-/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']) or isset($_POST['idmaquina-herramienta']) or isset($_POST['idelectronica']) or isset($_POST['idherramienta taller']))) {
-    filtrarLosManualesMostrados($_SESSION['primeraVariableLimit']);
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['idCreadosPorMi']) or isset($_POST['idTodos']) or isset($_POST['idmaquina-herramienta']) or isset($_POST['idelectronica']) or isset($_POST['idherramienta-taller']))) {
+    filtrarLosManualesMostrados();
 }
 /*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
     $primeraVariableLimit = 0;
     prepararWhereYLimitDeLaSelect($primeraVariableLimit, "ASC", $_SESSION["codUsuario"], null, false);
 }
 
-function filtrarLosManualesMostrados($primeraVariableLimit)
+function filtrarLosManualesMostrados()
 {
+
     $primeraVariableLimit = 0;
-    var_dump(isset($_POST['idherramienta taller']));
     if (isset($_POST['idCreadosPorMi'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, false);
+    }
+    if (isset($_POST['idherramienta-taller'])) {
+        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idherramienta-taller'], false);
     }
     if (isset($_POST['idTodos'])) {
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], null, true);
@@ -37,13 +40,9 @@ function filtrarLosManualesMostrados($primeraVariableLimit)
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idmaquina-herramienta'], false);
     }
     if (isset($_POST['idelectronica'])) {
-        echo "valor- ".$_POST['idelectronica']."-";
         prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idelectronica'], false);
     }
-    if (isset($_POST['idherramienta taller'])) {
-        echo "valor- ".$_POST['idherramienta taller']."-";
-        prepararWhereYLimitDeLaSelect($primeraVariableLimit, $_SESSION['ordenUltimaBusqueda'], $_SESSION["codUsuario"], $_POST['idherramienta taller'], false);
-    }
+
 }
 
 /* llama a la BD para obtener los manuales y además los códigos de todos los manuales que compartes la where */
@@ -164,7 +163,7 @@ function crearBotonDeUnaCategoria($nomCategoria)
     $stringIdYName = "id";
     $stringIdYName .= $nomCategoria;
 ?>
-    <button type="submit" id="<?php echo $stringIdYName ?>" name="<?php echo $stringIdYName ?>" value="<?php echo $nomCategoria ?>"><?php echo $nomCategoria; ?></button>
+    <button type="submit" onclick ="alert('hola');" id="<?php echo $stringIdYName ?>" name="<?php echo $stringIdYName ?>" value="<?php echo $nomCategoria ?>"><?php echo $nomCategoria; ?></button>
 <?php
 }
 
