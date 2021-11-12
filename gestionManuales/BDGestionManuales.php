@@ -65,6 +65,8 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
             LIMIT $primeraVariableLimit, $maxLimit";
         $resultadoManuales = $conexion->query($sqlManuales);
 
+        var_dump($sqlManuales);
+
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
             ORDER by fechaCreacion, codManual ";
@@ -163,7 +165,7 @@ function crearBotonDeUnaCategoria($nomCategoria)
     $stringIdYName = "id";
     $stringIdYName .= $nomCategoria;
 ?>
-    <button type="submit" onclick ="alert('hola');" id="<?php echo $stringIdYName ?>" name="<?php echo $stringIdYName ?>" value="<?php echo $nomCategoria ?>"><?php echo $nomCategoria; ?></button>
+    <button type="submit" id="<?php echo $stringIdYName ?>" name="<?php echo $stringIdYName ?>" value="<?php echo $nomCategoria ?>"><?php echo $nomCategoria; ?></button>
 <?php
 }
 
