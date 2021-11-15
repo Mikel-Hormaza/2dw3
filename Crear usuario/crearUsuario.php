@@ -9,9 +9,10 @@
     <link type="text/css" rel="stylesheet" href="crearUsuario.css">
     <script type="text/javascript" src="Usuario.js"></script>
     <script type="text/javascript" src="validarUsuario.js"></script>
+    <?php session_start(); ?>
 </head>
 <body>
-    <form method="post" class="form" id="form">
+    <form method="post" class="form" id="form" action="validarUsuario.php">
             <br>
             <input type="submit" class="volver" value="Volver a inicio de sesión">
         <fieldset class="fieldset">
