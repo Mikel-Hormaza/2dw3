@@ -40,5 +40,4 @@ class Paso {
       return false;
     }
   }
-
 }

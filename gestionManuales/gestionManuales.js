@@ -1,30 +1,36 @@
 window.addEventListener("load", inicio);
 
 function inicio() {
-    document.getElementById("idBotonDesplegar").addEventListener("click", desplegable1);
-    document.getElementById("categoria").addEventListener("click", desplegable2);
-    document.getElementById("idBotonCategoria").addEventListener("click", desplegable3);
+    document.getElementById("idBotonDesplegar").addEventListener("click", desplegarOpcionesDeFiltrado);
+    document.getElementById("categoria").addEventListener("click", desplegarCategorías);
     botonesInicioFinal();
+}
+
+/*PARCHE si hay un único manual */
+function contarManuales() {
+    let countManuales = document.getElementById("listaManuales").childElementCount;
+    console.log(countManuales);
 }
 
 /* leer las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
+
     let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
     let codigoDelPrimerManualDeLaTabla = parseInt(arrayDatosPHP[0]);
     let codigoDelPrimerManualDeLaTablaMostrado = parseInt(arrayDatosPHP[1]);
     let codigoDelUltimoManualDeLaTablaMostrado = parseInt(arrayDatosPHP[2]);
-    let codigoDelUltimoManualDeLaTabla =parseInt(arrayDatosPHP[3]);
+    let codigoDelUltimoManualDeLaTabla = parseInt(arrayDatosPHP[3]);
     mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla);
 }
 /* en función de las variables leídas, deshabilitar botones inutilizables */
 function mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla) {
-    if (codigoDelPrimerManualDeLaTabla==codigoDelPrimerManualDeLaTablaMostrado) {
+    if (codigoDelPrimerManualDeLaTabla == codigoDelPrimerManualDeLaTablaMostrado) {
         let botonInicio = document.getElementById("primero");
         let botonAnterior = document.getElementById("anterior");
         deshabilitarBoton(botonInicio);
         deshabilitarBoton(botonAnterior);
     }
-    if (codigoDelUltimoManualDeLaTablaMostrado==codigoDelUltimoManualDeLaTabla) {
+    if (codigoDelUltimoManualDeLaTablaMostrado == codigoDelUltimoManualDeLaTabla) {
         let botonSiguiente = document.getElementById("siguiente");
         let botonUltimo = document.getElementById("ultimo");
         deshabilitarBoton(botonSiguiente);
@@ -32,22 +38,19 @@ function mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigo
     }
 }
 
+/*Deshabilitamos el botón. Importante: el botón pasa a ser type button y no submit para no enviar el formulario*/
 function deshabilitarBoton(boton) {
     boton.type = "button";
     boton.style.backgroundColor = "#626267";
     boton.style.cursor = "context-menu";
-    boton.style.opacity="0.4";
+    boton.style.opacity = "0.4";
 }
 
-function desplegable1() {
+function desplegarOpcionesDeFiltrado() {
     comprobarSiElBloqueTieneClaseMostrar("idBloqueDesplegar");
 }
 
-function desplegable2() {
-    comprobarSiElBloqueTieneClaseMostrar("idBotonCategoria");
-}
-
-function desplegable3() {
+function desplegarCategorías() {
     comprobarSiElBloqueTieneClaseMostrar("idContenidoCategoria");
 }
 
@@ -57,13 +60,18 @@ function comprobarSiElBloqueTieneClaseMostrar(idBloque) {
     let divPlegable;
     if (idBloque == "idBloqueDesplegar") {
         divPlegable = document.getElementById(idBloque).classList.contains("mostrarDesplegarOpciones");
-    } else if (idBloque == "idBotonCategoria") {
-        divPlegable = document.getElementById(idBloque).classList.contains("mostrarBotonCategoria");
     } else if (idBloque == "idContenidoCategoria") {
         divPlegable = document.getElementById(idBloque).classList.contains("mostrarDesplegarCategorias");
     }
     if (divPlegable) {
-        ocultarBloque(idBloque);
+        /* si el bloque seleccionado es idBloqueDesplegar al ocultarlo es necesario que oculte también las categorías */
+        if (idBloque == "idBloqueDesplegar") {
+            ocultarBloque("idBloqueDesplegar");
+            ocultarBloque("idContenidoCategoria");
+        } else {
+            ocultarBloque(idBloque);
+        }
+
     } else {
         mostrarBloque(idBloque);
     }
@@ -75,8 +83,6 @@ function mostrarBloque(idBloque) {
     comprobarSiElBloqueTieneClaseOcultar(idBloque);
     if (idBloque == "idBloqueDesplegar") {
         document.getElementById(idBloque).classList.add("mostrarDesplegarOpciones");
-    } else if (idBloque == "idBotonCategoria") {
-        document.getElementById(idBloque).classList.add("mostrarBotonCategoria");
     } else if (idBloque == "idContenidoCategoria") {
         document.getElementById(idBloque).classList.add("mostrarDesplegarCategorias");
     }

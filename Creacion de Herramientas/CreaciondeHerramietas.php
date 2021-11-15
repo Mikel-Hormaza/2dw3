@@ -12,7 +12,7 @@
 
 <body>
     <?php require_once '../Header/Header.php'?>
-    <button class="botonVolver">Volver<span> a gestion de herramientas</span></button> 
+    <button class="botonVolver" >Volver<span> a gestion de herramientas</span></button> 
         <div class="orden">
             <fieldset>
                 <form action="" class="formula" id="formulario">
@@ -32,8 +32,8 @@
                     ?>
                     </select>
                    
-                    <label for="Imagen" class="label-img">Imagen</label>
-                    <input type="file" class="br" name="picture"> 
+                    <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Imagen</button>
+                    <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
                     
                     <input type="submit" class="btn" id="crearHerramienta" value="Crear herramienta"></button>
                 </form>

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
     <link rel="stylesheet" type="text/css" href="biblioteca.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <?php require_once '../Biblioteca/leerBDBiblioteca.php'?>
 </head>
 
 <body>
@@ -22,30 +23,14 @@
 
         </div>
         <section class="contenedos">
+            <?php foreach($datosBiblioteca as $manuales){?>
             <div class="div">
-                <img src="../Biblioteca/Fotos/clavadora.png" alt="" class="fotos">
-                <label for="">Clavadora</label>
+                <img class="fotos" <?php echo $imagen?>/>
+            <p><?php echo $manuales["nombreHerramienta"]?></p>
             </div>
-            <div class="div">
-                <img src="../Biblioteca/Fotos/Atorillador(black+decker).png" alt="" class="fotos">
-                <label for="">Atornillador</label>
-            </div>
-            <div class="div">
-                <img src="../Biblioteca/Fotos/multilijadora.png" alt="" class="fotos">
-                <label for="">Multilijadora</label>
-            </div>
-            <div class="div">
-                <img src="../Biblioteca/Fotos/Amoladora.png" alt="" class="fotos">
-                <label for="">Amoladora</label>
-            </div>
-            <div class="div">
-                <img src="../Biblioteca/Fotos/Sierra Calar.png" alt="" class="fotos">
-                <label for="">Sierra</label>
-            </div>
-            <div class="div">
-                <img src="../Biblioteca/Fotos/Taladro.png" alt="" class="fotos">
-                <label for="">Taladro</label>
-            </div>
+            <?php 
+            }
+            ?>
         </section>
         <div id="botonesInicioFinal">
             <button class="btnCambio"><img src="../Biblioteca/Fotos/primero.png" alt="triangulo"></button>

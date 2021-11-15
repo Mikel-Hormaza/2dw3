@@ -1,8 +1,10 @@
 class CreacionHerramienta {
     constructor(p_nombreHerramienta,
-      p_categoria) {
-      this.__nombreHerramienta = p__nombreHerramienta;
+      p_categoria,
+      p_fotoHerramienta) {
+      this._nombreHerramienta = p_nombreHerramienta;
       this._categoria = p_categoria;
+      this._fotoHerreamienta = p_fotoHerramienta
     }
     get nombreHerramienta() {
         return this._nombreHerramienta;
@@ -18,6 +20,14 @@ class CreacionHerramienta {
     
       set categoria(p_categoria) {
         this._categoria = p_categoria;
+      }
+
+      get fotoHerreamienta() {
+        return this._fotoHerreamienta;
+      }
+    
+      set fotoHerramienta(p_fotoHerramienta) {
+        this._fotoHerramienta = p_fotoHerramienta;
       }
 }
 
@@ -36,4 +46,11 @@ document.addEventListener("DOMContentLoaded", function() {
         return false;					
       }
           document.getElementById("formulario").submit();
+  }
+  validarFotoPaso() 
+    let extensionesValidas = /(\.jpg|\.jpeg|\.png)$/i;
+    if (extensionesValidas.exec(this.fotoHerramienta)) {
+      return true;
+    } else {
+      return false;
   }
