@@ -97,12 +97,11 @@ function comprobarCodSeleccionadoExisteEnLaBD($codDePaso)
 
 /* funcion llamada desde la página
 busca a ver si se ha seleccionado un paso.
-Si no hay  ningún paso seleccionado, muestra el formulario vacío y guarda en SESSION editaoCrear el valor crear,
-si sí lo hay, muestra el paso y guarda en SESSION editaoCrear el valor editar*/
+Si no hay  ningún paso seleccionado, muestra el formulario vacío 
+si sí lo hay, muestra el paso */
 function mostrarFormulario()
 {
     if (!isset($_POST["botonPasoSeleccionado"])) {
-        $_SESSION["editarOCrear"] = "crear";
     ?>
         <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
             <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
@@ -117,13 +116,11 @@ function mostrarFormulario()
 
     <?php
     } else {
-        $_SESSION["editarOCrear"] = "editar";
         if (comprobarCodSeleccionadoExisteEnLaBD($_POST["botonPasoSeleccionado"])) {
             llamarALaBDParaLeerDatosPaso($_POST["botonPasoSeleccionado"]);
         } else {
             echo "código de paso erróneo";
         }
-
     }
 }
 
@@ -150,6 +147,7 @@ function llamarALaBDParaLeerDatosPaso($codPaso)
     }
 
     $conexion = null;
+    $_SESSION["botonPasoSeleccionado"]=$codPaso;
     mostrarDatosDelPasoEnElFormulario($datosPaso);
 }
 
