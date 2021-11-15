@@ -36,9 +36,9 @@ function pasoSeleccionado(){
 }
 
 function comprobacionesYSubmit(){
-   if (validarDatos()){
+/*    if (validarDatos()){
         document.getElementById("formulario").submit();
-    }
+    } */
 }
 
 function validarDatos() {
