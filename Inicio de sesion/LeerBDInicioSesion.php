@@ -14,7 +14,7 @@ try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Select para coger la informacion de la base de datos
-    $sqlUsuario = "SELECT codUsuario, nomUsuario, passUsuario 
+    $sqlUsuario = "SELECT codUsuario, nomUsuario, passUsuario, permisoUsuario
     FROM usuario";
 
     $resultadoUsuario = $conexion->query($sqlUsuario);
@@ -28,6 +28,7 @@ foreach ($datosUsuario as $usuarios) {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contrasena = $usuarios['passUsuario'];
             $codUsuario= $usuarios['codUsuario'];
+            //$permiso= $usuario['permisoUsuario'];
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -45,8 +46,10 @@ foreach ($datosUsuario as $usuarios) {
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
                     $_SESSION[$usuarios['codUsuario']] = $_REQUEST[$usuarios['codUsuario']];
                     $codUsuario= $_REQUEST[$usuarios['codUsuario']];
+                   // $_SESSION[$usuarios['permisoUsuario']] = $_REQUEST[$usuarios['permisoUsuario']];
+                   // $permiso= $_REQUEST[$usuarios['permisoUsuario']];
 
-                    header('Location: ../gestionHerramientas/gestionHerramientas.php');
+                    header('Location: ../Header/Header.php');
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contrasena erroneos";
