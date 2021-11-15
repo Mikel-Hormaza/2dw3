@@ -4,36 +4,33 @@ function inicio() {
     document.getElementById("idBotonDesplegar").addEventListener("click", desplegarOpcionesDeFiltrado);
     document.getElementById("categoria").addEventListener("click", desplegarCategorías);
     botonesInicioFinal();
-    contarManuales();
-    console.log('hey');
 }
 
 /*PARCHE si hay un único manual */
-function contarManuales(){
+function contarManuales() {
     let countManuales = document.getElementById("listaManuales").childElementCount;
-    alert(countManuales);
-console.log(countManuales);
+    console.log(countManuales);
 }
 
 /* leer las variables se encuentran en el innertext del span*/
 function botonesInicioFinal() {
-    alert('hey');
+
     let arrayDatosPHP = document.getElementById("spanBotonesInicioFinal").innerText.split(",");
     let codigoDelPrimerManualDeLaTabla = parseInt(arrayDatosPHP[0]);
     let codigoDelPrimerManualDeLaTablaMostrado = parseInt(arrayDatosPHP[1]);
     let codigoDelUltimoManualDeLaTablaMostrado = parseInt(arrayDatosPHP[2]);
-    let codigoDelUltimoManualDeLaTabla =parseInt(arrayDatosPHP[3]);
+    let codigoDelUltimoManualDeLaTabla = parseInt(arrayDatosPHP[3]);
     mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla);
 }
 /* en función de las variables leídas, deshabilitar botones inutilizables */
 function mostrarOcultarBotonesInicioFinal(codigoDelPrimerManualDeLaTabla, codigoDelPrimerManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTablaMostrado, codigoDelUltimoManualDeLaTabla) {
-    if (codigoDelPrimerManualDeLaTabla==codigoDelPrimerManualDeLaTablaMostrado) {
+    if (codigoDelPrimerManualDeLaTabla == codigoDelPrimerManualDeLaTablaMostrado) {
         let botonInicio = document.getElementById("primero");
         let botonAnterior = document.getElementById("anterior");
         deshabilitarBoton(botonInicio);
         deshabilitarBoton(botonAnterior);
     }
-    if (codigoDelUltimoManualDeLaTablaMostrado==codigoDelUltimoManualDeLaTabla) {
+    if (codigoDelUltimoManualDeLaTablaMostrado == codigoDelUltimoManualDeLaTabla) {
         let botonSiguiente = document.getElementById("siguiente");
         let botonUltimo = document.getElementById("ultimo");
         deshabilitarBoton(botonSiguiente);
@@ -46,7 +43,7 @@ function deshabilitarBoton(boton) {
     boton.type = "button";
     boton.style.backgroundColor = "#626267";
     boton.style.cursor = "context-menu";
-    boton.style.opacity="0.4";
+    boton.style.opacity = "0.4";
 }
 
 function desplegarOpcionesDeFiltrado() {
@@ -68,13 +65,13 @@ function comprobarSiElBloqueTieneClaseMostrar(idBloque) {
     }
     if (divPlegable) {
         /* si el bloque seleccionado es idBloqueDesplegar al ocultarlo es necesario que oculte también las categorías */
-        if (idBloque == "idBloqueDesplegar"){
+        if (idBloque == "idBloqueDesplegar") {
             ocultarBloque("idBloqueDesplegar");
             ocultarBloque("idContenidoCategoria");
-        }else{
+        } else {
             ocultarBloque(idBloque);
         }
-        
+
     } else {
         mostrarBloque(idBloque);
     }

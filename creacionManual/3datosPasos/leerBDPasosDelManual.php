@@ -34,7 +34,6 @@ function llamarBD()
 
         $resultadoPasos = $conexion->query($sqlPasos);
         $datosPasos = $resultadoPasos->fetchAll();
-
     } catch (PDOException $e) {
         echo $sqlManual . "<br>" . $e->getMessage();
     }
@@ -55,8 +54,8 @@ function mostrarPasos($datosPasos)
     $numPaso = 0;
     foreach ($datosPasos as $paso) {
 ?>
-                            <!-- añado como id del paso su código de paso en la BD -->
-        <div class="paso paso<?php echo $numPaso+1;?>" id="<?php echo $paso["codPaso"];?>">
+        <!-- añado como id del paso su código de paso en la BD -->
+        <div class="paso paso<?php echo $numPaso + 1; ?>" id="<?php echo $paso["codPaso"]; ?>">
             <div>
                 <?php $numPaso++; ?>
                 <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
@@ -65,21 +64,22 @@ function mostrarPasos($datosPasos)
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($paso["fotoPaso"]) . '"/>' ?>
             <p class="descripcionPaso"><?php echo $paso["descripcionPaso"] ?></p>
         </div>
-<?php
+    <?php
     }
 }
 
 /* guardamos los códigos de los pasos en un array en session. De esta forma
 al clicar en un paso, antes de mostrar su contenido en el formulario de crearPaso
 comprobamos si su código existe en la BD */
-function guardarCodigosEnSesion($datosPasos){
-    $pos=-1;
+function guardarCodigosEnSesion($datosPasos)
+{
+    $pos = -1;
     $codigosDeLosPasosDelManual = array();
-    foreach($datosPasos as $datosPaso){
+    foreach ($datosPasos as $datosPaso) {
         $pos++;
         array_push($codigosDeLosPasosDelManual, $datosPasos[$pos][0]);
     }
-    $_SESSION['codigosDeLosPasosDelManual']=$codigosDeLosPasosDelManual;
+    $_SESSION['codigosDeLosPasosDelManual'] = $codigosDeLosPasosDelManual;
 }
 
 
@@ -96,13 +96,14 @@ function comprobarCodSeleccionadoExisteEnLaBD($codDePaso)
 }
 
 /* funcion llamada desde la página
-busca a ver si se ha seleccionado un paso. Si no se ha seleccionado, muestra el formulario vacío */
+busca a ver si se ha seleccionado un paso.
+Si no hay  ningún paso seleccionado, muestra el formulario vacío y guarda en SESSION editaoCrear el valor crear,
+si sí lo hay, muestra el paso y guarda en SESSION editaoCrear el valor editar*/
 function mostrarFormulario()
 {
-
     if (!isset($_POST["botonPasoSeleccionado"])) {
-        $_SESSION["editarOCrear"]="crear";
-?>
+        $_SESSION["editarOCrear"] = "crear";
+    ?>
         <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
             <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
             <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
@@ -114,16 +115,15 @@ function mostrarFormulario()
             </div>
         </form>
 
-<?php
-    }else{
-        $_SESSION["editarOCrear"]="editar";
+    <?php
+    } else {
+        $_SESSION["editarOCrear"] = "editar";
         if (comprobarCodSeleccionadoExisteEnLaBD($_POST["botonPasoSeleccionado"])) {
             llamarALaBDParaLeerDatosPaso($_POST["botonPasoSeleccionado"]);
         } else {
             echo "código de paso erróneo";
         }
-        /* una vez mostrados los datos del paso eliminamos $_POST["botonPasoSeleccionado"] */
-        $_POST["botonPasoSeleccionado"]=null;
+
     }
 }
 
@@ -153,19 +153,20 @@ function llamarALaBDParaLeerDatosPaso($codPaso)
     mostrarDatosDelPasoEnElFormulario($datosPaso);
 }
 
-function mostrarDatosDelPasoEnElFormulario($datosPaso){
+function mostrarDatosDelPasoEnElFormulario($datosPaso)
+{
     ?>
 
-<form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
-            <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required" value="<?php echo $datosPaso[0]["tituloPaso"];?>">
-            <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"><?php echo $datosPaso[0]["descripcionPaso"];?></textarea>
-            <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
-            <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
-            <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
-                <button type="button" id="idBotoncrearPaso">crear paso</button>
-                <button type="button" id="idBotonEliminarPaso">eliminar</button>
-            </div>
-        </form>
+    <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
+        <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required" value="<?php echo $datosPaso[0]["tituloPaso"]; ?>">
+        <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"><?php echo $datosPaso[0]["descripcionPaso"]; ?></textarea>
+        <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
+        <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
+        <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
+            <button type="button" id="idBotoncrearPaso">crear paso</button>
+            <button type="button" id="idBotonEliminarPaso">eliminar</button>
+        </div>
+    </form>
 
 <?php
 }
