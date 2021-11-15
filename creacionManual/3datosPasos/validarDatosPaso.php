@@ -2,24 +2,46 @@
 
 session_start();
 require_once 'Paso.php';
-/* el cod de manual $_SESSION["codManualSeleccionado"] */
-$_SESSION["codManualSeleccionado"] = 5;  #parche
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
 
-/* comprobar si se ha enviado un formulario
-si no se ha enviado el codigo del paso seleccionado el form enviado es el de creación de pasos y llamar a validar datos*/
+/* comprobar si se ha enviado un formulario y si se ha rellenado el input "eliminarPaso"*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST["eliminarPaso"])) {
+        eliminarPaso();
+    }
     validarDatos();
+}
+
+function eliminarPaso()
+{
+    global $servidor;
+    global $user;
+    global $pass;
+    $codigoDelPaso = $_POST["inputPasoSeleccionado"];
+    try {
+        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $user, $pass);
+
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "UPDATE paso
+        SET estadoPaso = 'oculto'
+        WHERE codPaso = '$codigoDelPaso'";
+
+        $conexion->exec($sql);
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+    $conexion = null;
 }
 
 /* comprueba si hay un paso seleccionado */
 function validarDatos()
 {
-    if (strlen($_POST["botonPasoSeleccionado"])>0) {
+    if (strlen($_POST["inputPasoSeleccionado"]) > 0) {
         validarDatosEditarPaso();
-    }else{
+    } else {
         validarDatosCrearPaso();
     }
 }
@@ -31,7 +53,7 @@ function validarDatosCrearPaso()
 {
     global $mensajeErrorFaltanDatos;
     if (strlen(comprobarSiSeHanIntroducidoElTituloYDescripcion()) == 0) {
-        if (strlen(comprobarSiSeHaIntroducidoFoto())==0) {
+        if (strlen(comprobarSiSeHaIntroducidoFoto()) == 0) {
             comprobarLargoDeAtributosSegunLargoEnLaBD();
         } else {
             echo $mensajeErrorFaltanDatos;
@@ -47,7 +69,7 @@ function validarDatosCrearPaso()
 function validarDatosEditarPaso()
 {
     if (strlen(comprobarSiSeHanIntroducidoElTituloYDescripcion()) == 0) {
-        if (strlen(comprobarSiSeHaIntroducidoFoto())==0) {
+        if (strlen(comprobarSiSeHaIntroducidoFoto()) == 0) {
             comprobarLargoDeAtributosSegunLargoEnLaBD();
         } else {
             insertarOEditar("editarSinCambiarFoto");
@@ -84,7 +106,7 @@ Si sí lo hay, comprueba si al realizar cambios hemos introducido una nueva imag
 una vez realizados los cambios, elimina el paso seleccionado de session y actualiza la página*/
 function insertarOEditar($insertarOEditar)
 {
-    if (strlen($_POST["botonPasoSeleccionado"])==0) {
+    if (strlen($_POST["inputPasoSeleccionado"]) == 0) {
         insertarPasoBD(crearObjetoPaso(true));
     } else {
         if ($insertarOEditar == "editarSinCambiarFoto") {
@@ -142,7 +164,7 @@ function editarAtributosBD($paso, $nuevaFoto)
 
     $titulo = $paso->getTituloPaso();
     $descripcionPaso = $paso->getDescripcionPaso();
-    $codigoDelPaso = $_POST["botonPasoSeleccionado"];
+    $codigoDelPaso = $_POST["inputPasoSeleccionado"];
 
     if ($nuevaFoto == true) {
         $fotoPaso = imagenPaso();
@@ -259,3 +281,5 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
+
+?>

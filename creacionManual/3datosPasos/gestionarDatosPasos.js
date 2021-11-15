@@ -10,6 +10,7 @@ function inicio() {
 
 function anadirEventoClickABotones() {
     document.getElementById("idBotoncrearPaso").addEventListener("click", comprobacionesYSubmit);
+    document.getElementById("botonEliminarPaso").addEventListener("click", eliminar);
 }
 
 /* comprobar el número de pasos del manual para saber si tiene pasos
@@ -21,6 +22,18 @@ function comprobarNumeroDePasos() {
     }
 }
 
+function eliminar(){
+    if(hayUnElementoSeleccionado){
+        let respuestaAEliminar = prompt("¿Seguro que desea eliminar el paso? S/N");
+        let inputPasoSeleccionado = document.getElementById("botonEliminarPaso");
+        let eliminarPaso = document.getElementById("eliminarPaso");
+        eliminarPaso.setAttribute("value", "eliminar");
+        document.getElementById("formulario").submit();
+    }else{
+        alert("Por favor, seleccione un paso");
+    }
+}
+
 /* añadir el evento click a cada paso */
 function anadirFuncionMostrarContenidoPasoACadaPaso(count) {
     for (i = 1; i <= count; i++) {
@@ -28,12 +41,13 @@ function anadirFuncionMostrarContenidoPasoACadaPaso(count) {
     }
 }
 
-/* guardar el paso clicado */
+/* guardar el paso clicado y activar boton eliminar*/
 function pasoSeleccionado() {
     let paso = event.currentTarget;
     mostrarTituloYDescripcionDelPaso(paso);
     hayUnElementoSeleccionado = true;
     añadirValorCodPasoAlFormulario(paso);
+    //activarBotonEliminar();
 }
 
 function mostrarTituloYDescripcionDelPaso(paso) {
@@ -47,8 +61,8 @@ function mostrarTituloYDescripcionDelPaso(paso) {
 function añadirValorCodPasoAlFormulario(paso) {
     //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
     let codigoDePasoEnLaBD = paso.id.replace(/\D/g, '');
-    let botonFormulario = document.getElementById("botonPasoSeleccionado");
-    botonFormulario.setAttribute("value", codigoDePasoEnLaBD);
+    let inputPasoSeleccionado = document.getElementById("inputPasoSeleccionado");
+    inputPasoSeleccionado.setAttribute("value", codigoDePasoEnLaBD);
 }
 
 function comprobacionesYSubmit() {

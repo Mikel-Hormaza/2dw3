@@ -229,9 +229,11 @@ button {
     flex-direction: column;
 }
 
-.botonesOpcionesFormulario button:nth-child(2) {
+#botonEliminarPaso {
     background-color: #626267;
     color: white;
+    opacity: 0.4;
+    cursor: text;
 }
 
 #idDivPasos {
@@ -275,7 +277,8 @@ p {
     color: #626267;
 }
 
-#botonPasoSeleccionado{
+#inputPasoSeleccionado,
+#eliminarPaso{
     display: none;
 }
 

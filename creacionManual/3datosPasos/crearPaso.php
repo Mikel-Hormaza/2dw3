@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../crearManual.css">
     <script src="Paso.js"></script>
     <script src="gestionarDatosPasos.js"></script>
-    <?php require_once "leerBDPasosDelManual.php"; 
+    <?php 
+    require_once "leerBDPasosDelManual.php"; 
     ?>
 </head>
 
@@ -20,11 +21,24 @@
     </section>
     <div>
         <h3>Describe el paso de la reparación</h3>
-    <?php echo mostrarFormulario() ?>
+        <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
+            <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
+            <input id="inputPasoSeleccionado" name="inputPasoSeleccionado">
+            <input id="eliminarPaso" name="eliminarPaso">
+            <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
+            <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
+            <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
+            <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
+                <button type="button" id="idBotoncrearPaso">Guardar</button>
+                <button type="button" name="botonEliminarPaso" id="botonEliminarPaso">eliminar</button>
+            </div>
+        </form>
     </div>
 
     <div id="idDivPasos">
         <?php
+            echo "bu";
+            var_dump($_SESSION["codManualSeleccionado"]);
         /* si hay un código de manual, y ese manual tiene pasos, muestra los pasos*/
         if (!empty($_SESSION["codManualSeleccionado"])) {
             if (llamarBD()) {

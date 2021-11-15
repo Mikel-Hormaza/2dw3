@@ -2,8 +2,7 @@
 
 session_start();
 require_once 'Manual.php';
-$_SESSION["codUsuario"] = 1;
-$_SESSION["codHerramientaSeleccionada"] = 1; #parche
+$_SESSION["codUsuario"] = 1; #parche
 
 $servidor  = "localhost";
 $user = "root";
@@ -46,6 +45,7 @@ function comprobacionesDelObjeto()
     if (crearObjetoManual()->validarFotoManual()) {
         if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
             insertarManualBD(crearObjetoManual());
+            actualizarPagina();
         } else {
             echo "Ya existe en la base de datos un manual con este título";
         }
@@ -104,6 +104,14 @@ function insertarManualBD($manual)
         comprobacionesEnBD("obtenerCodManual", $titulo);
     }
 }
+
+function actualizarPagina()
+{
+    header('Location: ../../creacionManual/3datosPasos/crearPaso.php');
+    die();
+}
+
+
 /* si tipoComprobacion==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
 si tipoComprobacion==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
 function comprobacionesEnBD($tipoComprobacion, $dato)
@@ -250,3 +258,5 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
+
+?>

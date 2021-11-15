@@ -3,7 +3,6 @@ session_start();
 $datosManual;
 $datosPasos;
 
-$_SESSION["codManualSeleccionado"] = 5; #parche
 $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
 
 function llamarBD()
@@ -27,7 +26,7 @@ function llamarBD()
 
         $sqlPasos = "SELECT codPaso, tituloPaso, descripcionPaso, fotoPaso 
         FROM paso
-        WHERE codManual like $codManualSeleccionado";
+        WHERE codManual like $codManualSeleccionado && estadoPaso like 'visible'";
 
         $resultadoManual = $conexion->query($sqlManual);
         $datosManual = $resultadoManual->fetchAll();
@@ -95,27 +94,5 @@ function comprobarCodSeleccionadoExisteEnLaBD($codDePaso)
     }
 }
 
-/* funcion llamada desde la página
-busca a ver si se ha seleccionado un paso.
-Si no hay  ningún paso seleccionado, muestra el formulario vacío 
-si sí lo hay, muestra el paso */
-function mostrarFormulario()
-{
-    ?>
-        <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
-            <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
-            <input id="botonPasoSeleccionado" name="botonPasoSeleccionado">
-            <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
-            <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
-            <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
-            <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
-                <button type="button" id="idBotoncrearPaso">Guardar</button>
-                <button type="button" id="idBotonEliminarPaso">eliminar</button>
-            </div>
-        </form>
-
-    <?php
-
-}
 
 ?>
