@@ -18,7 +18,7 @@ si los tiene, añadir el evento click a cada paso */
 function comprobarNumeroDePasos() {
     let countPasos = document.getElementById("idDivPasos").childElementCount;
     if (countPasos > 0) {
-        anadirFuncionMostrarContenidoPasoACadaPaso(countPasos);
+        anadirMostrarContenidoPasoACadaPaso(countPasos);
     }
 }
 
@@ -35,7 +35,7 @@ function eliminar(){
 }
 
 /* añadir el evento click a cada paso */
-function anadirFuncionMostrarContenidoPasoACadaPaso(count) {
+function anadirMostrarContenidoPasoACadaPaso(count) {
     for (i = 1; i <= count; i++) {
         document.querySelector(".paso" + i).addEventListener("click", pasoSeleccionado);
     }

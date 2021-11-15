@@ -41,9 +41,11 @@
 
         <?php
         if (!empty($datosManuales)) {
+            $contador = 0;
             foreach ($datosManuales as $manual) {
+                $contador++;
         ?>
-                <div>
+                <div class="manual<?php echo $contador; ?>" id="manual<?php echo $manual["codManual"]; ?>">
                     <button>
                         <p>editar</p>
                         <img src="Imagenes/edit.png" alt="editar">

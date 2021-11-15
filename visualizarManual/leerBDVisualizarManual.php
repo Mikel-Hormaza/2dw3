@@ -6,7 +6,7 @@ $password = "";
 /* <!-- 
 PARCHE desde biblioteca
  --> */
-$_SESSION['codManualSeleccionado'] = 5;
+$_SESSION['codManualSeleccionado'] = 19;
 $codManualSeleccionado = $_SESSION['codManualSeleccionado'];
 
 /*Conectar con la BD y leer los datos del manual y sus pasos*/

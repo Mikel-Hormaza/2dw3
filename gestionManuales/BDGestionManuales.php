@@ -8,7 +8,7 @@ $password = "";
 $_SESSION["codUsuario"] = 1; #parche
 $_SESSION["permisoDeUsuario"] = "admin"; #parche
 
-$maxLimit = 8; //la cantidad de manuales que se pueden mostrar
+$maxLimit = 6; //la cantidad de manuales que se pueden mostrar
 
 /*como hay dos formularios, además de comprobar si se ha enviado comprobamos si se ha seleccionado alguno de los botones de esos formularios*/
 /*IF: comprueba si hemos hecho submit en los botones de inicio final */
@@ -18,17 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero'])
     or isset($_POST['ultimo']))) {
     gestionarBotonesNavegacionInicioFinal();
 }
-/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif (
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ 
+elseif (
     $_SERVER["REQUEST_METHOD"] == "POST"
     && (isset($_POST['idCreadosPorMi'])
         or isset($_POST['idTodos'])
         or isset($_POST['idmaquina-herramienta'])
         or isset($_POST['idelectronica'])
-        or isset($_POST['idherramienta-taller']))
-) {
+        or isset($_POST['idherramienta-taller']))) {
     filtrarLosManualesMostrados();
 }
-/*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
+/*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ 
+else {
     $primeraVariableLimit = 0;
     prepararWhereYLimitDeLaSelect($primeraVariableLimit, "ASC", $_SESSION["codUsuario"], null, false);
 }
@@ -76,12 +77,13 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
 
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
-            ORDER by fechaCreacion, codManual ";
+            ORDER by fechaCreacion ASC, codManual ";
 
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
 
         $conexion = null;
+
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }

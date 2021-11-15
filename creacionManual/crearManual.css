@@ -323,12 +323,6 @@ p {
         padding: 1vh;
     }
 
-    .botonesOpcionesFormulario {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        place-items: center;
-    }
-
 }
 
 @media (min-width: 600px) {

@@ -4,12 +4,62 @@ function inicio() {
     document.getElementById("idBotonDesplegar").addEventListener("click", desplegarOpcionesDeFiltrado);
     document.getElementById("categoria").addEventListener("click", desplegarCategorías);
     botonesInicioFinal();
+    contarManuales();
 }
 
 /*PARCHE si hay un único manual */
 function contarManuales() {
     let countManuales = document.getElementById("listaManuales").childElementCount;
-    console.log(countManuales);
+    if (countManuales > 0) {
+        anadirFuncionClickACadaManual(countManuales)
+    }
+}
+
+function anadirFuncionClickACadaManual(count) {
+    for (i = 1; i <= count; i++) {
+        document.querySelector(".manual" + i + " button").addEventListener("click", manualSeleccionado);
+        document.querySelector(".manual" + i + " button:nth-child(2)").addEventListener("click", manualSeleccionado);
+    }
+}
+
+function manualSeleccionado() {
+    /*el manual seleccionado */
+    let boton = event.currentTarget;
+    let divDondeSeEncuentraElBoton = boton.parentElement;
+    /*código del manual */
+    let codManual = divDondeSeEncuentraElBoton.id;
+    /*texto del boton */
+    let textoBoton = boton.childNodes[1].textContent;
+
+    if (textoBoton == "editar") {
+       // let respuestaEditar = prompt("¿Quieres editar el manual? S/N");
+        let formularioQueMandaElCodDeManual = document.createElement("form");
+        let inputEditarOEliminar = document.createElement("input");
+        let inputCodManual = document.createElement("input");
+
+        formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
+        formularioQueMandaElCodDeManual.setAttribute("method", "post");
+        formularioQueMandaElCodDeManual.setAttribute("action", "../creacionManual/2datosManual/datosManual.php");
+        inputEditarOEliminar.setAttribute("name", "editarOEliminar");
+        inputCodManual.setAttribute("name", "codManual");
+        inputEditarOEliminar.setAttribute("value", "editar");
+        //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
+        inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
+
+        
+        formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
+        formularioQueMandaElCodDeManual.appendChild(inputCodManual);
+        formularioQueMandaElCodDeManual.appendChild(boton);
+        divDondeSeEncuentraElBoton.appendChild(formularioQueMandaElCodDeManual);
+        formularioQueMandaElCodDeManual.submit();
+
+
+
+    } else {
+        let respuestaEliminar = prompt("¿Quieres eliminar el manual? S/N");
+    }
+    
+
 }
 
 /* leer las variables se encuentran en el innertext del span*/
@@ -54,8 +104,6 @@ function desplegarCategorías() {
     comprobarSiElBloqueTieneClaseMostrar("idContenidoCategoria");
 }
 
-/*Si divPlegable True-llamar a ocultar
-ELSE llamar a mostrar*/
 function comprobarSiElBloqueTieneClaseMostrar(idBloque) {
     let divPlegable;
     if (idBloque == "idBloqueDesplegar") {
