@@ -2,22 +2,37 @@ window.addEventListener("load", inicio);
 
 function inicio() {
     anadirEventoClickABotones();
-    anadirIdALosPasos();
+    comprobarNumeroDePasos();
 }
 
 function anadirEventoClickABotones() {
     document.getElementById("idBotoncrearPaso").addEventListener("click", comprobacionesYSubmit);
 }
 
-function anadirIdALosPasos(){
-/*     utiizar
-    var x = document.getElementById("myDIV").childElementCount;
-    para contar los pasos. Si hay pasos con un bucle ir generando IDs (contador++)
-    <div>
-  <span onclick="this.parentElement.style.display = 'none';" class="closebtn">&times;</span>
-  <p>To close this container, click on the X symbol to the right.</p>
-</div>
-     */
+/* comprobar el número de pasos del manual para saber si tiene pasos
+si los tiene, añadir el evento click a cada paso */
+function comprobarNumeroDePasos(){
+    let countPasos=document.getElementById("idDivPasos").childElementCount;
+    if(countPasos>0){
+        anadirFuncionMostrarContenidoPasoACadaPaso(countPasos);
+    }
+}
+
+/* añadir el evento click a cada paso */
+function anadirFuncionMostrarContenidoPasoACadaPaso(count){
+    for (i = 1; i<=count;i++){
+        document.querySelector(".paso"+i).addEventListener("click", pasoSeleccionado);
+    }
+}
+
+/* leemos el id del paso, que es su código en la BD, y se lo damos al value del botón
+al clicar sobre un paso enviar un formulario con el código del paso */
+
+function pasoSeleccionado(){
+    let idCodigoPaso= event.currentTarget;
+    let botonFormulario =document.getElementById("botonPasoSeleccionado");
+    botonFormulario.setAttribute("value", idCodigoPaso.id);
+    botonFormulario.click();
 }
 
 function comprobacionesYSubmit(){
@@ -52,7 +67,8 @@ function crearObjetoPaso() {
         v_fotoPaso);
     return paso1;
 }
-
+/* comprueba si se han introducido los datos. Devuelve un string con los atributos que faltan
+si todos los atributos se han introducido, devuele un string "" */
 function comprobarSiSeHanIntroducidoTodosLosDatos(paso) {
     let error = false;
     mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; 

@@ -3,13 +3,17 @@
 session_start();
 require_once 'Paso.php';
 /* el cod de manual $_SESSION["codManualSeleccionado"] */
-$_SESSION["codManualSeleccionado"] = 5;  #parche
+$_SESSION["codManualSeleccionado"] = 1;  #parche
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
 
+/* comprobar si se ha enviado un formulario
+si no se ha enviado el codigo del paso seleccionado el form enviado es el de creación de pasos y llamar a validar datos*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    validarDatos();
+    if (!isset($_POST["botonPasoSeleccionado"])) {
+        validarDatos();
+    } 
 }
 
 /*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
@@ -48,7 +52,14 @@ function comprobacionesDelObjeto()
 
 function insertarEnBDYActualizar()
 {
-    insertarPasoBD(crearObjetoPaso());
+    
+    if($_SESSION["editarOCrear"]==="crear"){
+        insertarPasoBD(crearObjetoPaso());
+        echo "crear";
+    }elseif($_SESSION["editarOCrear"]==="editar"){
+        echo "editar";
+    }
+    
     header('Location: ../../creacionManual/3datosPasos/crearPaso.php');
     die();
 }
@@ -158,6 +169,7 @@ function comprobarLargoDeAtributosIntroducidos($Paso)
     return $mensajeErrorFaltanDatos;
 }
 
+/* eliminar carácteres especiales, espacios y contrabarras */
 function validarDato($dato)
 {
     $dato = trim($dato);
@@ -165,3 +177,6 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
+
+
+?>

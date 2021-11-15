@@ -236,6 +236,7 @@ button {
 
 #idDivPasos {
     margin: 1vh;
+    cursor: pointer;
 }
 
 .paso{
@@ -274,10 +275,11 @@ p {
     color: #626267;
 }
 
-/* .paso span{
+#formularioEnviarPaso,
+#botonPasoSeleccionado{
     display: none;
 }
- */
+
 @media (min-width: 350px) {
     #registrarHerramientas div button span {
         display: inline;
