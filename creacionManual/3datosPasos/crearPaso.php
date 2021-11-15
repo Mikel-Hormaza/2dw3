@@ -34,11 +34,7 @@
         ?>
     </div>
 
-    <form action="crearPaso.php" method="post" id="#formularioEnviarPaso">
-        <button id="botonPasoSeleccionado" name="botonPasoSeleccionado" type="submit"></button>
-    </form>
-
-    <span id="codigoDelPasoSeleccionado"><?php echo $_SESSION["botonPasoSeleccionado"];?></span>
+    <span id="codigoDelPasoSeleccionado"><?php if(isset($_SESSION["botonPasoSeleccionado"])) echo $_SESSION["botonPasoSeleccionado"];?></span>
 </body>
 
 </html>

@@ -7,7 +7,6 @@ $_SESSION["codManualSeleccionado"] = 5;  #parche
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
-$mensajeErrorFaltanDatos;
 
 /* comprobar si se ha enviado un formulario
 si no se ha enviado el codigo del paso seleccionado el form enviado es el de creación de pasos y llamar a validar datos*/
@@ -18,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 /* comprueba si hay un paso seleccionado */
 function validarDatos()
 {
-    if (!isset($_SESSION["botonPasoSeleccionado"])) {
-        validarDatosCrearPaso();
-    } elseif (isset($_SESSION["botonPasoSeleccionado"])) {
+    if (strlen($_POST["botonPasoSeleccionado"])>0) {
         validarDatosEditarPaso();
+    }else{
+        validarDatosCrearPaso();
     }
 }
 
@@ -32,7 +31,7 @@ function validarDatosCrearPaso()
 {
     global $mensajeErrorFaltanDatos;
     if (strlen(comprobarSiSeHanIntroducidoElTituloYDescripcion()) == 0) {
-        if (comprobarSiSeHaIntroducidoFoto()) {
+        if (strlen(comprobarSiSeHaIntroducidoFoto())==0) {
             comprobarLargoDeAtributosSegunLargoEnLaBD();
         } else {
             echo $mensajeErrorFaltanDatos;
@@ -48,7 +47,7 @@ function validarDatosCrearPaso()
 function validarDatosEditarPaso()
 {
     if (strlen(comprobarSiSeHanIntroducidoElTituloYDescripcion()) == 0) {
-        if (comprobarSiSeHaIntroducidoFoto()) {
+        if (strlen(comprobarSiSeHaIntroducidoFoto())==0) {
             comprobarLargoDeAtributosSegunLargoEnLaBD();
         } else {
             insertarOEditar("editarSinCambiarFoto");
@@ -85,7 +84,7 @@ Si sí lo hay, comprueba si al realizar cambios hemos introducido una nueva imag
 una vez realizados los cambios, elimina el paso seleccionado de session y actualiza la página*/
 function insertarOEditar($insertarOEditar)
 {
-    if (!isset($_SESSION["botonPasoSeleccionado"])) {
+    if (strlen($_POST["botonPasoSeleccionado"])==0) {
         insertarPasoBD(crearObjetoPaso(true));
     } else {
         if ($insertarOEditar == "editarSinCambiarFoto") {
@@ -93,7 +92,6 @@ function insertarOEditar($insertarOEditar)
         } else {
             editarAtributosBD(crearObjetoPaso(true), true);
         }
-        $_SESSION["botonPasoSeleccionado"]=null;
     }
     actualizarPagina();
 }
@@ -144,7 +142,7 @@ function editarAtributosBD($paso, $nuevaFoto)
 
     $titulo = $paso->getTituloPaso();
     $descripcionPaso = $paso->getDescripcionPaso();
-    $codigoDelPaso = $_SESSION["botonPasoSeleccionado"];
+    $codigoDelPaso = $_POST["botonPasoSeleccionado"];
 
     if ($nuevaFoto == true) {
         $fotoPaso = imagenPaso();
@@ -205,7 +203,6 @@ Devuelve un string con el mensaje de error. Si no hay errores, devuelve un strin
 function comprobarSiSeHanIntroducidoElTituloYDescripcion()
 {
     $error = false;
-    global $mensajeErrorFaltanDatos;
     $mensajeErrorFaltanDatos = "Por favor, introduzca: <br>";
     if (strlen($_POST["nombrePaso"]) == 0) {
         $error = true;
@@ -227,12 +224,10 @@ function comprobarSiSeHanIntroducidoElTituloYDescripcion()
 
 function comprobarSiSeHaIntroducidoFoto()
 {
-    global $mensajeErrorFaltanDatos;
     if (empty($_FILES['classInputFileIMG']['name'])) {
-        $mensajeErrorFaltanDatos .= "una imagen para el paso <br>";
-        return false;
+        return "Por favor introduce una imagen";
     } else {
-        return true;
+        return "";
     }
 }
 

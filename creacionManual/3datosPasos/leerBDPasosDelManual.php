@@ -55,7 +55,7 @@ function mostrarPasos($datosPasos)
     foreach ($datosPasos as $paso) {
 ?>
         <!-- añado como id del paso su código de paso en la BD -->
-        <div class="paso paso<?php echo $numPaso + 1; ?>" id="<?php echo $paso["codPaso"]; ?>">
+        <div class="paso paso<?php echo $numPaso + 1; ?>" id="paso<?php echo $paso["codPaso"]; ?>">
             <div>
                 <?php $numPaso++; ?>
                 <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
@@ -101,72 +101,21 @@ Si no hay  ningún paso seleccionado, muestra el formulario vacío
 si sí lo hay, muestra el paso */
 function mostrarFormulario()
 {
-    if (!isset($_POST["botonPasoSeleccionado"])) {
     ?>
         <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
             <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
+            <input id="botonPasoSeleccionado" name="botonPasoSeleccionado">
             <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"></textarea>
             <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
             <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
             <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
-                <button type="button" id="idBotoncrearPaso">crear paso</button>
+                <button type="button" id="idBotoncrearPaso">Guardar</button>
                 <button type="button" id="idBotonEliminarPaso">eliminar</button>
             </div>
         </form>
 
     <?php
-    } else {
-        if (comprobarCodSeleccionadoExisteEnLaBD($_POST["botonPasoSeleccionado"])) {
-            llamarALaBDParaLeerDatosPaso($_POST["botonPasoSeleccionado"]);
-        } else {
-            echo "código de paso erróneo";
-        }
-    }
-}
 
-function llamarALaBDParaLeerDatosPaso($codPaso)
-{
-
-    $servidor  = "localhost";
-    $usuario = "root";
-    $password = "";
-
-    try {
-        $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
-
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sqlPaso = "SELECT tituloPaso, descripcionPaso, fotoPaso
-        FROM paso
-        WHERE codPaso like'$codPaso'";
-
-        $resultadoPaso = $conexion->query($sqlPaso);
-        $datosPaso = $resultadoPaso->fetchAll();
-    } catch (PDOException $e) {
-        echo $sqlPaso . "<br>" . $e->getMessage();
-    }
-
-    $conexion = null;
-    $_SESSION["botonPasoSeleccionado"]=$codPaso;
-    mostrarDatosDelPasoEnElFormulario($datosPaso);
-}
-
-function mostrarDatosDelPasoEnElFormulario($datosPaso)
-{
-    ?>
-
-    <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
-        <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required" value="<?php echo $datosPaso[0]["tituloPaso"]; ?>">
-        <textarea placeholder="Descripción del paso" name="descripcionPaso" id="idDescripcionPaso" maxlength="500" require="required"><?php echo $datosPaso[0]["descripcionPaso"]; ?></textarea>
-        <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Insertar imagen del paso</button>
-        <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
-        <div id="botonesOpcionesFormularioPaso" class="botonesOpcionesFormulario">
-            <button type="button" id="idBotoncrearPaso">crear paso</button>
-            <button type="button" id="idBotonEliminarPaso">eliminar</button>
-        </div>
-    </form>
-
-<?php
 }
 
 ?>
