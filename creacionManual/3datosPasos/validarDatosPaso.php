@@ -52,7 +52,6 @@ function comprobacionesDelObjeto()
 
 function insertarEnBDYActualizar()
 {
-    
     if($_SESSION["editarOCrear"]==="crear"){
         insertarPasoBD(crearObjetoPaso());
         echo "crear";
