@@ -22,17 +22,18 @@ class CreacionHerramienta {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("crearHerramienta").addEventListener('click', validarFormulario); 
-    });
-    function validarFormulario(evento) {
-        evento.preventDefault();
-        var nombre = document.getElementById('nombrHerramienta').value;
-        if(nombre.length == 0) {
-          alert('Escriba un nombre');
-        }
-        var categoria = document.getElementById('categoria').value;
-        if (categoria.length == 0) {
-          alert('selecciona');
-        }
-            document.getElementById("formulario").submit();
-    }
+  document.getElementById("crearHerramienta").addEventListener('click', validarFormulario); 
+  });
+  function validarFormulario(evento) {
+      evento.preventDefault();
+      var nombre = document.getElementById('nombrHerramienta').value;
+      if(nombre.length == 0) {
+        alert('Escriba un nombre');
+      }
+      var categoria = document.forms["formulario"]["categoria"].selectedIndex;
+      if( categoria == null || categoria == 0 ) {
+        alert("Debe seleccionar una opción en el campo 'Categoria'");
+        return false;					
+      }
+          document.getElementById("formulario").submit();
+  }

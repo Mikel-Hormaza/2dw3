@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
     <link rel="stylesheet" type="text/css" href="CreacionHerramientas.css">
     <?php require_once "../Creacion de Herramientas/leerBDCreaciondeherramientas.php"?>
-
+    <script src="../Creacion de Herramientas/CreaciondeHerramientas.js"></script>
 
 <body>
     <?php require_once '../Header/Header.php'?>
@@ -16,11 +16,11 @@
         <div class="orden">
             <fieldset>
                 <form action="" class="formula" id="formulario">
-                    <input type="text" id="nombrHerramienta" name="izena" class="centrar" placeholder="Nombre"><br>
+                    <input type="text" id="nombrHerramienta" name="izena" class="centrar" placeholder="Nombre" ><br>
                  
                     <select name="categoria"class="centrar" placeholder="Categoria">
                         <option value="categoria" class="Categoria">Categoria</option>
-                        
+
                     <?php 
                     $cont=-1;
                     foreach ($datosCategoria as $categoria) {
@@ -35,7 +35,7 @@
                     <label for="Imagen" class="label-img">Imagen</label>
                     <input type="file" class="br" name="picture"> 
                     
-                    <button class="btn" id="crearHerramienta">Crear herramienta</button>
+                    <input type="submit" class="btn" id="crearHerramienta" value="Crear herramienta"></button>
                 </form>
             </fieldset>
         </div>
