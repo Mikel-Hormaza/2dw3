@@ -15,7 +15,7 @@
             <img src="../Fotos/Fix Point logo.PNG" alt="" class="logo">
             <p>FixPoint</p>
             <p>Manuales y alquileres de herramientas</p>
-            <a href="#" class="contact">Cont&aacute;ctanos</a>
+            <a href="../Contacto/Contactanos.php" class="contact">Cont&aacute;ctanos</a>
         </div>
         <div class="footer-C">
             <div class="Footermain">
