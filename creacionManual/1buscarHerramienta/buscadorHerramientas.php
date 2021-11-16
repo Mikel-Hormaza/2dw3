@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
     <?php require_once 'BDNombresHerramientas.php' ?>
-   
+
     <script src="buscadorHerramientas.js"></script>
     <?php session_start(); ?>
 </head>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
     <?php require_once "BDGestionManuales.php" ?>
+    <?php require_once '../Header/Header.php' ?>
 </head>
 
 <body>
@@ -76,5 +77,5 @@
 
 
 </body>
-
+<?php require_once '../Footer/footer.php' ?>
 </html>

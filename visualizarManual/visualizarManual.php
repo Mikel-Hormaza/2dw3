@@ -7,6 +7,7 @@
     <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
     <?php require_once "leerBDVisualizarManual.php" ?>
+    <?php require_once '../Header/Header.php' ?>
 </head>
 
 <body>
@@ -66,5 +67,5 @@
         ?>
     </article>
 </body>
-
+<?php require_once '../Footer/footer.php' ?>
 </html>
