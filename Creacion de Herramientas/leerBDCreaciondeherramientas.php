@@ -31,8 +31,6 @@ try {
         }else{
             echo "Fallo al insertar";
         }
-    }else{
-        echo "Por favor, selecciona archivo para insertar";
     }
     //Select para coger la informacion de la base de datos
     $sqlCategoria = "SELECT categoria

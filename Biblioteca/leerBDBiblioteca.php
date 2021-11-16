@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //Conexion con localhost
 $servidor  = "localhost";
 $usuario = "root";
@@ -10,22 +12,17 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     //Select para coger la informacion de la base de datos
-    $sqlBiblioteca = "SELECT codManual, nombreHerramienta, fotoHerramienta
-    FROM manual,herramienta WHERE manual.codHerramienta=herramienta.codHerramienta";
-
-    $resultadoBiblioteca = $conexion->query($sqlBiblioteca);
-    $datosBiblioteca = $resultadoBiblioteca->fetchAll();
-
-    
-    $sqlimagen = $conexion->prepare("SELECT fotoHerramienta FROM herramienta,manual WHERE codManual='1' && manual.codHerramienta=herramienta.codHerramienta");
+    $sqlBiblioteca = $conexion->prepare("SELECT codManual, herramienta.codHerramienta, nombreHerramienta, fotoHerramienta
+    FROM manual,herramienta
+    WHERE herramienta.codHerramienta = manual.codHerramienta");
 
     //Hacer la consulta db
 
-    if ($sqlimagen) {
-        $sqlimagen->execute();
+    if ($sqlBiblioteca) {
+        $sqlBiblioteca->execute();
 
         //Coge el contenido del registro dentro de $row
-        $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
+        $row = $sqlBiblioteca->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
 
         $image = $row['fotoHerramienta'];
 

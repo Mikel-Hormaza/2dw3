@@ -36,21 +36,19 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   function validarFormulario(evento) {
       evento.preventDefault();
-      var nombre = document.getElementById('nombrHerramienta').value;
+      let nombre = document.getElementById('nombrHerramienta').value;
       if(nombre.length == 0) {
         alert('Escriba un nombre');
       }
-      var categoria = document.forms["formulario"]["categoria"].selectedIndex;
+      let categoria = document.forms["formulario"]["categoria"].selectedIndex;
       if( categoria == null || categoria == 0 ) {
         alert("Debe seleccionar una opción en el campo 'Categoria'");
-        return false;					
       }
-          document.getElementById("formulario").submit();
-  }
-  validarFotoPaso() 
-    let extensionesValidas = /(\.jpg|\.jpeg|\.png)$/i;
-    if (extensionesValidas.exec(this.fotoHerramienta)) {
-      return true;
-    } else {
-      return false;
-  }
+      let fotoHerramienta = document.getElementById("classInputFileIMG").value.replace(/^.*\\/, "");   
+      if(fotoHerramienta.length == 0) {
+            alert('Introduce una imagen para la herramienta');
+      }
+
+      document.getElementById("formulario").submit();
+}
+
