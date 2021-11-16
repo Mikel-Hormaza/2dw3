@@ -4,8 +4,8 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 session_start();
-
-
+$codUsuario = $_SESSION['codUsuario'];
+$permiso = $_SESSION['permisoUsuario'];
 
 try {
     //Conexion con nuestra base de datos de fixpoint

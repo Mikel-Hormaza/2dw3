@@ -28,7 +28,7 @@ foreach ($datosUsuario as $usuarios) {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contrasena = $usuarios['passUsuario'];
             $codUsuario= $usuarios['codUsuario'];
-            //$permiso= $usuario['permisoUsuario'];
+            $permiso= $usuarios['permisoUsuario'];
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -44,12 +44,11 @@ foreach ($datosUsuario as $usuarios) {
                 if ($nombreUsuario == $nombre && $Contrasena == $pass) {
                     session_start();
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
-                    $_SESSION[$usuarios['codUsuario']] = $_REQUEST[$usuarios['codUsuario']];
-                    $codUsuario= $_REQUEST[$usuarios['codUsuario']];
-                   // $_SESSION[$usuarios['permisoUsuario']] = $_REQUEST[$usuarios['permisoUsuario']];
-                   // $permiso= $_REQUEST[$usuarios['permisoUsuario']];
+                    $_SESSION['codUsuario']=$codUsuario;
+                    $_SESSION['permisoUsuario'] = $_REQUEST['permisoUsuario'];
+                    $_SESSION['permisoUsuario']=$permiso;
 
-                    header('Location: ../Header/Header.php');
+                    header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contrasena erroneos";

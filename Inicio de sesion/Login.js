@@ -23,17 +23,7 @@ class Login {
 
     }
 
-    $(document).ready(function(){    
-      $('#Iniciosesion').click(function(){        
-          /*Captura de datos escrito en los inputs*/        
-          var nom = document.getElementById("NombredeUsuario").value;
-          /*Guardando los datos en el LocalStorage*/
-          localStorage.setItem("Nombre", nom);
-          /*Limpiando los campos o inputs*/
-          document.getElementById("NombredeUsuario").value = "";
 
-      });   
-  });
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("Iniciosesion").addEventListener('click', validarFormulario); 
@@ -55,15 +45,14 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
  
-   
-          /*Funcion Cargar y Mostrar datos*/
-/*$(document).ready(function(){    
-  $('#Iniciosesion').click(function(){       
+      $(document).ready(function(){    
+        $('#Iniciosesion').click(function(){        
             /*Captura de datos escrito en los inputs*/        
-          //var nom = document.getElementById("NombredeUsuario").value;
+            var nom = document.getElementById("NombredeUsuario").value;
             /*Guardando los datos en el LocalStorage*/
-           // localStorage.setItem("Nombre de usuario", nom);
+            localStorage.setItem("Nombre", nom);
             /*Limpiando los campos o inputs*/
-           // document.getElementById("NombredeUsuario").value = "";
-  /*});   
-        });*/
+            document.getElementById("NombredeUsuario").value = "";
+  
+        });   
+    });
