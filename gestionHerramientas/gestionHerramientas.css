@@ -78,7 +78,14 @@ button {
     border: none;
     width: 100%;
 }
+<<<<<<< HEAD
 
+=======
+#idBotonBuscar{
+    display: block;
+    margin: 10px;
+}
+>>>>>>> Mikel
 /*HERRAMIENTAS*/
 
 #listaHerramientas {
@@ -111,9 +118,15 @@ button {
 #listaHerramientas div button {
     background-color: transparent;
     justify-content: center;
+<<<<<<< HEAD
     grid-column-start: 1;
     grid-column-end: 2;
     margin: 1vh;
+=======
+  /*  grid-column-start: 1;
+    grid-column-end: 2;
+    margin: 1vh;*/
+>>>>>>> Mikel
 }
 
 /*No mostrar los el texto de los botones*/
@@ -123,9 +136,32 @@ button {
 
 /*Mostrar los iconos editar y eliminar la imagen del manual*/
 #listaHerramientas div button img {
+<<<<<<< HEAD
     max-height: 3vh;
     max-width: 3vh;
     margin: auto;
+=======
+    max-height: 2vh;
+    max-width: 2vh;
+    object-fit: contain;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: 1vh;
+    /*
+    max-height: 3vh;
+    max-width: 3vh;
+    margin: auto;*/
+}
+
+#listaHerramientas div button:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#listaHerramientas div button:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+>>>>>>> Mikel
 }
 
 #listaHerramientas div p {
@@ -133,11 +169,20 @@ button {
 }
 
 #listaHerramientas div p:nth-child(even) {
+<<<<<<< HEAD
+=======
+    display: none;
+  
+}
+
+#listaHerramientas div p:nth-child(odd) {
+>>>>>>> Mikel
     font-size: small;
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
+<<<<<<< HEAD
 #listaHerramientas div p:nth-child(odd) {
     display: none;
 }
@@ -145,11 +190,22 @@ button {
 .fotoDelManual {
     display: none;
     max-width: 7vh;
+=======
+
+
+.fotoDelaHerramienta {
+    display: none;
+   /* max-width: 7vh;
+>>>>>>> Mikel
     height: auto;
     object-fit: contain;
     grid-column-start: 2;
     grid-column-end: 3;
+<<<<<<< HEAD
     margin: 1vh auto 1vh auto;
+=======
+    margin: 1vh auto 1vh auto;*/
+>>>>>>> Mikel
 }
 
 #botonesInicioFinal {
@@ -172,7 +228,11 @@ button {
     height: auto;
 }
 
+<<<<<<< HEAD
 @media (min-width: 400px) {
+=======
+@media (min-width: 450px) {
+>>>>>>> Mikel
 
     body section:nth-child(2) {
         display: flex;
@@ -192,9 +252,13 @@ button {
         max-height: 3vh;
         max-width: 3vh;
     }
+<<<<<<< HEAD
     #listaHerramientas div p:nth-child(even){
         font-size: medium;
     }
+=======
+   
+>>>>>>> Mikel
 
     /*Quitar la barra del buscador y poner
     la opción desplegable*/
@@ -204,12 +268,21 @@ button {
         display: block;
     }
 
+<<<<<<< HEAD
     #buscador {
         display: none;
     }
 
     .botonDesplegar,
     .botonCategoria {
+=======
+    #buscador, 
+    #idBotonBuscar{
+        display: none;
+    }
+
+    .botonDesplegar{
+>>>>>>> Mikel
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -221,9 +294,13 @@ button {
         width: 2em;
     }
 
+<<<<<<< HEAD
     section div .botonCategoria {
         width: max-content;
     }
+=======
+ 
+>>>>>>> Mikel
 
     .contenidoADesplegar,
     .contenidoCategoria {
@@ -232,12 +309,43 @@ button {
         /* Las propiedades 
         top, right, bottom, y  left especifican el desplazamiento 
         desde los bordes del bloque contenedor del elemento. */
+<<<<<<< HEAD
         background-color: #f1f1f1;
         min-width: 160px;
         overflow: auto;
         border-radius: 10%;
     }
 
+=======
+        margin-top: 10px;
+        border: 2px solid #626267;
+        /*background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        border-radius: 10%;*/
+    }
+    .contenidoADesplegar{
+        width: 180px;
+    }
+
+    .contenidoCategoria {
+        margin-left: 178px;
+        width: 240px;
+    } 
+
+    #categoria:hover{
+        position: relative;
+    }
+    .contenidoADesplegar,
+    .contenidoCategoria {
+        display: none;
+        position: absolute;
+        overflow: auto;
+        margin-top: 10px;
+        border: 2px solid #626267;
+    }
+    /*
+>>>>>>> Mikel
     .contenidoADesplegar a,
     .contenidoCategoria a {
         background-color: #EFC227;
@@ -245,8 +353,30 @@ button {
         padding: 1em 1em;
         text-decoration: none;
         display: block;
+<<<<<<< HEAD
     }
 
+=======
+    }*/
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
+        padding: 1em 1em;
+        display: block;
+        width: 100%;
+    }
+
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
+        padding: 1em 1em;
+        display: block;
+        width: 100%;
+    }
+    .contenidoCategoria button{
+        background-color: #b9c1c4;
+    }
+>>>>>>> Mikel
     .contenidoADesplegar a:hover,
     .contenidoCategoria a:hover {
         background-color: #A8902D;
@@ -255,19 +385,31 @@ button {
 
     /*Permite ver las opciones desplegables*/
     .mostrarDesplegarOpciones,
+<<<<<<< HEAD
     .mostrarDesplegarCategorias,
     .mostrarBotonCategoria {
+=======
+    .mostrarDesplegarCategorias {
+>>>>>>> Mikel
         cursor: pointer;
         display: block;
     }
 
     /*Permite ocultar las opciones desplegables*/
     .ocultarDesplegarOpciones,
+<<<<<<< HEAD
     .ocultarDesplegarCategorias,
     .ocultarBotonCategoria {
         display: none;
     }
 
+=======
+    .ocultarDesplegarCategorias {
+        display: none;
+    }
+
+
+>>>>>>> Mikel
     section a {
         text-transform: uppercase;
     }
@@ -275,7 +417,11 @@ button {
     #botonesInicioFinal button {
         height: 6vh;
         width: 6vh;
+<<<<<<< HEAD
         padding: auto;
+=======
+    
+>>>>>>> Mikel
     }
 
     #botonesInicioFinal img {
@@ -286,6 +432,7 @@ button {
 
 @media(min-width: 550px) {
 
+<<<<<<< HEAD
     #listaHerramientas div{
         grid-template-columns: 10% auto;
     }
@@ -294,6 +441,14 @@ button {
         background-color: #EFC227;
         justify-content: center;
         margin: 5px;
+=======
+
+
+    #listaHerramientas div button {
+        background-color: #EFC227;
+        margin: 5px;
+        padding: 0%;
+>>>>>>> Mikel
     }
 
     /*No mostrar los el texto de los botones*/
@@ -327,25 +482,46 @@ button {
     #listaHerramientas div {
         grid-template-columns: 15% auto 20%;
         grid-template-rows: 50% 50%;
+<<<<<<< HEAD
     }
 
+=======
+        min-height: 10vh;
+    }
+
+    #listaHerramientas div p:nth-child(even) {
+        display: block;
+    }
+>>>>>>> Mikel
     #listaHerramientas div p {
         text-align: end;
     }
 
     #listaHerramientas div p:nth-child(even) {
+<<<<<<< HEAD
         grid-area: 1/2/2/3;
+=======
+        grid-area: 2/3/3/4;
+>>>>>>> Mikel
     }
 
     /*Mostrar categoria*/
     #listaHerramientas div p:nth-child(odd) {
+<<<<<<< HEAD
         display: block;
         grid-area: 2/2/3/3;
+=======
+        grid-area: 1/3/2/4;
+>>>>>>> Mikel
     }
 
     #listaHerramientas div img {
         border-radius: 8px;
+<<<<<<< HEAD
         grid-area: 1/3/3/4;
+=======
+        grid-area: 1/4/3/5;
+>>>>>>> Mikel
     }
 
     #listaHerramientas div button {
@@ -353,7 +529,11 @@ button {
         margin: 1vh auto 1vh auto;
         padding: 5%;
         margin: auto;
+<<<<<<< HEAD
         grid-area: 1/1/3/2;
+=======
+
+>>>>>>> Mikel
     }
 
     /*Ocultar icono de botón*/
@@ -366,6 +546,17 @@ button {
         display: block
     }
 
+<<<<<<< HEAD
+=======
+    #listaHerramientas div button:nth-child(1) {
+        grid-area: 1/1/3/2;
+    }
+
+    #listaHerramientas div button:nth-child(2) {
+        grid-area: 1/2/3/3;
+    }
+
+>>>>>>> Mikel
     .fotoDelManual {
         display: block;
         max-height: 7vh;

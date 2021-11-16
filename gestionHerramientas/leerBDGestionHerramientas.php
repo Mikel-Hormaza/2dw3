@@ -4,7 +4,12 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 session_start();
+<<<<<<< HEAD
 $codUsuario= $_SESSION[$usuarios['codUsuario']];
+=======
+$codUsuario = $_SESSION['codUsuario'];
+$permiso = $_SESSION['permisoUsuario'];
+>>>>>>> Mikel
 
 
 try {
@@ -13,6 +18,7 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Select para coger la informacion de las herramientas
+<<<<<<< HEAD
     $sqlherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
     FROM herramienta";
 
@@ -43,6 +49,18 @@ try {
 
         //Coge el contenido del registro dentro de $row
         $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
+=======
+    $sqlherramienta = $conexion->prepare("SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
+    FROM herramienta");
+
+    //Hacer la consulta db
+
+    if ($sqlherramienta) {
+        $sqlherramienta->execute();
+
+        //Coge el contenido del registro dentro de $row
+        $row = $sqlherramienta->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
+>>>>>>> Mikel
 
         $image = $row['fotoHerramienta'];
 
@@ -53,6 +71,7 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+<<<<<<< HEAD
 foreach ($datosHerramienta as $herramienta) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $codherramienta = $herramineta['codHerramienta'];
@@ -66,3 +85,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 }
 $conexion = null;
+=======
+$conexion = null;
+/*foreach ($sqlherramienta as $herramienta) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $codherramienta = $herramineta['codHerramienta'];
+
+        session_start();
+        $_SESSION['codHerramienta']=$codherramienta;
+
+        header('Location: ../gestionHerramientas/gestionHerramientas.php');
+        die();
+    }
+}*/
+
+>>>>>>> Mikel

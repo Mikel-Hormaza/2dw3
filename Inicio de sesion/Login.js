@@ -23,6 +23,11 @@ class Login {
 
     }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Mikel
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("Iniciosesion").addEventListener('click', validarFormulario); 
   });
@@ -36,10 +41,15 @@ document.addEventListener("DOMContentLoaded", function() {
         if (contrasena.length == 0) {
           alert('Escriba una contrasena');
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Mikel
             document.getElementById("formulario").submit();
         
         
       }
+<<<<<<< HEAD
       $(document).ready(function(){    
         $('Iniciosesion').click(function(){        
             /*Captura de datos escrito en los inputs*/        
@@ -53,3 +63,18 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("Contrasena").value = "";
         });   
     });
+=======
+
+ 
+      $(document).ready(function(){    
+        $('#Iniciosesion').click(function(){        
+            /*Captura de datos escrito en los inputs*/        
+            var nom = document.getElementById("NombredeUsuario").value;
+            /*Guardando los datos en el LocalStorage*/
+            localStorage.setItem("Nombre", nom);
+            /*Limpiando los campos o inputs*/
+            document.getElementById("NombredeUsuario").value = "";
+  
+        });   
+    });
+>>>>>>> Mikel
