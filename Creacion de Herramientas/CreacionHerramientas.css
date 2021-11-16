@@ -1,0 +1,104 @@
+.centrar {
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 17px;
+    width: 100%;
+    height: 30px;
+}
+
+.br {
+    opacity: 0;
+    z-index: -1;
+}
+
+.label-img {
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #efc227;
+    border-radius: 5px;
+    color: #626267;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    width: 30%;
+}
+
+.orden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formula {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #efc227;
+    text-transform: uppercase;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    width: max-content;
+}
+
+.btn {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #efc227;
+    text-transform: uppercase;
+    font-size: medium;
+    border-radius: 5px;
+    color: #626267;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    width: max-content;
+    margin-top: 10%;
+}
+
+.botonVolver {
+    background-color: #53B3CB;
+    margin: 2vh 0px 0px 0px;
+    margin-bottom: 5%;
+    margin-left: 5%;
+}
+
+fieldset {
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px
+}
+
+.Categoria {
+    display: none;
+}
+
+.classInputFileIMG {
+    display: none;
+}
+
+.classInputButton{
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 800px) {
+    form {
+        width: 80%;
+        max-width: 600px;
+    }
+    
+}
+
+@media only screen and (max-width: 400px) {
+    button span {
+        display: none;
+    }
+}

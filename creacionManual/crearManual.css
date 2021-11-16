@@ -36,8 +36,7 @@ main {
     top: 15%;
 }
 
-section img,
-main img {
+img {
     object-fit: cover;
 }
 
@@ -89,9 +88,6 @@ a {
 button,
 main div:last-of-type {
     border-radius: 8px;
-}
-#idDivPasos div img{
-    border-radius: 12px;
 }
 
 #contenedorBuscarNomHerramienta {
@@ -230,16 +226,13 @@ button {
     flex-direction: column;
 }
 
-#botonEliminarPaso {
+.botonesOpcionesFormulario button:nth-child(2) {
     background-color: #626267;
     color: white;
-    opacity: 0.4;
-    cursor: text;
 }
 
 #idDivPasos {
     margin: 1vh;
-    cursor: pointer;
 }
 
 .paso{
@@ -255,7 +248,8 @@ button {
 }
 
 #idDivPasos .paso:nth-child(even):hover{
-    background-color: rgba(239, 194, 39, 0.6);
+    background-color: rgba(168, 144, 45, 0.8);
+    color: white;
 }
 
 p {
@@ -274,14 +268,8 @@ p {
 }
 
 h3,
- section p,
- main p {
+p {
     color: #626267;
-}
-
-#inputPasoSeleccionado,
-#eliminarPaso{
-    display: none;
 }
 
 @media (min-width: 350px) {
@@ -323,6 +311,12 @@ h3,
     #bodyCrearManual2 form,
     #bodyCrearManual3 form {
         padding: 1vh;
+    }
+
+    .botonesOpcionesFormulario {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        place-items: center;
     }
 
 }

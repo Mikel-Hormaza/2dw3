@@ -40,6 +40,6 @@ function validarDatos($dato)
     return $dato;
 }
 
-header('Location: ../datosManual/datosManual.php');
+header('Location: ../2datosManual/datosManual.php');
 die();
 ?>

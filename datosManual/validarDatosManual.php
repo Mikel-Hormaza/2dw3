@@ -2,7 +2,8 @@
 
 session_start();
 require_once 'Manual.php';
-$_SESSION["codUsuario"] = 1; #parche
+$_SESSION["codUsuario"] = 1;
+$_SESSION["codHerramientaSeleccionada"] = 1; #parche
 
 $servidor  = "localhost";
 $user = "root";
@@ -12,45 +13,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     validarDatos();
 }
 
-/*comprueba si se han introducido todos los datos - para ello compruebo el largo del mensaje de error 
-sino se han introducido, mostrar mensaje de error
-si se han introducido, comprobar largo según la BD*/
+/*comprueba el largo de los mensajesde de error para saber si se han rellenado todos los campos
+    Si no hay errores,comprueba la foto del manual. Si ésta devuelve true realiza las comprobaciones
+    contra la BD antes de la insert*/
 function validarDatos()
 {
-    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) == 0) {
-        comprobarLargoDeAtributosSegunLargoEnLaBD();
-    } else {
+    if (strlen(comprobarSiSeHanIntroducidoTodosLosDatos()) > 1) {
         echo comprobarSiSeHanIntroducidoTodosLosDatos();
-    }
-}
-
-/* comprobar el largo de los atributos con respecto al largo máximo según la BD - para ello compruebo el largo del mensaje de error 
-si el largo no es correcto, mostrar mensaje de error
-si es correcto, realizar comprobaciones de la clase */
-function comprobarLargoDeAtributosSegunLargoEnLaBD()
-{
-    if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) == 0) {
-        comprobacionesDelObjeto();
     } else {
-        echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
-    }
-}
-
-/* validaciones del objeto
-Si es correcta, antes de realizar la insert comprobar que en la BD no haya ningún manual con el mismo título
-si no hay otro manual con ese título, insertar manual
-sino, mostrar mensaje de error */
-function comprobacionesDelObjeto()
-{
-    if (crearObjetoManual()->validarFotoManual()) {
-        if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
-            insertarManualBD(crearObjetoManual());
-            actualizarPagina();
+        if (strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoManual())) > 1) {
+            echo comprobarLargoDeAtributosIntroducidos(crearObjetoManual());
         } else {
-            echo "Ya existe en la base de datos un manual con este título";
+            if (crearObjetoManual()->validarFotoManual()) {
+                if (comprobacionesEnBD("tituloUnique", crearObjetoManual()->getTituloManual()) == 0) {
+                    insertarManualBD(crearObjetoManual());
+                    echo "foto subida";
+                } else {
+                    echo "el titulo ya existe en la BD";
+                }
+            } else {
+                echo "foto not ok";
+            }
         }
-    } else {
-        echo "Error en formato de imagen";
     }
 }
 
@@ -103,17 +87,10 @@ function insertarManualBD($manual)
         /* guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta  */
         comprobacionesEnBD("obtenerCodManual", $titulo);
     }
+    return $insertarBDcompletado;
 }
-
-function actualizarPagina()
-{
-    header('Location: ../datosPasos/crearPaso.php');
-    die();
-}
-
-
-/* si tipoComprobacion==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
-si tipoComprobacion==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
+/* si codManualSeleccionado==tituloUnique: devolver un count con los manuales con el mismo título en la BD 
+i codManualSeleccionado==obtenerCodManual: guardar en $_SESSION["codManualSeleccionado"] el cod de la herramienta */
 function comprobacionesEnBD($tipoComprobacion, $dato)
 {
     global $servidor;
@@ -183,8 +160,7 @@ function crearObjetoManual()
     return $manual1;
 }
 
-/*comprueba que tods los datos se han introducido.
-Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
+/*comprueba que tods los datos se han introducido */
 function comprobarSiSeHanIntroducidoTodosLosDatos()
 {
     $error = false;
@@ -223,8 +199,7 @@ function comprobarSiSeHanIntroducidoTodosLosDatos()
     return $mensajeErrorFaltanDatos;
 }
 
-/* comprueba el largo de los atributos según largo en la BD
-Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
+/* comprueba el largo de los atributos según largo en la BD*/
 function comprobarLargoDeAtributosIntroducidos($manual)
 {
     $error = false;
@@ -258,5 +233,3 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
-
-?>
