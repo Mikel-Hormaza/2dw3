@@ -7,28 +7,23 @@ session_start();
 $codUsuario = $_SESSION['codUsuario'];
 $permiso = $_SESSION['permisoUsuario'];
 
+
 try {
     //Conexion con nuestra base de datos de fixpoint
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Select para coger la informacion de las herramientas
-    $sqlherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
-    FROM herramienta";
-
-    $resultadoHerramienta = $conexion->query($sqlherramienta);
-    $datosHerramienta = $resultadoHerramienta->fetchAll();
-
-    //Preparar PDO SQL
-    $sqlimagen = $conexion->prepare("SELECT fotoHerramienta FROM herramienta WHERE codHerramienta='1'");
+    $sqlherramienta = $conexion->prepare("SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
+    FROM herramienta");
 
     //Hacer la consulta db
 
-    if ($sqlimagen) {
-        $sqlimagen->execute();
+    if ($sqlherramienta) {
+        $sqlherramienta->execute();
 
         //Coge el contenido del registro dentro de $row
-        $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
+        $row = $sqlherramienta->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
 
         $image = $row['fotoHerramienta'];
 
@@ -39,16 +34,16 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-foreach ($datosHerramienta as $herramienta) {
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $codherramienta = $herramineta['codHerramienta'];
+$conexion = null;
+/*foreach ($sqlherramienta as $herramienta) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $codherramienta = $herramineta['codHerramienta'];
 
         session_start();
-        $_SESSION[$herramineta['codHerramienta']] = $_REQUEST[$herramineta['codHerramienta']];
+        $_SESSION['codHerramienta']=$codherramienta;
 
         header('Location: ../gestionHerramientas/gestionHerramientas.php');
-        die(); 
-
+        die();
+    }
 }
-}
-$conexion = null;
+*/

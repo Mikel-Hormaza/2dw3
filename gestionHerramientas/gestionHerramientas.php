@@ -44,7 +44,7 @@
     <main id="listaHerramientas">
 
     <?php
-        foreach ($datosHerramienta as $herramienta) {
+        foreach ($sqlherramienta as $herramienta) {
            
         ?>
 
@@ -55,7 +55,8 @@
             </button>
             <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <p> <?php echo $herramienta["categoria"]?></p>
-           <img class="fotoDelManual" <?php echo $imagen?>/>
+            <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,' . base64_encode($herramienta["fotoHerramienta"]) . '"/>'?>
+
         </div>
         <?php
         }
