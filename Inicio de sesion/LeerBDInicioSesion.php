@@ -14,11 +14,7 @@ try {
     $conexion = new PDO("mysql:host=$servidor;dbname=fixpoint", $usuario, $password);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Select para coger la informacion de la base de datos
-<<<<<<< HEAD
-    $sqlUsuario = "SELECT codUsuario, nomUsuario, passUsuario 
-=======
     $sqlUsuario = "SELECT codUsuario, nomUsuario, passUsuario, permisoUsuario
->>>>>>> Mikel
     FROM usuario";
 
     $resultadoUsuario = $conexion->query($sqlUsuario);
@@ -32,10 +28,7 @@ foreach ($datosUsuario as $usuarios) {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contrasena = $usuarios['passUsuario'];
             $codUsuario= $usuarios['codUsuario'];
-<<<<<<< HEAD
-=======
             $permiso= $usuarios['permisoUsuario'];
->>>>>>> Mikel
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -51,14 +44,9 @@ foreach ($datosUsuario as $usuarios) {
                 if ($nombreUsuario == $nombre && $Contrasena == $pass) {
                     session_start();
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
-<<<<<<< HEAD
-                    $_SESSION[$usuarios['codUsuario']] = $_REQUEST[$usuarios['codUsuario']];
-                    $codUsuario= $_REQUEST[$usuarios['codUsuario']];
-=======
                     $_SESSION['codUsuario']=$codUsuario;
                     $_SESSION['permisoUsuario'] = $_REQUEST['permisoUsuario'];
                     $_SESSION['permisoUsuario']=$permiso;
->>>>>>> Mikel
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
