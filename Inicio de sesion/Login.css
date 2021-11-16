@@ -1,0 +1,143 @@
+/*Para cambiar la letra de toda la pagina*/
+body {
+    font-family: Georgia;
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+    }
+}
+
+
+@media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+ 
+
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+}
+#NombredeUsuario, #Contrasena{
+    font-size: large;
+}
+span{
+    color: red;
+}
+input{
+    border-radius: 8px;
+}
+/*Para que el contenido de la pagina cuando este en formato movil este en una sola columna*/
+.iniciosesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/*El contenedor que controlar el logo y el texto que tiene debajo*/
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+}
+
+/*El contenedro que contiene el formulario de inicio de sesion*/
+.inicio {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Para cambiar el color tamaño y letra del boton de iniciar sesion*/
+.botoninicio {
+    font-family: Georgia;
+    background-color: #EFC227;
+    font-size: medium;
+    border-radius: 5px;
+    border: none;
+    color: #626267;
+    width: 150px;
+    height: 40px;
+}
+
+/*El boton de crear usuario*/
+.crearusuario {
+    font-size: medium;
+    border-radius: 5px;
+    border: none;
+    color: #626267;
+    height: 40px;
+    width: 200px;
+    font-family: Georgia;
+    background-color: #53B3CB;
+}
+
+/*Para controlar la forma, el tamaño y lo que contiene el contenedor*/
+.borde {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: #626267, 5px;
+    margin-left:none;
+}
+
+/*Para controlar el tamaño de la imagen del logo*/
+
+.imagen {
+    width: 300px;
+    height: 75px;
+}
+/*Cuando el tamaño de la pagina se modifica para que el diseño tambien lo aga*/
+@media screen and (max-width: 450px) {
+
+    /*Para controlar que en tamaño tablet el logo y el formulario no esten en una sola columna */
+    .iniciosesion {
+        flex-direction: row;
+    }
+
+    .borde {
+     margin:none;
+    }
+    .imagen {
+        width: 200px;
+        height: 50px;
+    }
+    .logo {
+        
+      margin-left: 10%;
+        
+       
+       
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+
+    /*Para que en tamaño orddenador el logo y el formulario no esten en una sola columna*/
+    .iniciosesion {
+        margin: 10%;
+        flex-direction: row;
+    }
+    .borde {
+        margin:10%;
+       }
+    .imagen {
+        width: 400px;
+        height: 100px;
+    }
+}

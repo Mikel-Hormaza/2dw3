@@ -6,10 +6,9 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
-input {
+.texto{
     width: 95%;
     height: 30px;
     margin: 0.5rem;
