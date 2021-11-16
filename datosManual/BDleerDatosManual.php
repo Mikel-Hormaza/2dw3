@@ -16,7 +16,7 @@ function editarManualLlamarBD($codManualSeleccionado, $editarOEliminar)
 
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sqlManual = "SELECT COUNT(nombreManual), nombreManual, informacionManual, equipoNecesario, medidasDeSeguridad
+        $sqlManual = "SELECT COUNT(nombreManual), nombreManual, informacionManual, equipoNecesario, medidasDeSeguridad, codHerramienta
         FROM manual
         WHERE manual.codManual like $codManualSeleccionado";
 
@@ -35,16 +35,15 @@ function mostrarFormulario()
 {
     global $datosManual;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $_SESSION["codManualSeleccionado"] = $_POST["codManual"];
-        $_SESSION["editarOEliminar"] = $_POST["editarOEliminar"];
+        guardarCodigoYEditarOEliminarEnSession();
         $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
-
         if ($_POST["editarOEliminar"] == "editar") {
             editarManualLlamarBD($codManualSeleccionado, "editar");
             if(!comprobarSiElManualExisteEnLaBD($datosManual)){
                 formularioVacio();
             }else{
                 formularioConContenido($datosManual);
+                $_SESSION["codHerramientaSeleccionada"]=$datosManual[0]["codHerramienta"];
             }
         } elseif($_POST["editarOEliminar"] == "eliminar") {
             echo "eliminar";
@@ -85,7 +84,12 @@ function formularioVacio(){
 <?php
 }
 
-/* comprueba el COUNT devuelto por la BD */
+function guardarCodigoYEditarOEliminarEnSession(){
+    $_SESSION["codManualSeleccionado"] = $_POST["codManual"];
+    $_SESSION["editarOEliminar"] = $_POST["editarOEliminar"];
+}
+
+/* comprueba el COUNT devuelto por la BD. Si el código de manual existe en la BD devuelve TRUE*/
 function comprobarSiElManualExisteEnLaBD($datosManual)
 {
     if ($datosManual[0]["COUNT(nombreManual)"] == 1) {

@@ -71,13 +71,13 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
 
         $sqlManuales = "SELECT codManual, nombreManual, fotoManual, manual.codHerramienta, nombreHerramienta
             FROM manual,herramienta " . $where . "
-            ORDER BY fechaCreacion  $AscODesc, codManual
+            ORDER BY fechaCreacion  $AscODesc, codManual, nombreManual, fotoManual
             LIMIT $primeraVariableLimit, $maxLimit";
         $resultadoManuales = $conexion->query($sqlManuales);
 
         $sqlNumManuales = "SELECT codManual
             FROM manual, herramienta " . $where . "
-            ORDER by fechaCreacion ASC, codManual ";
+            ORDER by fechaCreacion ASC, codManual, nombreManual, fotoManual ";
 
         $numTotalManuales = $conexion->query($sqlNumManuales);
         $datoNumTotalManuales = $numTotalManuales->fetchAll();

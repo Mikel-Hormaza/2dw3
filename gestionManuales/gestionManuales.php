@@ -15,7 +15,7 @@
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
         <button class="botonVolver">Volver<span> a biblioteca</span></button>
         <div id=botones>
-            <button>Crear</button>
+            <button><a href="../buscarHerramienta/buscadorHerramientas.php">crear</a></button>
         </div>
     </section>
 

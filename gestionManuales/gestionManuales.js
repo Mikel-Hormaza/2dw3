@@ -28,37 +28,43 @@ function manualSeleccionado() {
     let divDondeSeEncuentraElBoton = boton.parentElement;
     /*código del manual */
     let codManual = divDondeSeEncuentraElBoton.id;
-    /*texto del boton */
+    /*texto del boton (editar o eliminar) */
     let textoBoton = boton.childNodes[1].textContent;
 
     if (textoBoton == "editar") {
-       // let respuestaEditar = prompt("¿Quieres editar el manual? S/N");
-        let formularioQueMandaElCodDeManual = document.createElement("form");
-        let inputEditarOEliminar = document.createElement("input");
-        let inputCodManual = document.createElement("input");
 
-        formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
-        formularioQueMandaElCodDeManual.setAttribute("method", "post");
-        formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/datosManual.php");
-        inputEditarOEliminar.setAttribute("name", "editarOEliminar");
-        inputCodManual.setAttribute("name", "codManual");
-        inputEditarOEliminar.setAttribute("value", "editar");
-        //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
-        inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
-        
-        formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
-        formularioQueMandaElCodDeManual.appendChild(inputCodManual);
-        formularioQueMandaElCodDeManual.appendChild(boton);
-        divDondeSeEncuentraElBoton.appendChild(formularioQueMandaElCodDeManual);
-        formularioQueMandaElCodDeManual.submit();
-
-
+        enviarOpciónEditar(boton, divDondeSeEncuentraElBoton, codManual);
 
     } else {
         let respuestaEliminar = prompt("¿Quieres eliminar el manual? S/N");
+        if(respuestaEliminar=="S"||respuestaEliminar=="s"||respuestaEliminar=="Si"||respuestaEliminar=="Sí"||respuestaEliminar=="sí"||respuestaEliminar=="si"){
+
+        }
     }
     
 
+}
+
+function enviarOpciónEditar(boton, divDondeSeEncuentraElBoton, codManual){
+
+    let formularioQueMandaElCodDeManual = document.createElement("form");
+    let inputEditarOEliminar = document.createElement("input");
+    let inputCodManual = document.createElement("input");
+
+    formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
+    formularioQueMandaElCodDeManual.setAttribute("method", "post");
+    formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/datosManual.php");
+    inputEditarOEliminar.setAttribute("name", "editarOEliminar");
+    inputCodManual.setAttribute("name", "codManual");
+    inputEditarOEliminar.setAttribute("value", "editar");
+    //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
+    inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
+    
+    formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
+    formularioQueMandaElCodDeManual.appendChild(inputCodManual);
+    formularioQueMandaElCodDeManual.appendChild(boton);
+    divDondeSeEncuentraElBoton.appendChild(formularioQueMandaElCodDeManual);
+    formularioQueMandaElCodDeManual.submit();
 }
 
 /* leer las variables se encuentran en el innertext del span*/

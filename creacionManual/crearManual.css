@@ -69,7 +69,8 @@ div button {
 }
 
 button,
-a {
+main a,
+section a {
     color: #626267;
 }
 

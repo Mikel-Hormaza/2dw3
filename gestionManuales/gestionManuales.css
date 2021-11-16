@@ -182,7 +182,8 @@ button {
     height: auto;
 }
 
-#spanBotonesInicioFinal {
+#spanBotonesInicioFinal,
+#formularioQueMandaElCodDeManual{
     display: none;
 }
 
@@ -295,6 +296,8 @@ button {
 
     section a {
         text-transform: uppercase;
+        text-decoration: none;
+        color: #626267;
     }
 
     #botonesInicioFinal button {
@@ -308,13 +311,6 @@ button {
 }
 
 @media(min-width: 550px) {
-
-    #listaManuales div button {
-        background-color: #EFC227;
-        margin: 5px;
-        padding: 0%;
-    }
-
     /*No mostrar los el texto de los botones*/
     #listaManuales div button p {
         display: none;
@@ -377,6 +373,10 @@ button {
         margin: 1vh auto 1vh auto;
         padding: 5%;
         margin: auto;
+    }
+
+    #listaManuales div button {
+        background-color: #EFC227;
     }
 
     /*Ocultar icono de botón*/
