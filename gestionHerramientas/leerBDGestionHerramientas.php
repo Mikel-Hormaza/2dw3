@@ -45,5 +45,5 @@ $conexion = null;
         header('Location: ../gestionHerramientas/gestionHerramientas.php');
         die();
     }
-}
-*/
+}*/
+

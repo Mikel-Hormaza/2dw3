@@ -20,7 +20,7 @@
 
 
     <section>
-        <div>
+        <!---<div>
             <button id="idBotonDesplegar" class="botonDesplegar"></button>
             <div id="idBloqueDesplegar" class="contenidoADesplegar">
                 <a id="categoria">Categoría</a>
@@ -28,16 +28,16 @@
                 <a>Todos</a>
             </div>
             <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-        </div>
+        </div>--->
 
 
-        <div>
+        <!---<div>
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
             <div id="idContenidoCategoria" class="contenidoCategoria">
                 <a>maquina-herramienta</a>
                 <a>electronica</a>
                 <a>herramienta taller</a>
-            </div>
+            </div>-->
         </div>
     </section>
 
@@ -53,8 +53,8 @@
                 <p>editar</p>
                 <img src="Imagenes/edit.png" alt="editar">
             </button>
-            <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <p> <?php echo $herramienta["categoria"]?></p>
+            <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,' . base64_encode($herramienta["fotoHerramienta"]) . '"/>'?>
 
         </div>
