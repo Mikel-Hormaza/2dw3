@@ -36,7 +36,8 @@ main {
     top: 15%;
 }
 
-img {
+section img,
+main img {
     object-fit: cover;
 }
 
@@ -273,7 +274,8 @@ p {
 }
 
 h3,
-p {
+ section p,
+ main p {
     color: #626267;
 }
 

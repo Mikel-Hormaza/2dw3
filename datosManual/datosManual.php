@@ -3,18 +3,17 @@
     
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../crearManual.css">
-    <?php 
-    require_once "BDleerDatosManual.php"; 
-    ?>
-    <script src="Manual.js"></script>
-    <script src="validarDatosManual.js"></script>
+    <link rel="stylesheet" href="../creacionManual/crearManual.css">
+    <?php require_once '../datosManual/BDleerDatosManual.php' ?>
+    <script src="../datosManual/Manual.js"></script>
+    <script src="../datosManual/validarDatosManual.js"></script>
 </head>
 
 <body id="bodyCrearManual2">
+<?php require_once '../Header/Header.php' ?>
     <section>
         <div class="titulo" id="amarillo">
-            <img src="../Imagenes/crearManual.PNG" alt="Imagen crear">
+            <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Crear manual</p>
         </div>
         <button id="botonVolver">Volver</button>
@@ -24,7 +23,7 @@
         <?php echo mostrarFormulario(); ?>
         <span id="gestionarDatosFormularioManual"></span>
     </div>
-
+    <?php require_once '../Footer/footer.php' ?>
 </body>
 
 </html>

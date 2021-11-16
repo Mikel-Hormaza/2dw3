@@ -39,13 +39,12 @@ function manualSeleccionado() {
 
         formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
         formularioQueMandaElCodDeManual.setAttribute("method", "post");
-        formularioQueMandaElCodDeManual.setAttribute("action", "../creacionManual/2datosManual/datosManual.php");
+        formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/datosManual.php");
         inputEditarOEliminar.setAttribute("name", "editarOEliminar");
         inputCodManual.setAttribute("name", "codManual");
         inputEditarOEliminar.setAttribute("value", "editar");
         //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
         inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
-
         
         formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
         formularioQueMandaElCodDeManual.appendChild(inputCodManual);

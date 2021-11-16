@@ -7,13 +7,13 @@
     <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
     <?php require_once "leerBDVisualizarManual.php" ?>
-    <?php require_once '../Header/Header.php' ?>
 </head>
 
 <body>
+    <?php require_once '../Header/Header.php' ?>
     <section>
         <div id="amarilloMadre">
-            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($datosManual[0]["fotoManual"]).'"/>' ?>
+            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datosManual[0]["fotoManual"]) . '"/>' ?>
             <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
         <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
@@ -23,7 +23,7 @@
     <article>
         <div id="informacionInicial">
             <div id="infoManual">
-            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($datosManual[0]["fotoManual"]).'"/>' ?>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datosManual[0]["fotoManual"]) . '"/>' ?>
                 <div>
                     <h3>Código de manual: <?php echo $datosManual[0]["codManual"]; ?></h3>
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
@@ -58,7 +58,7 @@
                     <h3 class="pasoTitulo">Paso <?php echo $numPaso ?></h3>
                     <p><?php echo $paso["tituloPaso"] ?></p>
                 </div>
-                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($paso["fotoPaso"]).'"/>' ?>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($paso["fotoPaso"]) . '"/>' ?>
                 <p><?php echo $paso["descripcionPaso"] ?></p>
                 <hr>
             </div>
@@ -66,6 +66,7 @@
         }
         ?>
     </article>
+    <?php require_once '../Footer/footer.php' ?>
 </body>
-<?php require_once '../Footer/footer.php' ?>
+
 </html>

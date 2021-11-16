@@ -120,7 +120,7 @@ function insertarOEditar($insertarOEditar)
 
 function actualizarPagina()
 {
-    header('Location: ../../creacionManual/3datosPasos/crearPaso.php');
+    header('Location: ../datosPasos/crearPaso.php');
     die();
 }
 

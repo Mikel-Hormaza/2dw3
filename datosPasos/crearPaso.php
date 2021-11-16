@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../crearManual.css">
+    <link rel="stylesheet" href="../creacionManual/crearManual.css">
     <script src="Paso.js"></script>
     <script src="gestionarDatosPasos.js"></script>
     <?php 
@@ -12,16 +12,17 @@
 </head>
 
 <body id="bodyCrearManual3">
+<?php require_once '../Header/Header.php' ?>
     <section>
         <div class="titulo" id="verde">
-            <img src="../Imagenes/crearManual.PNG" alt="Imagen crear">
+            <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Pasos del manual</p>
         </div>
         <button id="botonVolver">Volver</button>
     </section>
     <div>
         <h3>Describe el paso de la reparación</h3>
-        <form id="formulario" method="post" action="validarDatosPaso.php" enctype="multipart/form-data">
+        <form id="formulario" method="post" action="../datosPasos/validarDatosPaso.php" enctype="multipart/form-data">
             <input type="text" name="nombrePaso" id="idNombrePaso" placeholder="Título del paso" maxlength="150" require="required">
             <input id="inputPasoSeleccionado" name="inputPasoSeleccionado">
             <input id="eliminarPaso" name="eliminarPaso">
@@ -37,8 +38,6 @@
 
     <div id="idDivPasos">
         <?php
-            echo "bu";
-            var_dump($_SESSION["codManualSeleccionado"]);
         /* si hay un código de manual, y ese manual tiene pasos, muestra los pasos*/
         if (!empty($_SESSION["codManualSeleccionado"])) {
             if (llamarBD()) {
@@ -49,6 +48,7 @@
     </div>
 
     <span id="codigoDelPasoSeleccionado"><?php if(isset($_SESSION["botonPasoSeleccionado"])) echo $_SESSION["botonPasoSeleccionado"];?></span>
+    <?php require_once '../Footer/footer.php' ?>
 </body>
 
 </html>

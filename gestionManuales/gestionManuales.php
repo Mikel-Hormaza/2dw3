@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
     <?php require_once "BDGestionManuales.php" ?>
-    <?php require_once '../Header/Header.php' ?>
 </head>
 
 <body>
+<?php require_once '../Header/Header.php' ?>
     <section>
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
         <button class="botonVolver">Volver<span> a biblioteca</span></button>
@@ -75,7 +75,7 @@
         <button id="ultimo" name="ultimo"><img src="Imagenes/último.png" alt="ultimo"></button>
     </form>
 
-
-</body>
 <?php require_once '../Footer/footer.php' ?>
+</body>
+
 </html>
