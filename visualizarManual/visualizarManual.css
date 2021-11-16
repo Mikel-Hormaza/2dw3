@@ -14,7 +14,8 @@ article {
     margin: 1vh;
 }
 
-img {
+section img,
+article img {
     object-fit: cover;
 }
 
@@ -169,14 +170,12 @@ hr {
     height: 3px;
 }
 
-h3,
-p {
-    padding: 1vh;
-}
-
-h3,
-p {
+section h3,
+article h3,
+section p,
+article p {
     color: #626267;
+    padding: 1vh;
 }
 
 h3:not(.pasoTitulo) {

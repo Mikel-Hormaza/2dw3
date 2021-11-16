@@ -80,6 +80,11 @@ button {
     width: 100%;
 }
 
+#idBotonBuscar{
+    display: block;
+    margin: 10px;
+}
+
 /*MANUALES*/
 
 #listaManuales {
@@ -177,7 +182,7 @@ button {
     height: auto;
 }
 
-#spanBotonesInicioFinal{
+#spanBotonesInicioFinal {
     display: none;
 }
 
@@ -206,16 +211,16 @@ button {
     la opción desplegable*/
     .botonDesplegar,
     .contenidoADesplegar,
-    .contenidoCategoria {
+    .contenidoCategoria{
         display: block;
     }
 
-    #buscador {
+    #buscador,
+    #idBotonBuscar {
         display: none;
     }
 
-    .botonDesplegar,
-    .botonCategoria {
+    .botonDesplegar {
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -227,55 +232,64 @@ button {
         width: 2em;
     }
 
-    section div .botonCategoria {
-        width: max-content;
-    }
-
     .contenidoADesplegar,
     .contenidoCategoria {
         display: none;
         position: absolute;
-        /* Las propiedades 
-        top, right, bottom, y  left especifican el desplazamiento 
-        desde los bordes del bloque contenedor del elemento. */
-        background-color: #f1f1f1;
-        min-width: 160px;
         overflow: auto;
-        border-radius: 10%;
         margin-top: 10px;
+        border: 2px solid #626267;
     }
 
-    .contenidoCategoria{
-        margin-left: -9vh;
+    
+    .contenidoADesplegar{
+        width: 180px;
     }
 
-    .contenidoADesplegar a,
-    .contenidoCategoria a {
-        background-color: #EFC227;
-        color: #626267;
+    .contenidoCategoria {
+        margin-left: 178px;
+        width: 240px;
+    } 
+
+    #categoria:hover{
+        position: relative;
+    }
+
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
         padding: 1em 1em;
-        text-decoration: none;
         display: block;
+        width: 100%;
     }
 
-    .contenidoADesplegar a:hover,
-    .contenidoCategoria a:hover {
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
+        padding: 1em 1em;
+        display: block;
+        width: 100%;
+    }
+    .contenidoCategoria button{
+        background-color: #b9c1c4;
+    }
+
+    .contenidoADesplegar button:hover,
+    .contenidoCategoria button:hover {
         background-color: #A8902D;
         color: white;
     }
 
     /*Permite ver las opciones desplegables*/
     .mostrarDesplegarOpciones,
-    .mostrarDesplegarCategorias,
-    .mostrarBotonCategoria {
+    .mostrarDesplegarCategorias {
         cursor: pointer;
         display: block;
     }
 
     /*Permite ocultar las opciones desplegables*/
     .ocultarDesplegarOpciones,
-    .ocultarDesplegarCategorias,
-    .ocultarBotonCategoria {
+    .ocultarDesplegarCategorias {
         display: none;
     }
 
@@ -314,8 +328,6 @@ button {
     }
 
 }
-
-
 
 @media (min-width: 800px) {
 

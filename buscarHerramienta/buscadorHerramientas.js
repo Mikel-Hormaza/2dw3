@@ -24,7 +24,7 @@ function comprobarSiHayElementos() {
 de los elementos del array. Muestra las concidencias como elementos de una lista */
 function filtra() {
     if (document.getElementById("idBusquedaNombreHerramienta").value.length > 0) {
-        contador = 0; // esta variable se utiliza en anadirClaseElementos
+        contador = 0; // esta variable se utiliza en anadirClaseParOImpar
         crearElementosListaYParrafos();
     }
 }
@@ -41,7 +41,7 @@ function crearElementosListaYParrafos() {
             elementoLista.appendChild(parrafoLista);
             //atributos
             parrafoLista.setAttribute("class", "parrafoElementoLista");
-            anadirClaseElementos(parrafoLista);
+            anadirClaseParOImpar(parrafoLista);
             elementoLista.setAttribute("class", "elementoLista");
             //añadir a la ul
             let ul = document.getElementById("mostrarBloqueResultados");
@@ -67,7 +67,7 @@ function seleccionarElemento(event) {
 /*Al desplegar la lista de opciones necesitamos que los elementos pares e impares
 tengan colores distintos para diferenciarse mejor. Esta funcion añade dos clases
 en función de si son pares o impares*/
-function anadirClaseElementos(elemento) {
+function anadirClaseParOImpar(elemento) {
     contador++;
     if (contador % 2 == 0) {
         elemento.setAttribute("class", "parrafoElementoListaPar");
