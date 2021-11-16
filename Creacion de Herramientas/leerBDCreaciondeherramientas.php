@@ -10,9 +10,9 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if(isset($_POST["submit"])){
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        $check = getimagesize($_FILES["classInputFileIMG"]["tmp_name"]);
         if($check !== false){
-            $image = $_FILES['image']['tmp_name'];
+            $image = $_FILES['classInputFileIMG']['tmp_name'];
             $imgContent = addslashes(file_get_contents($image));
     
             //detalles BD
@@ -20,12 +20,16 @@ try {
             $dbUsername = 'root';
             $dbPassword = '';
             $dbName     = 'fixpoint';
+
             
             //Create connection and select DB
             $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
+            $nombreHerramienta  = 'nombreHerramienta';
+            $categoria          = 'categoria';
+
             $insert = $db->query("INSERT into herramienta (nombreHerramienta, categoria, fotoHerramienta) 
-            VALUES ('Alicates', 'herramienta taller', '$imgContent')");
+            VALUES ('$nombreHerramienta', '$categoria', '$imgContent')");
         }if($insert){
             echo "Insertado con éxito";
         }else{
