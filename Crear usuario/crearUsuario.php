@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="Fotos/Icono.ico">
+    <!-- <link rel="icon" type="image/png" href="Fotos/Icono.ico"> -->
     <link type="text/css" rel="stylesheet" href="crearUsuario.css">
     <script type="text/javascript" src="Usuario.js"></script>
     <script type="text/javascript" src="validarUsuario.js"></script>
@@ -14,7 +14,7 @@
 <body>
     <form method="post" class="form" id="form" action="validarUsuario.php">
             <br>
-            <input type="submit" class="volver" value="Volver a inicio de sesión">
+            <input type="submit" class="volver" id="volver" value="Volver a inicio de sesión">
         <fieldset class="fieldset">
             <h2 class="create">Crear usuario</h2>
             <br>
@@ -35,3 +35,4 @@
     </form>
 </body>
 </html>
+

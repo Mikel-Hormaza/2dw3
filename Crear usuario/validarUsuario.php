@@ -160,7 +160,7 @@ function todasLasValidaciones($usuario) {
     }
     return $error;
 }
- 
+
 function insertUsuarioBD($usuario) {
     global $servidor;
     global $user;
@@ -168,14 +168,13 @@ function insertUsuarioBD($usuario) {
  
     $nombreUsuario = $usuario->getNombreUsuario();
     $contra1Usuario = $usuario->getContra1Usuario();
-    $contra2Usuario = $usuario->getContra2Usuario();
     $emailUsuario = $usuario->getEmailUsuario();
  
     try {
         $conexion = new PDO ("mysql: host = $servidor; dbname=fixpoint", $user, $password);
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
-        $sql = "SELECT COUNT(*) FROM usuario WHERE nomUsuario='$nombreUsuario' || correoUsuario='$emailUsuario' || passUsuario='$contra1Usuario'";
+        $sql = "SELECT COUNT(*) FROM usuario WHERE correoUsuario='$emailUsuario' || passUsuario='$contra1Usuario'";
  
         if ($resultado = $conexion->query($sql)) {
             if ($resultado->fetchColumn() > 0) {
@@ -188,8 +187,9 @@ function insertUsuarioBD($usuario) {
                 echo "Nuevo registro." . "<br>" . "Usuario " .$nombreUsuario. " creado correctamente.";
             }
         }
-    } catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
+    } catch (PDOException $e) { 
+        echo ("ERROR");
+        // echo $sql . "<br>" . $e->getMessage();
     }
 }
  

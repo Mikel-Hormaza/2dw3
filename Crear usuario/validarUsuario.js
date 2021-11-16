@@ -2,14 +2,20 @@ window.addEventListener("load", inicio);
  
 function inicio() {
     document.getElementById("registrarse").addEventListener("click", comprobacionesSubmit);
+    document.getElementById("volver").addEventListener("click", volver);
 }
  
+function volver() {
+    alert("Hola");
+    location.replace("Login.php");
+}
+
 function comprobacionesSubmit() {
     if (validarDatos() == true) {
         // alert ("PREPARADO PARA INSERT");
         document.getElementById("form").submit();
     } else {
-        alert ("Error de comprobaciones y submit");
+        // alert ("Error de comprobaciones y submit");
     }
 }
 
