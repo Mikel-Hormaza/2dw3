@@ -2,12 +2,6 @@ window.addEventListener("load", inicio);
  
 function inicio() {
     document.getElementById("registrarse").addEventListener("click", comprobacionesSubmit);
-    document.getElementById("volver").addEventListener("click", volver);
-}
- 
-function volver() {
-    alert("Hola");
-    location.replace("Login.php");
 }
 
 function comprobacionesSubmit() {
