@@ -28,7 +28,7 @@
                         <a href="#" class="nav-link">INICIO</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">BIBLIOTECA</a>
+                        <a href="../Biblioteca/Biblioteca.php" class="nav-link">BIBLIOTECA</a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">ALQUILER</a>
@@ -39,12 +39,12 @@
                 </ul>
                 
             </nav>
-            
-            <input type="button" id="inicio" value="Iniciar sesion" class="sesion" class="item3">
-            <label type="text" id="NombredeUsuario"></label><br>
+            <button class="sesion" class="item3" onclick="window.location.href='../Inicio de sesion/Login.php'">Iniciar sesion</button>
+           <!--- <input type="button" value="Iniciar sesion" class="sesion" class="item3" href>-->
         </div>
     </header>
+    <script src="../Header/header.js"></script>
 </body>
 
-<script src="../header.js"></script>
+
 </html>
