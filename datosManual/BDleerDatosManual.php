@@ -3,9 +3,10 @@
 session_start();
 $datosManual;
 
-/*llama a la BD para obtener los atributos del manual con ese código. Además, para comprobar si ese código existe en la BD, devuelve un COUNT de nombres
+/*llama a la BD para obtener los atributos del manual con ese código.
+Además, para comprobar si ese código existe en la BD, devuelve un COUNT de nombres
 de manual con ese mismo código*/
-function editarManualLlamarBD($codManualSeleccionado, $editarOEliminar)
+function editarManualLlamarBD($codManualSeleccionado)
 {
     $servidor  = "localhost";
     $usuario = "root";
@@ -38,7 +39,7 @@ function mostrarFormulario()
         guardarCodigoYEditarOEliminarEnSession();
         $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
         if ($_POST["editarOEliminar"] == "editar") {
-            editarManualLlamarBD($codManualSeleccionado, "editar");
+            editarManualLlamarBD($codManualSeleccionado);
             if(!comprobarSiElManualExisteEnLaBD($datosManual)){
                 formularioVacio();
             }else{

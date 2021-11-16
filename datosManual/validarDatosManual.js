@@ -9,24 +9,27 @@ function anadirEventoClickABotones() {
 }
 
 function comprobacionesYSubmit(){
-   if (validarDatos()){
+   //if (validarDatos()){
         document.getElementById("formulario").submit();
-   }
+  // }
 }
 
 function validarDatos() {
-    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos*/
-    if (comprobarSiSeHanIntroducidoTodosLosDatos(crearObjetoManual()).length > 1) {
-        alert(comprobarSiSeHanIntroducidoTodosLosDatos(crearObjetoManual()));
+    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos
+    Si no hay errores, comprueba si se ha introduido imagen. 
+    Si ésta devuelve true realiza las comprobaciones contra la BD antes de la insert*/
+    if (comprobarSiSeHanIntroducidoTodosLosDatosEscritos(crearObjetoManual()).length > 1) {
+        alert(comprobarSiSeHanIntroducidoTodosLosDatosEscritos(crearObjetoManual()));
         return false;
     } else {
-        if(crearObjetoManual().validarFotoManual()){
-            return true;
-        }else{
-            alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
-            return false;
-        }
+        comprobarFoto();
     }
+}
+
+function comprobarFoto(){
+
+    
+
 }
 
 function crearObjetoManual() {
@@ -45,7 +48,7 @@ function crearObjetoManual() {
     return manual1;
 }
 
-function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
+function comprobarSiSeHanIntroducidoTodosLosDatosEscritos(manual) {
     let error = false;
     mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; 
     if (manual.tituloManual.length == 0) {
@@ -64,10 +67,6 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
         error = true;
         mensajeErrorFaltanDatos += "medidas de seguridad necesarias \n";
     }
-    if (manual.fotoManual.length == 0) {
-        error = true;
-        mensajeErrorFaltanDatos += "una imagen para el manual \n";
-    }
     /*si todos los campos se han rellenado, eliminar el mensaje de error */
     if (error == false) {
         mensajeErrorFaltanDatos = "";
@@ -75,3 +74,10 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
     return mensajeErrorFaltanDatos;
 }
 
+function comprobarSiSeHaIntroducidoUnaImagen(manual){
+    if (manual.fotoManual.length == 0) {
+        return "Por favor, introduzca una imagen para el manual \n";
+    }else{
+        return"";
+    }
+}

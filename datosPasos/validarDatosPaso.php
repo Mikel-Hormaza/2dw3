@@ -9,7 +9,9 @@ $pass = "";
 /* comprobar si se ha enviado un formulario y si se ha rellenado el input "eliminarPaso"*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["eliminarPaso"])) {
-        eliminarPaso();
+        if($_POST["eliminarPaso"]=="eliminar"){
+            eliminarPaso();
+        }
     }
     validarDatos();
 }

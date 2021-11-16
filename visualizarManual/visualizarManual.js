@@ -7,6 +7,37 @@ window.addEventListener("load", inicio);
 /*Mostrar más*/
 function inicio() {
   obtenerDivs();
+  document.getElementById("generarPDF").addEventListener("click", generarPDF);
+}
+
+function generarPDF() {
+/*   let docPDF = new jsPDF();
+  
+    let tituloManual = document.getElementById("tituloManual").childNodes[0].textContent;
+    let codManual = document.getElementsByTagName("h3")[0].textContent;
+    let fechaCreacion = document.getElementsByTagName("h3")[1].textContent;
+    let creador = document.getElementsByTagName("h3")[2].textContent;
+
+    let infoDetallesManual = document.getElementById("divInfoDetallesManual").childNodes[1].textContent;
+    let equipoNecesario = document.getElementById("divInfoEquipoNecesario").childNodes[3].textContent;
+    let medidasDeSeguridad = document.getElementById("divInfoMedidasSeguridad").childNodes[3].textContent;
+
+  docPDF.text(20, 20, codManual);
+    docPDF.text(20, 30, tituloManual);
+    docPDF.text(20, 40, fechaCreacion);
+    docPDF.text(20, 50, creador); 
+
+    docPDF.text(20,  60, infoDetallesManual);
+  docPDF.text(20, 70, equipoNecesario);
+    docPDF.text(20, 80, medidasDeSeguridad);
+
+
+    docPDF.addPage();
+    doc.setProperties({
+      overflow:'linebreak'
+    });
+    
+  docPDF.save('documento.pdf'); */
 }
 
 /*Obtener los divs con párrafos*/
