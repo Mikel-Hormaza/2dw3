@@ -19,27 +19,7 @@
     </section>
 
 
-    <section>
-        <!---<div>
-            <button id="idBotonDesplegar" class="botonDesplegar"></button>
-            <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a id="categoria">Categoría</a>
-                <a>Creados por mí</a>
-                <a>Todos</a>
-            </div>
-            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-        </div>--->
-
-
-        <!---<div>
-            <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
-            <div id="idContenidoCategoria" class="contenidoCategoria">
-                <a>maquina-herramienta</a>
-                <a>electronica</a>
-                <a>herramienta taller</a>
-            </div>-->
-        </div>
-    </section>
+    
 
     <main id="listaHerramientas">
 
