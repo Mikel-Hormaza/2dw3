@@ -36,10 +36,10 @@ class Usuario {
         let regName = /^[A-Za-z]+$/;  //SOLO LETRAS//
 
         if (!regName.test(f_nombreUsuario)) {
-            alert ("Nombre no apropiado. Solo se admiten letras");
+            //alert ("Nombre no apropiado. Solo se admiten letras");
             return false;
         } else {
-            alert ("Nombre apropiado");
+            // alert ("Nombre apropiado");
             return true;
         }
     }
@@ -48,10 +48,10 @@ class Usuario {
         let regPassword1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;  //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
 
         if (!regPassword1.test(f_contra1Usuario)) {
-            alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
+            //alert ("Primera contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
-            alert ("Primera contraseña apropiada");
+            // alert ("Primera contraseña apropiada");
             return true;
         }
     }
@@ -60,10 +60,10 @@ class Usuario {
         let regPassword2 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;   //8 CARACTERES. MINIMO 1 MAYUS, 1 MINUS Y 1 NUM//
 
         if (!regPassword2.test(f_contra2Usuario)) {
-            alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
+            //alert ("Segunda contraseña no apropiada. Debe contener al menos 8 caracteres. Una mayuscula, una minuscula y un numero");
             return false;
         } else {
-            alert ("Segunda contraseña apropiada");
+            // alert ("Segunda contraseña apropiada");
             return true;
         }
     }
@@ -72,10 +72,10 @@ class Usuario {
         let regEmail = /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;  //CARACTERES@CARACTERES.DOMINIO//
 
         if (!regEmail.test(f_emailUsuario)) {
-            alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
+            //alert ("Email no apropiado. Debe tener este formato: CARACTERES@CARACTERES.DOMINIO");
             return false;
         } else {
-            alert ("Email apropiado");
+            // alert ("Email apropiado");
             return true;
         }
     }
@@ -84,11 +84,19 @@ class Usuario {
         let f_contra2 = document.getElementById("repeatPW").value;
 
         if (f_contra1 != f_contra2) {
-            alert ("Las contraseñas no coinciden");
+            //alert ("Las contraseñas no coinciden");
             return false;
         } else {
-            alert ("Las contraseñas coinciden");
+            // alert ("Las contraseñas coinciden");
             return true;
         }
     }
+<<<<<<< HEAD
 }
+=======
+    /*comprobarSiSeIntroducenLosDatos() {
+
+    }*/
+}
+
+>>>>>>> Saray

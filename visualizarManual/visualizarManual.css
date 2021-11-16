@@ -1,0 +1,835 @@
+<<<<<<< HEAD
+* {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+body {
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+section,
+article {
+    margin: 1vh;
+}
+
+section img,
+article img {
+    object-fit: cover;
+}
+
+#amarilloMadre,
+#amarilloMadre h2,
+#amarilloMadre img,
+.paso img {
+    width: 100%;
+}
+
+#amarilloMadre,
+#amarilloMadre img {
+    max-height: 15vh;
+}
+
+.paso img {
+    max-height: 20vh;
+}
+
+#amarilloMadre {
+    display: flex;
+    align-self: stretch;
+    position: relative;
+    text-align: center;
+    background-color: #EFC227;
+}
+
+#amarilloMadre img {
+    opacity: 0.4;
+}
+
+#amarilloMadre h2 {
+    position: absolute;
+    color: white;
+    text-shadow: 0px 1px 5px #626267;
+}
+
+#botonVolver a {
+    text-decoration: none;
+    color: #626267;
+}
+
+#infoManual div:nth-of-type(2) {
+    width: 100%;
+}
+
+@media(max-width: 200px) {
+    h2 {
+        font-size: 10%;
+        font-weight: lighter;
+        padding: 10px;
+    }
+}
+
+@media(max-width: 350px) {
+    h2 {
+        font-size: large;
+        padding: 10px;
+    }
+}
+
+button,
+img:not(#amarilloMadre img),
+h3,
+p,
+#equipoNecesario,
+#seguridad {
+    border-radius: 8px;
+}
+
+button,
+h4 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+button {
+    background-color: #53B3CB;
+    color: #626267;
+    font-size: 2vh;
+    width: max-content;
+    border: none;
+    cursor: pointer;
+}
+
+#botonLeerMas,
+#botonLeerMasEquipo,
+#botonLeerMasSeguridad {
+    margin: 5px;
+}
+
+#botonVolver {
+    margin: 1vh 0px 0px 0px;
+    padding: 1% 4%;
+}
+
+#infoManual button,
+#equipoNecesario button,
+#seguridad button {
+    margin-top: 1vh;
+    padding: 0% 10px;
+    background-color: #EFC227;
+}
+
+/*No mostrar todo el texto del botón volver*/
+button span {
+    display: none;
+}
+
+#infoManual div:nth-of-type(2) {
+    border-radius: 8px;
+}
+
+#infoManual img {
+    width: 100%;
+    max-height: 30%;
+}
+
+#infoManual div:nth-of-type(2),
+#equipoNecesario,
+#seguridad {
+    opacity: 0.8;
+}
+
+#infoManual div:nth-of-type(2) p,
+#equipoNecesario p,
+#seguridad p {
+    color: white;
+}
+
+#equipoNecesario h4,
+#seguridad h4 {
+    color: #626267;
+    background-color: #EFC227;
+    padding: 10px;
+    margin-bottom: 1vh;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#infoManual div:nth-of-type(2),
+#seguridad {
+    background-color: rgba(92, 128, 1, 0.6);
+}
+
+#equipoNecesario {
+    background-color: rgba(49, 142, 165, 0.6);
+}
+
+
+hr {
+    background-color: #4F6E01;
+    height: 3px;
+}
+
+section h3,
+article h3,
+section p,
+article p {
+    color: #626267;
+    padding: 1vh;
+}
+
+h3:not(.pasoTitulo) {
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 10px 10px -5px #626267;
+}
+
+.paso h3 {
+    text-align: center;
+}
+
+p {
+    margin: 0%;
+}
+
+/*Ocultar la raya amarilla del último paso*/
+
+article div:last-of-type hr:last-of-type {
+    display: none;
+}
+
+/*Ocultar el texto que se muestra cuado le damos a "mostrar"*/
+#mas,
+#masEquipo,
+#masSeguridad {
+    display: none;
+}
+
+@media (min-width: 400px) {
+    #infoManual img {
+        justify-self: center;
+        align-self: center;
+        margin-right: 1vh;
+        max-height: 25vh;
+    }
+
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;
+
+    }
+}
+
+@media (min-width: 600px) {
+
+    #infoManual {
+        display: grid;
+        row-gap: 1vh;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+    }
+
+    #infoManual img {
+        height: 85%;
+        max-width: 70%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #infoManual div {
+        align-self: center;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #infoManual div:nth-of-type(2) {
+        grid-area: 2/1/3/3;
+    }
+
+    .paso img {
+        max-height: 30vh;
+    }
+
+}
+
+@media (min-width: 700px) {
+
+    /*Muestro el texto del botón volver*/
+    #botonVolver span {
+        display: inline;
+    }
+
+    #informacionInicial {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+    }
+
+    #infoManual {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #equipoNecesario {
+        background-color: transparent;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-right: 1vh;
+    }
+
+    #equipoNecesario div,
+    #seguridad div {
+        border-radius: 8px;
+        bottom: 0%;
+    }
+
+    #equipoNecesario div {
+        background-color: rgba(49, 142, 165, 0.6);
+    }
+
+    #equipoNecesario h4,
+    #seguridad h4 {
+        margin-bottom: 0%;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    #seguridad {
+        background-color: transparent;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1vh;
+    }
+
+    #seguridad div {
+        background-color: rgba(92, 128, 1, 0.6);
+    }
+
+    /*Los pasos del manual*/
+    .paso {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-rows: auto auto 5%;
+    }
+
+    .paso div {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        display: flex;
+        flex-direction: row;
+        flex-basis: content;
+        justify-content: flex-start;
+    }
+
+    .paso div h3 {
+        line-height: 0%;
+        width: 14vh;
+    }
+
+    .paso div p {
+        align-self: center;
+        font-weight: bold;
+    }
+
+    .paso img {
+        align-self: center;
+        height: 100%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .paso p:nth-of-type(2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .paso hr {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+
+    #infoManual div {
+        margin: auto;
+        max-width: 100%;
+    }
+
+    #infoManual div h3 {
+        font-size: x-large;
+        align-content: center;
+    }
+
+    /*Quito la opción del botón "mostrar"*/
+    #mas,
+    #masEquipo,
+    #masSeguridad {
+        display: inline;
+    }
+
+    #botonLeerMas,
+    #botonLeerMasEquipo,
+    #botonLeerMasSeguridad,
+    #puntos,
+    #puntosEquipo,
+    #puntosSeguridad {
+        display: none;
+    }
+
+    .paso img {
+        height: 100%;
+        width: 100%;
+        justify-self: center;
+    }
+
+=======
+* {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+body {
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+section,
+article {
+    margin: 1vh;
+}
+
+img {
+    object-fit: cover;
+}
+
+#amarilloMadre,
+#amarilloMadre h2,
+#amarilloMadre img,
+.paso img {
+    width: 100%;
+}
+
+#amarilloMadre,
+#amarilloMadre img {
+    max-height: 15vh;
+}
+
+.paso img {
+    max-height: 20vh;
+}
+
+#amarilloMadre {
+    display: flex;
+    align-self: stretch;
+    position: relative;
+    text-align: center;
+    background-color: #EFC227;
+}
+
+#amarilloMadre img {
+    opacity: 0.4;
+}
+
+#amarilloMadre h2 {
+    position: absolute;
+    color: white;
+    text-shadow: 0px 1px 5px #626267;
+}
+
+#botonVolver a {
+    text-decoration: none;
+    color: #626267;
+}
+
+#infoManual div:nth-of-type(2) {
+    width: 100%;
+}
+
+@media(max-width: 200px) {
+    h2 {
+        font-size: 10%;
+        font-weight: lighter;
+        padding: 10px;
+    }
+}
+
+@media(max-width: 350px) {
+    h2 {
+        font-size: large;
+        padding: 10px;
+    }
+}
+
+button,
+img:not(#amarilloMadre img),
+h3,
+p,
+#equipoNecesario,
+#seguridad {
+    border-radius: 8px;
+}
+
+button,
+h4 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+button {
+    background-color: #53B3CB;
+    color: #626267;
+    font-size: 2vh;
+    width: max-content;
+    border: none;
+    cursor: pointer;
+}
+
+#botonLeerMas,
+#botonLeerMasEquipo,
+#botonLeerMasSeguridad {
+    margin: 5px;
+}
+
+#botonVolver {
+    margin: 1vh 0px 0px 0px;
+    padding: 1% 4%;
+}
+
+#infoManual button,
+#equipoNecesario button,
+#seguridad button {
+    margin-top: 1vh;
+    padding: 0% 10px;
+    background-color: #EFC227;
+}
+
+/*No mostrar todo el texto del botón volver*/
+button span {
+    display: none;
+}
+
+#infoManual div:nth-of-type(2) {
+    border-radius: 8px;
+}
+
+#infoManual img {
+    width: 100%;
+    max-height: 30%;
+}
+
+#infoManual div:nth-of-type(2),
+#equipoNecesario,
+#seguridad {
+    opacity: 0.8;
+}
+
+#infoManual div:nth-of-type(2) p,
+#equipoNecesario p,
+#seguridad p {
+    color: white;
+}
+
+#equipoNecesario h4,
+#seguridad h4 {
+    color: #626267;
+    background-color: #EFC227;
+    padding: 10px;
+    margin-bottom: 1vh;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#infoManual div:nth-of-type(2),
+#seguridad {
+    background-color: rgba(92, 128, 1, 0.6);
+}
+
+#equipoNecesario {
+    background-color: rgba(49, 142, 165, 0.6);
+}
+
+
+hr {
+    background-color: #4F6E01;
+    height: 3px;
+}
+
+h3,
+p {
+    padding: 1vh;
+}
+
+h3,
+p {
+    color: #626267;
+}
+
+h3:not(.pasoTitulo) {
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 10px 10px -5px #626267;
+}
+
+.paso h3 {
+    text-align: center;
+}
+
+p {
+    margin: 0%;
+}
+
+/*Ocultar la raya amarilla del último paso*/
+
+article div:last-of-type hr:last-of-type {
+    display: none;
+}
+
+/*Ocultar el texto que se muestra cuado le damos a "mostrar"*/
+#mas,
+#masEquipo,
+#masSeguridad {
+    display: none;
+}
+
+@media (min-width: 400px) {
+    #infoManual img {
+        justify-self: center;
+        align-self: center;
+        margin-right: 1vh;
+        max-height: 25vh;
+    }
+
+}
+
+@media (min-width: 500px) {
+    body {
+        margin: 0% 10%;
+
+    }
+}
+
+@media (min-width: 600px) {
+
+    #infoManual {
+        display: grid;
+        row-gap: 1vh;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+    }
+
+    #infoManual img {
+        height: 85%;
+        max-width: 70%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #infoManual div {
+        align-self: center;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #infoManual div:nth-of-type(2) {
+        grid-area: 2/1/3/3;
+    }
+
+    .paso img {
+        max-height: 30vh;
+    }
+
+}
+
+@media (min-width: 700px) {
+
+    /*Muestro el texto del botón volver*/
+    #botonVolver span {
+        display: inline;
+    }
+
+    #informacionInicial {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+    }
+
+    #infoManual {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #equipoNecesario {
+        background-color: transparent;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-right: 1vh;
+    }
+
+    #equipoNecesario div,
+    #seguridad div {
+        border-radius: 8px;
+        bottom: 0%;
+    }
+
+    #equipoNecesario div {
+        background-color: rgba(49, 142, 165, 0.6);
+    }
+
+    #equipoNecesario h4,
+    #seguridad h4 {
+        margin-bottom: 0%;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    #seguridad {
+        background-color: transparent;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1vh;
+    }
+
+    #seguridad div {
+        background-color: rgba(92, 128, 1, 0.6);
+    }
+
+    /*Los pasos del manual*/
+    .paso {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-rows: auto auto 5%;
+    }
+
+    .paso div {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        display: flex;
+        flex-direction: row;
+        flex-basis: content;
+        justify-content: flex-start;
+    }
+
+    .paso div h3 {
+        line-height: 0%;
+        width: 14vh;
+    }
+
+    .paso div p {
+        align-self: center;
+        font-weight: bold;
+    }
+
+    .paso img {
+        align-self: center;
+        height: 100%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .paso p:nth-of-type(2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .paso hr {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 860px) {
+    body {
+        margin: 0% 12%;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        margin: 0% 15%;
+    }
+
+    #infoManual div {
+        margin: auto;
+        max-width: 100%;
+    }
+
+    #infoManual div h3 {
+        font-size: x-large;
+        align-content: center;
+    }
+
+    /*Quito la opción del botón "mostrar"*/
+    #mas,
+    #masEquipo,
+    #masSeguridad {
+        display: inline;
+    }
+
+    #botonLeerMas,
+    #botonLeerMasEquipo,
+    #botonLeerMasSeguridad,
+    #puntos,
+    #puntosEquipo,
+    #puntosSeguridad {
+        display: none;
+    }
+
+    .paso img {
+        height: 100%;
+        width: 100%;
+        justify-self: center;
+    }
+
+>>>>>>> 752454b7ff63fbca6c072fda8cc9a86b634fa77b
+}

@@ -16,12 +16,12 @@
         </div>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action=".php" method="post" id="formulario">
             <fieldset>
-                <input type="text" id="izena" name="izena" placeholder="Maria del mar"><br>
-                <input type="text" id="abizena" name="abizena" placeholder="G&oacute;mez L&oacute;pez"><br>
-                <input type="text" id="email" name="email" placeholder="mariagomez@gmail.com"><br>
-                <input type="tel" id="telefonoa" name="telefonoa" placeholder="654654654"><br>
+                <input type="text" class="texto" id="izena" name="izena" placeholder="Maria del mar"><br>
+                <input type="text" class="texto" id="abizena" name="abizena" placeholder="G&oacute;mez L&oacute;pez"><br>
+                <input type="text" class="texto" id="email" name="email" placeholder="mariagomez@gmail.com"><br>
+                <input type="tel" class="texto" id="telefonoa" name="telefonoa" placeholder="654654654"><br>
                 <textarea name="" class="tarea" id="mesua" cols="80" rows="10" placeholder="Escribe &aacute;qui tu mensaje"></textarea>
-                <input type="submit" value="Enviar" class="btn">
+                <input type="submit" class="btn" value="Enviar" >
             </fieldset>
         </form>
         <?php require_once '../Footer/footer.php'?>
