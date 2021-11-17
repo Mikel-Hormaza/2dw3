@@ -28,7 +28,7 @@ foreach ($datosUsuario as $usuarios) {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contrasena = $usuarios['passUsuario'];
             $codUsuario= $usuarios['codUsuario'];
-            $permiso= $usuarios['permisoUsuario'];
+            $permisoDeUsuario= $usuarios['permisoUsuario'];
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -36,7 +36,7 @@ foreach ($datosUsuario as $usuarios) {
             
             } elseif (empty($_POST["Contrasena"])) {
                 $errorpass = "Escriba una contrasena";
-              
+               
             } else {
                 $nombre = isset($_REQUEST['NombredeUsuario']) ? $_REQUEST['NombredeUsuario'] : null;
                 $pass = isset($_REQUEST['Contrasena']) ? $_REQUEST['Contrasena'] : null;
@@ -46,13 +46,13 @@ foreach ($datosUsuario as $usuarios) {
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
                     $_SESSION['codUsuario']=$codUsuario;
                     $_SESSION['permisoUsuario'] = $_REQUEST['permisoUsuario'];
-                    $_SESSION['permisoUsuario']=$permiso;
+                    $_SESSION['permisoUsuario'] = $permisoDeUsuario;
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contrasena erroneos";
-                    
+                    echo "<script type='text/javascript'>alert('$errorinicio');</script>";
                 }
             }
         }
@@ -61,4 +61,3 @@ foreach ($datosUsuario as $usuarios) {
 }
 
 $conexion = null;
-?>
