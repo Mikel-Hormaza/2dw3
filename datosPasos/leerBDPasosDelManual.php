@@ -3,7 +3,6 @@ session_start();
 $datosManual;
 $datosPasos;
 
-$_SESSION["codManualSeleccionado"]=1; #parche
 $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
 
 function llamarBD()

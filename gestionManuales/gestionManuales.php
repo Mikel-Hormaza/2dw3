@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestión manuales</title>
+    <title>Gestión de manuales</title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
     <?php require_once "BDGestionManuales.php" ?>
@@ -13,7 +13,7 @@
 <?php require_once '../Header/Header.php' ?>
     <section>
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
-        <button class="botonVolver">Volver<span> a biblioteca</span></button>
+        <button class="botonVolver"><a href="../buscarHerramienta/buscadorHerramientas.php">volver</a></button>
         <div id=botones>
             <button><a href="../buscarHerramienta/buscadorHerramientas.php">crear</a></button>
         </div>
