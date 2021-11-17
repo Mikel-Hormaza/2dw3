@@ -50,12 +50,7 @@
         <button><img src="Imagenes/siguiente.png" alt="triangulo"></button>
         <button><img src="Imagenes/último.png" alt="triangulo"></button>
     </div>
-
-<<<<<<< HEAD
-
-=======
     <?php require_once "../Footer/footer.php" ?>
->>>>>>> Mikel
 </body>
 
 </html>
