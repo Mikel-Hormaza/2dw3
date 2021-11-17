@@ -17,7 +17,11 @@
                         <input type="button" class="mostrar" id="mostrar" value="Mostrar más">
             </div>
             <div class="portada">
+<<<<<<< HEAD
                 <img class="imgPortada" src="../Index/Fotos/portada.png" >
+=======
+                <img class="imgPortada" src="../Index/Fotos/portada.png">
+>>>>>>> Saray
             </div>
         </div>
         <div class="container">

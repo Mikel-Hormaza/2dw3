@@ -1,27 +1,73 @@
+<<<<<<< HEAD
+=======
+html {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+body {
+    margin: 2vh;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
+}
+
+>>>>>>> Saray
 .container2 {
     display: grid;
     /*margin-top: 0%;*/
-    grid-template-areas:
+    /* grid-template-areas:
     'quienes quienes quienes'
-    'somos img';
-    grid-template-rows: auto auto;
-    grid-template-columns: auto;
+    'somos img';*/
+    grid-template-rows: 52px auto;
+    grid-template-columns: 50% 42%;
     max-height: 55%;
+    grid-column-gap: 5%;
+    grid-row-gap: 10%;
+    margin-left: 3%;
+    /* margin-right: 3%; */
 }
 .quienes {
-    position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    /* margin-left: 3%; */
+    /* margin-right: 3%; */
+    border-radius: 6px;
+    /* width: 94%; */
+    color: #626267;
+    background-color: #EFC227B3;
+    font-size: 80%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    /* position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen
     left: 3%;
     margin-right: 50%;
-    /* margin-right: 6%; */
+    /* margin-right: 6%;
     margin-top: 3%;
     color: #626267;
     background-color: #EFC227B3;
     border-radius: 5px;
     font-size: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 .somos {
-    position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* margin-left: 6%; */
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 90%;
+    color: white;
+    background-color: #5c8001B3;
+    border-radius: 5px;
+
+
+    /* position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen
     top: 0%;
     left: 3%;
     margin-right: 50%;
@@ -30,7 +76,20 @@
     border-radius: 5px;
     text-align: left;
     font-size: 95%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif; */
+}
+.portada {
+    display: grid;
+    justify-content: center;
+
+    border-radius: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    /* margin-right: 15%; */
+    /* align-items: center; */
 }
 .container {
     position: relative;
@@ -38,13 +97,12 @@
     text-align: center;
     justify-content: center;
     margin-top: 10%;
-    margin-bottom: 6%;
 }
 .ocultado {
     background-color: #EFC227;
     border-radius: 3px;
     border: none;
-    margin-bottom: 3%;
+    margin-top: 0%;
     margin-left: 5%;
 }
 .mostrado {
@@ -55,21 +113,7 @@
     margin-bottom: 3%;
     margin-left: 5%;
 }
-.portada {
-    /* background-color: lightcoral; */
-    margin-top: -25%;
-    margin-left: 60%;
-    /* width: 40%; */
-    /* height: 40%; */
-}
-.imgPortada {
-    object-fit: cover;
-    width: 70%;
-    height: 80%;
-    margin-top: 0%;
-    /* height: 75%; */
-    /* margin-left: 40%; */
-}
+
 .quienes h2 {
     margin-left: 5%;
 }
@@ -90,7 +134,7 @@
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row: 1;
- 
+
 }
 .div3 {
     display: flex;
@@ -200,23 +244,33 @@
     border-radius: 7%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
- 
+
 @media only screen and (max-width: 900px) {
- 
-    /*.container2 {
+
+    .container2 {
         display: grid;
-        margin-top: 0%;
-        grid-template-areas:
+        /*margin-top: 0%;*/
+        /* grid-template-areas:
         'quienes quienes quienes'
-        'somos img';
-        grid-template-rows: 2fr 5fr;
-        grid-template-columns: 5fr 5fr;
+        'somos img';*/
+        /* grid-template-rows: 52px 80%; */
+        /* grid-template-columns: 50% 42%; */
         max-height: 55%;
-    }*/
- 
+        grid-column-gap: 5%;
+        grid-row-gap: 5%;
+    }
+
     .quienes {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        /* margin-right: 3%; */
+        /* margin-right: 6%; */
+        /* margin-right: 3%; */
         border-radius: 6px;
-        width: 94%;
+        /* width: 94%; */
         color: #626267;
         background-color: #EFC227B3;
         font-size: 80%;
@@ -224,32 +278,23 @@
         text-align: center;
     }
     .somos {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
         /* margin-left: -100%; */
         /* margin-right: 130%; */
         /* width: 45%; */
-        margin-top: 5%;
+        /* margin-top: 5%; */
         color: white;
         background-color: #5c8001B3;
         border-radius: 5px;
-        border: none;
+        /* border: none; */
         text-align: left;
-        font-size: 65%;
+        font-size: 70%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    .portada {
-        /* background-color: lightcoral; */
-        width: 50%;
-        /* height: 100%; */
-        margin-left: 45%;
-    }
-    .imgPortada {
-        object-fit: cover;
-        margin-top: 10%;
-        margin-left: 30%;
-        /* right: 10%; */
-        /* margin-right: 10%; */
-        width: 60%;
-    }
+
     .quienes h2 {
         margin-left: 3%;
     }
@@ -257,12 +302,14 @@
         margin-left: 4%;
         margin-right: 4%;
     }
+
     .ocultado {
         background-color: #EFC227;
         border-radius: 3px;
         border: none;
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
         margin-left: 5%;
+        margin-top: 0%;
     }
     .mostrado {
         display: none;
@@ -279,7 +326,7 @@
         justify-content: center;
         margin-top: 10%;
     }
- 
+
     .div1 {
         display: flex;
         justify-content: center;
@@ -293,7 +340,7 @@
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row: 1;
-   
+
     }
     .div3 {
         display: flex;
@@ -402,7 +449,7 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
- 
+
 @media only screen and (max-width: 560px) {
     .container2 {
         display: grid;
@@ -411,10 +458,12 @@
         'somos';
         /*height: 50%;*/
         margin-top: 0%;
+        /* margin-left: 3%; */
+        margin-right: 3%;
     }
     .quienes {
         /*margin-top: 70%;*/
-        width: 94%;
+        /* width: 94%; */
         border-radius: 6px;
         /*grid-area: quienes;
         /*grid-column-start: 1;
@@ -436,7 +485,9 @@
         grid-row-end: 3;*/
         border-radius: 6px;
         /* margin-right: 2%; */
-        width: 94%;
+        /* width: 94%; */
+        /* margin-left: 3%; */
+        margin-right: -5%;
         /*height: 40%;*/
         color: white;
         background-color: #5c8001B3;
@@ -449,12 +500,11 @@
         margin-right: 5%;
     }
     .ocultado {
-        border-radius: 8px;
         background-color: #EFC227;
+        border-radius: 3px;
         border: none;
-        font-size: 110%;
-        margin-bottom: 5%;
-        margin-left: 3%;
+        margin-bottom: 3%;
+        margin-left: 5%;
     }
     .mostrado {
         display: none;
@@ -474,13 +524,12 @@
     .container {
         position: relative;
         display: grid;
+        grid-row-gap: 0%;
         text-align: center;
         justify-content:center;
-        margin-right: 2%;
-        left: 1%;
-        /*top: -6%;*/
+        top: 2%;
     }
- 
+
     .div1 {
         display: flex;
         justify-content: center;
@@ -494,7 +543,7 @@
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row: 1;
-   
+
     }
     .div3 {
         display: flex;
@@ -546,7 +595,7 @@
         grid-row-start: 7;
         grid-row-end: 8;
     }
- 
+
     .carac1 {
         /*width: 42%;*/
         position: absolute;
