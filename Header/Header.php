@@ -39,7 +39,7 @@
                 </ul>
                 
             </nav>
-            <input type="button" value="Iniciar sesion" class="sesion" class="item3">
+            <button class="sesion" class="item3" onclick="window.location.href='../Inicio de sesion/Login.php'">Iniciar sesion</button>
         </div>
     </header>
     <script src="../Header/header.js"></script>
