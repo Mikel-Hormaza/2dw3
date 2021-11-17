@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<?php require_once "../Header/Header.php" ?>
     <section>
         <img src="Imagenes/imgGestionHerramientas.jpg" alt="Imagen herramienta">
         <button class="botonVolver"><a>Volver<span> a biblioteca</span></a></button>
@@ -19,32 +20,12 @@
     </section>
 
 
-    <section>
-        <div>
-            <button id="idBotonDesplegar" class="botonDesplegar"></button>
-            <div id="idBloqueDesplegar" class="contenidoADesplegar">
-                <a id="categoria">Categoría</a>
-                <a>Creados por mí</a>
-                <a>Todos</a>
-            </div>
-            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-        </div>
-
-
-        <div>
-            <button id="idBotonCategoria" class="botonCategoria">Categoría &#9947</button>
-            <div id="idContenidoCategoria" class="contenidoCategoria">
-                <a>maquina-herramienta</a>
-                <a>electronica</a>
-                <a>herramienta taller</a>
-            </div>
-        </div>
-    </section>
+    
 
     <main id="listaHerramientas">
 
     <?php
-        foreach ($datosHerramienta as $herramienta) {
+        foreach ($sqlherramienta as $herramienta) {
            
         ?>
 
@@ -53,9 +34,10 @@
                 <p>editar</p>
                 <img src="Imagenes/edit.png" alt="editar">
             </button>
-            <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
             <p> <?php echo $herramienta["categoria"]?></p>
-           <img class="fotoDelManual" <?php echo $imagen?>/>
+            <p>COD: <?php echo $herramienta["codHerramienta"] . " - " . $herramienta["nombreHerramienta"]?></p>
+            <?php echo '<img class="fotoDelManual" src="data:image/jpeg;base64,' . base64_encode($herramienta["fotoHerramienta"]) . '"/>'?>
+
         </div>
         <?php
         }
@@ -69,7 +51,7 @@
         <button><img src="Imagenes/último.png" alt="triangulo"></button>
     </div>
 
-
+    <?php require_once "../Footer/footer.php" ?>
 </body>
 
 </html>

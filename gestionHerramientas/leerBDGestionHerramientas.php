@@ -4,7 +4,8 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 session_start();
-$codUsuario= $_SESSION[$usuarios['codUsuario']];
+/*$codUsuario = $_SESSION['codUsuario'];
+$permisoDeUsuario = $_SESSION['permisoUsuario'];*/
 
 
 try {
@@ -13,36 +14,16 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Select para coger la informacion de las herramientas
-    $sqlherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
-    FROM herramienta";
-
-    $resultadoHerramienta = $conexion->query($sqlherramienta);
-    $datosHerramienta = $resultadoHerramienta->fetchAll();
-
-    //Select para coger la informacion de las herramientas segun el usuario
-    $sqlherramientaususario = "SELECT herramienta.codHerramienta, nombreHerramienta, categoria, fotoHerramienta FROM herramienta, manual, usuario 
-    WHERE herramienta.codHerramienta=manual.codHerramienta && manual.codUsuario=usuario.codUsuario";
-
-    $misherramientas = $conexion->query($sqlherramientaususario);
-    $datosMisHerramienta = $misherramientas->fetchAll();
-
-    //Select para coger la informacion de las herramientas segun la categoria seleccionada
-    $sqlcategoriaherramienta = "SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta
-    FROM herramienta ";/*WHERE categoria=$categoria*/
-
-    $categoriaherramienta = $conexion->query($sqlcategoriaherramienta);
-    $datosCategoria = $categoriaherramienta->fetchAll();
-
-    //Preparar PDO SQL
-    $sqlimagen = $conexion->prepare("SELECT fotoHerramienta FROM herramienta WHERE codHerramienta='1'");
+    $sqlherramienta = $conexion->prepare("SELECT codHerramienta, nombreHerramienta, categoria, fotoHerramienta 
+    FROM herramienta");
 
     //Hacer la consulta db
 
-    if ($sqlimagen) {
-        $sqlimagen->execute();
+    if ($sqlherramienta) {
+        $sqlherramienta->execute();
 
         //Coge el contenido del registro dentro de $row
-        $row = $sqlimagen->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
+        $row = $sqlherramienta->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
 
         $image = $row['fotoHerramienta'];
 
@@ -53,16 +34,15 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-foreach ($datosHerramienta as $herramienta) {
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $codherramienta = $herramineta['codHerramienta'];
+$conexion = null;
+/*foreach ($sqlherramienta as $herramienta) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $codherramienta = $herramineta['codHerramienta'];
 
         session_start();
-        $_SESSION[$herramineta['codHerramienta']] = $_REQUEST[$herramineta['codHerramienta']];
+        $_SESSION['codHerramienta']=$codherramienta;
 
         header('Location: ../gestionHerramientas/gestionHerramientas.php');
-        die(); 
-
-}
-}
-$conexion = null;
+        die();
+    }
+}*/
