@@ -6,7 +6,6 @@
     <script src="visualizarManual.js"></script>
     <title>Visualizar manual</title>
     <?php require_once "leerBDVisualizarManual.php" ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 </head>
 
 <body>
