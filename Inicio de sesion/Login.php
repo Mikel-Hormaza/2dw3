@@ -53,7 +53,7 @@
 >>>>>>> Mikel
        
 =======
-        </ /?php require_once '../Footer/footer.php' ?>
+        <?php require_once '../Footer/footer.php' ?>
 
 >>>>>>> Mikel
 </body>
