@@ -2,7 +2,7 @@
 
 session_start();
 require_once 'Manual.php';
-$_SESSION["codUsuario"] = 1; #parche
+/* $_SESSION["codUsuario"] = 1; #parche */
 
 $servidor  = "localhost";
 $user = "root";

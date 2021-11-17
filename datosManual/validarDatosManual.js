@@ -36,16 +36,16 @@ function comprobarFoto() {
 
     let editarOCrear = document.getElementById("tipoDeInteraccion").textContent;
     if (editarOCrear == "editar") {
-        if(comprobacionesEditar()){
+        if (comprobacionesEditar()) {
             return true;
-        }else{
-            return  false;
+        } else {
+            return false;
         }
     } else {
-        if(comprobacionesCrear()){
+        if (comprobacionesCrear()) {
             return true;
-        }else{
-            return  false;
+        } else {
+            return false;
         }
     }
 
@@ -59,8 +59,8 @@ function comprobacionesCrear() {
             alert(mensajeErrorFormatoImagen());
             return false;
         }
-    }else{
-       alert(comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()));
+    } else {
+        alert(comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()));
     }
 }
 
@@ -72,8 +72,8 @@ function comprobacionesEditar() {
             alert(mensajeErrorFormatoImagen());
             return false;
         }
-    }else{
-        return  true;
+    } else {
+        return true;
     }
 }
 

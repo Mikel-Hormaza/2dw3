@@ -7,7 +7,6 @@ function inicio() {
     contarManuales();
 }
 
-/*PARCHE si hay un único manual */
 function contarManuales() {
     let countManuales = document.getElementById("listaManuales").childElementCount;
     if (countManuales > 0) {
@@ -17,12 +16,12 @@ function contarManuales() {
 
 function anadirFuncionClickACadaManual(count) {
     for (i = 1; i <= count; i++) {
-        document.querySelector(".manual" + i + " button").addEventListener("click", manualSeleccionado);
-        document.querySelector(".manual" + i + " button:nth-child(2)").addEventListener("click", manualSeleccionado);
+        document.querySelector(".manual" + i + " button").addEventListener("click", editarOEliminarManualSeleccionado);
+        document.querySelector(".manual" + i + " button:nth-child(2)").addEventListener("click", editarOEliminarManualSeleccionado);
     }
 }
 
-function manualSeleccionado() {
+function editarOEliminarManualSeleccionado() {
     /*el manual seleccionado */
     let boton = event.currentTarget;
     let divDondeSeEncuentraElBoton = boton.parentElement;
@@ -39,7 +38,6 @@ function manualSeleccionado() {
             enviarOpcionEliminar(boton, divDondeSeEncuentraElBoton, codManual);
         }
     }
-
 
 }
 

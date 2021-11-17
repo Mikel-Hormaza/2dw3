@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<?php require_once '../Header/Header.php' ?>
+    <?php require_once '../Header/Header.php' ?>
     <section>
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
         <button class="botonVolver"><a href="../Biblioteca/Biblioteca.php">volver</a></button>
@@ -73,7 +73,7 @@
         <button id="ultimo" name="ultimo"><img src="Imagenes/último.png" alt="ultimo"></button>
     </form>
 
-<?php require_once '../Footer/footer.php' ?>
+    <?php require_once '../Footer/footer.php' ?>
 </body>
 
 </html>

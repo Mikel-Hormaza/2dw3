@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="../creacionManual/crearManual.css">
     <script src="Paso.js"></script>
     <script src="gestionarDatosPasos.js"></script>
-    <?php 
-    require_once "leerBDPasosDelManual.php"; 
+    <?php
+    require_once "leerBDPasosDelManual.php";
     ?>
 </head>
 
 <body id="bodyCrearManual3">
-<?php require_once '../Header/Header.php' ?>
+    <?php require_once '../Header/Header.php' ?>
     <section>
         <div class="titulo" id="verde">
             <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
@@ -46,7 +46,7 @@
         ?>
     </div>
 
-    <span id="codigoDelPasoSeleccionado"><?php if(isset($_SESSION["botonPasoSeleccionado"])) echo $_SESSION["botonPasoSeleccionado"];?></span>
+    <span id="codigoDelPasoSeleccionado"><?php if (isset($_SESSION["botonPasoSeleccionado"])) echo $_SESSION["botonPasoSeleccionado"]; ?></span>
     <?php require_once '../Footer/footer.php' ?>
 </body>
 

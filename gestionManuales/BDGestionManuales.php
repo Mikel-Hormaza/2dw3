@@ -5,8 +5,8 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 
-$_SESSION["codUsuario"] = 1; #parche
-$_SESSION["permisoDeUsuario"] = "admin"; #parche
+/* $_SESSION["codUsuario"] = 1; #parche
+$_SESSION["permisoDeUsuario"] = "admin"; #parche */
 
 $maxLimit = 6; //la cantidad de manuales que se pueden mostrar
 
@@ -18,18 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['primero'])
     or isset($_POST['ultimo']))) {
     gestionarBotonesNavegacionInicioFinal();
 }
-/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ 
-elseif (
+/*ELSEIF: comprueba si hemos hecho submit en el filtrado */ elseif (
     $_SERVER["REQUEST_METHOD"] == "POST"
     && (isset($_POST['idCreadosPorMi'])
         or isset($_POST['idTodos'])
         or isset($_POST['idmaquina-herramienta'])
         or isset($_POST['idelectronica'])
-        or isset($_POST['idherramienta-taller']))) {
+        or isset($_POST['idherramienta-taller']))
+) {
     filtrarLosManualesMostrados();
 }
-/*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ 
-else {
+/*ELSE: la primera vez que la página se carga, cuando aún no se han enviado formularios, vale cero. Es la primera variable del LIMIT en las SELECT*/ else {
     $primeraVariableLimit = 0;
     prepararWhereYLimitDeLaSelect($primeraVariableLimit, "ASC", $_SESSION["codUsuario"], null, false);
 }
@@ -83,7 +82,6 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
         $datoNumTotalManuales = $numTotalManuales->fetchAll();
 
         $conexion = null;
-
     } catch (PDOException $e) {
         echo $sqlManuales . "<br>" . $e->getMessage();
     }

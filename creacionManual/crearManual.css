@@ -91,7 +91,8 @@ button,
 main div:last-of-type {
     border-radius: 8px;
 }
-#idDivPasos div img{
+
+#idDivPasos div img {
     border-radius: 12px;
 }
 
@@ -243,19 +244,20 @@ button {
     cursor: pointer;
 }
 
-.paso{
+.paso {
     margin-bottom: 1vh;
     border-radius: 8px;
 }
+
 .paso div {
     display: flex;
 }
 
-#idDivPasos .paso:nth-child(odd):hover{
+#idDivPasos .paso:nth-child(odd):hover {
     background-color: rgba(239, 194, 39, 0.8);
 }
 
-#idDivPasos .paso:nth-child(even):hover{
+#idDivPasos .paso:nth-child(even):hover {
     background-color: rgba(239, 194, 39, 0.6);
 }
 
@@ -275,14 +277,14 @@ p {
 }
 
 h3,
- section p,
- main p {
+section p,
+main p {
     color: #626267;
 }
 
 #inputPasoSeleccionado,
 #eliminarPaso,
-#tipoDeInteraccion{
+#tipoDeInteraccion {
     display: none;
 }
 

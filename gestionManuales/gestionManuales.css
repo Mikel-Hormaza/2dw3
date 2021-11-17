@@ -172,7 +172,7 @@ button {
 }
 
 #spanBotonesInicioFinal,
-#formularioQueMandaElCodDeManual{
+#formularioQueMandaElCodDeManual {
     display: none;
 }
 
@@ -201,7 +201,7 @@ button {
     la opción desplegable*/
     .botonDesplegar,
     .contenidoADesplegar,
-    .contenidoCategoria{
+    .contenidoCategoria {
         display: block;
     }
 
@@ -226,17 +226,17 @@ button {
         border: 2px solid #626267;
     }
 
-    
-    .contenidoADesplegar{
+
+    .contenidoADesplegar {
         width: 180px;
     }
 
     .contenidoCategoria {
         margin-left: 178px;
         width: 240px;
-    } 
+    }
 
-    #categoria:hover{
+    #categoria:hover {
         position: relative;
     }
 
@@ -255,7 +255,8 @@ button {
         display: block;
         width: 100%;
     }
-    .contenidoCategoria button{
+
+    .contenidoCategoria button {
         background-color: #b9c1c4;
     }
 
@@ -289,6 +290,7 @@ button {
 }
 
 @media(min-width: 550px) {
+
     /*No mostrar los el texto de los botones*/
     #listaManuales div button p {
         display: none;

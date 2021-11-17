@@ -51,7 +51,7 @@ function eliminar() {
     }
 }
 
-function activarBotonEliminarPaso(){
+function activarBotonEliminarPaso() {
     let botonEliminarPaso = document.getElementById("botonEliminarPaso");
     botonEliminarPaso.style.display = "block";
 }

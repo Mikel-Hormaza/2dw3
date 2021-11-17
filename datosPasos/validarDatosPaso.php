@@ -290,5 +290,3 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
-
-?>
