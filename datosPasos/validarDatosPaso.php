@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'Paso.php';
+require_once 'Paso.php' ;
 $servidor  = "localhost";
 $user = "root";
 $pass = "";

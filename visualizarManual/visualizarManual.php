@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- jQuery library -->
-
-<!-- jsPDF library -->
-<!-- <script src="js/jsPDF/dist/jspdf.min.js"></script> -->
-
 <head>  
     <meta charset="UTF-8">
     <link rel="stylesheet" href="visualizarManual.css">

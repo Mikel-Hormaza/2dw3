@@ -20,8 +20,7 @@ function obtenerDivs() {
   comprobarNumeroDeSpans(div3, 3);
 }
 
-/*Comprobar si hay un spa en el div. 
-Si hay uno añadir el addEventListener al boton.
+/*Comprobar si hay un spa en el div. Si hay uno añadir el addEventListener al boton.
 Si hay dos, no añadir*/
 function comprobarNumeroDeSpans(div, tipo) {
 

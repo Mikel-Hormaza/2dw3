@@ -38,7 +38,6 @@ function editarOEliminarManualSeleccionado() {
             enviarOpcionEliminar(boton, divDondeSeEncuentraElBoton, codManual);
         }
     }
-
 }
 
 function enviarOpcionEliminar(boton, divDondeSeEncuentraElBoton, codManual) {

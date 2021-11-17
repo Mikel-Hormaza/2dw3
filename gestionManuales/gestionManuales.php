@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de manuales</title>
+    <title>Gestión de manuales </title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
     <?php require_once "BDGestionManuales.php" ?>
