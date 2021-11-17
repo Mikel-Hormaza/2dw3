@@ -4,8 +4,8 @@ $servidor  = "localhost";
 $usuario = "root";
 $password = "";
 session_start();
-$codUsuario = $_SESSION['codUsuario'];
-$permisoDeUsuario = $_SESSION['permisoUsuario'];
+/*$codUsuario = $_SESSION['codUsuario'];
+$permisoDeUsuario = $_SESSION['permisoUsuario'];*/
 
 
 try {
