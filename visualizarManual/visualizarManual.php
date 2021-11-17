@@ -21,7 +21,7 @@
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datosManual[0]["fotoManual"]) . '"/>' ?>
             <h2 id="tituloManual"><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
-        <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
+        <button id="botonVolver"><a href="../Biblioteca/Biblioteca.php">Volver<span> a gestión de manuales</span></a></button>
     </section>
     <div>
         <button id="generarPDF">generar pdf</button>
@@ -36,7 +36,7 @@
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
                     <h3>Creador: <?php echo $datosManual[0]["nomUsuario"]; ?></h3>
                 </div>
-                <div id="divInfoDetallesManual">
+                <div>
                     <?php mostrarBotonMostrar($informacionManual, 1); ?>
                 </div>
             </div>

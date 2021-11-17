@@ -7,40 +7,10 @@ window.addEventListener("load", inicio);
 /*Mostrar más*/
 function inicio() {
   obtenerDivs();
-  document.getElementById("generarPDF").addEventListener("click", generarPDF);
+  //document.getElementById("generarPDF").addEventListener("click", generarPDF);
 }
 
-function generarPDF() {
-/*   let docPDF = new jsPDF();
-  
-    let tituloManual = document.getElementById("tituloManual").childNodes[0].textContent;
-    let codManual = document.getElementsByTagName("h3")[0].textContent;
-    let fechaCreacion = document.getElementsByTagName("h3")[1].textContent;
-    let creador = document.getElementsByTagName("h3")[2].textContent;
-
-    let infoDetallesManual = document.getElementById("divInfoDetallesManual").childNodes[1].textContent;
-    let equipoNecesario = document.getElementById("divInfoEquipoNecesario").childNodes[3].textContent;
-    let medidasDeSeguridad = document.getElementById("divInfoMedidasSeguridad").childNodes[3].textContent;
-
-  docPDF.text(20, 20, codManual);
-    docPDF.text(20, 30, tituloManual);
-    docPDF.text(20, 40, fechaCreacion);
-    docPDF.text(20, 50, creador); 
-
-    docPDF.text(20,  60, infoDetallesManual);
-  docPDF.text(20, 70, equipoNecesario);
-    docPDF.text(20, 80, medidasDeSeguridad);
-
-
-    docPDF.addPage();
-    doc.setProperties({
-      overflow:'linebreak'
-    });
-    
-  docPDF.save('documento.pdf'); */
-}
-
-/*Obtener los divs con párrafos*/
+/*Obtener los divs con información del manual*/
 function obtenerDivs() {
   div1 = document.getElementById("divInfoDetallesManual");
   div2 = document.getElementById("divInfoEquipoNecesario");
@@ -50,12 +20,12 @@ function obtenerDivs() {
   comprobarNumeroDeParrafos(div3, 3);
 }
 
-/*Comprobar si hay uno o dos párrafos een los div. 
-Si hay uno, no añadir addEventListener al botón porque no existe.
-Si hay dos, añadir*/
+/*Comprobar si hay un spa en el div. 
+Si hay uno añadir el addEventListener al boton.
+Si hay dos, no añadir*/
 function comprobarNumeroDeParrafos(div, tipo) {
-  let elementosDiv = div.getElementsByTagName("P");
-  if (elementosDiv > 1) {
+  let elementosDiv = div.getElementsByTagName("span").length;
+  if (elementosDiv > 0) {
     anadirEventListener(tipo);
   }
 }
@@ -103,3 +73,40 @@ function mostrarTexto(puntosSuspensivos, mas, boton) {
     masText.style.display = "inline";
   }
 }
+
+function generarPDF() {
+
+  html2canvas(document.getElementById("informacionInicial"),{
+    onrendered: function(canvas){
+      var doc = new jsPDF();
+      var img= canvas.toDataURL("image/png");
+      doc.addImage(img, 'JPGE', 2, 2);
+      doc.save('prueba.pdf');
+    }
+    
+  });  
+  
+  /*   let docPDF = new jsPDF();
+    
+      let tituloManual = document.getElementById("tituloManual").childNodes[0].textContent;
+      alert(tituloManual);
+      let codManual = document.getElementsByTagName("h3")[0].textContent;
+      let fechaCreacion = document.getElementsByTagName("h3")[1].textContent;
+      let creador = document.getElementsByTagName("h3")[2].textContent;
+  
+      let infoDetallesManual = document.getElementById("divInfoDetallesManual").childNodes[1].textContent;
+      let equipoNecesario = document.getElementById("divInfoEquipoNecesario").childNodes[3].textContent;
+      let medidasDeSeguridad = document.getElementById("divInfoMedidasSeguridad").childNodes[3].textContent;
+  
+  /*   docPDF.text(20, 20, codManual);
+      docPDF.text(20, 30, tituloManual);
+      docPDF.text(20, 40, fechaCreacion);
+      docPDF.text(40, 50, creador);  */
+  
+  /*     docPDF.text(20,  60, infoDetallesManual);
+    docPDF.text(20, 70, equipoNecesario);
+      docPDF.text(20, 80, medidasDeSeguridad); */
+  
+      
+    //docPDF.save('documento.pdf'); */
+  }
