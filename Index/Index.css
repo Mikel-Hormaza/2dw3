@@ -4,335 +4,67 @@ html {
     margin-bottom: 10px;
     margin-left: 10px;
 }
- 
+
 body {
     margin: 2vh;
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
 }
- 
-/*Esto es para la parte del navegador*/
-nav {
-    padding: 1em;
-}
- 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: #EFC227;
-    text-decoration: none;
-    border-radius: 3px;
-}
- 
-nav li a {
-    color: white;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-    border-radius: 3px;
-}
- 
-nav li a:hover {
-    background: tomato;
-    color: white;
-}
- 
-/*Esta es una clase para la imagen*/
-img.logo {
-    width: 160px;
-    height: 45px;
-}
- 
-/*Esta clase es para el boton de inicio de sesion*/
-.sesion {
-    border-color: #53B3CB;
-    color: #53B3CB;
-    background-color: white;
-    width: 90%;
-    height: 30px;
-    margin: 0.5rem;
-    border-radius: 5px;
-    position: relative;
-    justify-content: center;
-}  
- 
-.Headermain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
- 
-.mobile-btn {
-    font-size:30px;
-    cursor:pointer;
-    font-weight:bold;
-    float: right;
-    padding: 0 0.7em 0 0;
-}
- 
-/*Tablet*/
-@media only screen and (max-width: 900px) {
-    body {
-        margin: 0% 12%;
-    }
- 
-   
-    .item1 {grid-area: logo;}
-    .item2 {grid-area: menu;}
-    .item3 {grid-area: boton;}
-   
-    .Headermain {
-        display: grid;
-        grid-template-areas:
-        'logo boton'
-        'menu menu';
-        grid-gap: 10px;
-        padding: 10px;
-      }
-   
-    .sesion {
-        width: 90px;    
-    }
-}
- 
-/*Movil*/
-@media screen and (min-width: 560px) {
-    body {
-        margin: 0% 10%;box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
-    }
- 
-    nav ul {
-        display: flex;
-        justify-content: center;
-    }
- 
-    .sesion {
-        width: 100px;
-    }
-   
-}
- 
-.footer-distributed{
-    background-color: #626267;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 10px;
-    text-align: left;
-    font: bold 16px sans-serif;
-    padding: 30px 50px;
-}
- 
-.footer-I, .footer-C, .footer-D{
-    display: inline-block;
-    vertical-align: top;
-}
- 
-/* Footer Izquierda */
- 
-.footer-I{
-    width: 40%;
-}
- 
-img.logo {
-    width: 170px;
-    height: 50px;  
-}
- 
-/* Footer Centro */
- 
-.footer-C{
-    width: 35%;
-}
- 
- 
-.footer-C p span{
-    font-weight: normal;
-    font-size:14px;
-    line-height:2;
-}
- 
-.footer-C p a{
-    color:  #5383d3;
-    text-decoration: none;
-}
- 
-img.maps {
-    width: 30px;
-    height: 30px;
-}
- 
-img.telefono {
-    width: 35px;
-    height: 30px;
-}
- 
-img.gmail {
-    width: 35px;
-    height: 30px;
-}
- 
-div.Footermain {
-    display: inline-flex;
-}
- 
-div.Footermain p{
-    display: block;
-    margin: auto;
-    align-items: flex-start;
-}
- 
-/* Footer Derecha */
- 
-.footer-D{
-    width: 20%;
-}
- 
-.footer-logos{
-    line-height: 20px;
-    color:  #92999f;
-    font-size: 13px;
-    font-weight: normal;
-    margin: 0;
-}
- 
-.footer-logos span{
-    display: block;
-    color:  #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
- 
-img.facebook {
-    width: 35px;
-    height: 30px;
-    margin-top: 3px;
-}
- 
-img.instagram {
-    width: 33px;
-    height: 30px;
-    margin-top: 3px;
-}
- 
-img.twitter {
-    width: 33px;
-    height: 30px;
-    margin-top: 3px;
-}
- 
-.footer-icons{
-    margin-top: 25px;
-}
- 
-.footer-icons a{
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    background-color:  #53B3CB;
-    border-radius: 2px;
- 
-    font-size: 20px;
-    color: #ffffff;
-    text-align: center;
-    line-height: 35px;
- 
-    margin-right: 3px;
-    margin-bottom: 5px;
-}
- 
-/*Tablet*/
- 
-@media only screen and (max-width: 900px){
-   
-    .footer-I {grid-area: I;}
-    .footer-C {grid-area: C;}
-    .footer-D {grid-area: D;}
-    .footer-icons {grid-area: A;}
-   
-    .footer-distributed {
-        font: bold 14px sans-serif;
-        display: grid;
-        grid-template-areas:
-        'I D'
-        'I D'
-        'C D'
-        'C A';
-        grid-gap: 10px;
-        padding: 10px;
-    }
- 
-    .footer-I, .footer-C, .footer-D{
-        display: block;
-        width: 100%;
-        margin-bottom: 40px;
-        text-align: center;
-    }
- 
-    .footer-C i{
-        margin-left: 0;
-    }
- 
- 
-}
- 
-/*Movil*/
- 
-@media only screen and (max-width: 560px) {
- 
-    .footer-distributed{
-        font: bold 14px sans-serif;
-        display: grid;
-        grid-template-areas:
-        'I'
-        'C'
-        'D'
-        'A';
-        grid-gap: 10px;
-        padding: 10px;
-    }
- 
-    .footer-I, .footer-C, .footer-D{
-        display: block;
-        width: 100%;
-        margin-bottom: 40px;
-        text-align: center;
-    }
- 
-    .footer-C i{
-        margin-left: 0;
-    }
- 
-}
- 
+
 .container2 {
     display: grid;
     /*margin-top: 0%;*/
-    grid-template-areas:
+    /* grid-template-areas:
     'quienes quienes quienes'
-    'somos img';
-    grid-template-rows: auto auto;
-    grid-template-columns: auto;
+    'somos img';*/
+    grid-template-rows: 52px auto;
+    grid-template-columns: 50% 42%;
     max-height: 55%;
+    grid-column-gap: 5%;
+    grid-row-gap: 10%;
+    margin-left: 3%;
+    /* margin-right: 3%; */
 }
 .quienes {
-    position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    /* margin-left: 3%; */
+    /* margin-right: 3%; */
+    border-radius: 6px;
+    /* width: 94%; */
+    color: #626267;
+    background-color: #EFC227B3;
+    font-size: 80%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    /* position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen
     left: 3%;
     margin-right: 50%;
-    /* margin-right: 6%; */
+    /* margin-right: 6%;
     margin-top: 3%;
     color: #626267;
     background-color: #EFC227B3;
     border-radius: 5px;
     font-size: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 .somos {
-    position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen*/
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* margin-left: 6%; */
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 90%;
+    color: white;
+    background-color: #5c8001B3;
+    border-radius: 5px;
+
+
+    /* position: relative;           /*Aqui ponemos position absolute para que el texto se coloque encima de la imagen
     top: 0%;
     left: 3%;
     margin-right: 50%;
@@ -341,7 +73,20 @@ img.twitter {
     border-radius: 5px;
     text-align: left;
     font-size: 95%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif; */
+}
+.portada {
+    display: grid;
+    justify-content: center;
+
+    border-radius: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    /* margin-right: 15%; */
+    /* align-items: center; */
 }
 .container {
     position: relative;
@@ -349,13 +94,12 @@ img.twitter {
     text-align: center;
     justify-content: center;
     margin-top: 10%;
-    margin-bottom: 6%;
 }
 .ocultado {
     background-color: #EFC227;
     border-radius: 3px;
     border: none;
-    margin-bottom: 3%;
+    margin-top: 0%;
     margin-left: 5%;
 }
 .mostrado {
@@ -366,21 +110,7 @@ img.twitter {
     margin-bottom: 3%;
     margin-left: 5%;
 }
-.portada {
-    /* background-color: lightcoral; */
-    margin-top: -25%;
-    margin-left: 60%;
-    /* width: 40%; */
-    /* height: 40%; */
-}
-.imgPortada {
-    object-fit: cover;
-    width: 70%;
-    height: 80%;
-    margin-top: 0%;
-    /* height: 75%; */
-    /* margin-left: 40%; */
-}
+
 .quienes h2 {
     margin-left: 5%;
 }
@@ -401,7 +131,7 @@ img.twitter {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row: 1;
- 
+
 }
 .div3 {
     display: flex;
@@ -511,23 +241,33 @@ img.twitter {
     border-radius: 7%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
- 
+
 @media only screen and (max-width: 900px) {
- 
-    /*.container2 {
+
+    .container2 {
         display: grid;
-        margin-top: 0%;
-        grid-template-areas:
+        /*margin-top: 0%;*/
+        /* grid-template-areas:
         'quienes quienes quienes'
-        'somos img';
-        grid-template-rows: 2fr 5fr;
-        grid-template-columns: 5fr 5fr;
+        'somos img';*/
+        /* grid-template-rows: 52px 80%; */
+        /* grid-template-columns: 50% 42%; */
         max-height: 55%;
-    }*/
- 
+        grid-column-gap: 5%;
+        grid-row-gap: 5%;
+    }
+
     .quienes {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        /* margin-right: 3%; */
+        /* margin-right: 6%; */
+        /* margin-right: 3%; */
         border-radius: 6px;
-        width: 94%;
+        /* width: 94%; */
         color: #626267;
         background-color: #EFC227B3;
         font-size: 80%;
@@ -535,32 +275,23 @@ img.twitter {
         text-align: center;
     }
     .somos {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
         /* margin-left: -100%; */
         /* margin-right: 130%; */
         /* width: 45%; */
-        margin-top: 5%;
+        /* margin-top: 5%; */
         color: white;
         background-color: #5c8001B3;
         border-radius: 5px;
-        border: none;
+        /* border: none; */
         text-align: left;
-        font-size: 65%;
+        font-size: 70%;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    .portada {
-        /* background-color: lightcoral; */
-        width: 50%;
-        /* height: 100%; */
-        margin-left: 45%;
-    }
-    .imgPortada {
-        object-fit: cover;
-        margin-top: 10%;
-        margin-left: 30%;
-        /* right: 10%; */
-        /* margin-right: 10%; */
-        width: 60%;
-    }
+
     .quienes h2 {
         margin-left: 3%;
     }
@@ -568,12 +299,14 @@ img.twitter {
         margin-left: 4%;
         margin-right: 4%;
     }
+
     .ocultado {
         background-color: #EFC227;
         border-radius: 3px;
         border: none;
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
         margin-left: 5%;
+        margin-top: 0%;
     }
     .mostrado {
         display: none;
@@ -590,7 +323,7 @@ img.twitter {
         justify-content: center;
         margin-top: 10%;
     }
- 
+
     .div1 {
         display: flex;
         justify-content: center;
@@ -604,7 +337,7 @@ img.twitter {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row: 1;
-   
+
     }
     .div3 {
         display: flex;
@@ -713,7 +446,7 @@ img.twitter {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
- 
+
 @media only screen and (max-width: 560px) {
     .container2 {
         display: grid;
@@ -722,10 +455,12 @@ img.twitter {
         'somos';
         /*height: 50%;*/
         margin-top: 0%;
+        /* margin-left: 3%; */
+        margin-right: 3%;
     }
     .quienes {
         /*margin-top: 70%;*/
-        width: 94%;
+        /* width: 94%; */
         border-radius: 6px;
         /*grid-area: quienes;
         /*grid-column-start: 1;
@@ -747,7 +482,9 @@ img.twitter {
         grid-row-end: 3;*/
         border-radius: 6px;
         /* margin-right: 2%; */
-        width: 94%;
+        /* width: 94%; */
+        /* margin-left: 3%; */
+        margin-right: -5%;
         /*height: 40%;*/
         color: white;
         background-color: #5c8001B3;
@@ -760,12 +497,11 @@ img.twitter {
         margin-right: 5%;
     }
     .ocultado {
-        border-radius: 8px;
         background-color: #EFC227;
+        border-radius: 3px;
         border: none;
-        font-size: 110%;
-        margin-bottom: 5%;
-        margin-left: 3%;
+        margin-bottom: 3%;
+        margin-left: 5%;
     }
     .mostrado {
         display: none;
@@ -785,13 +521,12 @@ img.twitter {
     .container {
         position: relative;
         display: grid;
+        grid-row-gap: 0%;
         text-align: center;
         justify-content:center;
-        margin-right: 2%;
-        left: 1%;
-        /*top: -6%;*/
+        top: 2%;
     }
- 
+
     .div1 {
         display: flex;
         justify-content: center;
@@ -805,7 +540,7 @@ img.twitter {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row: 1;
-   
+
     }
     .div3 {
         display: flex;
@@ -857,7 +592,7 @@ img.twitter {
         grid-row-start: 7;
         grid-row-end: 8;
     }
- 
+
     .carac1 {
         /*width: 42%;*/
         position: absolute;

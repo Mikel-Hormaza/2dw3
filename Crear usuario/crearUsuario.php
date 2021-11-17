@@ -14,7 +14,7 @@
 <body>
     <form method="post" class="form" id="form" action="validarUsuario.php">
             <br>
-            <input type="submit" class="volver" id="volver" value="Volver a inicio de sesión">
+            <input type="submit" class="volver" id="volver" onclick="location.href='Index.php'" value="Volver a inicio de sesión">
         <fieldset class="fieldset">
             <h2 class="create">Crear usuario</h2>
             <br>
