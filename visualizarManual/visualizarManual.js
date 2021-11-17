@@ -15,17 +15,18 @@ function obtenerDivs() {
   div1 = document.getElementById("divInfoDetallesManual");
   div2 = document.getElementById("divInfoEquipoNecesario");
   div3 = document.getElementById("divInfoMedidasSeguridad");
-  comprobarNumeroDeParrafos(div1, 1);
-  comprobarNumeroDeParrafos(div2, 2);
-  comprobarNumeroDeParrafos(div3, 3);
+  comprobarNumeroDeSpans(div1, 1);
+  comprobarNumeroDeSpans(div2, 2);
+  comprobarNumeroDeSpans(div3, 3);
 }
 
 /*Comprobar si hay un spa en el div. 
 Si hay uno añadir el addEventListener al boton.
 Si hay dos, no añadir*/
-function comprobarNumeroDeParrafos(div, tipo) {
-  let elementosDiv = div.getElementsByTagName("span").length;
-  if (elementosDiv > 0) {
+function comprobarNumeroDeSpans(div, tipo) {
+
+  let spans = div.getElementsByTagName("span").length;
+  if (spans > 0) {
     anadirEventListener(tipo);
   }
 }

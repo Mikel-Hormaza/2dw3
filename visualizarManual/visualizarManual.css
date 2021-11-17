@@ -3,7 +3,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
 body {
     margin: 2vh;
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 10px -4px #626267, -5px 0 10px -4px #626267;
@@ -51,6 +50,7 @@ article img {
     position: absolute;
     color: white;
     text-shadow: 0px 1px 5px #626267;
+    font-size: large;
 }
 
 #botonVolver a {
@@ -60,21 +60,6 @@ article img {
 
 #infoManual div:nth-of-type(2) {
     width: 100%;
-}
-
-@media(max-width: 200px) {
-    h2 {
-        font-size: 10%;
-        font-weight: lighter;
-        padding: 10px;
-    }
-}
-
-@media(max-width: 350px) {
-    h2 {
-        font-size: large;
-        padding: 10px;
-    }
 }
 
 button,
@@ -192,8 +177,7 @@ p {
     margin: 0%;
 }
 
-/*Ocultar la raya amarilla del último paso*/
-
+/*Ocultar la marra amarilla del último paso*/
 article div:last-of-type hr:last-of-type {
     display: none;
 }
@@ -218,7 +202,10 @@ article div:last-of-type hr:last-of-type {
 @media (min-width: 500px) {
     body {
         margin: 0% 10%;
+    }
 
+    #amarilloMadre h2 {
+        font-size: x-large;
     }
 }
 
@@ -316,7 +303,7 @@ article div:last-of-type hr:last-of-type {
         background-color: rgba(92, 128, 1, 0.6);
     }
 
-    /*Los pasos del manual*/
+    /* Editar display de los pasos del manual */
     .paso {
         display: grid;
         grid-template-columns: 50% auto;
@@ -391,13 +378,14 @@ article div:last-of-type hr:last-of-type {
         align-content: center;
     }
 
-    /*Quito la opción del botón "mostrar"*/
+    /*Mostrar la parte "oculta" del texto*/
     #mas,
     #masEquipo,
     #masSeguridad {
         display: inline;
     }
 
+    /*Ocultar botones de "mostrar más" y puntos suspensivos*/
     #botonLeerMas,
     #botonLeerMasEquipo,
     #botonLeerMasSeguridad,

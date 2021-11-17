@@ -36,7 +36,7 @@
                     <h3>Fecha creación: <?php echo $datosManual[0]["fechaCreacion"]; ?></h3>
                     <h3>Creador: <?php echo $datosManual[0]["nomUsuario"]; ?></h3>
                 </div>
-                <div>
+                <div id="divInfoDetallesManual">
                     <?php mostrarBotonMostrar($informacionManual, 1); ?>
                 </div>
             </div>
