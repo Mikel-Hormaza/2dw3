@@ -36,7 +36,7 @@ foreach ($datosUsuario as $usuarios) {
             
             } elseif (empty($_POST["Contrasena"])) {
                 $errorpass = "Escriba una contrasena";
-              
+               
             } else {
                 $nombre = isset($_REQUEST['NombredeUsuario']) ? $_REQUEST['NombredeUsuario'] : null;
                 $pass = isset($_REQUEST['Contrasena']) ? $_REQUEST['Contrasena'] : null;
@@ -52,7 +52,7 @@ foreach ($datosUsuario as $usuarios) {
                     die();
                 } else {
                     $errorinicio = "Nombre de usuario o contrasena erroneos";
-                    
+                    echo "<script type='text/javascript'>alert('$errorinicio');</script>";
                 }
             }
         }
