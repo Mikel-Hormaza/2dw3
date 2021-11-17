@@ -35,6 +35,7 @@ function pasoSeleccionado() {
     mostrarTituloYDescripcionDelPaso(paso);
     hayUnElementoSeleccionado = true;
     añadirValorCodPasoAlFormulario(paso);
+    activarBotonEliminarPaso();
 }
 
 function eliminar() {
@@ -48,6 +49,11 @@ function eliminar() {
     } else {
         alert("Por favor, seleccione un paso");
     }
+}
+
+function activarBotonEliminarPaso(){
+    let botonEliminarPaso = document.getElementById("botonEliminarPaso");
+    botonEliminarPaso.style.display = "block";
 }
 
 function mostrarTituloYDescripcionDelPaso(paso) {

@@ -234,8 +234,8 @@ button {
 #botonEliminarPaso {
     background-color: #626267;
     color: white;
-    opacity: 0.4;
-    cursor: text;
+    opacity: 0.8;
+    display: none;
 }
 
 #idDivPasos {

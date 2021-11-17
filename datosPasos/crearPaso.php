@@ -18,7 +18,6 @@
             <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Pasos del manual</p>
         </div>
-        <button id="botonVolver">Volver</button>
     </section>
     <div>
         <h3>Describe el paso de la reparación</h3>

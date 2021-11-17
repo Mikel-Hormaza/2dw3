@@ -29,8 +29,6 @@
             <div id="idContenidoCategoria" class="contenidoCategoria">
                 <?php cargarLasOpcionesDeCategoriaExistentesEnLaBD(); ?>
             </div>
-            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-            <button id="idBotonBuscar"> Buscar </button>
         </form>
 
         <div>
