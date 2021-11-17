@@ -32,34 +32,58 @@ function manualSeleccionado() {
     let textoBoton = boton.childNodes[1].textContent;
 
     if (textoBoton == "editar") {
-
-        enviarOpciónEditar(boton, divDondeSeEncuentraElBoton, codManual);
-
+        enviarOpcionEditar(boton, divDondeSeEncuentraElBoton, codManual);
     } else {
         let respuestaEliminar = prompt("¿Quieres eliminar el manual? S/N");
-        if(respuestaEliminar=="S"||respuestaEliminar=="s"||respuestaEliminar=="Si"||respuestaEliminar=="Sí"||respuestaEliminar=="sí"||respuestaEliminar=="si"){
-
+        if (respuestaEliminar == "S" || respuestaEliminar == "s" || respuestaEliminar == "Si" || respuestaEliminar == "Sí" || respuestaEliminar == "sí" || respuestaEliminar == "si") {
+            enviarOpcionEliminar(boton, divDondeSeEncuentraElBoton, codManual);
         }
     }
-    
+
 
 }
 
-function enviarOpciónEditar(boton, divDondeSeEncuentraElBoton, codManual){
-
+function enviarOpcionEliminar(boton, divDondeSeEncuentraElBoton, codManual) {
+    /* creo un formulario con dos inputs, uno para guardar "eliminar" o "editar" y otro para el "codManual" */
     let formularioQueMandaElCodDeManual = document.createElement("form");
     let inputEditarOEliminar = document.createElement("input");
     let inputCodManual = document.createElement("input");
 
+    /*propiedades y atributos de los nuevos elementos*/
     formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
     formularioQueMandaElCodDeManual.setAttribute("method", "post");
-    formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/datosManual.php");
+    formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/validarDatosManual.php"); //validarDatosManual.php
     inputEditarOEliminar.setAttribute("name", "editarOEliminar");
     inputCodManual.setAttribute("name", "codManual");
-    inputEditarOEliminar.setAttribute("value", "editar");
+    inputEditarOEliminar.setAttribute("value", "eliminar"); //VALOR ELIMINAR
     //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
     inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
-    
+
+    /* uno los elementos y lo envío a PHP haciendo submit */
+    formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
+    formularioQueMandaElCodDeManual.appendChild(inputCodManual);
+    formularioQueMandaElCodDeManual.appendChild(boton);
+    divDondeSeEncuentraElBoton.appendChild(formularioQueMandaElCodDeManual);
+    formularioQueMandaElCodDeManual.submit();
+}
+
+function enviarOpcionEditar(boton, divDondeSeEncuentraElBoton, codManual) {
+    /* creo un formulario con dos inputs, uno para guardar "eliminar" o "editar" y otro para el "codManual" */
+    let formularioQueMandaElCodDeManual = document.createElement("form");
+    let inputEditarOEliminar = document.createElement("input");
+    let inputCodManual = document.createElement("input");
+
+    /*propiedades y atributos de los nuevos elementos*/
+    formularioQueMandaElCodDeManual.setAttribute("id", "formularioQueMandaElCodDeManual");
+    formularioQueMandaElCodDeManual.setAttribute("method", "post");
+    formularioQueMandaElCodDeManual.setAttribute("action", "../datosManual/datosManual.php"); //datosManual.php
+    inputEditarOEliminar.setAttribute("name", "editarOEliminar");
+    inputCodManual.setAttribute("name", "codManual");
+    inputEditarOEliminar.setAttribute("value", "editar"); //VALOR EDITAR
+    //expresión regular que elimina "paso" y me quedo con los números, que son el cod del paso en la BD
+    inputCodManual.setAttribute("value", codManual.replace(/\D/g, ''));
+
+    /* uno los elementos y lo envío a PHP haciendo submit */
     formularioQueMandaElCodDeManual.appendChild(inputEditarOEliminar);
     formularioQueMandaElCodDeManual.appendChild(inputCodManual);
     formularioQueMandaElCodDeManual.appendChild(boton);

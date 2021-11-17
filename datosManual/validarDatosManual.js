@@ -8,10 +8,10 @@ function anadirEventoClickABotones() {
     document.querySelector(".botonesOpcionesFormulario button").addEventListener("click", comprobacionesYSubmit);
 }
 
-function comprobacionesYSubmit(){
-   //if (validarDatos()){
+function comprobacionesYSubmit() {
+    if (validarDatos()) {
         document.getElementById("formulario").submit();
-  // }
+    }
 }
 
 function validarDatos() {
@@ -22,16 +22,66 @@ function validarDatos() {
         alert(comprobarSiSeHanIntroducidoTodosLosDatosEscritos(crearObjetoManual()));
         return false;
     } else {
-        comprobarFoto();
+        if (comprobarFoto()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
-function comprobarFoto(){
+/* esta función diferencia entre "crear" y "editar". 
+La diferencia es que al editar un manual podemos no introducir una foto (manteniendo la anterior) */
+function comprobarFoto() {
 
-    
+    let editarOCrear = document.getElementById("tipoDeInteraccion").textContent;
+    if (editarOCrear == "editar") {
+        if(comprobacionesEditar()){
+            return true;
+        }else{
+            return  false;
+        }
+    } else {
+        if(comprobacionesCrear()){
+            return true;
+        }else{
+            return  false;
+        }
+    }
 
 }
 
+function comprobacionesCrear() {
+    if (comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()).length == 0) {
+        if (crearObjetoManual().validarFotoManual()) {
+            return true;
+        } else {
+            alert(mensajeErrorFormatoImagen());
+            return false;
+        }
+    }else{
+       alert(comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()));
+    }
+}
+
+function comprobacionesEditar() {
+    if (comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()).length == 0) {
+        if (crearObjetoManual().validarFotoManual()) {
+            return true;
+        } else {
+            alert(mensajeErrorFormatoImagen());
+            return false;
+        }
+    }else{
+        return  true;
+    }
+}
+
+function mensajeErrorFormatoImagen() {
+    return "Error en formato de imagen. la imagen debe ser: .jpg|\.jpeg|\.png";
+}
+
+/*Devuelve el objeto*/
 function crearObjetoManual() {
     let v_tituloManual = document.getElementById("idNombreManual").value;
     let v_descripcionManual = document.getElementById("idDescripcionManual").value;
@@ -50,7 +100,7 @@ function crearObjetoManual() {
 
 function comprobarSiSeHanIntroducidoTodosLosDatosEscritos(manual) {
     let error = false;
-    mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; 
+    mensajeErrorFaltanDatos = "Por favor, introduzca: \n";
     if (manual.tituloManual.length == 0) {
         error = true;
         mensajeErrorFaltanDatos += "el título \n";
@@ -74,10 +124,10 @@ function comprobarSiSeHanIntroducidoTodosLosDatosEscritos(manual) {
     return mensajeErrorFaltanDatos;
 }
 
-function comprobarSiSeHaIntroducidoUnaImagen(manual){
+function comprobarSiSeHaIntroducidoUnaImagen(manual) {
     if (manual.fotoManual.length == 0) {
         return "Por favor, introduzca una imagen para el manual \n";
-    }else{
-        return"";
+    } else {
+        return "";
     }
 }

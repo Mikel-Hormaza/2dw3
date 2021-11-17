@@ -11,7 +11,15 @@ $pass = "";
 
 /*Comprueba si se ha enviado el formulario y si existe en session editarOEliminar. Hacer validaciones distintas según si hay que*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    validarDatos();
+    if (isset($_POST["editarOEliminar"]) && isset($_POST["codManual"])) {
+        if ($_POST["editarOEliminar"] == "eliminar") {
+            $_SESSION["codManualSeleccionado"] = $_POST["codManual"];
+            insertarManualBD(null, "eliminar", null);
+            irAGestionDeManuales();
+        }
+    } else {
+        validarDatos();
+    }
 }
 
 
@@ -170,12 +178,13 @@ function insertarManualBD($manual, $editarOCrear, $hayFoto)
     global $user;
     global $pass;
 
-    $titulo = $manual->getTituloManual();
-    $descripcionManual = $manual->getDescripcionManual();
-    $equipoNecesario = $manual->getEquipoNecesario();
-    $medidasSeguridad = $manual->getMedidasDeSeguridad();
-    $codHerramienta = $manual->getCodHerramienta();
-
+    if (!$editarOCrear == "eliminar") {
+        $titulo = $manual->getTituloManual();
+        $descripcionManual = $manual->getDescripcionManual();
+        $equipoNecesario = $manual->getEquipoNecesario();
+        $medidasSeguridad = $manual->getMedidasDeSeguridad();
+        $codHerramienta = $manual->getCodHerramienta();
+    }
 
     if ($editarOCrear == "editar") {
         $codManual = $_SESSION["codManualSeleccionado"];
@@ -189,6 +198,11 @@ function insertarManualBD($manual, $editarOCrear, $hayFoto)
             SET nombreManual = '$titulo', informacionManual = '$descripcionManual', equipoNecesario = '$equipoNecesario', medidasDeSeguridad = '$medidasSeguridad', fotoManual = $fotoManual;
             WHERE codManual = '$codManual'";
         }
+    } elseif ($editarOCrear == "eliminar") {
+        $codManual = $_SESSION["codManualSeleccionado"];
+        $sql = "UPDATE manual
+        SET estadoManual = 'oculto'
+        WHERE codManual = '$codManual'";
     } else {
         $fotoManual = imagenManual();
         $codUsuario = $manual->getCodUsuario();
@@ -224,7 +238,7 @@ function insertarManualBD($manual, $editarOCrear, $hayFoto)
         $insertarBDcompletado = false;
     }
     $conexion = null;
-    if (!($editarOCrear == "editar") && $insertarBDcompletado) {
+    if (!($editarOCrear == "editar") && !($editarOCrear == "eliminar") && $insertarBDcompletado) {
         comprobacionesEnBD("obtenerCodManual", $titulo);
     }
     if (isset($_SESSION["editarOEliminar"])) {
@@ -235,6 +249,12 @@ function insertarManualBD($manual, $editarOCrear, $hayFoto)
 function irAPasosDelManual()
 {
     header('Location: ../datosPasos/crearPaso.php');
+    die();
+}
+
+function irAGestionDeManuales()
+{
+    header('Location: ../gestionManuales/gestionManuales.php');
     die();
 }
 

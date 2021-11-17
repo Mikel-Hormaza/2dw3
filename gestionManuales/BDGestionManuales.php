@@ -111,7 +111,7 @@ Recibe como parámetros:
 5. si se ha seleccionado mostrar todo (sino false)*/
 function prepararWhereYLimitDeLaSelect($primeraVariableLimit, $AscODesc, $codUsuario, $categoriaSeleccionada, $mostrarTodosLosManuales)
 {
-    $where = "WHERE manual.codHerramienta like herramienta.codHerramienta ";
+    $where = "WHERE manual.codHerramienta like herramienta.codHerramienta && estadoManual like 'visible'";
     /*     si el usuario tiene un permiso usuario al filtrar por categoría verá solo los de esa categoría que él mismo creó
     si el usuario tiene permiso de admin al filtrar por categoría verá todos los manuales de esa categoría */
     if ($_SESSION["permisoDeUsuario"] == "usuario") {
