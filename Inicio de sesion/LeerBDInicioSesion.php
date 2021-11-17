@@ -46,7 +46,7 @@ foreach ($datosUsuario as $usuarios) {
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
                     $_SESSION['codUsuario']=$codUsuario;
                     $_SESSION['permisoUsuario'] = $_REQUEST['permisoUsuario'];
-                    $_SESSION['permisoUsuario']=$permiso;
+                    $_SESSION['permisoUsuario'] = $permiso;
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();
