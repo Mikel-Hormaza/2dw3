@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../crearManual.css">
@@ -15,7 +15,7 @@
             <img src="../Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Crear manual</p>
         </div>
-        <button id="botonVolver"><a href="">Volver<span> a gestión de manuales</span></a></button>
+        <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
     </section>
     <main>
         <span id="spanNombresHerramientas"></span>
@@ -31,7 +31,7 @@
             <img src="../Imagenes/duda.png" alt="Duda">
             <div>
                 <p>¿No encuentras tu herramienta?</p>
-                <button>Registrar <span>herramienta</span></button>
+                <button><a href="../Creacion de Herramientas/CreaciondeHerramietas.php">Registrar <span>herramienta</span></a></button>
             </div>
         </div>
         <button id="siguientePaso">Siguiente paso</button>

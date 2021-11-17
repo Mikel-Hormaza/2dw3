@@ -14,7 +14,6 @@ try {
 
     $resultado = $conexion->query($sql);
     $nombresHerramientas = $resultado->fetchAll();
-    
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

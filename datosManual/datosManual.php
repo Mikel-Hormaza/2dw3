@@ -12,11 +12,15 @@
 <body id="bodyCrearManual2">
 <?php require_once '../Header/Header.php' ?>
     <section>
+        <span id="tipoDeInteraccion"><?php if(isset($_POST["editarOEliminar"])){
+            if($_POST["editarOEliminar"]=="editar"){
+                echo $_POST["editarOEliminar"];
+            }
+        } ?></span>
         <div class="titulo" id="amarillo">
             <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Crear manual</p>
         </div>
-        <button id="botonVolver">Volver</button>
     </section>
     <div>
         <h3>Introduce los datos del manual</h3>

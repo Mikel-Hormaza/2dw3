@@ -1,8 +1,7 @@
 <<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+<head>  
     <meta charset="UTF-8">
     <link rel="stylesheet" href="visualizarManual.css">
     <script src="visualizarManual.js"></script>
@@ -15,11 +14,13 @@
     <section>
         <div id="amarilloMadre">
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datosManual[0]["fotoManual"]) . '"/>' ?>
-            <h2><?php echo $datosManual[0]["nombreManual"]; ?></h2>
+            <h2 id="tituloManual"><?php echo $datosManual[0]["nombreManual"]; ?></h2>
         </div>
-        <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
-
+        <button id="botonVolver"><a href="../Biblioteca/Biblioteca.php">Volver<span> a gestión de manuales</span></a></button>
     </section>
+    <div>
+        <button id="generarPDF">generar pdf</button>
+    </div>
 
     <article>
         <div id="informacionInicial">

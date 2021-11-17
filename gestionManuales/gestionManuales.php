@@ -3,18 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestión manuales</title>
+    <title>Gestión de manuales </title>
     <link rel="stylesheet" href="gestionManuales.css">
     <script src="gestionManuales.js"></script>
     <?php require_once "../leerBDGestionManuales.php" ?>
 </head>
 
 <body>
+    <?php require_once '../Header/Header.php' ?>
     <section>
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
-        <button class="botonVolver">Volver<span> a biblioteca</span></button>
+        <button class="botonVolver"><a href="../Biblioteca/Biblioteca.php">volver</a></button>
         <div id=botones>
-            <button>Crear</button>
+            <button><a href="../buscarHerramienta/buscadorHerramientas.php">crear</a></button>
         </div>
     </section>
 
@@ -27,8 +28,7 @@
                 <a>Creados por mí</a>
                 <a>Todos</a>
             </div>
-            <input type="text" id="buscador" name="buscador" placeholder="Buscador de manual...">
-        </div>
+        </form>
 
         <div>
             <button id="idBotonCategoria" class="botonCategoria">Categoría &#128270</button>
@@ -73,7 +73,7 @@
         <button id="ultimo" name="ultimo"><img src="Imagenes/último.png" alt="ultimo"></button>
     </form>
 
-
+    <?php require_once '../Footer/footer.php' ?>
 </body>
 
 </html>

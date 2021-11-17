@@ -1,4 +1,3 @@
-<<<<<<< HEAD:datosManual/validarDatosManual.js
 window.addEventListener("load", inicio);
 
 function inicio() {
@@ -9,27 +8,80 @@ function anadirEventoClickABotones() {
     document.querySelector(".botonesOpcionesFormulario button").addEventListener("click", comprobacionesYSubmit);
 }
 
-function comprobacionesYSubmit(){
-    if (validarDatos()){
+function comprobacionesYSubmit() {
+    if (validarDatos()) {
         document.getElementById("formulario").submit();
     }
 }
 
 function validarDatos() {
-    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos*/
-    if (comprobarSiSeHanIntroducidoTodosLosDatos(crearObjetoManual()).length > 1) {
-        alert(comprobarSiSeHanIntroducidoTodosLosDatos(crearObjetoManual()));
+    /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos
+    Si no hay errores, comprueba si se ha introduido imagen. 
+    Si ésta devuelve true realiza las comprobaciones contra la BD antes de la insert*/
+    if (comprobarSiSeHanIntroducidoTodosLosDatosEscritos(crearObjetoManual()).length > 1) {
+        alert(comprobarSiSeHanIntroducidoTodosLosDatosEscritos(crearObjetoManual()));
         return false;
     } else {
-        if(crearObjetoManual().validarFotoManual()){
+        if (comprobarFoto()) {
             return true;
-        }else{
-            alert("error formato imagen. la imagen debe ser: .jpg|\.jpeg|\.png");
+        } else {
             return false;
         }
     }
 }
 
+/* esta función diferencia entre "crear" y "editar". 
+La diferencia es que al editar un manual podemos no introducir una foto (manteniendo la anterior) */
+function comprobarFoto() {
+
+    let editarOCrear = document.getElementById("tipoDeInteraccion").textContent;
+    if (editarOCrear == "editar") {
+        if (comprobacionesEditar()) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        if (comprobacionesCrear()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+function comprobacionesCrear() {
+    if (comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()).length == 0) {
+        if (crearObjetoManual().validarFotoManual()) {
+            return true;
+        } else {
+            alert(mensajeErrorFormatoImagen());
+            return false;
+        }
+    } else {
+        alert(comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()));
+    }
+}
+
+function comprobacionesEditar() {
+    if (comprobarSiSeHaIntroducidoUnaImagen(crearObjetoManual()).length == 0) {
+        if (crearObjetoManual().validarFotoManual()) {
+            return true;
+        } else {
+            alert(mensajeErrorFormatoImagen());
+            return false;
+        }
+    } else {
+        return true;
+    }
+}
+
+function mensajeErrorFormatoImagen() {
+    return "Error en formato de imagen. la imagen debe ser: .jpg|\.jpeg|\.png";
+}
+
+/*Devuelve el objeto*/
 function crearObjetoManual() {
     let v_tituloManual = document.getElementById("idNombreManual").value;
     let v_descripcionManual = document.getElementById("idDescripcionManual").value;
@@ -46,9 +98,9 @@ function crearObjetoManual() {
     return manual1;
 }
 
-function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
+function comprobarSiSeHanIntroducidoTodosLosDatosEscritos(manual) {
     let error = false;
-    mensajeErrorFaltanDatos = "Por favor, introduzca: \n"; 
+    mensajeErrorFaltanDatos = "Por favor, introduzca: \n";
     if (manual.tituloManual.length == 0) {
         error = true;
         mensajeErrorFaltanDatos += "el título \n";
@@ -65,10 +117,6 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
         error = true;
         mensajeErrorFaltanDatos += "medidas de seguridad necesarias \n";
     }
-    if (manual.fotoManual.length == 0) {
-        error = true;
-        mensajeErrorFaltanDatos += "una imagen para el manual \n";
-    }
     /*si todos los campos se han rellenado, eliminar el mensaje de error */
     if (error == false) {
         mensajeErrorFaltanDatos = "";
@@ -76,7 +124,6 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
     return mensajeErrorFaltanDatos;
 }
 
-=======
 window.addEventListener("load", inicio);
 
 function inicio() {
@@ -156,4 +203,11 @@ function comprobarSiSeHanIntroducidoTodosLosDatos(manual) {
     return mensajeErrorFaltanDatos;
 }
 
->>>>>>> 752454b7ff63fbca6c072fda8cc9a86b634fa77b:creacionManual/2datosManual/validarDatosManual.js
+
+function comprobarSiSeHaIntroducidoUnaImagen(manual) {
+    if (manual.fotoManual.length == 0) {
+        return "Por favor, introduzca una imagen para el manual \n";
+    } else {
+        return "";
+    }
+}

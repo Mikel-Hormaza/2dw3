@@ -3,7 +3,9 @@ session_start();
 $datosManual;
 $datosPasos;
 
-$codManualSeleccionado = $_SESSION["codManualSeleccionado"];
+if (isset($_SESSION["codManualSeleccionado"])) {
+    $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
+}
 
 function llamarBD()
 {
@@ -63,7 +65,7 @@ function mostrarPasos($datosPasos)
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($paso["fotoPaso"]) . '"/>' ?>
             <p class="descripcionPaso"><?php echo $paso["descripcionPaso"] ?></p>
         </div>
-    <?php
+<?php
     }
 }
 

@@ -22,18 +22,6 @@ function comprobarNumeroDePasos() {
     }
 }
 
-function eliminar(){
-    if(hayUnElementoSeleccionado){
-        let respuestaAEliminar = prompt("¿Seguro que desea eliminar el paso? S/N");
-        let inputPasoSeleccionado = document.getElementById("botonEliminarPaso");
-        let eliminarPaso = document.getElementById("eliminarPaso");
-        eliminarPaso.setAttribute("value", "eliminar");
-        document.getElementById("formulario").submit();
-    }else{
-        alert("Por favor, seleccione un paso");
-    }
-}
-
 /* añadir el evento click a cada paso */
 function anadirMostrarContenidoPasoACadaPaso(count) {
     for (i = 1; i <= count; i++) {
@@ -47,12 +35,30 @@ function pasoSeleccionado() {
     mostrarTituloYDescripcionDelPaso(paso);
     hayUnElementoSeleccionado = true;
     añadirValorCodPasoAlFormulario(paso);
-    //activarBotonEliminar();
+    activarBotonEliminarPaso();
+}
+
+function eliminar() {
+    if (hayUnElementoSeleccionado) {
+        let respuestaAEliminar = prompt("¿Seguro que desea eliminar el paso? S/N");
+        if (respuestaAEliminar == "S" || respuestaAEliminar == "s" || respuestaAEliminar == "Si" || respuestaAEliminar == "Sí" || respuestaAEliminar == "sí" || respuestaAEliminar == "si") {
+            let eliminarPaso = document.getElementById("eliminarPaso");
+            eliminarPaso.setAttribute("value", "eliminar");
+            document.getElementById("formulario").submit();
+        }
+    } else {
+        alert("Por favor, seleccione un paso");
+    }
+}
+
+function activarBotonEliminarPaso() {
+    let botonEliminarPaso = document.getElementById("botonEliminarPaso");
+    botonEliminarPaso.style.display = "block";
 }
 
 function mostrarTituloYDescripcionDelPaso(paso) {
     let descripcionPaso = document.getElementById("idDescripcionPaso");
-    let elementoTituloPaso=document.getElementById("idNombrePaso");
+    let elementoTituloPaso = document.getElementById("idNombrePaso");
     let tituloPaso = document.querySelector("#" + paso.id + " div p").textContent;
     descripcionPaso.value = paso.childNodes[5].textContent;
     elementoTituloPaso.value = tituloPaso;

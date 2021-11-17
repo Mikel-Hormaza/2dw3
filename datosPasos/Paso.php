@@ -18,27 +18,15 @@ class Paso
     {
         return $this->tituloPaso;
     }
-    public function setTituloPaso($tituloPaso)
-    {
-        $this->tituloPaso = $tituloPaso;
-    }
 
     public function getDescripcionPaso()
     {
         return $this->descripcionPaso;
     }
-    public function setDescripcionPaso($descripcionPaso)
-    {
-        $this->descripcionPaso = $descripcionPaso;
-    }
 
     public function getFotoPaso()
     {
         return $this->fotoPaso;
-    }
-    public function setFotoPaso($fotoPaso)
-    {
-        $this->fotoPaso = $fotoPaso;
     }
 
     public function getCodManual()

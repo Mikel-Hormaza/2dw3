@@ -90,32 +90,32 @@ function leerPHP() {
     return arrayNombresHerramientas;
 }
 /* comprueba que el input no está en blanco y que el nombre existe + submit*/
-function siguientePaso(){
+function siguientePaso() {
     let nombreHerramientaSeleccionado = document.getElementById("idBusquedaNombreHerramienta").value;
-    if(comprobarQueHayaTexto(nombreHerramientaSeleccionado)){
-        if(comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado)){
+    if (comprobarQueHayaTexto(nombreHerramientaSeleccionado)) {
+        if (comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado)) {
             document.getElementById("formulario").submit();
-        }else{
-            alert("no coincide" );
+        } else {
+            alert("no coincide");
         }
-    }else{
+    } else {
         alert("introduce el nombre de la herramienta");
     }
 }
 
-function comprobarQueHayaTexto(nombreHerramientaSeleccionado){
-    if(nombreHerramientaSeleccionado.length==0){
+function comprobarQueHayaTexto(nombreHerramientaSeleccionado) {
+    if (nombreHerramientaSeleccionado.length == 0) {
         return false;
-    }else{
+    } else {
         return true;
     }
 }
 
 /* busca en la lista de herramientas y comprueba que el texto introducido coincida con un elemento de la lista */
-function comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado){
+function comprobarSiCoincideConHerramientaExistente(nombreHerramientaSeleccionado) {
     let coincidenciaEncontrada = false;
     for (i = 0; i < arrayOpciones.length; i++) {
-        if (arrayOpciones[i]==nombreHerramientaSeleccionado) {
+        if (arrayOpciones[i] == nombreHerramientaSeleccionado) {
             return true;
         }
     }

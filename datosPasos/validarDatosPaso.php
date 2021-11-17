@@ -1,7 +1,6 @@
 <?php
-
 session_start();
-require_once 'Paso.php';
+require_once 'Paso.php' ;
 $servidor  = "localhost";
 $user = "root";
 $pass = "";
@@ -9,7 +8,9 @@ $pass = "";
 /* comprobar si se ha enviado un formulario y si se ha rellenado el input "eliminarPaso"*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["eliminarPaso"])) {
-        eliminarPaso();
+        if($_POST["eliminarPaso"]=="eliminar"){
+            eliminarPaso();
+        }
     }
     validarDatos();
 }
@@ -64,15 +65,20 @@ function validarDatosCrearPaso()
 }
 
 /*comprueba el largo del mensaje de error para saber si se han rellenado todos los campos
-    Si no hay errores, comprueba si se ha introduido imagen. 
-    Si ésta devuelve true realiza las comprobaciones contra la BD antes del update*/
+    Si no hay errores, comprueba si se ha introducido imagen para saber si editar con foto nueva o manteniendo la foto.
+    Comprueba el largo de los atributos. Después de las comprobaciones, edita*/
 function validarDatosEditarPaso()
 {
     if (strlen(comprobarSiSeHanIntroducidoElTituloYDescripcion()) == 0) {
         if (strlen(comprobarSiSeHaIntroducidoFoto()) == 0) {
             comprobarLargoDeAtributosSegunLargoEnLaBD();
         } else {
-            insertarOEditar("editarSinCambiarFoto");
+            if(strlen(comprobarLargoDeAtributosIntroducidos(crearObjetoPaso(false)))==0){
+                insertarOEditar("editarSinCambiarFoto");
+            }else{
+                echo comprobarLargoDeAtributosIntroducidos(crearObjetoPaso(false));
+            }
+            
         }
     }
 }
@@ -220,7 +226,7 @@ function crearObjetoPaso($hayFoto)
     return $paso1;
 }
 
-/*comprueba que tods los datos se han introducido.
+/*comprueba que todos los datos se han introducido.
 Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarSiSeHanIntroducidoElTituloYDescripcion()
 {
@@ -244,6 +250,8 @@ function comprobarSiSeHanIntroducidoElTituloYDescripcion()
     return $mensajeErrorFaltanDatos;
 }
 
+/*Comprueba que se ha introducido una imagen.
+Devuelve un string con el mensaje de error. Si no hay errores, devuelve un string vacío */
 function comprobarSiSeHaIntroducidoFoto()
 {
     if (empty($_FILES['classInputFileIMG']['name'])) {
@@ -281,5 +289,3 @@ function validarDato($dato)
     $dato = htmlspecialchars($dato);
     return $dato;
 }
-
-?>

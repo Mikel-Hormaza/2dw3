@@ -26,45 +26,25 @@ class Manual
     {
         return $this->tituloManual;
     }
-    public function setTituloManual($tituloManual)
-    {
-        $this->tituloManual = $tituloManual;
-    }
 
     public function getDescripcionManual()
     {
         return $this->descripcionManual;
-    }
-    public function setDescripcionManual($descripcionManual)
-    {
-        $this->descripcionManual = $descripcionManual;
     }
 
     public function getEquipoNecesario()
     {
         return $this->equipoNecesario;
     }
-    public function setEquipoNecesario($equipoNecesario)
-    {
-        $this->equipoNecesario = $equipoNecesario;
-    }
 
     public function getMedidasDeSeguridad()
     {
         return $this->medidasDeSeguridad;
     }
-    public function setMedidasDeSeguridad($medidasDeSeguridad)
-    {
-        $this->medidasDeSeguridad = $medidasDeSeguridad;
-    }
 
     public function getFotoManual()
     {
         return $this->fotoManual;
-    }
-    public function setFotoManual($fotoManual)
-    {
-        $this->fotoManual = $fotoManual;
     }
 
     public function getCodHerramienta()

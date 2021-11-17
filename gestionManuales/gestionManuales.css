@@ -13,6 +13,12 @@ section {
     margin: 1vh;
 }
 
+section a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #626267;
+}
+
 main {
     margin: 40px;
 }
@@ -66,18 +72,6 @@ button {
     background-color: #EFC227;
     padding: 1% 4%;
     border-radius: 8px;
-}
-
-
-#buscador {
-    display: flex;
-    max-width: initial;
-    justify-self: stretch;
-    font-size: 2vh;
-    border-radius: 7px;
-    box-shadow: 0 0 5pt 0 #626267;
-    border: none;
-    width: 100%;
 }
 
 /*MANUALES*/
@@ -177,7 +171,8 @@ button {
     height: auto;
 }
 
-#spanBotonesInicioFinal{
+#spanBotonesInicioFinal,
+#formularioQueMandaElCodDeManual {
     display: none;
 }
 
@@ -210,12 +205,7 @@ button {
         display: block;
     }
 
-    #buscador {
-        display: none;
-    }
-
-    .botonDesplegar,
-    .botonCategoria {
+    .botonDesplegar {
         background-color: white;
         color: #626267;
         padding: 2px;
@@ -245,8 +235,26 @@ button {
         margin-top: 10px;
     }
 
-    .contenidoCategoria{
-        margin-left: -9vh;
+
+    .contenidoADesplegar {
+        width: 180px;
+    }
+
+    .contenidoCategoria {
+        margin-left: 178px;
+        width: 240px;
+    }
+
+    #categoria:hover {
+        position: relative;
+    }
+
+    .contenidoADesplegar button,
+    .contenidoCategoria button {
+        border-radius: 0px;
+        padding: 1em 1em;
+        display: block;
+        width: 100%;
     }
 
     .contenidoADesplegar a,
@@ -256,6 +264,11 @@ button {
         padding: 1em 1em;
         text-decoration: none;
         display: block;
+        width: 100%;
+    }
+
+    .contenidoCategoria button {
+        background-color: #b9c1c4;
     }
 
     .contenidoADesplegar a:hover,
@@ -279,10 +292,6 @@ button {
         display: none;
     }
 
-    section a {
-        text-transform: uppercase;
-    }
-
     #botonesInicioFinal button {
         height: 6vh;
         width: 6vh;
@@ -294,12 +303,6 @@ button {
 }
 
 @media(min-width: 550px) {
-
-    #listaManuales div button {
-        background-color: #EFC227;
-        margin: 5px;
-        padding: 0%;
-    }
 
     /*No mostrar los el texto de los botones*/
     #listaManuales div button p {
@@ -367,6 +370,10 @@ button {
         margin: auto;
     }
 
+    #listaManuales div button {
+        background-color: #EFC227;
+    }
+
     /*Ocultar icono de botón*/
     #listaManuales div button img {
         display: none
@@ -432,5 +439,4 @@ button {
     button {
         width: max-content;
     }
-
 }
