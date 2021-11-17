@@ -13,7 +13,7 @@
 <?php require_once '../Header/Header.php' ?>
     <section>
         <img src="Imagenes/imgGestionManuales.png" alt="Imagen manual">
-        <button class="botonVolver"><a href="../buscarHerramienta/buscadorHerramientas.php">volver</a></button>
+        <button class="botonVolver"><a href="../Biblioteca/Biblioteca.php">volver</a></button>
         <div id=botones>
             <button><a href="../buscarHerramienta/buscadorHerramientas.php">crear</a></button>
         </div>
