@@ -24,17 +24,17 @@
 
                         <form id="formulario" class="inicio" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" action="LeerBDInicioSesion.php">
                                 <input type="text" name="NombredeUsuario" id="NombredeUsuario" placeholder="Nombre"><br><br>
-                                <input type="text" name ="Contrasena" id="Contrasena" placeholder="Contraseña"><br>
+                                <input type="text" name="Contrasena" id="Contrasena" placeholder="Contraseña"><br>
                                 <!--Si hay un error el mensage aparecera en el span recogido  desde el php ddonde esta el textode error--->
-                               
-                                <input type="button" id="Iniciosesion" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br> 
+
+                                <input type="button" id="Iniciosesion" class="botoninicio" name="InicioSesion" value="Inicio de sesion"><br><br>
                                 <button class="crearusuario">Crear nueva cuenta</button>
                         </form>
                 </fieldset>
 
         </main>
-      <//?php require_once '../Footer/footer.php' ?>
-       
+        </ /?php require_once '../Footer/footer.php' ?>
+
 </body>
 
 </html>

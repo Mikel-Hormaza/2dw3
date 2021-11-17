@@ -61,4 +61,3 @@ foreach ($datosUsuario as $usuarios) {
 }
 
 $conexion = null;
-?>
