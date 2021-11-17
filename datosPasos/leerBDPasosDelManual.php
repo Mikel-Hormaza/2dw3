@@ -3,7 +3,10 @@ session_start();
 $datosManual;
 $datosPasos;
 
-$codManualSeleccionado = $_SESSION["codManualSeleccionado"];
+if(isset($_SESSION["codManualSeleccionado"])){
+    $codManualSeleccionado = $_SESSION["codManualSeleccionado"];
+}
+
 
 function llamarBD()
 {
