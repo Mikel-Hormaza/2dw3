@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
     <link rel="stylesheet" type="text/css" href="biblioteca.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src=""></script>
+    <script src="../Biblioteca/Biblioteca.js"></script>
     <?php require_once '../Biblioteca/leerBDBiblioteca.php'?>
 </head>
 
@@ -23,11 +23,11 @@
             <button class="btn">Gestion de manuales</button>
 
         </div>
-        <section class="contenedos">
+        <section class="contenedos" id="Manuales">
             <?php foreach($sqlBiblioteca as $manuales){?>
-            <div class="div">
-            <?php echo '<img class="fotos" src="data:image/jpeg;base64,' . base64_encode($manuales["fotoHerramienta"]) . '"/>' ?>
-            <p><?php echo $manuales["nombreHerramienta"]?></p>
+            <div class="div" id="Manual" onClick="window.location.href='../visualizarManual/visualizarManual.php'">
+            <?php echo '<img class="fotos" src="data:image/jpeg;base64,' . base64_encode($manuales["fotoManual"]) . '"/>' ?>
+            <p><?php echo $manuales["nombreManual"]?></p>
             </div>
             <?php 
             }

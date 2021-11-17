@@ -5,12 +5,10 @@
 <title>Fix Point</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="../Fotos/Icono.ico">
+    <link rel="icon" type="image/png" href="../Header/Fotos/Icono.ico">
     <link rel="stylesheet" type="text/css" href="../Header/Header.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
-
 <body>
     <header>
         <div class="Headermain">
@@ -33,17 +31,11 @@
                     <li>
                         <a href="#" class="nav-link">ALQUILER</a>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link">FIXPOINT</a>
-                    </li>
                 </ul>
-                
             </nav>
-            <input type="button" value="Iniciar sesion" class="sesion" class="item3">
+            <button class="sesion" class="item3" onclick="window.location.href='../Inicio de sesion/Login.php'">Iniciar sesion</button>
         </div>
     </header>
     <script src="../Header/header.js"></script>
 </body>
-
-
 </html>

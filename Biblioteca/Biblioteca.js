@@ -23,3 +23,14 @@ class Biblioteca {
         this._fotoHerramienta = p_fotoHerramienta;
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("Manual").addEventListener('click', validarFormulario);
+  });
+  
+  function Pasarpagina(evento) {
+    evento.preventDefault();
+    document.getElementById("Manuales").submit();
+  }
+
+

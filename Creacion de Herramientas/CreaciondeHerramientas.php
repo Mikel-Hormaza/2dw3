@@ -15,18 +15,18 @@
     <button class="botonVolver" >Volver<span> a gestion de herramientas</span></button> 
         <div class="orden">
             <fieldset>
-                <form action="" class="formula" id="formulario">
-                    <input type="text" id="nombrHerramienta" name="izena" class="centrar" placeholder="Nombre" ><br>
+                <form action="leerBDCreaciondeherramientas.php" class="formula" id="formulario" method="POST" enctype="multipart/form-data">
+                    <input type="text" id="nombrHerramienta" name="nombre" class="centrar" placeholder="Nombre" ><br>
                  
-                    <select name="categoria"class="centrar" placeholder="Categoria">
-                        <option value="categoria" class="Categoria">Categoria</option>
+                    <select name="categoria" id="categoria" class="centrar" placeholder="Categoria">
+                        <option class="Categoria">Categoria</option>
 
                     <?php 
                     $cont=-1;
                     foreach ($datosCategoria as $categoria) {
                         $cont++;
                     ?>
-                        <option value="categoria" id="categoria"><?php echo $datosCategoria[$cont]["categoria"]?></option>
+                        <option  id="categoria"><?php echo $datosCategoria[$cont]["categoria"]?></option>
                         <?php
                     }
                     ?>
@@ -35,7 +35,7 @@
                     <button type="button" id="classInputButton2" class="classInputButton" onclick="document.getElementById('classInputFileIMG').click();">Imagen</button>
                     <input id="classInputFileIMG" class="classInputFileIMG" name="classInputFileIMG" type="file" accept="image/png, .jpeg, .jpg" require="required" />
                     
-                    <input type="submit" class="btn" id="crearHerramienta" value="Crear herramienta"></button>
+                    <input type="submit" name="button" class="btn" id="crearHerramienta" value="Crear herramienta"></button>
                 </form>
             </fieldset>
         </div>

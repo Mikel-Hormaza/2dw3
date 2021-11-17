@@ -12,9 +12,9 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     //Select para coger la informacion de la base de datos
-    $sqlBiblioteca = $conexion->prepare("SELECT codManual, herramienta.codHerramienta, nombreHerramienta, fotoHerramienta
-    FROM manual,herramienta
-    WHERE herramienta.codHerramienta = manual.codHerramienta");
+    $sqlBiblioteca = $conexion->prepare("SELECT codManual, nombreManual, fotoManual
+    FROM manual
+    WHERE estadoManual like 'visible'");    
 
     //Hacer la consulta db
 
@@ -24,9 +24,9 @@ try {
         //Coge el contenido del registro dentro de $row
         $row = $sqlBiblioteca->fetch(PDO::FETCH_ASSOC); //Todo con id = $id debe estar en el búfer de registro
 
-        $image = $row['fotoHerramienta'];
+        $image = $row['fotoManual'];
 
-        $imagen = 'src="data:image/jpeg;base64,' . base64_encode($row['fotoHerramienta']) . '"';
+        $imagen = 'src="data:image/jpeg;base64,' . base64_encode($row['fotoManual']) . '"';
     } else {
         echo "Imagen no encontrada";
     }
@@ -34,5 +34,4 @@ try {
     echo $e->getMessage();
 }
 
-
-?>
+$conexion = null;

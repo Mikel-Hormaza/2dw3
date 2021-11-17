@@ -14,3 +14,9 @@ function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }
+window.addEventListener("load", inicio);
+miStorage = window.localStorage;
+function inicio() {
+var nombre = localStorage.getItem("Nombre");
+document.getElementById("NombredeUsuario").innerHTML = nombre;
+}
