@@ -28,7 +28,7 @@ foreach ($datosUsuario as $usuarios) {
             $nombreUsuario = $usuarios['nomUsuario'];
             $Contrasena = $usuarios['passUsuario'];
             $codUsuario= $usuarios['codUsuario'];
-            $permiso= $usuarios['permisoUsuario'];
+            $permisoDeUsuario= $usuarios['permisoUsuario'];
             
             if (empty($_POST["NombredeUsuario"])) {
                 $error = "Escriba un nombre de usuario";
@@ -46,7 +46,7 @@ foreach ($datosUsuario as $usuarios) {
                     $_SESSION['NombredeUsuario'] = $_REQUEST['NombredeUsuario'];
                     $_SESSION['codUsuario']=$codUsuario;
                     $_SESSION['permisoUsuario'] = $_REQUEST['permisoUsuario'];
-                    $_SESSION['permisoUsuario'] = $permiso;
+                    $_SESSION['permisoUsuario'] = $permisoDeUsuario;
 
                     header('Location: ../gestionHerramientas/gestionHerramientas.php');
                     die();

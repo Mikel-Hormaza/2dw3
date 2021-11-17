@@ -5,7 +5,7 @@ $usuario = "root";
 $password = "";
 session_start();
 $codUsuario = $_SESSION['codUsuario'];
-$permiso = $_SESSION['permisoUsuario'];
+$permisoDeUsuario = $_SESSION['permisoUsuario'];
 
 
 try {
