@@ -253,6 +253,10 @@ button {
     display: flex;
 }
 
+#idDivPasos img{
+    object-fit: cover;
+}
+
 #idDivPasos .paso:nth-child(odd):hover {
     background-color: rgba(239, 194, 39, 0.8);
 }
