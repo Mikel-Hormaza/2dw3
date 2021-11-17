@@ -18,6 +18,7 @@
             <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Pasos del manual</p>
         </div>
+        <button id="botonVolver"><a href="../gestionManuales/gestionManuales.php">Volver<span> a gestión de manuales</span></a></button>
     </section>
     <div>
         <h3>Describe el paso de la reparación</h3>

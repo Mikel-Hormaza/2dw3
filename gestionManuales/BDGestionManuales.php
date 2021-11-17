@@ -96,8 +96,9 @@ function llamarBD($where, $primeraVariableLimit, $AscODesc)
         $datosManuales = $resultadoManuales->fetchAll();
         guardarPrimeraVariableLimit($primeraVariableLimit);
     }
-
-    guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
+    if (!empty($datosManuales)) {
+        guardarCodigosManualesEnSession($datosManuales, $datoNumTotalManuales, $AscODesc);
+    }
 }
 
 /* Prepara la clausula WHERE de la llamada a la BD y luego llama a la BD. 

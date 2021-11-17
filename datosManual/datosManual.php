@@ -21,7 +21,6 @@
             <img src="../creacionManual/Imagenes/crearManual.PNG" alt="Imagen crear">
             <p>Crear manual</p>
         </div>
-        <button id="botonVolver"><a href="../buscarHerramienta/buscadorHerramientas.php">volver</a></button>
     </section>
     <div>
         <h3>Introduce los datos del manual</h3>

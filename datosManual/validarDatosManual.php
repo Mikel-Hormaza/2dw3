@@ -178,13 +178,14 @@ function insertarManualBD($manual, $editarOCrear, $hayFoto)
     global $user;
     global $pass;
 
-    if (!$editarOCrear == "eliminar") {
+    if (($editarOCrear === "editar")or($editarOCrear==="crear")) {
         $titulo = $manual->getTituloManual();
         $descripcionManual = $manual->getDescripcionManual();
         $equipoNecesario = $manual->getEquipoNecesario();
         $medidasSeguridad = $manual->getMedidasDeSeguridad();
         $codHerramienta = $manual->getCodHerramienta();
     }
+
 
     if ($editarOCrear == "editar") {
         $codManual = $_SESSION["codManualSeleccionado"];
